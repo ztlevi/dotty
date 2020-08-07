@@ -1,0 +1,8 @@
+local.zsh
+shell/ranger/config/ranger/bookmarks
+shell/ranger/config/ranger/history
+shell/ranger/config/ranger/tagged
+
+*.zwc
+
+xprofile_local

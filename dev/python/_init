@@ -1,0 +1,54 @@
+#!/usr/bin/env zsh
+source ${0:A:h}/../../deploy
+source env.zsh
+
+install() {
+  case $(_os) in
+  macos)
+    brew install python pyenv
+    brew cask install anaconda
+    ;;
+  arch)
+    yay --needed --noconfirm -S python-pip pyenv
+    ;;
+  debian)
+    sudo apt-get install -y python3-pip
+
+    # Install pyenv
+    PROJ=pyenv-installer
+    SCRIPT_URL=https://github.com/pyenv/$PROJ/raw/master/bin/$PROJ
+    curl -L $SCRIPT_URL | bash
+    ;;
+  esac
+
+  # Linux install anaconda
+  case $(_os) in
+  arch | debian) # https://www.digitalocean.com/community/tutorials/how-to-install-anaconda-on-ubuntu-18-04-quickstart
+    (
+      cd /tmp
+      curl -O https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh
+      bash Anaconda3-*.sh
+      rm -f /tmp/Anaconda3-*.sh
+    )
+    ;;
+  esac
+  python3 -m pip install --user --upgrade pip setuptools pipenv
+}
+
+update() {
+  # TODO
+}
+
+link() {
+  mklink config/flake8 $XDG_CONFIG_HOME/
+  mklink config/pudb $XDG_CONFIG_HOME/
+  mklink condarc $HOME/.condarc
+  mklink .mypy.ini ~/
+}
+
+clean() {
+  rm -fv $XDG_CONFIG_HOME/flake8 $XDG_CONFIG_HOME/pudb
+  rm -rfv $PYENV_ROOT
+}
+
+init "$@"

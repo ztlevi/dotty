@@ -1,0 +1,19 @@
+#!/usr/bin/env zsh
+source ${0:A:h}/../../deploy
+source env.zsh
+
+install() {
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs >/tmp/rust-installer.sh
+  sh /tmp/rust-installer.sh -y
+  rm -f /tmp/rust-installer.sh
+}
+
+update() {
+  rustup update
+}
+
+# link() {}
+
+# clean() {}
+
+init "$@"

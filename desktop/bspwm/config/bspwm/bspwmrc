@@ -1,0 +1,132 @@
+#!/usr/bin/env zsh
+
+source $HOME/Dotfiles/env
+
+#
+# Essentials
+#
+_run sxhkd &   # keyboard daemon
+_run compton & # perdy effects + transparency
+
+{
+  sleep 1
+
+  # If sxhkd isn't running now, something is wrong
+  if ! _is_running sxhkd; then
+    if _is_callable alacritty; then
+      alacritty &
+    elif _is_callable gnome-terminal; then
+      gnome-terminal &
+    fi
+  fi
+} &
+
+#
+# Displays
+#
+
+export MONITOR=$(xrandr -q | grep primary | grep ' connected' | cut -d' ' -f1)
+export MONITORS=($(xrandr -q | grep ' connected' | cut -d' ' -f1))
+MONITOR=${MONITOR:-${MONITORS[0]}}
+
+# Multiple workspaces for main monitor, but only one for others
+bspc monitor $MONITOR -d {1,2,3,4,5,6}
+for mon in ${MONITORS[@]/${MONITOR}/}; do
+  bspc monitor $mon -d {1,2,3,4}
+done
+
+if ! pgrep polybar >/dev/null; then
+  $XDG_CONFIG_HOME/polybar/run.sh &
+fi
+
+#
+# Aesthetics
+#
+
+bspc config split_ratio 0.50
+for side in top right bottom left; do
+  bspc config ${side}_monocle_padding -$(bspc config ${side}_padding)
+done
+
+bspc config pointer_modifier mod1
+bspc config pointer_action1 move
+bspc config pointer_action2 resize_side
+bspc config pointer_action3 resize_corner
+
+# Borders and gaps
+bspc config borderless_monocle false
+bspc config gapless_monocle false
+
+# Border colors
+bspc config normal_border_color "#eeeeee"
+bspc config active_border_color "#eeeeee"
+bspc config focused_border_color "#1e90ff"
+bspc config presel_feedback_color "#1e90ff"
+
+bspc config border_width $(($GDK_SCALE * 3))
+
+bspc config window_gap $(($GDK_SCALE * 6))
+bspc config bottom_padding 0
+bspc config top_padding $(($GDK_SCALE * 32))
+bspc config left_padding 0
+bspc config right_padding 0
+# bspc config -m $MONITOR right_padding 0
+
+bspc config remove_disabled_monitors true
+bspc config remove_unplugged_monitors true
+
+#
+# Rules
+#
+
+bspc rule -r '*'
+
+# Floating fixes
+bspc rule -a mplayer2 state=floating
+bspc rule -a mpv state=floating center=on
+bspc rule -a Vlc state=floating monitor=C center=on
+bspc rule -a Gimp desktop=^6
+bspc rule -a feh state=fullscreen
+bspc rule -a Screenkey manage=off
+bspc rule -a Tilix desktop=^2
+bspc rule -a Gnome-control-center state=floating
+bspc rule -a Unity-control-center state=floating
+
+bspc rule -a Alacritty:Alacritty_2 desktop=^2
+bspc rule -a Alacritty-scratch state=floating sticky=on center=on
+
+bspc rule -a Emacs state=tiled
+bspc rule -a "Emacs:Emacs_1" state=tiled desktop=^1
+bspc rule -a 'Emacs:org*' state=floating desktop=^any
+bspc rule -a 'Emacs:scratch' state=floating desktop=^any
+
+bspc rule -a Chromium monitor=R
+bspc rule -a Google-chrome monitor=R desktop=^4
+bspc rule -a Firefox monitor=R desktop=^4
+
+bspc rule -a discord desktop=^5
+bspc rule -a slack desktop=^5
+
+_call alacritty --class Alacritty_2 -e bash -c "(tmux ls | grep -qEv 'attached|scratch' && tmux at) || tmux" &
+{
+  sleep 0.5
+  _run emacs --name Emacs_1 &
+} &
+_run launch-browser &
+_run slack &
+
+_call $DOTFILES/bin/ding startup
+
+# dunst need to use zsh to run, otherwise click function fails
+zsh -c "dunst-start &" # notifyciation daemon.
+
+# set cursor
+_call xsetroot -cursor_name left_ptr &
+
+# powersaving options
+_call xset s on &
+_call xset s blank &
+_call xset s expose &
+_call xset c on &
+_call xset -dpms &
+_call xbacklight -set 15 &

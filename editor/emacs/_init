@@ -1,0 +1,52 @@
+#!/usr/bin/env zsh
+source ${0:A:h}/../../deploy
+
+install() {
+  case $(_os) in
+  macos)
+    brew tap railwaycat/emacsmacport
+    rm -r /Applications/Emacs.app
+    brew install emacs-mac --with-modules --with-natural-title-bar
+    # create alias in /Applications
+    ln -Fs $(sudo find /usr/local/Cellar/emacs-mac -name "Emacs.app") /Applications/Emacs.app
+    # Enable natural-title-bar
+    defaults write org.gnu.Emacs TransparentTitleBar LIGHT
+    # Other tweaks
+    defaults write org.gnu.Emacs Emacs.ToolBar -string no
+    defaults write org.gnu.Emacs Emacs.ScrollBar -string no
+    defaults write org.gnu.Emacs Emacs.MenuBar -string no
+    ;;
+  arch) yay --needed --noconfirm -S make emacs ;;
+  debian)
+    sudo add-apt-repository ppa:kelleyk/emacs -y
+    sudo apt-get update
+    sudo apt install -y emacs26
+    ;;
+  esac
+
+  # Clone Doom Eemacs
+  rm -rfv ~/.emacs.d
+  git clone https://github.com/hlissner/doom-emacs -b develop ~/.emacs.d
+
+  # Clone my config
+  rm -rfv ~/.doom.d
+  git clone https://github.com/ztlevi/doom-config ~/.doom.d
+
+  cd ~/.emacs.d
+  ~/.emacs.d/bin/doom install
+}
+
+update() {
+  doom upgarde
+}
+
+link() {
+  mklink .ctags ~/.ctags
+}
+
+clean() {
+  rm -rfv ~/.doom.d
+  rm -rfv ~/.emacs.d
+}
+
+init "$@"

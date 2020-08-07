@@ -1,0 +1,76 @@
+# For emacs:
+*~
+*.*~
+\#*
+.\#*
+
+# For vim:
+*.swp
+.*.sw[a-z]
+*.un~
+Session.vim
+.netrwhist
+
+# Ignore tags (from etags and ctags)
+TAGS
+!TAGS/
+tags
+!tags/
+
+# Logs and databases #
+######################
+*.log
+*.cache
+
+# OS generated files #
+######################
+.DS_Store?
+.DS_Store
+.CFUserTextEncoding
+.Trash
+.Xauthority
+thumbs.db
+Icon?
+Thumbs.db
+.cache
+.pid
+.sock
+
+# Code stuffs #
+###############
+.svn
+.git
+.swp
+.idea
+.*.swp
+*~
+.tags
+.sass-cache
+tmp
+.codekit-cache
+config.codekit
+
+# Compiled thangs #
+###################
+*.class
+*.exe
+*.o
+*.so
+*.dll
+*.pyc
+
+# Custom #
+##########
+.idea
+.mypy_cache
+cmake-build-debug
+.ccls-cache
+compile_commands.json
+.env
+.flycheck_*
+.projectile
+__pycache__
+.osync_workdir
+.ipynb_checkpoints
+.pytest_cache
+.node-version

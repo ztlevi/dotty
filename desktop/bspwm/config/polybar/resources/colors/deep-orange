@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+export shade1=#BF360C
+export shade2=#D84315
+export shade3=#E64A19
+export shade4=#F4511E
+export shade5=#FF5722
+export shade6=#FF7043
+export shade7=#FF8A65
+export shade8=#FFAB91

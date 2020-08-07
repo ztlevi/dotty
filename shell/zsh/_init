@@ -1,0 +1,49 @@
+#!/usr/bin/env zsh
+source ${0:A:h}/../../deploy
+source .zshenv
+
+install() {
+  case $(_os) in
+  macos | debian)
+    brew install zsh fasd fd direnv ccat zshdb bashdb exa dust ripgrep shellcheck \
+      trash-cli neofetch mosh jq
+    ;;
+  arch)
+    yay --needed --noconfirm -S zsh fasd fd direnv ccat zshdb bashdb exa dust ripgrep shellcheck \
+      trash-cli neofetch mosh jq
+    ;;
+  esac
+
+  # Install Oh-my-zsh
+  _ensure_repo ohmyzsh/ohmyzsh $ZSH
+
+  # Install starship theme
+  curl -fsSL https://starship.rs/install.sh | bash -s -- -y
+
+  # Set default shell to zsh
+  [[ $SHELL == */zsh ]] || chsh -s $(which zsh) $(whoami)
+  # alternative for Linux `sudo usermod -s /usr/bin/zsh <username>`
+
+  local zsh="$(which zsh)"
+  grep $zsh /etc/shells &>/dev/null || sudo tee -a /etc/shells <<<$zsh
+}
+
+update() {
+  if [[ -e antigen.zsh ]]; then
+    source antigen.zsh
+    antigen update
+  fi
+}
+
+link() {
+  mklink .zsh* ~/
+  mklink config/* $XDG_CONFIG_HOME/
+}
+
+clean() {
+  rm -f ~/.zshrc
+  rm -f ~/.zshenv
+  rm -f $XDG_CONFIG_HOME/starship.toml
+}
+
+init "$@"

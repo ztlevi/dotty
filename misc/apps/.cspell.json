@@ -1,0 +1,14 @@
+{
+  "version": "0.1",
+  "language": "en",
+  "words": ["ztlevi"],
+  "dictionaries": ["common-extra", "machine-learning", "python-extra", "company-terms"],
+  "dictionaryDefinitions": [
+    { "name": "common-extra", "path": "./cspell/common-extra.txt" },
+    { "name": "machine-learning", "path": "./cspell/machine-learning.txt" },
+    { "name": "python-extra", "path": "./cspell/python-extra.txt" },
+    { "name": "company-terms", "path": "./cspell/company-terms.txt" }
+  ],
+  "ignorePaths": ["node_modules/**", "cmake-build-debug/**"],
+  "flagWords": ["hte"]
+}

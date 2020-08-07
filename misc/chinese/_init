@@ -1,0 +1,52 @@
+#!/usr/bin/env zsh
+source ${0:A:h}/../../deploy
+source ${0:A:h}/../../env
+
+install() {
+  case $(_os) in
+  macos)
+    brew install jq wget
+    # librime
+    (
+      cd /tmp
+      wget --no-check-certificate $(get_github_latest_release_url 'rime/librime' 'osx\.zip') -O rime-osx.zip
+      unzip rime-osx.zip -d ~/.emacs.d/librime
+      rm -rf rime-osx.zip
+    )
+    brew cask install squirrel
+    ;;
+  arch)
+    yay --needed --noconfirm -S fcitx fcitx-im fcitx-configtool librime fcitx-rime
+    ;;
+  debian)
+    sudo apt install fcitx fcitx-rime
+
+    # docker build https://github.com/rime/librime.git -t librime
+    # docker run -it librime bash && docker ps to lookup docker
+    # container_id=<input the running container id>
+    # sudo docker cp -L ${container_id}:/usr/lib/x86_64-linux-gnu/librime.so /usr/lib/
+    # sudo docker cp -L ${container_id}:/usr/lib/x86_64-linux-gnu/librime.so.1 /usr/lib/
+    # sudo docker cp -L ${container_id}:/usr/lib/x86_64-linux-gnu/librime.so.1.5.3 /usr/lib/
+    ;;
+  esac
+}
+
+# update() {}
+
+link() {
+  mklink config/fcitx/config ${XDG_CONFIG_HOME}/fcitx/config
+  mklink config/fcitx/rime/* ${XDG_CONFIG_HOME}/fcitx/rime/
+  mklink pam_environment ${HOME}/.pam_environment
+  mklink ${DOTFILES_ASSETS}/rime-dictionaries/*.dict.yaml ${XDG_CONFIG_HOME}/fcitx/rime/
+
+  case $(_os) in
+  macos)
+    mklink ~/.config/fcitx/rime ~/Library/Rime
+    ;;
+  esac
+
+}
+
+# clean() {}
+
+init "$@"

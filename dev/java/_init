@@ -1,0 +1,30 @@
+#!/usr/bin/env zsh
+source ${0:A:h}/../../deploy
+source env.zsh
+
+install() {
+  # TODO Install android SDK
+  case $(_os) in
+  macos)
+    brew tap adoptopenjdk/openjdk
+    brew cask install adoptopenjdk8 gradle
+    ;;
+  arch) yay --needed --noconfirm -S jdk8-openjdk gradle ;;
+  debian)
+    sudo apt install openjdk-8-jdk
+    # Installation for newer version of java on debian OS
+    # sudo add-apt-repository ppa:webupd8team/java
+    # sudo apt-get update
+    # sudo apt-get install -y oracle-java12-installer
+    # sudo apt-get install -y oracle-java12-set-default
+    ;;
+  esac
+}
+
+# update() {}
+
+# link() {}
+
+# clean() {}
+
+init "$@"

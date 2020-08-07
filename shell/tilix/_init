@@ -1,0 +1,32 @@
+#!/usr/bin/env zsh
+source ${0:A:h}/../../deploy
+
+install() {
+  case $(_os) in
+  arch)
+    yay --needed --noconfirm -S tilix
+    ;;
+  debian)
+    sudo add-apt-repository ppa:webupd8team/terminix -y
+    sudo apt-get update
+    sudo apt-get install -y tilix
+    ;;
+  esac
+}
+
+# update() {}
+
+link() {
+  # Fix tilix issue
+  if [[ $(_os) == 'debian' ]]; then
+    sudo ln -svf /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
+  fi
+
+  # Dconf load Tilix config...
+  dconf reset -f /com/gexperts/Tilix/
+  dconf load /com/gexperts/Tilix/ <$DOTFILES/shell/tilix/dconf/tilix.conf
+}
+
+# clean() {}
+
+init "$@"

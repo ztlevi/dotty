@@ -1,0 +1,27 @@
+#!/usr/bin/env zsh
+source ${0:A:h}/../../deploy
+
+install() {
+  case $(_os) in
+  macos)
+    brew install aspell
+    ;;
+  arch)
+    yay --needed --noconfirm -S aspell-en
+    ;;
+  esac
+}
+
+# update() {}
+
+link() {
+  mklink aspell.en.prepl ~/.aspell.en.prepl
+  mklink aspell.en.pws ~/.aspell.en.pws
+}
+
+clean() {
+  ~/.aspell.en.prepl
+  ~/.aspell.en.pws
+}
+
+init "$@"

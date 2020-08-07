@@ -1,0 +1,60 @@
+#!/usr/bin/env zsh
+source ${0:A:h}/../../deploy
+
+install() {
+  tempdir=/tmp/temp-install
+  mkdir -p $tempdir
+
+  # npm install --global lua-fmt
+  case $(_os) in
+  arch)
+    yay --needed --noconfirm -S awesome i3lock-fancy-rapid-git xfce4-power-manager
+    ;;
+  debian)
+    sudo add-apt-repository ppa:klaus-vormweg/awesome
+    sudo apt-get update
+    sudo apt-get install awesome i3lock libx11-dev xfce4-power-manager
+
+    (
+      cd /tmp
+      git clone https://github.com/yvbbrjdr/i3lock-fancy-rapid
+      cd i3lock-fancy-rapid
+      make
+      sudo cp i3lock-fancy-rapid /usr/local/bin
+      rm -rf /tmp/i3lock-fancy-rapid
+    )
+    ;;
+  esac
+}
+
+# update() {}
+
+remove_configs() {
+  # Remove configs from XDG_CONFIG_HOME
+  dir=$1
+  config_files=("${(@f)$(ls ${dir})}")
+
+  for file in ${config_files[@]}; do
+    rm -rf "$XDG_CONFIG_HOME/$file"
+  done
+}
+
+link() {
+  remove_configs config
+  remove_configs ../general/config
+  case $(_os) in
+  debian)
+    mklink config/awesome-4.2 $XDG_CONFIG_HOME/awesome
+    ;;
+  arch)
+    mklink config/awesome $XDG_CONFIG_HOME/awesome
+    ;;
+  esac
+  mklink ../general/config/* $XDG_CONFIG_HOME/
+}
+
+clean() {
+  remove_configs config
+}
+
+init "$@"

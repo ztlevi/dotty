@@ -1,0 +1,63 @@
+[user]
+	name = Ting Zhou
+	email = ztlevi.work@gmail.com
+[alias]
+	# Show the diff between the latest commit and the current state
+	d	= !"git diff"
+	# `git di $number` shows the diff between the state `$number` revisions ago and the current state
+	di	= !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
+	aa = add --all
+	rr = rm -r --cached .
+	rv = remote -v
+	cm	= commit
+	ca = commit -a -v
+	ci = ci-status --verbose
+	ps = push
+	pl = pull
+	cpr = pull-request --assign ztlevi
+	prco = pr checkout
+	cl	= clone
+    clr = clone --recurse-submodules -j8
+	br	= branch
+	bv = branch -vv
+	ba = branch -ra
+	bd = branch -d
+	st	= status -sb
+	co	= checkout
+	sm	= submodule
+	unst = reset HEAD
+	throw	= reset --hard HEAD
+	throwh	= reset --hard HEAD^
+	clf	= clean -fdx -f
+	last	= log -1
+	glog	= log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	slog	= log --pretty=oneline
+	accept-ours = "!f() { git checkout --ours -- \"${@:-.}\"; git add -u \"${@:-.}\"; }; f"
+	accept-theirs = "!f() { git checkout --theirs -- \"${@:-.}\"; git add -u \"${@:-.}\"; }; f"
+	tagcommit = !sh -c 'git rev-list $0 | head -n 1'
+[core]
+	editor = nvim
+	ignorecase = false
+[push]
+	default = matching
+[branch]
+	autosetuprebase = always
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge --skip -- %f
+	process = git-lfs filter-process --skip
+	required = true
+[github]
+	user = ztlevi
+[magithub]
+	cache = always
+	online = false
+[magithub "status"]
+	includeStatusHeader = false
+	includePullRequestsSection = false
+	includeIssuesSection = false
+[github "github.argo.ai/api/v3"]
+	user = ztlevi
+[hub]
+	host = github.argo.ai
+	protocol = https

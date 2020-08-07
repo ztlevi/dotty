@@ -1,0 +1,16 @@
+#!/usr/bin/env zsh
+source ${0:A:h}/../../deploy
+source env.zsh
+
+# install() {}
+
+# update() {}
+
+link() {
+  mklink .gnupg/gpg-agent.conf $HOME/.gnupg/gpg-agent.conf
+  gpgconf --reload gpg-agent
+}
+
+# clean() {}
+
+init "$@"

@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+
+if _is_callable update-manager; then
+  # Ubuntu
+  sudo /usr/bin/python3 /usr/bin/update-manager
+elif _is_callable pamac-manager; then
+  # Arch
+  pamac-manager &
+else
+  notify-send --urgency=critical "No system updates appliation found\!"
+fi

@@ -1,0 +1,22 @@
+#!/usr/bin/env zsh
+source ${0:A:h}/../../deploy
+source env.zsh
+
+install() {
+  brew cask install iterm2
+}
+
+update() {
+  brew cask upgrade iterm2
+}
+
+link() {
+  mklink com.googlecode.iterm2.plist $HOME/Library/Preferences/
+}
+
+clean() {
+  rm -rfv $HOME/Library/Preferences/com.googlecode.iterm2.plist
+  brew cask uninstall iterm2
+}
+
+init "$@"

@@ -1,0 +1,54 @@
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+;;      ____        __      __
+;;     / __ \____  / /_  __/ /_  ____ ______
+;;    / /_/ / __ \/ / / / / __ \/ __ `/ ___/
+;;   / ____/ /_/ / / /_/ / /_/ / /_/ / /
+;;  /_/    \____/_/\__, /_.___/\__,_/_/
+;;                /____/
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+;;   _   _          _           _   _  __
+;;  | |_| |__   ___| | __ _ ___| |_/ |/ /_
+;;  | __| '_ \ / _ \ |/ _` |_  / __| | '_ \
+;;  | |_| | | |  __/ | (_| |/ /| |_| | (_) |
+;;   \__|_| |_|\___|_|\__,_/___|\__|_|\___/
+;;
+
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+;;                  Settings
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+;; Global WM Settings
+[global/wm]
+margin-bottom = 0
+margin-top = 0
+
+include-file = ~/.config/polybar/colors.ini
+include-file = ~/.config/polybar/modules.ini
+include-file = ~/.config/polybar/user_modules.ini
+include-file = ~/.config/polybar/bars.ini
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+;; Application Settings
+
+[settings]
+throttle-output = 5
+throttle-output-for = 10
+
+; Time in milliseconds that the input handler will wait between processing events
+throttle-input-for = 10
+
+; Reload upon receiving XCB_RANDR_SCREEN_CHANGE_NOTIFY events
+screenchange-reload = true
+
+; Compositing operators
+; @see: https://www.cairographics.org/manual/cairo-cairo-t.html#cairo-operator-t
+compositing-background = source
+compositing-foreground = over
+compositing-overline = over
+compositing-underline = over
+compositing-border = over
+
+; Enables pseudo-transparency for the bar
+pseudo-transparency = false
+

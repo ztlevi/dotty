@@ -1,0 +1,50 @@
+#!/usr/bin/env zsh
+source ${0:A:h}/../../deploy
+GIT_DIR="$XDG_CONFIG_HOME/git"
+
+install() {
+  case $(_os) in
+  macos) brew install git git-lfs hub diff-so-fancy git-standup git-extras git-flow-avh ;;
+  debian)
+    brew install git git-lfs hub diff-so-fancy git-standup git-extras git-flow-avh
+    sudo apt install libgnome-keyring-dev
+    ;;
+  arch)
+    yay --needed --noconfirm -S git hub \
+      git-lfs diff-so-fancy git-standup-git git-extras \
+      gitflow-avh
+    yay --needed -noconfirm -S gnome-keyring libsecret
+    ;;
+  esac
+}
+
+# update() {}
+
+link() {
+  rm -fv ~/.gitconfig $GIT_DIR/config
+  mklink ignore $GIT_DIR/
+  mklink attributes $GIT_DIR/
+
+  cp -fv ${0:A:h}/config $GIT_DIR/config
+
+  case $(_os) in
+  debian)
+    # Plain text
+    # keyring="cache --timeout 30000"
+    keyring=store
+    ;;
+  arch)
+    keyring=/usr/lib/git-core/git-credential-libsecret
+    ;;
+  macos)
+    keyring=osxkeychain
+    ;;
+  esac
+  git config --global --add credential.helper $keyring
+}
+
+clean() {
+  rm -rfv $GIT_DIR
+}
+
+init "$@"

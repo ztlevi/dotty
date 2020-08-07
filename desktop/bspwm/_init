@@ -1,0 +1,150 @@
+#!/usr/bin/env zsh
+source ${0:A:h}/../../deploy
+
+install() {
+  tempdir=/tmp/temp-install
+  mkdir -p $tempdir
+
+  case $(_os) in
+  arch)
+    yay --needed --noconfirm -S \
+      xorg-server xorg-xrandr xorg-xinit xorg-xsetroot xorg-xbacklight xdotool wmname maim wmctrl \
+      bspwm sxhkd compton dunst rofi feh xcb-proto polybar libnotify redshift pavucontrol \
+      flat-remix-gnome flat-remix-gtk flat-remix qt5-styleplugins i3lock
+    ;;
+
+  debian)
+    sudo apt install -y compton i3lock suckless-tools redshift xdotool xbacklight gcc make pavucontrol
+
+    brew install feh
+
+    sudo add-apt-repository ppa:jasonpleau/rofi -y
+    sudo apt-get update
+    sudo apt install -y rofi
+
+    # Some alternative themes and icons
+    # sudo add-apt-repository ppa:fossfreedom/arc-gtk-theme-daily -y
+    # sudo add-apt-repository ppa:papirus/papirus -y
+    # sudo apt-get update
+    # sudo apt install -y arc-theme papirus-icon-theme
+
+    # Flat-remix Theme
+    (
+      cd $tempdir
+      wget --no-check-certificate $(get_github_latest_release_url 'daniruiz/flat-remix-gtk') -O flat-remix-gtk.tar.gz
+      tar -zxvf flat-remix-gtk.tar.gz
+      mkdir -p ~/.themes && cp -r flat-remix-gtk-*/Flat-Remix-GTK-* ~/.themes
+      rm -rf $tempdir/flat-remix-gtk*
+
+      wget --no-check-certificate $(get_github_latest_release_url 'daniruiz/flat-remix') -O flat-remix.tar.gz
+      tar -zxvf flat-remix.tar.gz
+      mkdir -p ~/.icons && cp -r flat-remix-*/Flat-Remix-* ~/.icons
+      rm -rf $tempdir/flat-remix*
+    )
+
+    # bspwm
+    (
+      cd $tempdir
+      sudo apt-get install -y xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev
+
+      wget --no-check-certificate $(get_github_latest_release_url 'baskerville/bspwm') -O bspwm.tar.gz
+      tar -zxvf bspwm.tar.gz
+      cd $tempdir/bspwm-* && make && sudo make install
+      sudo cp -fp contrib/freedesktop/bspwm.desktop "/usr/share/xsessions"
+      rm -rf $tempdir/bspwm*
+    )
+
+    # sxhkd
+    (
+      cd $tempdir
+      wget --no-check-certificate $(get_github_latest_release_url 'baskerville/sxhkd') -O sxhkd.tar.gz
+      tar -zxvf sxhkd.tar.gz
+      cd $tempdir/sxhkd-* && make && sudo make install
+      rm -rf $tempdir/sxhkd*
+    )
+
+    # Polybar
+    (
+      cd $tempdir
+      sudo apt install -y build-essential git cmake cmake-data pkg-config python3-sphinx libcairo2-dev libxcb1-dev \
+        libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python-xcbgen xcb-proto libxcb-image0-dev \
+        libxcb-ewmh-dev libxcb-icccm4-dev libiw-dev
+      sudo apt install -y libxcb-xkb-dev libxcb-cursor-dev libasound2-dev libpulse-dev i3-wm libjsoncpp-dev \
+        libmpdclient-dev libcurl4-openssl-dev libnl-genl-3-dev
+      wget --no-check-certificate $(get_github_latest_release_url 'polybar/polybar') -O polybar.tar
+      tar xvf polybar.tar
+      cd $tempdir/polybar && sudo ./build.sh -f --all-features --gcc
+      sudo rm -rf $tempdir/polybar
+    )
+
+    # dunst
+    (
+      cd $tempdir
+      sudo apt-get install libdbus-1-dev libx11-dev libxinerama-dev libxrandr-dev libxss-dev libglib2.0-dev libpango1.0-dev libgtk-3-dev libxdg-basedir-dev
+      wget --no-check-certificate $(get_github_latest_release_url 'dunst-project/dunst') -O dunst.tar.gz
+      tar -zxvf dunst.tar.gz
+      export PKG_CONFIG_PATH=/usr/share/pkgconfig:$PKG_CONFIG_PATH
+      export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig:$PKG_CONFIG_PATH
+      cd dunst-* && make && sudo make install
+      rm -rf $tempdir/dunst-*
+    )
+
+    # maim
+    (
+      cd $tempdir
+      wget --no-check-certificate $(get_github_latest_release_url 'naelstrof/slop') -O slop.tar.gz
+      tar xvf slop.tar.gz
+      cd slop-*
+      cmake -DCMAKE_INSTALL_PREFIX="/usr" ./
+      make && sudo make install
+
+      cd $tempdir
+      wget --no-check-certificate $(get_github_latest_release_url 'naelstrof/maim') -O maim.tar.gz
+      tar xvf maim.tar.gz
+      cd maim-*
+      cmake -DCMAKE_INSTALL_PREFIX="/usr" ./
+      make && sudo make install
+      rm -rf $tempdir/slop-* $tempdir/maim-*
+    )
+
+    ;;
+  esac
+
+  # Install breeze cursor
+  (
+    cd $tempdir
+    wget http://download.kde.org/stable/plasma/5.16.4/breeze-5.16.4.tar.xz
+    tar xvf breeze-5.16.4.tar.xz
+    sudo rm -rf /usr/share/icons/xcursor-breeze*
+    sudo cp -r breeze*/cursors/Breeze/Breeze /usr/share/icons/xcursor-breeze
+    sudo cp -r breeze*/cursors/Breeze_Snow/Breeze_Snow /usr/share/icons/xcursor-breeze-snow
+    sudo rm -rf /usr/share/icons/xcursor-breeze-snow/Breeze_Snow
+    rm -rf $tempdir/breeze*
+  )
+
+}
+
+# update() {}
+
+remove_configs() {
+  # Remove configs from XDG_CONFIG_HOME
+  dir=$1
+  config_files=("${(@f)$(ls ${dir})}")
+
+  for file in ${config_files[@]}; do
+    rm -rf "$XDG_CONFIG_HOME/$file"
+  done
+}
+
+link() {
+  remove_configs config
+  remove_configs ../general/config
+  mklink config/* $XDG_CONFIG_HOME/
+  mklink ../general/config/* $XDG_CONFIG_HOME/
+}
+
+clean() {
+  remove_configs
+}
+
+init "$@"

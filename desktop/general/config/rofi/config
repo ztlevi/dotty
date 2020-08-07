@@ -1,0 +1,14 @@
+# rofi.width:                35
+rofi.show-icons:            true
+rofi.modi:                  drun,run,window,ssh
+rofi.lines:                 15
+rofi.line-padding:          5
+rofi.matching:              normal
+# rofi.drun-match-fields      generic
+rofi.bw:                    0
+rofi.padding:               0
+rofi.separator-style:       none
+rofi.hide-scrollbar:        true
+rofi.line-margin:           0
+rofi.font:                  FiraCode Nerd Font 12
+rofi.theme: ~/.config/rofi/themes/nord-light.rasi

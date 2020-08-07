@@ -1,0 +1,29 @@
+#! /usr/bin/env zsh
+
+mkdir -p ~/Pictures/Screenshots/
+
+if ! _is_callable maim; then
+  gnome-screenshot --interactive
+  exit 0
+fi
+
+case $1 in
+save)
+  if maim -s | convert - \( +clone -background black -shadow 80x3+5+5 \) +swap -background none -layers merge +repage ~/Pictures/Screenshots/$(date +%F_%T)_screenshot.jpg; then
+    notify-send 'Screenshot Saved'
+  fi
+  ;;
+clipboard)
+  if maim -s | xclip -selection clipboard -t image/png; then
+    notify-send 'Screenshot copied to clipobard'
+  fi
+  ;;
+save-window)
+  if maim -st 9999999 | convert - \( +clone -background black -shadow 80x3+5+5 \) +swap -background none -layers merge +repage ~/Pictures/Screenshots/$(date +%F_%T)_screenshot.jpg; then
+    notify-send 'Screenshot saved window'
+  fi
+  ;;
+*)
+  exit 0
+  ;;
+esac

@@ -1,0 +1,134 @@
+# Configuration for Alacritty, the GPU enhanced terminal emulator.
+# https://github.com/alacritty/alacritty/blob/master/alacritty.yml
+
+# Font configuration
+font:
+  normal:
+    family: OperatorMono Nerd Font
+    style: Book
+  bold:
+    family: OperatorMono Nerd Font
+    style: Medium
+  italic:
+    family: OperatorMono Nerd Font
+    style: Book Italic
+  bold_italic:
+    family: OperatorMono Nerd Font
+    style: Medium Italic
+  size: 12
+
+scrolling:
+  multiplier: 10
+
+colors:
+  # Default colors
+  primary:
+    background: "0xeeeeee"
+    foreground: "0x2d2d2c"
+
+  cursor:
+    text: "0xf0f0f0"
+    cursor: "0x1564bf"
+
+  selection:
+    text: "0xeaeaea"
+    background: "0x00828e"
+
+  # Normal colors
+  normal:
+    black: "0x2c2c2c"
+    red: "0xc62727"
+    green: "0x558b2e"
+    yellow: "0xf9a824"
+    blue: "0x1564bf"
+    magenta: "0x691e99"
+    cyan: "0x00828e"
+    white: "0xcccccc"
+
+  # Bright colors
+  bright:
+    black: "0x535353"
+    red: "0xc62727"
+    green: "0x558b2e"
+    yellow: "0xf9a824"
+    blue: "0x1564bf"
+    magenta: "0x691e99"
+    cyan: "0x00828e"
+    white: "0xcccccc"
+
+  # Dim colors
+  #
+  # If the dim colors are not set, they will be calculated automatically based
+  # on the `normal` colors.
+  # dim:
+  #   black: "0x000000"
+  #   red: "0x8c3336"
+  #   green: "0x7a8530"
+  #   yellow: "0x97822e"
+  #   blue: "0x506d8f"
+  #   magenta: "0x80638e"
+  #   cyan: "0x497e7a"
+  #   white: "0x9a9a9a"
+
+# Background opacity
+#
+# Window opacity as a floating point number from `0.0` to `1.0`.
+# The value `0.0` is completely transparent and `1.0` is opaque.
+#background_opacity: 1.0
+
+cursor:
+  style: Block
+
+# Live config reload (changes require restart)
+#live_config_reload: true
+
+# https://www.csee.umbc.edu/portal/help/theory/ascii.txt
+key_bindings:
+  - { key: C, mods: Alt, action: Copy }
+  - { key: V, mods: Alt, action: Paste }
+  - { key: L, mods: Control, action: ClearHistory }
+  - { key: L, mods: Control, chars: "\x0c" }
+  - { key: Space, mods: Control, chars: "\x00" }
+  - { key: Equals, mods: Alt, action: IncreaseFontSize }
+  - { key: Subtract, mods: Alt, action: DecreaseFontSize }
+  - { key: Minus, mods: Alt, action: DecreaseFontSize }
+  - { key: Key0, mods: Alt, action: ResetFontSize }
+
+  # Macos key
+  - { key: N, mods: Command, action: SpawnNewInstance }
+  - { key: H, mods: Command, action: Minimize }
+  # Map command+* to alt+*
+  - { key: W, mods: Command, chars: "\x1bw" }
+  - { key: E, mods: Command, chars: "\x1be" }
+  - { key: R, mods: Command, chars: "\x1br" }
+  - { key: T, mods: Command, chars: "\x1bt" }
+  - { key: Y, mods: Command, chars: "\x1by" }
+  - { key: A, mods: Command, chars: "\x1ba" }
+  - { key: S, mods: Command, chars: "\x1bs" }
+  - { key: D, mods: Command, chars: "\x1bd" }
+  - { key: D, mods: Command|Shift, chars: "\x1bD" }
+  - { key: F, mods: Command, chars: "\x1bf" }
+  - { key: H, mods: Command|Shift, chars: "\x1bH" }
+  - { key: J, mods: Command, chars: "\x1bj" }
+  - { key: J, mods: Command|Shift, chars: "\x1bJ" }
+  - { key: K, mods: Command, chars: "\x1bk" }
+  - { key: K, mods: Command|Shift, chars: "\x1bK" }
+  - { key: L, mods: Command|Shift, chars: "\x1bL" }
+  - { key: P, mods: Command, chars: "\x1bp" }
+  - { key: P, mods: Command|Shift, chars: "\x1bP" }
+  - { key: Z, mods: Command, chars: "\x1bz" }
+  - { key: X, mods: Command, chars: "\x1bx" }
+  - { key: M, mods: Command, chars: "\x1bm" }
+  - { key: Semicolon, mods: Command, chars: "\x1b;" }
+  - { key: Colon, mods: Command, chars: "\x1b:" }
+  - { key: Comma, mods: Command, chars: "\x1b," }
+  - { key: Slash, mods: Command, chars: "\x1b/" }
+  - { key: Key1, mods: Command, chars: "\x1b1" }
+  - { key: Key2, mods: Command, chars: "\x1b2" }
+  - { key: Key3, mods: Command, chars: "\x1b3" }
+  - { key: Key4, mods: Command, chars: "\x1b4" }
+  - { key: Key5, mods: Command, chars: "\x1b5" }
+  - { key: Key6, mods: Command, chars: "\x1b6" }
+  - { key: Key7, mods: Command, chars: "\x1b7" }
+  - { key: Key8, mods: Command, chars: "\x1b8" }
+  - { key: Key9, mods: Command, chars: "\x1b9" }

@@ -1,0 +1,58 @@
+#!/usr/bin/env zsh
+source ${0:A:h}/../../deploy
+
+install() {
+  sudo apt-get update
+
+  # Core essentials
+  sudo apt-get install -y build-essential wget git curl tree ssh rsync dnsutils
+
+  # Extra packages
+  sudo apt-get install -y net-tools exfat-fuse exfat-utils p7zip-full wmctrl
+
+  # Linuxbrew
+  if ! _is_callable brew; then
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+  fi
+
+  brew install fd jq
+
+  # Install fonts
+  mkdir -p $XDG_DATA_HOME/fonts/
+  (
+    cd $XDG_DATA_HOME/fonts/
+    # Firacode
+    font_types=("Regular" "Medium" "Bold" "Light")
+    for font_type in ${font_types[@]}; do
+      curl -fLo "FiraCode $font_type Nerd Font Complete Mono.otf" \
+        https://github.com/ryanoasis/nerd-fonts/raw/2.1.0/patched-fonts/FiraCode/$font_type/complete/Fira%20Code%20$font_type%20Nerd%20Font%20Complete%20Mono.otf
+      curl -fLo "FiraCode $font_type Nerd Font Complete.otf" \
+        https://github.com/ryanoasis/nerd-fonts/raw/2.1.0/patched-fonts/FiraCode/$font_type/complete/Fira%20Code%20$font_type%20Nerd%20Font%20Complete.otf
+    done
+    # UbuntuMono
+    curl -fLo "UbuntuMono Regular Nerd Font Complete.ttf" \
+      https://github.com/ryanoasis/nerd-fonts/raw/2.1.0/patched-fonts/UbuntuMono/Regular/complete/Ubuntu%20Mono%20Nerd%20Font%20Complete%20Mono.ttf
+    curl -fLo "UbuntuMono Italic Nerd Font Complete.ttf" \
+      https://github.com/ryanoasis/nerd-fonts/raw/2.1.0/patched-fonts/UbuntuMono/Regular-Italic/complete/Ubuntu%20Mono%20Italic%20Nerd%20Font%20Complete%20Mono.ttf
+    curl -fLo "UbuntuMono Bold Nerd Font Complete.ttf" \
+      https://github.com/ryanoasis/nerd-fonts/raw/2.1.0/patched-fonts/UbuntuMono/Bold/complete/Ubuntu%20Mono%20Bold%20Nerd%20Font%20Complete%20Mono.ttf
+    curl -fLo "UbuntuMono Bold Italic Nerd Font Complete.ttf" \
+      https://github.com/ryanoasis/nerd-fonts/raw/2.1.0/patched-fonts/UbuntuMono/Bold-Italic/complete/Ubuntu%20Mono%20Bold%20Italic%20Nerd%20Font%20Complete%20Mono.ttf
+  )
+}
+
+# update() {}
+
+link() {
+  rm -f ~/.xprofile && mklink ${0:A:h}/../../desktop/general/xprofile ~/.xprofile
+
+  mkdir -p $XDG_DATA_HOME/assets/fonts/
+  fd ".*\.(ttf|otf)" "$DOTFILES/assets/fonts/general" --print0 | xargs -0 -n 1 -I{} rsync -a --ignore-existing {} $XDG_DATA_HOME/fonts/
+}
+
+clean() {
+  rm -fv ~/.xprofile
+  rm -rf $XDG_DATA_HOME/assets/fonts/
+}
+
+init "$@"

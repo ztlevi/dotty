@@ -1,0 +1,29 @@
+#!/usr/bin/env zsh
+source ${0:A:h}/../../deploy
+
+install() {
+  case $(_os) in
+  macos)
+    brew install ranger
+    ;;
+  arch)
+    yay --needed --noconfirm -S ranger
+    ;;
+  debian)
+    sudo apt-get install -y ranger
+    ;;
+  esac
+
+}
+
+# update() {}
+
+link() {
+  mklink config/* $XDG_CONFIG_HOME/
+}
+
+clean() {
+  rm -rv $XDG_CONFIG_HOME/ranger
+}
+
+init "$@"

@@ -1,0 +1,118 @@
+#!/usr/bin/env python3
+
+import imaplib
+import io
+import os
+import sys
+import socket
+from subprocess import Popen
+
+CONFIG_FILE = os.path.expanduser("~/.secrets/email")
+CACHE_FILE = "/tmp/polybar-mail"
+ICON = ""
+
+try:
+    # import gpgme
+    from pathlib import Path
+except ImportError:
+    print("%{{F{}}}*".format("#555856", ICON))
+    sys.exit(1)
+
+
+#
+def internet_is_on():
+    try:
+        host = socket.gethostbyname("www.google.com")
+        socket.create_connection((host, 80), 2)
+        return True
+    except:
+        pass
+    return False
+
+
+def unread_count(address, password):
+    imap = imaplib.IMAP4_SSL('imap.gmail.com', 993)
+    imap.login(address, password)
+    imap.select('INBOX')
+
+    status, resp = imap.search(None, 'UNSEEN')
+    imap.close()
+    imap.logout()
+
+    return len(resp[0].split())
+
+
+# def unread(address, password):
+#     imap = imaplib.IMAP4_SSL('imap.gmail.com', 993)
+#     imap.login(address, password)
+#     imap.select('INBOX')
+
+#     mails = []
+#     status, resp = imap.uid('search', None, 'UNSEEN')
+#     if status == 'OK':
+#         uids = ','.join(resp[1].split(' '))
+#         status, resp = imap.uid('fetch', uids, '(RFC822)')
+#         if status == 'OK':
+#             for email in resp:
+#                 mails.append(email[1])
+
+#     imap.close()
+#     imap.logout()
+
+#     return mails
+
+
+def notify(title, message):
+    Popen(["notify-send", "-u", "critical", title, message])
+
+
+def ding():
+    Popen(["{}/bin/ding".format(os.getenv("DOTFILES", os.path.expanduser("~/.dotfiles")))])
+
+#
+def main():
+    try:
+        if not internet_is_on():
+            raise IOError("Internet is off")
+
+        secrets = Path(CONFIG_FILE)
+        if not secrets.exists():
+            raise IOError("Can't find secrets")
+
+        # c = gpgme.Context()
+        # data = io.BytesIO(secrets.read_bytes())
+        # gpgdata = io.BytesIO()
+        # c.decrypt(data, gpgdata)
+        # accounts = [line.split(':') for line in gpgdata.getvalue().decode('utf-8').strip().split('\n')]
+        with open(secrets.as_posix(), "r") as f:
+            accounts = [line.strip('\n').split(':') for line in f.readlines()]
+
+        last_total = None
+        cache = Path(CACHE_FILE)
+        if cache.exists():
+            last_total = cache.read_text()
+
+        total = []
+        for addr, pwd in accounts:
+            total.append(str(unread_count(addr, pwd)))
+
+        if total != [0] * len(accounts):
+            print("%{{F{}}}{}{}".format("#f0c674", ICON, ",".join(total)))
+        else:
+            print("%{{F{}}}{}".format("#555856", ICON))
+        if str(total) != last_total:
+            ding()
+
+        cache.write_text(str(total))
+    except IOError as e:
+        print("ERROR: {}".format(e), file=sys.stderr)
+        print("%{{F{}}}{}!".format("#cc6666", ICON))
+        sys.exit(1)
+
+
+#
+if __name__ == '__main__':
+    if sys.argv[1:]:
+        print("%{{F{}}}{}".format("#555856", ICON))
+    else:
+        main()

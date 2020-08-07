@@ -1,0 +1,90 @@
+!! OCT-2017
+
+!! Light Colors
+#define blk  #2c2c2c
+#define bblk #2c2c2c
+#define red  #c62727
+#define bred #c62727
+#define grn  #558b2e
+#define bgrn #558b2e
+#define ylw  #f9a824
+#define bylw #f9a824
+#define blu  #1564bf
+#define bblu #1564bf
+#define mag  #691e99
+#define bmag #691e99
+#define cyn  #00828e
+#define bcyn #00828e
+#define wht  #f0f0f0
+#define bwht #bbbbbb
+#define bg wht
+#define fg blk
+
+!! Dark Colors
+!! #define blk  #1D252C
+!! #define bblk #384551
+!! #define red  #D95468
+!! #define bred #ff6655
+!! #define grn  #8BD49C
+!! #define bgrn #99bb66
+!! #define ylw  #D98E48
+!! #define bylw #ECBE7B
+!! #define blu  #5EC4FF
+!! #define bblu #51afef
+!! #define mag  #E27E8D
+!! #define bmag #c678dd
+!! #define cyn  #70E1E8
+!! #define bcyn #46D9FF
+!! #define wht  #dddddd
+!! #define bwht #fefefe
+
+
+*.foreground:  fg
+*.background:  bg
+*.cursorColor: red
+
+*.color0:  blk
+*.color8:  bblk
+*.color1:  red
+*.color9:  bred
+*.color2:  grn
+*.color10: bgrn
+*.color3:  ylw
+*.color11: bylw
+*.color4:  blu
+*.color12: bblu
+*.color5:  mag
+*.color13: bmag
+*.color6:  cyn
+*.color14: bcyn
+*.color7:  wht
+*.color15: bwht
+
+! greys
+*.color234: #1d2021
+*.color235: #282828
+*.color236: #32302f
+*.color237: #3c3836
+*.color239: #504945
+*.color240: #544c49
+*.color241: #665c54
+
+
+!! Settings
+! font rendering
+!Xft.hinting: 0
+!Xft.autohint: 1
+! Xfg.dpi: 144
+Xft.antialias: 1
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+Xft.rgba: rgb
+
+! cursor
+Xcursor.theme: xcursor-breeze-snow
+Xcursor.size: 20
+
+! emacs
+Emacs.toolBar: 0
+Emacs.menuBar: 0
+Emacs.verticalScrollBars: off

@@ -1,0 +1,57 @@
+#!/usr/bin/env zsh
+source ${0:A:h}/../../deploy
+
+install() {
+  # Install Xcode command line tools
+  xcode-select --install
+
+  # Install homebrew
+  if ! _is_callable brew; then
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
+
+  brew install wget curl git tree coreutils bash gnupg2 p7zip ripgrep fd jq
+
+  brew tap buo/cask-upgrade # Upgrade with `brew cu`
+
+  # mac quicklook https://github.com/sindresorhus/quick-look-plugins
+  brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json webpquicklook suspicious-package quicklookase qlvideo
+
+  brew cask install karabiner-elements java
+
+  # Fonts
+  brew tap homebrew/cask-fonts
+  brew cask install font-ubuntumono-nerd-font font-firacode-nerd-font
+
+  # Download app from anywhere
+  sudo spctl --master-disable
+  # Remove the Dock autohide animation
+  defaults write com.apple.dock autohide-time-modifier -int 0
+  killall Dock
+
+  # Enable ssh X11 forwarding
+  brew cask install xquartz
+  defaults write org.macosforge.xquartz.X11 enable_iglx -bool true
+}
+
+update() {
+  if _is_callable brew; then
+    brew update && brew upgrade && brew cleanup
+  else
+    echo-fail "homebrew not detected"
+  fi
+
+  brew cu
+}
+
+link() {
+  mklink Library/Keybindings/* $HOME/Library/
+
+  # Copy fonts
+  mkdir -p ~/Library/Fonts
+  fd ".*\.(ttf|otf)" "$DOTFILES/assets/fonts/general" --print0 | xargs -0 -n 1 -I{} rsync -a --ignore-existing "{}" ~/Library/Fonts
+}
+
+# clean() {}
+
+init "$@"

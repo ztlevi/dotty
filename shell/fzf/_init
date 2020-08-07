@@ -1,0 +1,27 @@
+#!/usr/bin/env zsh
+source ${0:A:h}/../../deploy
+source env.zsh
+
+install() {
+  case $(_os) in
+  macos | debian)
+    brew install fzf
+    $(brew --prefix)/opt/fzf/install
+    ;;
+  arch)
+    yay --needed --noconfirm fzf
+    ;;
+  debian)
+    brew install fzf
+    ;;
+  esac
+
+}
+
+# update() {}
+
+# link() {}
+
+# clean() {}
+
+init "$@"

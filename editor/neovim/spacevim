@@ -1,0 +1,290 @@
+" You can enable the existing layers in space-vim and
+" exclude the partial plugins in a certain layer.
+" The command Layer is vaild in the function Layers().
+" Use exclude option if you don't want the full Layer,
+" e.g., Layer 'better-defaults', { 'exclude': 'itchyny/vim-cursorword' }
+
+" Get OS
+function! GetRunningOS()
+  if has("win32")
+    return "win"
+  endif
+  if has("unix")
+    if system('uname')=~'Darwin'
+      return "mac"
+    else
+      return "linux"
+    endif
+  endif
+endfunction
+
+" Let Vim and NeoVim shares the same plugin directory.
+" Comment it out if you don't like
+let g:spacevim_plug_home = '~/.vim/plugged'
+
+" The default leader key is space key.
+" Uncomment the line below and modify "<\Space>" if you prefer another
+" let g:spacevim_leader = "<\Space>"
+
+" The default local leader key is comma.
+" Uncomment the line below and modify ',' if you prefer another
+" let g:spacevim_localleader = ','
+
+function! Layers()
+
+    Layer 'airline'
+    Layer 'fzf'
+    Layer 'syntax-checking'
+    Layer 'text-align'
+    Layer 'unite'
+    Layer 'better-defaults', {'exclude': 'dominikduda/vim_current_word'}
+    Layer 'file-manager'
+    Layer 'ctrlp'
+    Layer 'chinese'
+    Layer 'programming'
+    Layer 'editing'
+    Layer 'which-key'
+    Layer 'tmux'
+
+    " Lang
+    Layer 'c-c++'
+    Layer 'java'
+    Layer 'javascript'
+    Layer 'typescript'
+    Layer 'html'
+    Layer 'markdown'
+    Layer 'python'
+
+endfunction
+
+" Put your private plugins here.
+function! UserInit()
+
+    " Space has been set as the default leader key,
+    " if you want to change it, uncomment and set it here.
+    " let g:spacevim_leader = "<\Space>"
+    " let g:spacevim_localleader = ','
+
+    " ===================================================
+    " Install private plugins
+    " ===================================================
+    Plug 'mileszs/ack.vim'
+    Plug 'benmills/vimux'
+    Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+    Plug 'Chiel92/vim-autoformat'
+    Plug 'rakr/vim-one'
+    Plug 'francoiscabrol/ranger.vim'
+    Plug 'rbgrouleff/bclose.vim'
+
+endfunction
+
+" Put your costom configurations here, e.g., change the colorscheme.
+function! UserConfig()
+    set nocompatible              " be iMproved, required
+    set number
+    set noswapfile
+    set smartcase
+
+    " Turn off statusbar, because it is externalized
+    set noshowmode
+    set noruler
+    set laststatus=0
+    set noshowcmd
+
+    " Enable GUI mouse behavior
+    set mouse=a
+    "let os = GetRunningOS()
+
+    " ===================================================
+    " UI
+    " ===================================================
+    " set GUI font
+    if has('gui_running')
+      set guioptions-=T  " no toolbar
+      set lines=60 columns=108 linespace=0
+      if has('gui_win32')
+        set guifont=Operator\ Mono\ Lig:h18:cANSI
+      else
+        set guifont=Operator\ Mono\ Lig:h18
+      endif
+    endif
+
+    " theme
+    " Or if you have Neovim >= 0.1.5
+    if (has("termguicolors"))
+        set termguicolors
+    endif
+
+    syntax enable
+    colorscheme one
+    set background=light
+    let g:one_allow_italics = 1
+
+    " airline setting
+    " If you enable airline layer and have installed the powerline fonts, set it here.
+    let g:airline_theme='one'
+    let g:airline_powerline_fonts = 1
+    let g:airline_left_sep = ' '
+    let g:airline_right_sep = ' '
+
+    set noundofile
+ 
+    " ===================================================
+    " AutoFormat
+    " ===================================================
+    nmap <leader>cp :PrettierAsync<CR>
+    vmap <leader>cp :PrettierAsync<CR>
+
+    nmap <leader>cf :Autoformat<CR>
+
+    let g:formatdef_remark_markdown = '"remark --silent --no-color --setting listItemIndent:1 "'
+
+    " ===================================================
+    " File Manager
+    " ===================================================
+    let g:NERDTreeHijackNetrw = 0
+    let g:ranger_replace_netrw = 1
+
+    let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
+    map <leader>fj :Ranger<CR>
+
+    " ===================================================
+    " Search / Quickfix
+    " ===================================================
+    " Jump to candidate
+    autocmd BufReadPost quickfix map <C-j> :.cc<CR>
+    autocmd BufReadPost quickfix map <tab> :.cc<CR>
+
+    " From https://github.com/drmingdrmer/vim-toggle-quickfix
+    if exists("g:__QUICKFIX_TOGGLE_jfklds__")
+        finish
+    endif
+    let g:__QUICKFIX_TOGGLE_jfklds__ = 1
+    fun! s:QuickfixToggle() "{{{
+        let nr = winnr("$")
+        cwindow
+        let nr2 = winnr("$")
+        if nr == nr2
+            cclose
+        endif
+    endfunction "}}}
+    nnoremap <silent> <Plug>window:quickfix:toggle :call <SID>QuickfixToggle()<CR>
+
+    nmap <leader>' <Plug>window:quickfix:toggle
+
+    " ===================================================
+    " Error
+    " ===================================================
+    nmap <leader>en :call ale#loclist_jumping#Jump('after', 0)<CR>
+    nmap <leader>ep :call ale#loclist_jumping#Jump('before', 0)<CR>
+    nmap <leader>ed :call ale#cursor#ShowCursorDetail()<CR>
+
+    " ===================================================
+    " fzf start
+    " ===================================================
+    nmap <Leader><space> :Commands<CR>
+    vmap <Leader><space> :Commands<CR>
+    map <C-p> :Files<CR>
+    if g:spacevim.gui && !has('terminal')
+      nnoremap <Leader>ff :LeaderfFile<CR>
+      nnoremap <Leader>f~ :LeaderfFile ~<CR>
+    else
+      nnoremap <Leader>ff :Files<CR>
+      nnoremap <Leader>f~ :Files ~<CR>
+    endif
+
+    " Use tab to select or Alt-a to select all, and press Enter to
+    " put them in the quickfix. Open quickfix with <space>ri.
+    " Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
+    command! -bang -nargs=* Rg
+      \ call fzf#vim#grep(
+      \   'rg --smart-case --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+      \   <bang>0 ? fzf#vim#with_preview('up:60%')
+      \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+      \   <bang>0)
+
+    function! s:build_quickfix_list(lines)
+      call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+      copen
+      cc
+    endfunction
+    let g:fzf_action = {
+      \ 'ctrl-o': function('s:build_quickfix_list'),
+      \ 'ctrl-t': 'tab split',
+      \ 'ctrl-x': 'split',
+      \ 'ctrl-v': 'vsplit' }
+    let $FZF_DEFAULT_OPTS = '--bind ctrl-c:select-all'
+
+    command! -bang -nargs=* Rg
+        \ call fzf#vim#grep(
+        \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+        \   fzf#vim#with_preview(), <bang>0)
+
+    " Search with RG
+    nnoremap <leader>sp :Rg<CR>
+    vnoremap <leader>sp :Rg<CR>
+
+    " Likewise, Files command with preview window
+    command! -bang -nargs=? -complete=dir Files
+        \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
+    " ===================================================
+    " fzf end
+    " ===================================================
+
+    " Allow backspace and cursor keys to cross line boundaries
+    set whichwrap+=<,>,h,l
+
+    " black hole register
+    vmap <backspace> "_d
+    vmap <del> "_d
+
+    " ===================================================
+    " emacs keymaping for cursor movement
+    " ===================================================
+    nmap <c-g> <Esc>
+    vmap <c-g> <Esc>
+    nmap <c-a> ^
+    nmap <c-e> $
+    vmap <c-a> ^
+    vmap <c-e> $
+    inoremap <c-p> <up>
+    inoremap <c-n> <down>
+    " command line mode
+    cmap <C-p> <Up>
+    cmap <C-n> <Down>
+    cmap <C-b> <Left>
+    cmap <C-f> <Right>
+    cmap <C-a> <Home>
+    cmap <C-e> <End>
+    cnoremap <C-d> <Del>
+    cnoremap <C-h> <BS>
+
+    " ===================================================
+    " Tmux
+    " ===================================================
+    " Prompt for a command to run
+    map <Leader>vp :VimuxPromptCommand<CR>
+    " Run last command executed by VimuxRunCommand
+    map <Leader>vl :VimuxRunLastCommand<CR>
+    " Inspect runner pane
+    map <Leader>vi :VimuxInspectRunner<CR>
+    " Zoom the tmux runner pane
+    map <Leader>vz :VimuxZoomRunner<CR>
+
+    let g:tmux_navigator_no_mappings = 1
+
+    nnoremap <silent> <C-x> h :TmuxNavigateLeft<cr>
+    nnoremap <silent> <C-x> j :TmuxNavigateDown<cr>
+    nnoremap <silent> <C-x> k :TmuxNavigateUp<cr>
+    nnoremap <silent> <C-x> l :TmuxNavigateRight<cr>
+
+    " ===================================================
+    " Visual-at
+    " ===================================================
+    xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+    function! ExecuteMacroOverVisualRange()
+      echo "@".getcmdline()
+      execute ":'<,'>normal @".nr2char(getchar())
+    endfunction
+
+endfunction

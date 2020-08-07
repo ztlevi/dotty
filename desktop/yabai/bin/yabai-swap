@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+
+# yabai-swap
+# swaps current window with the next window in a direction. If -m is set, moves
+# window to the next monitor in that direction.
+#
+# Makes swapping nodes more intuitive.
+#
+# Usage: yabai-swap (west|south|north|east) (1|0)
+# Example:
+#   + yabai-swap south
+#   + yabai-swap -m west
+
+set -e
+
+leap=
+if [[ $1 == -m ]]; then
+  leap=1
+  shift
+fi
+
+dir=$1
+opposite=
+display_sel=
+
+case $dir in
+west)
+  opposite=east
+  display_sel=prev
+  ;;
+east)
+  opposite=west
+  display_sel=next
+  ;;
+north) opposite=north ;;
+south) opposite=south ;;
+*)
+  echo >&2 "Not a valid direction: $dir"
+  exit 1
+  ;;
+esac
+
+if [[ -n $leap ]]; then
+  # jump to monitor in direction
+  if [[ ! $(yabai -m query --windows --window $dir) ]]; then
+    yabai -m windows --display $display_sel
+    yabai -m space --focus $display_sel
+  fi
+else
+  if ! yabai -m window --swap $dir; then
+    if [[ ! $(yabai -m query --windows --window $dir) ]]; then
+      yabai -m window --display $display_sel
+      yabai -m space --focus $display_sel
+    fi
+  fi
+fi

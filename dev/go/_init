@@ -1,0 +1,23 @@
+#!/usr/bin/env zsh
+source ${0:A:h}/../../deploy
+source env.zsh
+
+install() {
+  case $(_os) in
+  macos) brew install go ;;
+  arch) yay --needed --noconfirm -S go ;;
+  debian) sudo apt install -y golang-go ;;
+  esac
+
+  update
+}
+
+update() {
+  go get -u golang.org/x/tools/gopls
+}
+
+# link() {}
+
+# clean() {}
+
+init "$@"

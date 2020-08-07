@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+# bspc-resize
+# Resize the current node by direction.
+# bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+#
+# Makes resizing nodes more intuitive.
+#
+# Usage: bspc-resize (left|bottom|top|right) (1|0)
+# Example:
+#   + bspc-resize left
+
+set -e
+
+step_size=100
+dir=$1
+
+case $dir in
+left)
+  node_sel=west
+  opposite=right
+  resize_args="-$step_size 0"
+  ;;
+bottom)
+  node_sel=south
+  opposite=top
+  resize_args="0 $step_size"
+  ;;
+top)
+  node_sel=north
+  opposite=bottom
+  resize_args="0 -$step_size"
+  ;;
+right)
+  node_sel=east
+  opposite=left
+  resize_args="$step_size 0"
+  ;;
+*)
+  echo >&2 "Not a valid direction: $dir"
+  exit 1
+  ;;
+esac
+
+if [[ -n $(bspc query -N -n "$node_sel.local") ]]; then
+  bspc node -z $dir $resize_args
+else
+  bspc node -z $opposite $resize_args
+fi

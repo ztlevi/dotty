@@ -1,0 +1,47 @@
+#!/usr/bin/env zsh
+source ${0:A:h}/../../deploy
+
+install() {
+  # Recommend to use add/remove software app to update packages
+  # Otherwise use the following command to ensure keys are up to date
+  sudo pacman-key --refresh-keys
+  sudo pacman -Syyu
+
+  # Core essentials
+  sudo pacman --needed --noconfirm -S wget git curl tree rsync dnsutils base-devel net-tools fd jq \
+    noto-fonts-emoji nerd-fonts-{fira-code,ubuntu-mono} ttf-font-awesome
+
+  # Set up yay (AUR helper)
+  if ! _is_callable yay; then
+    git clone https://aur.archlinux.org/yay.git /tmp/yay
+    cd /tmp/yay
+    makepkg -sri --noconfirm --needed
+    if ! _is_callable yay; then
+      echo >&2 "Could not find pacaur"
+      return 3
+    fi
+  fi
+
+  # install misc programs
+  yay --needed --noconfirm -S xorg-xmodmap inxi dfc
+}
+
+update() {
+  _is_callable yay && local pac=yay
+  ${pac:-sudo pacman} -Syu --noconfirm
+}
+
+link() {
+  rm -f ~/.xprofile && mklink ${0:A:h}/../../desktop/general/xprofile ~/.xprofile
+
+  mkdir -p $XDG_DATA_HOME/fonts/
+  fd ".*\.(ttf|otf)" "$DOTFILES/assets/fonts/general" --print0 | xargs -0 -n 1 -I{} rsync -a --ignore-existing {} $XDG_DATA_HOME/fonts/
+
+}
+
+clean() {
+  rm -fv ~/.xprofile
+  rm -rf $XDG_DATA_HOME/assets/fonts/
+}
+
+init "$@"

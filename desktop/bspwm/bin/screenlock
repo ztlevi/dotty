@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+
+# Try to use Gnome lockscreen first
+if _is_callable gnome-screensaver-command; then
+  gnome-screensaver-command --lock
+  exit 0
+fi
+
+if _is_callable i3lock; then
+  i3lock --color=000000 -e
+fi

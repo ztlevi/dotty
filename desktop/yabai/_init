@@ -1,0 +1,41 @@
+#!/usr/bin/env zsh
+source ${0:A:h}/../../deploy
+
+install() {
+  case $(_os) in
+  macos)
+    brew tap koekeishiya/formulae
+    brew install yabai
+    brew services start yabai
+    brew install koekeishiya/formulae/skhd
+    brew services start skhd
+    ;;
+
+  esac
+
+}
+
+# update() {}
+
+link() {
+  mklink config/* $XDG_CONFIG_HOME/
+  mklink skhdrc ~/.skhdrc
+}
+
+clean() {
+  rm -fv ~/.skhdrc $XDG_CONFIG_HOME/yabairc
+  sudo yabai --uninstall-sa
+  rm ~/.yabairc
+  rm /tmp/yabai_$USER.lock
+  rm /tmp/yabai_$USER.socket
+  rm /tmp/yabai-sa_$USER.socket
+
+  # if you were using brew services to manage yabai
+  brew services stop yabai
+  rm -rf /usr/local/var/log/yabai
+
+  brew services stop yabai
+  brew uninstall yabai
+}
+
+init "$@"

@@ -1,0 +1,33 @@
+#!/usr/bin/env zsh
+source ${0:A:h}/../../deploy
+
+install() {
+  case $(_os) in
+  macos | debian) brew install neovim ;;
+  arch) yay --needed --noconfirm -S make neovim python-neovim ;;
+  esac
+
+  # Remove old files and symlinks
+  rm -rf ~/.vimrc ~/.config/nvim ~/.space-vim ~/.spacevim ~/.SpaceVim ~/.SpaceVim.d
+
+  curl -sLf https://spacevim.org/install.sh | bash
+}
+
+update() {
+  # call :SPUpdate
+  git -C ~/.SpaceVim pull
+}
+
+link() {
+  rm -rf ~/.SpaceVim.d
+  mklink SpaceVim.d ~/.SpaceVim.d
+
+  rm -f ~/.ideavimrc
+  mklink .ideavimrc ~/.ideavimrc
+}
+
+clean() {
+  rm -rf ~/.SpaceVim.d ~/.SpaceVim
+}
+
+init "$@"

@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+export MODULE_LEFT=" "
+export MODULE_RIGHT=" "
