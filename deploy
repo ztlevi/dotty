@@ -186,7 +186,7 @@ function get_github_latest_release_url() {
     --silent "https://api.github.com/repos/$repo/releases/latest" | jq -r ".assets")
 
   # Try release API
-  if [[ "${assets}" != "null" ]]; then
+  if [[ "${assets}" != "null" ]] && [[ "${assets}" != "[]" ]]; then
     if [ -z "${suffix}" ]; then
       url=$(echo "${assets}" | jq -r ".[0].browser_download_url")
     else

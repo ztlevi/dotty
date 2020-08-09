@@ -41,7 +41,7 @@ update() {
 
 link() {
   mklink config/flake8 $XDG_CONFIG_HOME/
-  mklink config/pudb $XDG_CONFIG_HOME/
+  mklink config/pudb/pudb.cfg $XDG_CONFIG_HOME/pudb/
   mklink condarc $HOME/.condarc
   mklink .mypy.ini ~/
 }

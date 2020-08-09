@@ -28,6 +28,9 @@ super + ctrl + shift + p
 ctrl + shift + .
     dunstctl context
 
+alt + shift + v
+    clipboardmenu
+
 #
 # bspwm hotkeys
 #
@@ -107,11 +110,11 @@ alt + {o,i}
 
 # focus or send to the given desktop
 super + {1-9,0}
-    bspc desktop -f '^{1-9,10}'
+    bspc desktop -f '{1-9,10}.local'
 
 # move nodes between desktops
 super + shift + {1-9, 0}
-    bspc node --to-desktop '^{1-9,10}' --follow
+    bspc node --to-desktop '{1-9,10}.local' --follow
 
 super + shift + {k,j}
     bspc node --to-desktop {prev,next} --follow

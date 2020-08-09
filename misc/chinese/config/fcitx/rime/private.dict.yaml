@@ -1,0 +1,15 @@
+# Rime Sogou
+# encoding: utf-8
+#
+# name: Private
+# type: Private
+# description: 私人词库。
+#
+---
+name: private
+version: "0.0.1"
+sort: by_weight
+use_preset_vocabulary: true
+...
+
+黄诗萌	huang shi meng	1

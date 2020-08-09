@@ -21,8 +21,16 @@ if [[ -n "${run_script_pids[@]/$$/}" ]]; then kill -9 ${run_script_pids[@]/$$/};
 # Calculate MONITOR and DPI
 MONITOR=$(xrandr -q | grep primary | grep ' connected' | cut -d' ' -f1)
 declare -xr MONITORS=($(xrandr -q | grep ' connected' | cut -d' ' -f1))
-declare -x MONITOR=${MONITOR:-${MONITORS[0]}}
+declare -x MONITOR=${MONITOR:-${MONITORS[1]}}
 readonly MONITOR
+
+# Reload bspwm monitor setting
+if _is_running bspwm; then
+  bspc monitor $MONITOR -d {1,2,3,4,5,6}
+  for mon in ${MONITORS[@]/${MONITOR}/}; do
+    bspc monitor $mon -d {1,2,3,4}
+  done
+fi
 
 declare -x DPI
 if [ "$GDK_SCALE" -eq 2 ]; then

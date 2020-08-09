@@ -29,6 +29,10 @@ install() {
     # sudo docker cp -L ${container_id}:/usr/lib/x86_64-linux-gnu/librime.so.1.5.3 /usr/lib/
     ;;
   esac
+
+  # Download zhwiki pinyin dictionary
+  wget --no-check-certificate https://github.com/felixonmars/fcitx5-pinyin-zhwiki/releases/download/0.2.1/zhwiki-20200601.dict.yaml \
+    -O $XDG_CONFIG_HOME/fcitx/rime/zhwiki.dict.yaml
 }
 
 # update() {}

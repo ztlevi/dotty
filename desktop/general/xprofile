@@ -69,7 +69,8 @@ fi
   # non-essentials
   {
     sleep 1
-    _run redshift & # screen temperature based on time-of-day
+    _run redshift &         # screen temperature based on time-of-day
+    _run greenclip daemon & # system wide clipboard
     # _run mpd &      # music server
     # _run rslsync &  # resilio sync
 

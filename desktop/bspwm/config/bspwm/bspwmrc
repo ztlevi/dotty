@@ -25,9 +25,11 @@ _run compton & # perdy effects + transparency
 # Displays
 #
 
-export MONITOR=$(xrandr -q | grep primary | grep ' connected' | cut -d' ' -f1)
-export MONITORS=($(xrandr -q | grep ' connected' | cut -d' ' -f1))
-MONITOR=${MONITOR:-${MONITORS[0]}}
+# Calculate MONITOR and DPI
+MONITOR=$(xrandr -q | grep primary | grep ' connected' | cut -d' ' -f1)
+declare -xr MONITORS=($(xrandr -q | grep ' connected' | cut -d' ' -f1))
+declare -x MONITOR=${MONITOR:-${MONITORS[1]}}
+readonly MONITOR
 
 # Multiple workspaces for main monitor, but only one for others
 bspc monitor $MONITOR -d {1,2,3,4,5,6}
