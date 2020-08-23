@@ -6,9 +6,7 @@ install() {
   macos)
     brew tap railwaycat/emacsmacport
     rm -r /Applications/Emacs.app
-    brew install emacs-mac --with-modules --with-natural-title-bar
-    # create alias in /Applications
-    ln -Fs $(sudo find /usr/local/Cellar/emacs-mac -name "Emacs.app") /Applications/Emacs.app
+    brew cask install emacs-mac
     # Enable natural-title-bar
     defaults write org.gnu.Emacs TransparentTitleBar LIGHT
     # Other tweaks
