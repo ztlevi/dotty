@@ -33,7 +33,7 @@ cd ~/Dotfiles
 # Development
 ./deploy dev/cc dev/go dev/latex dev/node dev/python
 # Misc
-./deploy misc/apps misc/typora misc/docker
+./deploy misc/apps misc/docker
 ```
 
 ## Overview

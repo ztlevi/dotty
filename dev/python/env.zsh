@@ -13,7 +13,7 @@ export PYTHONPATH=$PYTHONPATH:.
 # Anaconda
 if [[ $(_os) == 'macos' ]]; then
   export PATH=$PATH:/usr/local/anaconda3/bin
-  export PATH=$PATH:$HOME/Library/Python/3.7/bin
+  export PATH=$PATH:$HOME/Library/Python/3.8/bin
 else
   export PATH=$PATH:$HOME/anaconda3/bin
 fi
