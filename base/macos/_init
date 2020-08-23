@@ -21,7 +21,7 @@ install() {
 
   # Fonts
   brew tap homebrew/cask-fonts
-  brew cask install font-ubuntumono-nerd-font font-firacode-nerd-font
+  brew cask install font-ubuntu-mono-nerd-font font-firacode-nerd-font
 
   # Download app from anywhere
   sudo spctl --master-disable
