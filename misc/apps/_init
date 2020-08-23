@@ -12,7 +12,6 @@ install() {
     brew install mas
     mas install 1127253508 # DrUnarchiver
     mas install 1176895641 # Spark
-    mas install 1221250572 # Xnip
     mas install 1254743014 # LyricsX
     mas install 451108668  # QQ
     mas install 456609775  # Window Tidy
