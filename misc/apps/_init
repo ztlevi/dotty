@@ -4,28 +4,8 @@ source ${0:A:h}/../../deploy
 install() {
   case $(_os) in
   macos)
-    brew install duti pandoc ffmpeg youtube-dl shfmt glances bandwhich \
-      rga pandoc poppler tesseract ffmpeg imagemagick graphicsmagick
-    brew cask install google-chrome forklift dropbox neteasemusic webtorrent \
-      jetbrains-toolbox visual-studio-code typora iina keycastr discord zoomus \
-      shadowsocksx google-backup-and-sync kap suspicious-package obs balenaEtcher
-
-    brew install mas
-    mas install 1127253508 # DrUnarchiver
-    mas install 1176895641 # Spark
-    mas install 1254743014 # LyricsX
-    mas install 451108668  # QQ
-    mas install 456609775  # Window Tidy
-    mas install 552383089  # Dashlane
-    mas install 585829637  # Todoist
-    mas install 576338668  # Leaf
-    mas install 695406827  # Dropzone 3
-    mas install 747648890  # telegram
-    mas install 836500024  # Wechat
-    mas install 497799835  # Xcode
-
-    # Set default apps
-    ${0:A:h}/bin/macos_set_default_apps.sh
+    brew install pandoc ffmpeg shfmt glances bandwhich
+    brew cask install google-chrome forklift visual-studio-code
 
     # Vscode enable key-repeating
     defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false         # For VS Code
@@ -34,23 +14,15 @@ install() {
     ;;
   arch)
     yay --needed --noconfirm -S \
-      shfmt pandoc ffmpeg youtube-dl glances mimeo bandwhich \
-      google-chrome telegram-desktop jetbrains-toolbox \
-      dropbox webtorrent-desktop visual-studio-code-bin typora vlc
+      shfmt pandoc ffmpeg glances mimeo bandwhich \
+      google-chrome visual-studio-code-bin
 
     mimeo --prefer google-chrome.desktop --prefer vlc.desktop
 
     ;;
   # TODO: debian apps
   debian) # Insatll typora
-    brew install shfmt pandoc ffmpeg youtube-dl glances
-
-    wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
-    # add Typora's repository
-    sudo add-apt-repository 'deb https://typora.io/linux ./'
-    sudo apt-get update
-    # install typora
-    sudo apt-get install -y typora
+    brew install shfmt pandoc ffmpeg glances
 
     ${0:A:h}/../../deploy dev/rust
     cargo install bandwhich

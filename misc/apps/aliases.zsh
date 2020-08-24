@@ -10,17 +10,7 @@ if _is_callable clang-format; then
   alias format-all-clang="fd -x clang-format -i -style=file {} \; -e c -e cc -e cpp -e h -e hh -e hpp . ."
 fi
 
-if _is_callable reveal-md; then
-  alias rv='reveal-md --highlight-theme github --theme white --watch'
-  alias rvs='reveal-md --highlight-theme github --theme white --static revealjs_output'
-fi
-_is_callable you-get && alias yg='you-get'
-if _is_callable youtube-dl; then
-  alias yd='youtube-dl --write-auto-sub --ignore-errors'
-  alias yd2mp4='youtube-dl --write-auto-sub --ignore-errors --recode-video mp4'
-  alias yda='youtube-dl --extract-audio --audio-format mp3'
-fi
-
+# used for mas
 function find-app-id() {
   /usr/libexec/PlistBuddy -c 'Print CFBundleIdentifier' /Applications/"$1".app/Contents/Info.plist
 }

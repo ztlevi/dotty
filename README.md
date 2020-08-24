@@ -37,6 +37,9 @@ cd ~/Dotfiles
 ./deploy dev/cc dev/go dev/latex dev/node dev/python
 # Misc
 ./deploy misc/apps misc/docker
+
+# Optional private apps. Do not install on company machines.
+./deploy misc/private
 ```
 
 ## Overview
