@@ -25,6 +25,8 @@ else
   alias oo="sudo open ."
 fi
 
+alias cdicloud="cd '$HOME/Library/Mobile Documents/com~apple~CloudDocs'"
+
 # Iterm
 alias ot="iterm-new-tab"
 function iterm-new-tab() {

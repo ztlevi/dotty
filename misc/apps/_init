@@ -4,7 +4,8 @@ source ${0:A:h}/../../deploy
 install() {
   case $(_os) in
   macos)
-    brew install duti pandoc ffmpeg youtube-dl shfmt glances bandwhich
+    brew install duti pandoc ffmpeg youtube-dl shfmt glances bandwhich \
+      rga pandoc poppler tesseract ffmpeg imagemagick graphicsmagick
     brew cask install google-chrome forklift dropbox neteasemusic webtorrent \
       jetbrains-toolbox visual-studio-code typora iina keycastr discord zoomus \
       shadowsocksx google-backup-and-sync kap suspicious-package obs balenaEtcher
