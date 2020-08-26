@@ -19,7 +19,7 @@ install() {
 
     tempdir=/tmp/temp-install
     (
-      ALACRITTY_VERSION=0.4.3
+      ALACRITTY_VERSION=0.5.0
       mkdir -p $tempdir
       cd $tempdir
       sudo apt-get install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev python3
