@@ -8,7 +8,6 @@ export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
 export PYTHONBREAKPOINT="pudb.set_trace"
 
 export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
-export PYTHONPATH=$PYTHONPATH:.
 
 # Anaconda
 if [[ $(_os) == 'macos' ]]; then
