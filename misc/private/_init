@@ -15,7 +15,7 @@ install() {
     mas install 1176895641 # Spark
     mas install 1254743014 # LyricsX
     mas install 451108668  # QQ
-    mas install 456609775  # Window Tidy
+    mas install 441258766  # Magnet
     mas install 552383089  # Dashlane
     mas install 585829637  # Todoist
     mas install 576338668  # Leaf
