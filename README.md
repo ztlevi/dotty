@@ -28,7 +28,7 @@ cd ~/Dotfiles
 ./deploy desktop/bspwm
 
 # Shell
-./deploy shell/zsh ./deploy shell/git shell/alacritty shell/tmux shell/ranger \
+./deploy shell/zsh shell/alacritty shell/tmux shell/ranger \
   shell/fzf shell/aspell shell/work
 # Editor
 ./deploy editor/emacs editor/neovim
