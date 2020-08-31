@@ -109,13 +109,13 @@ bspc rule -a Firefox monitor=R desktop=^4
 bspc rule -a discord desktop=^5
 bspc rule -a slack desktop=^5
 
-_call alacritty --class Alacritty_2 -e bash -c "(tmux ls | grep -qEv 'attached|scratch' && tmux at) || tmux" &
-{
-  sleep 0.5
-  _run emacs --name Emacs_1 &
-} &
-_run launch-browser &
-_run slack &
+# _call alacritty --class Alacritty_2 -e bash -c "(tmux ls | grep -qEv 'attached|scratch' && tmux at) || tmux" &
+# {
+#   sleep 0.5
+#   _run emacs --name Emacs_1 &
+# } &
+# _run launch-browser &
+# _run slack &
 
 _call $DOTFILES/bin/ding startup
 
