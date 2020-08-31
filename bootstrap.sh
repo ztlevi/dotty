@@ -38,6 +38,7 @@ if _uncallable zsh || _uncallable git || _uncallable git-lfs; then
     if ! _is_callable brew; then
       sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
     fi
+    eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
     brew install git zsh git-lfs
     ;;
   arch)
