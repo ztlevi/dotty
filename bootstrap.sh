@@ -12,15 +12,38 @@ set -e
 
 _msg() { printf "\r\033[2K\033[0;32m[ .. ] %s\033[0m\n" "$*"; }
 _uncallable() { ! command -v "$1" >/dev/null; }
+function _os() {
+  case $OSTYPE in
+  linux*) if [[ -f /etc/arch-release ]]; then
+    echo arch
+  elif [[ -f /etc/debian_version ]]; then
+    echo debian
+  fi ;;
+  darwin*) echo macos ;;
+  cygwin*) echo cygwin ;;
+  esac
+}
 
 if _uncallable zsh || _uncallable git || _uncallable git-lfs; then
   # NOTE Macos has both already
   _msg "Installing git, zsh and git-lfs"
-  if [[ -f /etc/arch-release ]]; then
-    sudo pacman --needed --noconfirm -S git zsh
-  elif [[ -f /etc/debian_version ]]; then
-    sudo apt-get update && sudo apt-get install -y git zsh
-  fi
+  case $(_os) in
+  macos)
+    if ! _is_callable brew; then
+      ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    fi
+    brew install git zsh git-lfs
+    ;;
+  debian)
+    if ! _is_callable brew; then
+      sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+    fi
+    brew install git zsh git-lfs
+    ;;
+  arch)
+    sudo pacman --needed --noconfirm -S git zsh git-lfs
+    ;;
+  esac
 fi
 
 if [[ ! -d "$DOTFILES" ]]; then

@@ -16,7 +16,6 @@ Dotfiles for Ubuntu, Arch and MacOS!
 cd ~/Dotfiles
 
 # Git
-./deploy shell/git &&   (cd ~/Dotfiles/assets; git lfs install && git lfs pull)
 
 # MacOS
 ./deploy base/macos
@@ -26,10 +25,10 @@ cd ~/Dotfiles
 ./deploy base/debian
 
 # Linux Desktop Environment (Gnome/Awesome/Bspwm)
-./deploy desktop/awesome
+./deploy desktop/bspwm
 
 # Shell
-./deploy shell/zsh shell/alacritty shell/tmux shell/ranger \
+./deploy shell/zsh ./deploy shell/git shell/alacritty shell/tmux shell/ranger \
   shell/fzf shell/aspell shell/work
 # Editor
 ./deploy editor/emacs editor/neovim
