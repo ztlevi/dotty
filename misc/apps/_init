@@ -4,7 +4,7 @@ source ${0:A:h}/../../deploy
 install() {
   case $(_os) in
   macos)
-    brew install pandoc ffmpeg shfmt glances bandwhich
+    brew install pandoc ffmpeg glances bandwhich
     brew cask install google-chrome forklift visual-studio-code
 
     # Vscode enable key-repeating
@@ -14,7 +14,7 @@ install() {
     ;;
   arch)
     yay --needed --noconfirm -S \
-      shfmt pandoc ffmpeg glances mimeo bandwhich \
+      pandoc ffmpeg glances mimeo bandwhich \
       google-chrome visual-studio-code-bin
 
     mimeo --prefer google-chrome.desktop --prefer vlc.desktop
@@ -22,7 +22,7 @@ install() {
     ;;
   # TODO: debian apps
   debian) # Insatll typora
-    brew install shfmt pandoc ffmpeg glances
+    brew install pandoc ffmpeg glances
 
     ${0:A:h}/../../deploy dev/rust
     cargo install bandwhich
