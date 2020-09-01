@@ -10,7 +10,7 @@ install() {
     yay --needed --noconfirm -S asciinema
     ;;
   debian)
-    sudo apt-get install -y asciinema
+    $APT_INSTALL asciinema
     ;;
   esac
 }

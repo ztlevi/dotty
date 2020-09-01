@@ -9,7 +9,7 @@ install() {
     sudo tlmgr install latexmk multirow
     ;;
   arch) yay --needed --noconfirm texlive-most texlive-lang ;;
-  debian) sudo apt-get install -y texlive-full ;;
+  debian) $APT_INSTALL texlive-full ;;
   esac
 
 }

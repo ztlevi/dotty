@@ -9,7 +9,7 @@ install() {
   debian)
     sudo add-apt-repository ppa:webupd8team/terminix -y
     sudo apt-get update
-    sudo apt-get install -y tilix
+    $APT_INSTALL tilix
     ;;
   esac
 }

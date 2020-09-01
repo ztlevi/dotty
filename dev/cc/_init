@@ -11,7 +11,7 @@ install() {
   arch) yay --needed --noconfirm -S cmake ninja clang ccls ;;
   debian)
     brew install cmake ninja
-    sudo apt-get install -y clang-format
+    $APT_INSTALL clang-format
 
     # Install the gcc-7 packages:
     sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y

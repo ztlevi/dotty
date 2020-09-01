@@ -46,7 +46,7 @@ install() {
     # bspwm
     (
       cd $tempdir
-      sudo apt-get install -y xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev
+      $APT_INSTALL xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev
 
       wget --no-check-certificate $(get_github_latest_release_url 'baskerville/bspwm') -O bspwm.tar.gz
       tar -zxvf bspwm.tar.gz
@@ -81,7 +81,7 @@ install() {
     # dunst
     (
       cd $tempdir
-      sudo apt-get install libdbus-1-dev libx11-dev libxinerama-dev libxrandr-dev libxss-dev libglib2.0-dev libpango1.0-dev libgtk-3-dev libxdg-basedir-dev
+      $APT_INSTALL libdbus-1-dev libx11-dev libxinerama-dev libxrandr-dev libxss-dev libglib2.0-dev libpango1.0-dev libgtk-3-dev libxdg-basedir-dev
       wget --no-check-certificate $(get_github_latest_release_url 'dunst-project/dunst') -O dunst.tar.gz
       tar -zxvf dunst.tar.gz
       export PKG_CONFIG_PATH=/usr/share/pkgconfig:$PKG_CONFIG_PATH

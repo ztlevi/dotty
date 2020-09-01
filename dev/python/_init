@@ -12,7 +12,7 @@ install() {
     yay --needed --noconfirm -S python-pip pyenv
     ;;
   debian)
-    sudo apt-get install -y python3-pip
+    $APT_INSTALL python3-pip
 
     # Install pyenv
     PROJ=pyenv-installer

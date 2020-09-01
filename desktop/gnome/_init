@@ -10,7 +10,7 @@ install() {
     sudo pacman -S gnome gnome-extra gdm manjaro-gnome-assets manjaro-gdm-theme manjaro-settings-manager
     ;;
   debian)
-    sudo apt-get install -y gnome-shell ubuntu-gnome-desktop
+    $APT_INSTALL gnome-shell ubuntu-gnome-desktop
     tempdir=/tmp/temp-install
     mkdir -p $tempdir
     # Flat-remix Theme

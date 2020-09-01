@@ -42,7 +42,7 @@ install() {
     sudo add-apt-repository 'deb https://typora.io/linux ./'
     sudo apt-get update
     # install typora
-    sudo apt-get install -y typora
+    $APT_INSTALL typora
     ;;
   esac
   # NPM Packages

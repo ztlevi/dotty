@@ -10,7 +10,7 @@ install() {
     yay --needed --noconfirm -S ranger
     ;;
   debian)
-    sudo apt-get install -y ranger
+    $APT_INSTALL ranger
     ;;
   esac
 

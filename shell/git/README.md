@@ -24,7 +24,7 @@ Setup SSH key to prevent typing username and password each time you operate your
    ```
 4. Adding a new SSH key to your GitHub account 1)Copy the SSH key to your clipboard:
    ```sh
-   sudo apt-get install xclip
+   $APT_INSTALL xclip
    xclip -sel clip < ~/.ssh/id_rsa.pub
    ```
 5. Go to Github profile-->settings-->SSH and GPG keys-->New SSH key or Add SSH key-->paste ssh key you copy-->Add SSH

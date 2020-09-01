@@ -5,7 +5,7 @@ install() {
   case $(_os) in
   macos) brew install bash ;;
   # arch) ;;  # NOTE Already installed
-  debian) sudo apt-get install -y bash ;;
+  debian) $APT_INSTALL bash ;;
   esac
 }
 

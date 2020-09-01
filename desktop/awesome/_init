@@ -13,7 +13,7 @@ install() {
   debian)
     sudo add-apt-repository ppa:klaus-vormweg/awesome
     sudo apt-get update
-    sudo apt-get install awesome i3lock libx11-dev xfce4-power-manager
+    $APT_INSTALL awesome i3lock libx11-dev xfce4-power-manager
 
     (
       cd /tmp

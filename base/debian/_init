@@ -5,10 +5,10 @@ install() {
   sudo apt-get update
 
   # Core essentials
-  sudo apt-get install -y build-essential wget git curl tree ssh rsync dnsutils
+  $APT_INSTALL build-essential wget git curl tree ssh rsync dnsutils
 
   # Extra packages
-  sudo apt-get install -y net-tools exfat-fuse exfat-utils p7zip-full wmctrl
+  $APT_INSTALL net-tools exfat-fuse exfat-utils p7zip-full wmctrl
 
   # Linuxbrew
   if ! _is_callable brew; then

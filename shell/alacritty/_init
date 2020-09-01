@@ -22,7 +22,7 @@ install() {
       ALACRITTY_VERSION=0.5.0
       mkdir -p $tempdir
       cd $tempdir
-      sudo apt-get install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev python3
+      $APT_INSTALL cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev python3
       wget https://github.com/alacritty/alacritty/archive/v${ALACRITTY_VERSION}.tar.gz -O alacritty.tar.gz
       tar xvf alacritty.tar.gz
       cd alacritty-*
