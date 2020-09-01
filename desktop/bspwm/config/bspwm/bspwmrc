@@ -126,9 +126,13 @@ zsh -c "dunst-start &" # notifyciation daemon.
 _call xsetroot -cursor_name left_ptr &
 
 # powersaving options
-_call xset s on &
-_call xset s blank &
-_call xset s expose &
-_call xset c on &
+# _call xset s on &
+# _call xset s blank &
+# _call xset s expose &
+# _call xset c on &
+# _call xset -dpms &
+# _call xbacklight -set 15 &
+
+# disable powersaving
+_call xset s off &
 _call xset -dpms &
-_call xbacklight -set 15 &
