@@ -21,8 +21,9 @@ antigen bundle docker-compose
 antigen bundle docker-machine
 
 # RUBY
-antigen bundle ruby
-antigen bundle rbenv
+# antigen bundle ruby
+# antigen bundle rbenv
+# antigen bundle gem
 
 # PYTHON
 antigen bundle python
@@ -37,7 +38,7 @@ antigen bundle golang
 antigen bundle node
 antigen bundle npm
 antigen bundle yarn
-antigen bundle react-native
+# antigen bundle react-native
 
 # ZSH
 antigen bundle zsh_reload
@@ -61,7 +62,7 @@ antigen bundle history
 antigen bundle ripgrep
 antigen bundle web-search
 antigen bundle nmap
-antigen bundle heroku
+# antigen bundle heroku
 antigen bundle copydir
 antigen bundle common-aliases
 antigen bundle command-not-found
@@ -86,7 +87,6 @@ eval "$(starship init zsh)"
 # OS
 if [[ $(_os) == 'macos' ]]; then
   antigen bundle brew
-  antigen bundle gem
   antigen bundle osx
 elif [[ $(_os) == 'arch' ]]; then
   antigen bundle archlinux
