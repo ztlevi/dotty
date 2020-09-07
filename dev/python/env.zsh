@@ -7,8 +7,6 @@ export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
 # Set breakpoint() in Python to call pudb
 export PYTHONBREAKPOINT="pudb.set_trace"
 
-export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
-
 # Anaconda
 if [[ $(_os) == 'macos' ]]; then
   export PATH=$PATH:/usr/local/anaconda3/bin
@@ -16,7 +14,3 @@ if [[ $(_os) == 'macos' ]]; then
 else
   export PATH=$PATH:$HOME/anaconda3/bin
 fi
-
-path=($PYENV_ROOT/bin $path)
-
-_cache pyenv init - --no-rehash
