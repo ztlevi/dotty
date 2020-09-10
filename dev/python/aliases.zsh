@@ -9,3 +9,5 @@ _is_callable jupyter && alias jp='jupyter lab --NotebookApp.iopub_data_rate_limi
 alias sa="source activate"
 alias sd="conda deactivate || source deactivate"
 alias cl="conda info --envs"
+
+alias pe="pipenv"
