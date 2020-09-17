@@ -1,6 +1,4 @@
-if _is_callable hub; then
-  alias git='noglob hub'
-else
-  alias git='noglob git'
-fi
-alias "gci"="hub ci-status --verbose"
+alias git='noglob git'
+alias g="git"
+alias gci="gh pr checks"
+alias gcpr="gh pr create --assignee ztlevi"

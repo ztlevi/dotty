@@ -11,10 +11,8 @@
 	rv = remote -v
 	cm	= commit
 	ca = commit -a -v
-	ci = ci-status --verbose
 	ps = push
 	pl = pull
-	cpr = pull-request --assign ztlevi
 	prco = pr checkout
 	cl	= clone
     clr = clone --recurse-submodules -j8

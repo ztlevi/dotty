@@ -4,13 +4,13 @@ GIT_DIR="$XDG_CONFIG_HOME/git"
 
 install() {
   case $(_os) in
-  macos) brew install git git-lfs hub diff-so-fancy git-standup git-extras git-flow-avh ;;
+  macos) brew install git git-lfs gh diff-so-fancy git-standup git-extras git-flow-avh ;;
   debian)
-    brew install git git-lfs hub diff-so-fancy git-standup git-extras git-flow-avh
+    brew install git git-lfs gh diff-so-fancy git-standup git-extras git-flow-avh
     sudo apt install libgnome-keyring-dev
     ;;
   arch)
-    yay --needed --noconfirm -S git hub \
+    yay --needed --noconfirm -S git github-cli \
       git-lfs diff-so-fancy git-standup-git git-extras \
       gitflow-avh
     yay --needed -noconfirm -S gnome-keyring libsecret
