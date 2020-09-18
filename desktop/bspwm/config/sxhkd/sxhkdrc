@@ -3,7 +3,8 @@
 #
 
 super + Return
-    alacritty -e bash -c "(tmux ls | grep -qEv 'attached|scratch' && tmux at) || tmux"
+    alacritty
+    # alacritty -e bash -c "(tmux ls | grep -qEv 'attached|scratch' && tmux at) || tmux"
 
 super + o
     xdg-open ~/Downloads
