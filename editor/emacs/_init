@@ -16,7 +16,9 @@ install() {
     ;;
   arch) yay --needed --noconfirm -S make emacs ;;
   debian)
-    sudo snap install emacs --beta --classic
+    sudo add-apt-repository ppa:kelleyk/emacs
+    sudo apt-get update
+    sudo apt install emacs27
     ;;
   esac
 
