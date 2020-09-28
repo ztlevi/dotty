@@ -63,6 +63,7 @@ antigen bundle web-search
 antigen bundle nmap
 # antigen bundle heroku
 antigen bundle copydir
+antigen bundle copyfile
 antigen bundle common-aliases
 antigen bundle command-not-found
 antigen bundle colored-man-pages
