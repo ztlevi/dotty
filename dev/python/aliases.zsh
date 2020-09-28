@@ -10,4 +10,11 @@ alias sa="source activate"
 alias sd="conda deactivate || source deactivate"
 alias cl="conda info --envs"
 
+# Pipenv
 alias pe="pipenv"
+
+# Pipenv completion
+_pipenv() {
+  eval $(env COMMANDLINE="${words[1, $CURRENT]}" _PIPENV_COMPLETE=complete-zsh pipenv)
+}
+compdef _pipenv pipenv

@@ -28,7 +28,6 @@ antigen bundle docker-machine
 # PYTHON
 antigen bundle python
 antigen bundle pip
-antigen bundle pipenv
 antigen bundle django
 
 # GO
