@@ -15,7 +15,7 @@ font:
   bold_italic:
     family: OperatorMono Nerd Font
     style: Medium Italic
-  size: 12
+  size: 16
 
 scrolling:
   multiplier: 10
@@ -55,6 +55,7 @@ colors:
     magenta: "0x691e99"
     cyan: "0x00828e"
     white: "0xcccccc"
+
 
   # Dim colors
   #
