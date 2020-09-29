@@ -15,7 +15,7 @@ font:
   bold_italic:
     family: OperatorMono Nerd Font
     style: Medium Italic
-  size: 18
+  size: 17
 
 scrolling:
   multiplier: 10
