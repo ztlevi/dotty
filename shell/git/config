@@ -36,6 +36,8 @@
 [core]
 	editor = nvim
 	ignorecase = false
+[pull]
+	rebase = false
 [push]
 	default = matching
 [branch]
