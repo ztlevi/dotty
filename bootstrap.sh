@@ -24,37 +24,32 @@ function _os() {
   esac
 }
 
-if _uncallable zsh || _uncallable git || _uncallable git-lfs; then
+if _uncallable zsh || _uncallable gh; then
   # NOTE Macos has both already
-  _msg "Installing git, zsh and git-lfs"
+  _msg "Installing zsh, git"
   case $(_os) in
   macos)
     if ! _is_callable brew; then
       ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     fi
-    brew install git zsh git-lfs
+    brew install gh zsh
     ;;
   debian)
     if ! _is_callable brew; then
       sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
     fi
     eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-    brew install git zsh git-lfs
+    brew install gh zsh
     ;;
   arch)
-    sudo pacman --needed --noconfirm -S git zsh git-lfs
+    sudo pacman --needed --noconfirm -S github-cli zsh
     ;;
   esac
 fi
 
 if [[ ! -d "$DOTFILES" ]]; then
   _msg "Deploying dotfiles repository..."
-  dfrepo=https://github.com/ztlevi/Dotfiles.git
-  git clone --recursive "$dfrepo" "$DOTFILES"
-  (
-    cd $DOTFILES/assets
-    git lfs install && git lfs pull
-  )
+  gh repo clone ztlevi/Dotfiles -- --recurse-submodules -j8
 fi
 
 #
