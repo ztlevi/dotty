@@ -11,15 +11,16 @@ install() {
       shadowsocksx google-backup-and-sync kap obs balenaEtcher
 
     brew install mas
-    mas install 1127253508 # DrUnarchiver
-    mas install 1176895641 # Spark
-    mas install 451108668  # QQ
+    mas install 937984704  # Amphetamine
+    mas install 695406827  # Dropzone 3
     mas install 441258766  # Magnet
     mas install 585829637  # Todoist
+    mas install 1127253508 # DrUnarchiver
+    mas install 1176895641 # Spark
     mas install 576338668  # Leaf
-    mas install 695406827  # Dropzone 3
     mas install 747648890  # telegram
     mas install 836500024  # Wechat
+    mas install 451108668  # QQ
     mas install 497799835  # Xcode
 
     # Set default apps
