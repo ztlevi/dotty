@@ -15,7 +15,7 @@ font:
   bold_italic:
     family: CartographCF Nerd Font
     style: Bold Italic
-  size: 17
+  size: 16
 
 scrolling:
   multiplier: 10
