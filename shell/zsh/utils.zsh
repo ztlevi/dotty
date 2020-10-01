@@ -54,6 +54,10 @@ function update_topics {
   declare -a topics
   topics=( "$DOTFILES_DATA"/*.topic(N) )
   for topic in ${${${topics[@]#$DOTFILES_DATA/}%.topic}/.//}; do
+    # Skip update shell/git
+    if [[ ${topic} == "shell/git" ]]; then
+      continue
+    fi
     ${DOTFILES}/deploy -l ${topic}
   done
 }
