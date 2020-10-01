@@ -4,17 +4,17 @@
 # Font configuration
 font:
   normal:
-    family: OperatorMono Nerd Font
-    style: Book
+    family: CartographCF Nerd Font
+    style: Regular
   bold:
-    family: OperatorMono Nerd Font
-    style: Medium
+    family: CartographCF Nerd Font
+    style: Bold
   italic:
-    family: OperatorMono Nerd Font
-    style: Book Italic
+    family: CartographCF Nerd Font
+    style: Regular Italic
   bold_italic:
-    family: OperatorMono Nerd Font
-    style: Medium Italic
+    family: CartographCF Nerd Font
+    style: Bold Italic
   size: 16
 
 scrolling:
