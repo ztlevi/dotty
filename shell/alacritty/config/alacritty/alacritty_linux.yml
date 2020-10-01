@@ -16,6 +16,9 @@ font:
     family: CartographCF Nerd Font
     style: Bold Italic
   size: 16
+  offset:
+    x: 0
+    y: 0
 
 scrolling:
   multiplier: 10
@@ -55,7 +58,6 @@ colors:
     magenta: "0x691e99"
     cyan: "0x00828e"
     white: "0xcccccc"
-
 
   # Dim colors
   #
