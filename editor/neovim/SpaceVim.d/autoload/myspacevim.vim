@@ -15,6 +15,9 @@ endfunction
 function! myspacevim#after() abort
     let g:colorizer_maxlines = 1000
 
+    " Enable italic
+    highlight Comment cterm=italic gui=italic
+
     " Allow backspace and cursor keys to cross line boundaries
     set whichwrap+=<,>,h,l
 
