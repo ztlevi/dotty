@@ -4,7 +4,7 @@ source ${0:A:h}/../../deploy
 install() {
   case $(_os) in
   arch)
-    yay --needed --noconfirm -S alacritty
+    yay --needed --noconfirm -S alacritty yq
     ;;
   debian)
     # For Ubuntu 18 and over
@@ -30,9 +30,11 @@ install() {
       sudo cp -f target/release/alacritty /usr/local/bin
       rm -rf $tempdir/alacritty-*
     )
+    brew install yq
     ;;
   macos)
     brew cask install alacritty
+    brew install yq
     ;;
   esac
 }
@@ -41,15 +43,19 @@ install() {
 
 link() {
   rm -rf $XDG_CONFIG_HOME/alacritty
+  mkdir -p $XDG_CONFIG_HOME/alacritty
+  config_file=$XDG_CONFIG_HOME/alacritty/alacritty.yml
+  theme_file=one-light-theme.yml
+  (
+    cd $DOTFILES/shell/alacritty/config/alacritty
+    yq merge basic.yml keybinding.yml $theme_file --overwrite --prettyPrint >$config_file
+  )
   case $(_os) in
-  arch | debian)
-    mklink config/alacritty/alacritty_linux.yml $XDG_CONFIG_HOME/alacritty/alacritty.yml
-    ;;
   macos)
-    mklink config/alacritty/alacritty_macos.yml $XDG_CONFIG_HOME/alacritty/alacritty.yml
+    # Increase macos font size by 3
+    yq write $config_file 'font.size' $(($(yq read $config_file 'font.size') + 3)) -i
     ;;
   esac
-
 }
 
 clean() {

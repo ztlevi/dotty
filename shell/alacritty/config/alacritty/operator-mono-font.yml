@@ -1,0 +1,15 @@
+# Font configuration
+font:
+  normal:
+    family: OperatorMono Nerd Font
+    style: Book
+  bold:
+    family: OperatorMono Nerd Font
+    style: Medium
+  italic:
+    family: OperatorMono Nerd Font
+    style: Book Italic
+  bold_italic:
+    family: OperatorMono Nerd Font
+    style: Medium Italic
+  size: 14
