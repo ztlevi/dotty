@@ -22,6 +22,7 @@ key_bindings:
   - { key: A, mods: Command, chars: "\x1ba" }
   - { key: S, mods: Command, chars: "\x1bs" }
   - { key: D, mods: Command, chars: "\x1bd" }
+  - { key: I, mods: Command, chars: "\x1bi" }
   - { key: D, mods: Command|Shift, chars: "\x1bD" }
   - { key: F, mods: Command, chars: "\x1bf" }
   - { key: H, mods: Command|Shift, chars: "\x1bH" }
