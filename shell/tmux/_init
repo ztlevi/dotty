@@ -15,29 +15,27 @@ install() {
     ;;
   esac
 
-  _ensure_repo tmux-plugins/tpm $TMUX_PLUGINS_HOME/tpm
+  _ensure_repo tmux-plugins/tpm $TMUX_PLUGIN_MANAGER_PATH/tpm
 
+  local tpm=$TMUX_PLUGIN_MANAGER_PATH/tpm
   if [[ -d $tpm ]]; then
     $tpm/bin/install_plugins all
   fi
 }
 
 update() {
-  local tpm=$TMUX_PLUGINS_PATH/tpm
+  local tpm=$TMUX_PLUGIN_MANAGER_PATH/tpm
   if [[ -d $tpm ]]; then
     $tpm/bin/update_plugins all
-    $tpm/bin/clean_plugins all
   fi
-
 }
 
 link() {
-  mklink tmux*.conf $TMUX_HOME/
-  mklink scripts $TMUX_HOME/scripts
+  mklink tmux.conf $TMUX_HOME/
 }
 
 clean() {
-  rm -rfv $TMUX_HOME $TMUX_PLUGINS_HOME
+  rm -rfv $TMUX_HOME $TMUX_PLUGIN_MANAGER_PATH
 }
 
 init "$@"
