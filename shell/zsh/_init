@@ -14,9 +14,6 @@ install() {
     ;;
   esac
 
-  # Install Oh-my-zsh
-  _ensure_repo ohmyzsh/ohmyzsh $ZSH
-
   # Install starship theme
   curl -fsSL https://starship.rs/install.sh | bash -s -- -y
 
