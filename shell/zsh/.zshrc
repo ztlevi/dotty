@@ -1,5 +1,6 @@
 # Load Antigen bundles first
 _load shell/zsh/bundles.zsh
+_load shell/zsh/fasd.zsh
 
 _load shell/zsh/config.zsh
 _load shell/zsh/utils.zsh

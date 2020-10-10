@@ -69,7 +69,6 @@ antigen bundle command-not-found
 antigen bundle colored-man-pages
 antigen bundle rsync
 antigen bundle dotenv
-antigen bundle fasd
 antigen bundle fd
 antigen bundle mosh
 antigen bundle extract
