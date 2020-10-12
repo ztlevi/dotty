@@ -15,13 +15,13 @@ alias open=open_command
 alias clr=clear
 alias sudo='sudo '
 k9() {
-  # Usage: k9 22234 or k9 chrome
+  # Usage: k9 22234 1213 or k9 chrome
   if echo $@ | rg -q "[\d\s\t]+"; then
-    process_ids=$@
+    process_ids=("${(@f)}$@")
   else
     process_ids=("${(@f)$(pgrep $1)}")
   fi
-  kill -9 ${process_ids} || "no process found"
+  kill -9 ${process_ids[@]} || "no process found"
 }
 alias ka=killall
 
