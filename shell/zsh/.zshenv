@@ -13,7 +13,8 @@ HOMEBREW_NO_GITHUB_API=1
 # Uncomment the following line to change how often to auto-update (in days).
 export UPDATE_ZSH_DAYS=30
 
-export ZSH="$XDG_CACHE_HOME/oh-my-zsh"
+export ANTIGEN_BUNDLES="$HOME/.antigen/bundles"
+export ZSH="$ANTIGEN_BUNDLES/robbyrussell/oh-my-zsh"
 export ZSH_CACHE="$XDG_CACHE_HOME/zsh"
 
 # paths
@@ -31,3 +32,4 @@ export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 
 # initialize enabled topics
 _load_all env.zsh
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

@@ -94,7 +94,7 @@ function update_my_repos() {
   PID1=$!
   update_git_repo ${HOME}/.doom.d &
   PID2=$!
-  update_git_repo ${ZSH} &
+  antigen update robbyrussell/oh-my-zsh &
   PID3=$!
   antigen update >${ANTIGEN_SUMMARY_FILE} &
   PID4=$!
