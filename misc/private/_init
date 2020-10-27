@@ -4,8 +4,7 @@ source ${0:A:h}/../../deploy
 install() {
   case $(_os) in
   macos)
-    brew install duti youtube-dl \
-      rga pandoc poppler tesseract ffmpeg imagemagick graphicsmagick
+    brew install duti rga pandoc poppler tesseract ffmpeg imagemagick graphicsmagick
     brew cask install dropbox neteasemusic webtorrent \
       jetbrains-toolbox typora iina keycastr discord zoomus \
       shadowsocksx google-backup-and-sync kap obs balenaEtcher
@@ -28,14 +27,12 @@ install() {
     ;;
   arch)
     yay --needed --noconfirm -S \
-      youtube-dl telegram-desktop jetbrains-toolbox \
+      telegram-desktop jetbrains-toolbox \
       dropbox webtorrent-desktop typora
     ;;
 
   # TODO: debian apps
   debian) # Insatll typora
-    brew install youtube-dl
-
     wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
     # add Typora's repository
     sudo add-apt-repository 'deb https://typora.io/linux ./'
