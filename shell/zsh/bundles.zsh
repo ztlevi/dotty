@@ -75,10 +75,14 @@ antigen bundle extract
 antigen bundle soimort/you-get
 
 # THEME
-eval "$(starship init zsh)"
-# antigen theme bureau
-# antigen theme denysdovhan/spaceship-prompt
-# export SPACESHIP_TIME_SHOW=true
+if _is_callable starship; then
+  eval "$(starship init zsh)"
+  export SPACESHIP_TIME_SHOW=true
+else
+  antigen theme jispwoso
+  # antigen theme bureau
+  # antigen theme denysdovhan/spaceship-prompt
+fi
 # antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-train
 # export BULLETTRAIN_CUSTOM_FG=white
 # export BULLETTRAIN_CONTEXT_FG=white
