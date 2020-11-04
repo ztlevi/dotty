@@ -79,13 +79,13 @@ if _is_callable starship; then
   eval "$(starship init zsh)"
   export SPACESHIP_TIME_SHOW=true
 else
-  antigen theme jispwoso
+  antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-train
+  export BULLETTRAIN_CUSTOM_FG=white
+  export BULLETTRAIN_CONTEXT_FG=white
+  # antigen theme jispwoso
   # antigen theme bureau
   # antigen theme denysdovhan/spaceship-prompt
 fi
-# antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-train
-# export BULLETTRAIN_CUSTOM_FG=white
-# export BULLETTRAIN_CONTEXT_FG=white
 
 # OS
 if [[ $(_os) == 'macos' ]]; then
