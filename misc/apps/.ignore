@@ -3,9 +3,9 @@
 .svn/
 
 node_modules/
-third_party/*
+third_party/
 !third_party/requirements.bazel.txt
-third-party/*
+third-party/
 
 TAGS
 .idea
