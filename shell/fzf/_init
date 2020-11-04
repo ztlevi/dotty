@@ -7,10 +7,14 @@ install() {
   $XDG_DATA_HOME/fzf/install --bin # download binary only
 }
 
-# update() {}
+update() {
+  git -C $XDG_DATA_HOME/fzf pull
+}
 
 # link() {}
 
-# clean() {}
+clean() {
+  rm -rf $XDG_DATA_HOME/fzf
+}
 
 init "$@"
