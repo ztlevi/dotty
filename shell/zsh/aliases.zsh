@@ -25,8 +25,8 @@ k9() {
 }
 alias ka=killall
 
-alias du=dust
-alias dud="dust -d 1"
+_is_callable dust && alias du=dust
+alias dud="du -d 1"
 
 _is_callable exa && alias ls="exa"
 alias ls="${aliases[ls]:-ls} --color=auto --group-directories-first"
