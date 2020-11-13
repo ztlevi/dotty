@@ -94,15 +94,12 @@ function update_my_repos() {
   PID1=$!
   update_git_repo ${HOME}/.doom.d &
   PID2=$!
-  antigen update robbyrussell/oh-my-zsh &
-  PID3=$!
   antigen update >${ANTIGEN_SUMMARY_FILE} &
-  PID4=$!
+  PID3=$!
 
   wait ${PID1}
   wait ${PID2}
   wait ${PID3}
-  wait ${PID4}
 
   _cache_clear
 
