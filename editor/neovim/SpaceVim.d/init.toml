@@ -28,6 +28,7 @@
     bootstrap_before = "myspacevim#before"
     bootstrap_after = "myspacevim#after"
     disabled_plugins = ["tmuxline.vim"]
+    relativenumber = false
 
 # Enable autocomplete layer
 [[layers]]
