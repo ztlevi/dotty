@@ -33,6 +33,7 @@ key_bindings:
   - { key: L, mods: Command|Shift, chars: "\x1bL" }
   - { key: P, mods: Command, chars: "\x1bp" }
   - { key: P, mods: Command|Shift, chars: "\x1bP" }
+  - { key: U, mods: Command, chars: "\x1bu" }
   - { key: Z, mods: Command, chars: "\x1bz" }
   - { key: X, mods: Command, chars: "\x1bx" }
   - { key: M, mods: Command, chars: "\x1bm" }
