@@ -4,6 +4,7 @@ key_bindings:
   - { key: V, mods: Alt, action: Paste }
   - { key: L, mods: Control, action: ClearHistory }
   - { key: L, mods: Control, chars: "\x0c" }
+  - { key: G, mods: Control, chars: "\x07" }
   - { key: Space, mods: Control, chars: "\x00" }
   - { key: Equals, mods: Alt, action: IncreaseFontSize }
   - { key: Subtract, mods: Alt, action: DecreaseFontSize }
