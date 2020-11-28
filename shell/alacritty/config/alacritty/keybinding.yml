@@ -6,8 +6,8 @@ key_bindings:
   - { key: L, mods: Control, chars: "\x0c" }
   - { key: G, mods: Control, chars: "\x07" }
   - { key: Space, mods: Control, chars: "\x00" }
-  - { key: Equals, mods: Alt, action: IncreaseFontSize }
-  - { key: Subtract, mods: Alt, action: DecreaseFontSize }
+  - { key: NumpadEquals, mods: Alt, action: IncreaseFontSize }
+  - { key: NumpadSubtract, mods: Alt, action: DecreaseFontSize }
   - { key: Minus, mods: Alt, action: DecreaseFontSize }
   - { key: Key0, mods: Alt, action: ResetFontSize }
 
