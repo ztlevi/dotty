@@ -37,7 +37,7 @@ for mon in ${MONITORS[@]/${MONITOR}/}; do
   bspc monitor $mon -d {1,2,3,4}
 done
 
-if ! pgrep polybar >/dev/null; then
+if command -v polybar >/dev/null; then
   $XDG_CONFIG_HOME/polybar/run.sh &
 fi
 
