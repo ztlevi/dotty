@@ -92,7 +92,7 @@ function update_my_repos() {
     )
   } &
   PID1=$!
-  update_git_repo ${HOME}/.doom.d &
+  update_git_repo ${XDG_CONFIG_HOME}/doom &
   PID2=$!
   antigen update >${ANTIGEN_SUMMARY_FILE} &
   PID3=$!
