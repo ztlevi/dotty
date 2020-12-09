@@ -6,3 +6,4 @@ shell/ranger/config/ranger/tagged
 *.zwc
 
 xprofile_local
+/shell/alacritty/config/alacritty/private.yml

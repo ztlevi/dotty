@@ -46,9 +46,12 @@ link() {
   mkdir -p $XDG_CONFIG_HOME/alacritty
   config_file=$XDG_CONFIG_HOME/alacritty/alacritty.yml
   theme_file=one-light-theme.yml
+  private_file=private.yml
   (
     cd $DOTFILES/shell/alacritty/config/alacritty
-    yq merge basic.yml keybinding.yml $theme_file --overwrite --prettyPrint >$config_file
+    config_files=(basic.yml keybinding.yml ${theme_file})
+    [[ -f ${private_file} ]] && config_files+=(${private_file})
+    yq merge ${config_files[@]} --overwrite --prettyPrint >$config_file
   )
   case $(_os) in
   macos)
