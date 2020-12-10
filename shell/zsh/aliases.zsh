@@ -21,7 +21,7 @@ k9() {
   else
     process_ids=("${(@f)$(pgrep $1)}")
   fi
-  kill -9 ${process_ids[@]} || "no process found"
+  kill -9 ${process_ids[@]} || "no process found by searching $@"
 }
 alias ka=killall
 
