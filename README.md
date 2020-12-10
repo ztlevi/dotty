@@ -17,18 +17,19 @@ cd ~/Dotfiles
 
 # Git
 
+# Minimal os setup
 # MacOS
-./deploy base/macos
+./deploy base/macos shell/zsh
 # Arch
-./deploy base/arch
+./deploy base/arch shell/zsh
 # Debian
-./deploy base/debian
+./deploy base/debian shell/zsh
 
 # Linux Desktop Environment (Gnome/Awesome/Bspwm)
 ./deploy desktop/bspwm
 
 # Shell
-./deploy shell/zsh shell/alacritty shell/tmux shell/ranger \
+./deploy shell/alacritty shell/tmux shell/ranger \
   shell/fzf shell/aspell shell/work
 # Editor
 ./deploy editor/emacs editor/neovim
