@@ -4,7 +4,7 @@ source ${0:A:h}/../../deploy
 install() {
   case $(_os) in
   macos)
-    brew cask install basictex
+    brew install --cask basictex
     sudo tlmgr update --self
     sudo tlmgr install latexmk multirow
     ;;

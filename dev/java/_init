@@ -7,7 +7,7 @@ install() {
   case $(_os) in
   macos)
     brew tap adoptopenjdk/openjdk
-    brew cask install adoptopenjdk8 gradle
+    brew install --cask adoptopenjdk8 gradle
     ;;
   arch) yay --needed --noconfirm -S jdk8-openjdk gradle ;;
   debian)

@@ -4,7 +4,7 @@ source ${0:A:h}/../../deploy
 install() {
   case $(_os) in
   macos)
-    brew cask install docker
+    brew install --cask docker
     brew install dive
     ;;
   arch)

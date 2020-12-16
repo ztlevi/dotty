@@ -13,7 +13,7 @@ install() {
       unzip rime-osx.zip -d ~/.emacs.d/librime
       rm -rf rime-osx.zip
     )
-    brew cask install squirrel
+    brew install --cask squirrel
     ;;
   arch)
     yay --needed --noconfirm -S fcitx fcitx-im fcitx-configtool librime fcitx-rime

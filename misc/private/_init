@@ -5,7 +5,7 @@ install() {
   case $(_os) in
   macos)
     brew install duti rga pandoc poppler tesseract ffmpeg imagemagick graphicsmagick
-    brew cask install dropbox neteasemusic webtorrent \
+    brew install --cask dropbox neteasemusic webtorrent \
       jetbrains-toolbox typora iina keycastr discord zoomus \
       shadowsocksx google-backup-and-sync kap obs balenaEtcher
 

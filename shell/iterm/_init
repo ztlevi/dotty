@@ -3,11 +3,11 @@ source ${0:A:h}/../../deploy
 source env.zsh
 
 install() {
-  brew cask install iterm2
+  brew install --cask iterm2
 }
 
 update() {
-  brew cask upgrade iterm2
+  brew upgrade --cask iterm2
 }
 
 link() {
@@ -16,7 +16,7 @@ link() {
 
 clean() {
   rm -rfv $HOME/Library/Preferences/com.googlecode.iterm2.plist
-  brew cask uninstall iterm2
+  brew uninstall --cask iterm2
 }
 
 init "$@"

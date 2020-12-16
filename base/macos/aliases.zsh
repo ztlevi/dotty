@@ -5,7 +5,6 @@ alias p=pbpaste
 
 if _is_callable brew; then
   alias bru='brew update && brew upgrade && brew cleanup'
-  alias brc='brew cask'
 fi
 
 alias stat="stat -x"

@@ -33,7 +33,7 @@ install() {
     brew install yq
     ;;
   macos)
-    brew cask install alacritty
+    brew install --cask alacritty
     brew install yq
     ;;
   esac
