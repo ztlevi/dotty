@@ -15,7 +15,7 @@ function tkss() {
 alias tshow="tmux new-session 'nvim' \; split-window -h 'cmatrix -C red' \;
   split-window -v 'ranger $HOME' \; attach"
 
-if [[ -n $TMUX ]]; then # From inside tmux
+if [[ -n "$TMUX" ]]; then # From inside tmux
   # Detach all other clients to this session
   alias mine='tmux detach -a'
   # Send command to other tmux window
