@@ -105,6 +105,7 @@ bspc rule -a 'Emacs:scratch' state=floating desktop=^any
 bspc rule -a Chromium monitor=R
 bspc rule -a Google-chrome monitor=R desktop=^4
 bspc rule -a Firefox monitor=R desktop=^4
+bspc rule -a Firefox:Toolkit state=floating
 
 bspc rule -a discord desktop=^5
 bspc rule -a slack desktop=^5
