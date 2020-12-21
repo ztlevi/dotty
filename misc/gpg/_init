@@ -1,13 +1,35 @@
 #!/usr/bin/env zsh
 source ${0:A:h}/../../deploy
-source env.zsh
 
-# install() {}
+install() {
+
+  case $(_os) in
+  macos)
+    brew install pinentry-mac
+    ;;
+  esac
+}
 
 # update() {}
 
 link() {
-  mklink .gnupg/gpg-agent.conf $HOME/.gnupg/gpg-agent.conf
+  rm -f $HOME/.gnupg/gpg-agent.conf
+  cat <<EOF >$HOME/.gnupg/gpg-agent.conf
+default-cache-ttl 604800
+max-cache-ttl 604800
+EOF
+  case $(_os) in
+  debian)
+    cat <<EOF >>$HOME/.gnupg/gpg-agent.conf
+pinetry-program /usr/bin/pinentry
+EOF
+    ;;
+  macos)
+    cat <<EOF >>$HOME/.gnupg/gpg-agent.conf
+pinentry-program /usr/local/bin/pinentry-mac
+EOF
+    ;;
+  esac
   gpgconf --reload gpg-agent
 }
 

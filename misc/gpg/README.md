@@ -1,3 +1,3 @@
 # GNUPG
 
-Probably only needed for Ubuntu.
+Linux will pinentry-gnome, macos will use pinentry-mac as interface client.
