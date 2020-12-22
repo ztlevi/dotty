@@ -28,9 +28,9 @@ link() {
 
   case $(_os) in
   debian)
+    keyring="cache --timeout 604800" # keep for a week
     # Plain text
-    # keyring="cache --timeout 30000"
-    keyring=store
+    # keyring=store
     ;;
   arch)
     keyring=/usr/lib/git-core/git-credential-libsecret
