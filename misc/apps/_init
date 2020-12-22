@@ -40,9 +40,6 @@ install() {
 
 link() {
   mklink .* ~/
-
-  rm -rf "$HOME/Library/Application Support/Firefox/Profiles" "$HOME/Library/Application Support/Firefox/profiles.ini"
-  mklink firefox/profiles.ini "$HOME/Library/Application Support/Firefox/profiles.ini"
 }
 
 clean() {
