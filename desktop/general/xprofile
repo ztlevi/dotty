@@ -71,6 +71,8 @@ fi
     sleep 1
     _run redshift &         # screen temperature based on time-of-day
     _run greenclip daemon & # system wide clipboard
+    # GPG
+    mkdir -p $HOME/.gnupg && _run gpg-agent --homedir $HOME/.gnupg --use-standard-socket --daemon
     # _run mpd &      # music server
     # _run rslsync &  # resilio sync
 

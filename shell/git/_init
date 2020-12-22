@@ -23,7 +23,6 @@ install() {
 link() {
   rm -fv ~/.gitconfig $GIT_DIR/config
   mklink ignore $GIT_DIR/
-  mklink attributes $GIT_DIR/
 
   cp -fv ${0:A:h}/config $GIT_DIR/config
 
