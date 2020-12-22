@@ -33,7 +33,7 @@ pinentry-program /usr/local/bin/pinentry-mac
 EOF
     ;;
   esac
-  gpgconf --reload gpg-agent
+  gpgconf --kill gpg-agent
 }
 
 # clean() {}
