@@ -18,6 +18,7 @@ link() {
 default-cache-ttl 604800
 max-cache-ttl 604800
 enable-ssh-support
+allow-loopback-pinentry
 EOF
   case $(_os) in
   debian)
