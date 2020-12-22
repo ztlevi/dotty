@@ -30,7 +30,8 @@ link() {
   debian)
     keyring="cache --timeout 604800" # keep for a week
     # Plain text
-    # keyring=store
+    # cred_path=$(realpath $HOME/.config/git/credentials)
+    # keyring="store --file ${cred_path}"
     ;;
   arch)
     keyring=/usr/lib/git-core/git-credential-libsecret
