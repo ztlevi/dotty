@@ -1,13 +1,5 @@
 # Git Setup
 
-## Use gpg sign
-
-if you would like to disable gpg sign, do the following:
-
-```sh
-echo "USE_GPG=false" > ~/Dotfiles/shell/git/private
-```
-
 ## Credential Storage: default credential is stored in "~/.git-credentials".
 
 https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage

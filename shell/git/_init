@@ -1,5 +1,6 @@
 #!/usr/bin/env zsh
 source ${0:A:h}/../../deploy
+source ${0:A:h}/../../env
 GIT_DIR="$XDG_CONFIG_HOME/git"
 
 install() {
@@ -21,11 +22,6 @@ install() {
 # update() {}
 
 link() {
-  USE_GPG=true
-  if [[ -f "${0:A:h}/private" ]]; then
-    source "${0:A:h}/private"
-  fi
-
   rm -fv ~/.gitconfig $GIT_DIR/config
   mklink ignore $GIT_DIR/
 
@@ -46,12 +42,6 @@ link() {
     ;;
   esac
   git config --global --add credential.helper $keyring
-
-  if [[ "${USE_GPG}" == true ]]; then
-    git config --global --add user.signingkey ztlevi.work@gmail.com
-    git config --global --add commit.gpgsign true
-    git config --global --add tag.gpgsign true
-  fi
 }
 
 clean() {
