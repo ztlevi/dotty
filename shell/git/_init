@@ -21,6 +21,11 @@ install() {
 # update() {}
 
 link() {
+  USE_GPG=true
+  if [[ -f "${0:A:h}/private" ]]; then
+    source "${0:A:h}/private"
+  fi
+
   rm -fv ~/.gitconfig $GIT_DIR/config
   mklink ignore $GIT_DIR/
 
@@ -28,10 +33,10 @@ link() {
 
   case $(_os) in
   debian)
-    keyring="cache --timeout 604800" # keep for a week
+    # keyring="cache --timeout 604800" # keep for a week
     # Plain text
-    # cred_path=$(realpath $HOME/.config/git/credentials)
-    # keyring="store --file ${cred_path}"
+    cred_path=$(realpath $HOME/.config/git/credentials)
+    keyring="store --file ${cred_path}"
     ;;
   arch)
     keyring=/usr/lib/git-core/git-credential-libsecret
@@ -41,6 +46,12 @@ link() {
     ;;
   esac
   git config --global --add credential.helper $keyring
+
+  if [[ "${USE_GPG}" == true ]]; then
+    git config --global --add user.signingkey ztlevi.work@gmail.com
+    git config --global --add commit.gpgsign true
+    git config --global --add tag.gpgsign true
+  fi
 }
 
 clean() {

@@ -1,7 +1,6 @@
 [user]
 	name = Ting Zhou
 	email = ztlevi.work@gmail.com
-	signingkey = ztlevi.work@gmail.com
 [alias]
 	# Show the diff between the latest commit and the current state
 	d	= !"git diff"
@@ -34,10 +33,6 @@
 	accept-ours = "!f() { git checkout --ours -- \"${@:-.}\"; git add -u \"${@:-.}\"; }; f"
 	accept-theirs = "!f() { git checkout --theirs -- \"${@:-.}\"; git add -u \"${@:-.}\"; }; f"
 	tagcommit = !sh -c 'git rev-list $0 | head -n 1'
-[commit]
-	gpgsign = true
-[tag]
-	gpgsign = true
 [core]
 	editor = nvim
 	ignorecase = false

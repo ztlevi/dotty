@@ -1,5 +1,13 @@
 # Git Setup
 
+## Use gpg sign
+
+if you would like to disable gpg sign, do the following:
+
+```sh
+echo "USE_GPG=false" > ~/Dotfiles/shell/git/private
+```
+
 ## Credential Storage: default credential is stored in "~/.git-credentials".
 
 https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage
@@ -17,8 +25,9 @@ Setup SSH key to prevent typing username and password each time you operate your
    ```sh
    eval "$(ssh-agent -s)"
    ```
-3. Add your SSH key to the ssh-agent. If you used an existing SSH key rather than generating a new SSH key, you'll need
-   to replace id_rsa in the command with the name of your existing private key file.
+3. Add your SSH key to the ssh-agent. If you used an existing SSH key rather than generating a new
+   SSH key, you'll need to replace id_rsa in the command with the name of your existing private key
+   file.
    ```sh
    ssh-add ~/.ssh/id_rsa
    ```
@@ -27,8 +36,8 @@ Setup SSH key to prevent typing username and password each time you operate your
    $APT_INSTALL xclip
    xclip -sel clip < ~/.ssh/id_rsa.pub
    ```
-5. Go to Github profile-->settings-->SSH and GPG keys-->New SSH key or Add SSH key-->paste ssh key you copy-->Add SSH
-   key
+5. Go to Github profile-->settings-->SSH and GPG keys-->New SSH key or Add SSH key-->paste ssh key
+   you copy-->Add SSH key
 6. Go to repo-->Clone or download-->Use SSH: git@github.com:ztlevi/Dotfiles.git
    ```sh
    git remote set-url origin git@github.com:ztlevi/Dotfiles.git
