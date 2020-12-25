@@ -9,7 +9,7 @@ if [[ -n "$SSH_CONNECTION" ]]; then
   git config --global --unset commit.gpgsign
   git config --global --unset tag.gpgsign
 else
-  git config --global --set user.signingkey ztlevi.work@gmail.com
-  git config --global --set commit.gpgsign true
-  git config --global --set tag.gpgsign true
+  git config --global --add user.signingkey ztlevi.work@gmail.com
+  git config --global --add commit.gpgsign true
+  git config --global --add tag.gpgsign true
 fi
