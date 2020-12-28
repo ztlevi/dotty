@@ -17,7 +17,7 @@ Linux will pinentry-gnome, macos will use pinentry-mac as interface client.
 3. Copy the puclic key to the remote machine
 
    ```sh
-   scp $HOME/.gnupg/pubring.gpg ztlevi@10.0.0.3:/$HOME/.gnupg
+   scp $HOME/.gnupg/pubring.kbx kuro:/home/ztlevi/.gnupg
    ```
 
    If you already exported it, you can do
