@@ -2,8 +2,15 @@
 
 Linux will pinentry-gnome, macos will use pinentry-mac as interface client.
 
-When in terminal, pinentry will fallback to curses.
+## GPG forwarding
 
-## TODO
+1. Generate ssh config with gpg forwarding enabled using the following command. This will append a
+   config to your `~/.ssh/config`.
 
-Fix emacs prompts pinentry when in ssh.
+```sh
+generate-ssh-gpg-config kuro 10.0.0.3 ztlevi
+```
+
+2. You can either add `StreamLocalBindUnlink yes` to your `/etc/ssh/sshd_config` and restart your
+   sshd service. Or use `ssh-with-gpg-socket-deleted kuro` to kill remote gpg-agent and then create
+   a ssh session with local gpg forwarded.
