@@ -12,5 +12,5 @@ generate-ssh-gpg-config kuro 10.0.0.3 ztlevi
 ```
 
 2. You can either add `StreamLocalBindUnlink yes` to your `/etc/ssh/sshd_config` and restart your
-   sshd service. Or use `ssh-with-gpg-socket-deleted kuro` to kill remote gpg-agent and then create
-   a ssh session with local gpg forwarded.
+   sshd service. Or use `ssh-with-gpg-socket-deleted kuro 10.0.0.3 ztlevi` to kill remote gpg-agent
+   and then create a ssh session with local gpg forwarded.
