@@ -15,7 +15,7 @@ install() {
 
 link() {
   rm -f $HOME/.gnupg/gpg-agent.conf
-  mkdir -p $HOME/.gnupg/
+  mkdir -p $HOME/.gnupg && chmod 700 $HOME/.gnupg
   cat <<EOF >$HOME/.gnupg/gpg-agent.conf
 default-cache-ttl 604800
 max-cache-ttl 604800
