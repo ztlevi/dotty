@@ -55,8 +55,10 @@ function ssh-with-gpg-socket-deleted() {
   #
   # Args:
   #   connection_name: e.g. kuro
+  #   hostname: e.g. 10.0.0.3
+  #   user: e.g. ztlevi
   #
-  # Usage: ssh-with-gpg-socket-deleted kuro
+  # Usage: ssh-with-gpg-socket-deleted kuro 10.0.0.3 ztlevi
 
   # Start gpg-agent locally if not running
   if ! pgrep -x "gpg-agent" >/dev/null; then
@@ -64,6 +66,8 @@ function ssh-with-gpg-socket-deleted() {
   fi
 
   local connection_name=$1
-  ssh "${connection_name}" 'gpgconf --kill gpg-agent'
+  local hostname=$2
+  local user=$3
+  ssh "${user}@${hostname}" 'gpgconf --kill gpg-agent; rm -f $(gpgconf --list-dir agent-socket)'
   ssh "${connection_name}"
 }
