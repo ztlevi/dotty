@@ -5,7 +5,7 @@ install() {
   case $(_os) in
   macos)
     brew install pandoc ffmpeg glances bandwhich
-    brew install --cask firefox forklift visual-studio-code
+    brew install --cask google-chrome forklift visual-studio-code
 
     # Vscode enable key-repeating
     defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false         # For VS Code
@@ -15,9 +15,9 @@ install() {
   arch)
     yay --needed --noconfirm -S \
       pandoc ffmpeg glances mimeo bandwhich \
-      firefox visual-studio-code-bin
+      google-chrome visual-studio-code-bin
 
-    mimeo --prefer firefox.desktop --prefer vlc.desktop
+    mimeo --prefer google-chrome.desktop --prefer vlc.desktop
 
     ;;
   # TODO: debian apps

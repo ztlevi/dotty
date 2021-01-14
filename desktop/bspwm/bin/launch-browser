@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 case $(_os) in
-macos) "/Applications/Firefox.app/Contents/MacOS/firefox" $@ ;;
-arch) firefox $@ ;;
-debian) firefox $@ ;;
+macos) "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" $@ ;;
+arch) /opt/google/chrome/chrome $@ ;;
+debian) google-chrome $@ ;;
 esac
