@@ -8,9 +8,9 @@ install() {
   macos)
     brew tap adoptopenjdk/openjdk
     brew install --cask adoptopenjdk8
-    brew install gradle
+    brew install gradle maven
     ;;
-  arch) yay --needed --noconfirm -S jdk8-openjdk gradle ;;
+  arch) yay --needed --noconfirm -S jdk8-openjdk gradle maven ;;
   debian)
     sudo apt install openjdk-8-jdk
     # Installation for newer version of java on debian OS
