@@ -32,7 +32,7 @@ cd ~/Dotfiles
 ./deploy shell/alacritty shell/tmux shell/ranger \
   shell/fzf shell/aspell shell/work
 # Editor
-./deploy editor/emacs editor/neovim
+./deploy editor/emacs editor/neovim editor/editorconfig
 # Development
 ./deploy dev/cc dev/go dev/latex dev/node dev/python
 # Misc
