@@ -49,14 +49,19 @@ link() {
   private_file=private.yml
   (
     cd $DOTFILES/shell/alacritty/config/alacritty
-    config_files=(basic.yml keybinding.yml ${theme_file})
-    [[ -f ${private_file} ]] && config_files+=(${private_file})
-    yq merge ${config_files[@]} --overwrite --prettyPrint >$config_file
+    local config_files=(basic.yml keybinding.yml ${theme_file})
+    local yq_expression='select(fi == 0) * select(fi == 1) * select(fi == 2)'
+    if [[ -f ${private_file} ]]; then
+      config_files+=(${private_file})
+      yq_expression+=" * select(fi == 3)"
+    fi
+    yq eval-all $yq_expression ${config_files[@]} >$config_file
   )
   case $(_os) in
   macos)
     # Increase macos font size by 3
-    yq write $config_file 'font.size' $(($(yq read $config_file 'font.size') + 3)) -i
+    local increased_font_size=$(($(yq eval '.font.size' $config_file) + 3))
+    yq eval ".font.size = $increased_font_size" $config_file --inplace
     ;;
   esac
 }
