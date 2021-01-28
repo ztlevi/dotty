@@ -1,4 +1,4 @@
-zman() { PAGER="less -g -s '+/^       "$1"'" man zshall; }
+zman() { PAGER="less -g -I -s '+/^       "$1"'" man zshall; }
 
 r() {
   local time=$1
