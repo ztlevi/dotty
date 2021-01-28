@@ -63,7 +63,10 @@ alias map="xargs -n1"
 
 # Convenience
 alias mk=make
-_is_callable ccat && alias cat=ccat
+if _is_callable bat; then
+  alias bat="bat --theme OneHalfLight"
+  alias cat=bat
+fi
 _is_callable neofetch && alias nf="neofetch"
 _is_callable cmatrix && alias cm="cmatrix -C red"
 
