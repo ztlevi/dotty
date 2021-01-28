@@ -5,11 +5,11 @@ source .zshenv
 install() {
   case $(_os) in
   macos | debian)
-    brew install zsh fasd fd direnv shfmt zshdb bashdb exa bat dust ripgrep shellcheck \
+    brew install zsh fasd fd direnv shfmt zshdb bashdb exa procs bat dust ripgrep shellcheck \
       trash-cli neofetch mosh jq
     ;;
   arch)
-    yay --needed --noconfirm -S zsh fasd fd direnv shfmt zshdb bashdb exa bat dust ripgrep shellcheck \
+    yay --needed --noconfirm -S zsh fasd fd direnv shfmt zshdb bashdb exa procs bat dust ripgrep shellcheck \
       trash-cli neofetch mosh jq
     ;;
   esac
