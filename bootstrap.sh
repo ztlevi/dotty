@@ -11,6 +11,11 @@ export DOTFILES=~/Dotfiles
 set -e
 
 _msg() { printf "\r\033[2K\033[0;32m[ .. ] %s\033[0m\n" "$*"; }
+function _is_callable() {
+  for cmd in "$@"; do
+    command -v "$cmd" >/dev/null || return 1
+  done
+}
 _uncallable() { ! command -v "$1" >/dev/null; }
 function _os() {
   case $OSTYPE in
