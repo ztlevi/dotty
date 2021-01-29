@@ -35,7 +35,7 @@ if _uncallable zsh || _uncallable gh; then
   case $(_os) in
   macos)
     if ! _is_callable brew; then
-      ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
     brew install gh zsh
     ;;
