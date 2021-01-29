@@ -19,9 +19,18 @@ k9() {
   if echo $@ | rg -q "[\d\s\t]+"; then
     process_ids=("${(@f)}$@")
   else
-    process_ids=("${(@f)$(pgrep $1)}")
+    process_ids=("${(@f)$(pgrep -i $1)}")
   fi
   kill -9 ${process_ids[@]} || "no process found by searching $@"
+}
+sk9() {
+  # Usage: k9 22234 1213 or k9 chrome
+  if echo $@ | rg -q "[\d\s\t]+"; then
+    process_ids=("${(@f)}$@")
+  else
+    process_ids=("${(@f)$(pgrep -i $1)}")
+  fi
+  sudo kill -9 ${process_ids[@]} || "no process found by searching $@"
 }
 alias ka=killall
 
