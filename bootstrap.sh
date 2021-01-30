@@ -54,7 +54,7 @@ fi
 
 if [[ ! -d "$DOTFILES" ]]; then
   _msg "Deploying dotfiles repository..."
-  gh repo clone ztlevi/Dotfiles -- --recurse-submodules -j8
+  git clone --recurse-submodules -j8 https://github.com/ztlevi/Dotfiles.git $DOTFILES
 fi
 
 #
