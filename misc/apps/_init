@@ -20,7 +20,6 @@ install() {
     mimeo --prefer google-chrome.desktop --prefer vlc.desktop
 
     ;;
-  # TODO: debian apps
   debian) # Insatll typora
     brew install pandoc ffmpeg glances
 
