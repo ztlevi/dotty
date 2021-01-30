@@ -41,6 +41,7 @@ antigen bundle yarn
 
 # ZSH
 antigen bundle zsh_reload
+antigen bundle jeffreytse/zsh-vi-mode
 antigen bundle hlissner/zsh-autopair
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-history-substring-search
@@ -101,3 +102,5 @@ fi
 
 # Tell antigen that you're done.
 antigen apply
+
+export ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLOCK
