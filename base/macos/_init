@@ -29,9 +29,9 @@ install() {
   defaults write com.apple.dock autohide-time-modifier -int 0
   killall Dock
 
-  # Enable ssh X11 forwarding
-  brew install --cask xquartz
-  defaults write org.macosforge.xquartz.X11 enable_iglx -bool true
+  # Enable ssh X11 forwarding. Disabled now due to the pool usability
+  # brew install --cask xquartz
+  # defaults write org.macosforge.xquartz.X11 enable_iglx -bool true
 }
 
 update() {
