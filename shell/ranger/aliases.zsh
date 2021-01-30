@@ -19,3 +19,4 @@ zle -N widget-ranger-cd
 
 # Ranger
 bindkey '^o' widget-ranger-cd
+bindkey -M viins '^o' widget-ranger-cd
