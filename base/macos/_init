@@ -1,5 +1,6 @@
 #!/usr/bin/env zsh
 source ${0:A:h}/../../deploy
+source ${0:A:h}/env.zsh
 
 install() {
   # Install Xcode command line tools
@@ -15,7 +16,9 @@ install() {
   brew tap buo/cask-upgrade # Upgrade with `brew cu`
 
   # mac quicklook https://github.com/sindresorhus/quick-look-plugins
-  brew install --cask qlcolorcode qlstephen qlmarkdown quicklook-json webpquicklook suspicious-package quicklookase qlvideo
+  brew install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize qlvideo
+  # TODO: ask for this license approval
+  # suspicious-package apparency
 
   brew install --cask karabiner-elements
 
@@ -50,6 +53,9 @@ link() {
   # Copy fonts
   mkdir -p ~/Library/Fonts
   fd ".*\.(ttf|otf)" "$DOTFILES/assets/fonts/general" --print0 | xargs -0 -n 1 -I{} rsync -a --ignore-existing "{}" ~/Library/Fonts
+
+  # Create wgetrc
+  [[ ! -f $WGETRC ]] && touch $WGETRC
 }
 
 # clean() {}

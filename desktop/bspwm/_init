@@ -123,8 +123,8 @@ install() {
     rm -rf $tempdir/breeze*
   )
 
-    wget https://github.com/erebe/greenclip/releases/download/3.3/greenclip -O $XDG_BIN_HOME/greenclip
-    chmod +x $XDG_BIN_HOME/greenclip
+  wget https://github.com/erebe/greenclip/releases/download/3.4/greenclip -O $XDG_BIN_HOME/greenclip
+  chmod +x $XDG_BIN_HOME/greenclip
 }
 
 # update() {}

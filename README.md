@@ -4,6 +4,9 @@ This repo is forked from [Hlissner's dotfiles](https://github.com/hlissner/dotfi
 
 Dotfiles for Ubuntu, Arch and MacOS!
 
+> Note: Arch support is deprecated in favor of another Linux distribution NixOS. But the updates
+> should be trivial and you should be able to figure out.
+
 ![](./screenshots/terminal.jpg)
 
 ## Quick start

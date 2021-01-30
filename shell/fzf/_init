@@ -3,13 +3,17 @@ source ${0:A:h}/../../deploy
 source env.zsh
 
 install() {
-  git clone --depth 1 https://github.com/junegunn/fzf.git $XDG_DATA_HOME/fzf
-  $XDG_DATA_HOME/fzf/install --bin # download binary only
+  case $(_os) in
+  macos | debian)
+    brew install fzf
+    ;;
+  arch)
+    yay --needed --noconfirm -S fzf
+    ;;
+  esac
 }
 
-update() {
-  git -C $XDG_DATA_HOME/fzf pull
-}
+# update() {}
 
 # link() {}
 

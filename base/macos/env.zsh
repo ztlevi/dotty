@@ -1,6 +1,8 @@
 export GNUPGHOME="$HOME/.gnupg"
 export BROWSER='open'
 
+export WGETRC="$XDG_CONFIG_HOME/wgetrc"
+
 # export CC=/usr/bin/clang
 # export CXX=/usr/bin/clang++
 # export CXXFLAGS="-I/usr/local/include"

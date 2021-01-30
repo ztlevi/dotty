@@ -33,7 +33,7 @@ install() {
     reveal-md typescript tslint cspell import-js
 
   # PIP
-  python3 -m pip install --user --upgrade pylint yapf autoflake gnureadline black importmagic epc grip cpplint
+  python3 -m pip install --user --upgrade pylint yapf autoflake gnureadline black grip cpplint
 }
 
 # update() {}

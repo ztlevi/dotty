@@ -2,6 +2,8 @@ export GNUPGHOME="$HOME/.gnupg"
 export TERMINFO="$XDG_CONFIG_HOME/terminfo"
 export BROWSER=google-chrome
 
+export WGETRC="$XDG_CONFIG_HOME/wgetrc"
+
 if [ -d /home/linuxbrew/.linuxbrew/ ]; then
   path=(/home/linuxbrew/.linuxbrew/bin $path)
 fi

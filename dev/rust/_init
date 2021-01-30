@@ -3,9 +3,14 @@ source ${0:A:h}/../../deploy
 source env.zsh
 
 install() {
-  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs >/tmp/rust-installer.sh
-  sh /tmp/rust-installer.sh -y
-  rm -f /tmp/rust-installer.sh
+  case $(_os) in
+  macos | debian)
+    brew install rustup
+    ;;
+  arch)
+    yay --needed --noconfirm -S rustup
+    ;;
+  esac
 }
 
 update() {

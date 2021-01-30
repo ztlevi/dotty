@@ -5,7 +5,7 @@ source ${0:A:h}/../../env
 install() {
   case $(_os) in
   macos)
-    brew install jq wget
+    brew install wget
     # librime
     (
       cd /tmp

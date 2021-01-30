@@ -1,5 +1,6 @@
 #!/usr/bin/env zsh
 source ${0:A:h}/../../deploy
+source ${0:A:h}/env.zsh
 
 install() {
   sudo apt-get update
@@ -15,7 +16,7 @@ install() {
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
   fi
 
-  brew install fd jq
+  brew install ripgrep fd jq
 
   # Install fonts
   mkdir -p $XDG_DATA_HOME/fonts/
@@ -48,6 +49,9 @@ link() {
 
   mkdir -p $XDG_DATA_HOME/assets/fonts/
   fd ".*\.(ttf|otf)" "$DOTFILES/assets/fonts/general" --print0 | xargs -0 -n 1 -I{} rsync -a --ignore-existing {} $XDG_DATA_HOME/fonts/
+
+  # Create wgetrc
+  [[ ! -f $WGETRC ]] && touch $WGETRC
 }
 
 clean() {
