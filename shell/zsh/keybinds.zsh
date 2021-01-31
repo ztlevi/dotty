@@ -6,38 +6,42 @@ export KEYTIMEOUT=15
 
 autoload -U is-at-least
 
-## vi-mode ###############
-bindkey -M viins 'jk' vi-cmd-mode
+# Define an init function and append to zvm_after_init_commands
+function personal_bind_keys() {
+  ## vi-mode ###############
+  bindkey -M viins 'jk' vi-cmd-mode
 
-# Open current prompt in external editor
-autoload -Uz edit-command-line
-zle -N edit-command-line
-bindkey '^ ' edit-command-line
+  # Open current prompt in external editor
+  autoload -Uz edit-command-line
+  zle -N edit-command-line
+  bindkey '^ ' edit-command-line
 
-bindkey -M viins '^N' history-substring-search-down
-bindkey -M viins '^P' history-substring-search-up
-bindkey -M viins '^S' history-incremental-pattern-search-backward
-bindkey -M viins '^U' backward-kill-line
-bindkey -M viins '^W' backward-kill-word
-bindkey -M viins '^H' backward-delete-char
-bindkey -M viins '^?' backward-delete-char # backspace key
-bindkey -M viins '^D' delete-char
-bindkey -M viins '^B' backward-char
-bindkey -M viins '^F' forward-char
-bindkey -M viins '^G' push-line-or-edit
-bindkey -M viins '^A' beginning-of-line
-bindkey -M viins '^E' end-of-line
-bindkey -M viins '^K' kill-line
+  bindkey -M viins '^N' history-substring-search-down
+  bindkey -M viins '^P' history-substring-search-up
+  bindkey -M viins '^S' history-incremental-pattern-search-backward
+  bindkey -M viins '^U' backward-kill-line
+  bindkey -M viins '^W' backward-kill-word
+  bindkey -M viins '^H' backward-delete-char
+  bindkey -M viins '^?' backward-delete-char # backspace key
+  bindkey -M viins '^D' delete-char
+  bindkey -M viins '^B' backward-char
+  bindkey -M viins '^F' forward-char
+  bindkey -M viins '^G' push-line-or-edit
+  bindkey -M viins '^A' beginning-of-line
+  bindkey -M viins '^E' end-of-line
+  bindkey -M viins '^K' kill-line
 
-bindkey -M vicmd 'H' run-help
+  bindkey -M vicmd 'H' run-help
 
-# Fix the DEL key
-bindkey -M vicmd "^[[3~" delete-char
-bindkey "^[[3~" delete-char
+  # Fix the DEL key
+  bindkey -M vicmd "^[[3~" delete-char
+  bindkey "^[[3~" delete-char
 
-# Shift + Tab
-bindkey -M viins '^[[Z' reverse-menu-complete
+  # Shift + Tab
+  bindkey -M viins '^[[Z' reverse-menu-complete
 
-# bind UP and DOWN arrow keys
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
+  # bind UP and DOWN arrow keys
+  bindkey '^[[A' history-substring-search-up
+  bindkey '^[[B' history-substring-search-down
+}
+zvm_after_init_commands+=(personal_bind_keys)

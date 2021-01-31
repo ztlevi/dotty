@@ -17,6 +17,8 @@ function widget-ranger-cd() {
 }
 zle -N widget-ranger-cd
 
-# Ranger
-bindkey '^o' widget-ranger-cd
-bindkey -M viins '^o' widget-ranger-cd
+# Define an init function and append to zvm_after_init_commands
+function personal_ranger_bind_keys() {
+  bindkey '^o' widget-ranger-cd
+}
+zvm_after_init_commands+=(personal_ranger_bind_keys)
