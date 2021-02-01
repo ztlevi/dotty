@@ -11,6 +11,7 @@ install() {
     yay --needed --noconfirm -S rustup
     ;;
   esac
+  rustup-init -y
 }
 
 update() {
