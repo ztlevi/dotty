@@ -9,6 +9,9 @@ install() {
       jetbrains-toolbox typora iina keycastr discord zoomus \
       shadowsocksx google-backup-and-sync kap obs balenaEtcher
 
+    # Optional preview apps
+    brew install suspicious-package apparency
+
     brew install mas
     mas install 937984704  # Amphetamine
     mas install 695406827  # Dropzone 3
