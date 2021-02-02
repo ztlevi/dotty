@@ -5,7 +5,7 @@ install() {
   case $(_os) in
   macos)
     brew install pandoc ffmpeg glances bandwhich
-    brew install --cask google-chrome forklift visual-studio-code
+    brew install --cask google-chrome forklift visual-studio-code bitwarden
 
     # Vscode enable key-repeating
     defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false         # For VS Code

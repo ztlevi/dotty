@@ -7,7 +7,7 @@ install() {
     brew install duti rga pandoc poppler tesseract ffmpeg imagemagick graphicsmagick youtube-dl
     brew install --cask dropbox neteasemusic webtorrent \
       jetbrains-toolbox typora iina keycastr discord zoomus \
-      shadowsocksx google-backup-and-sync kap obs balenaEtcher
+      clashx google-backup-and-sync kap obs balenaEtcher
 
     # Optional preview apps
     brew install suspicious-package apparency

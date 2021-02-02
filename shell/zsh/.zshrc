@@ -10,6 +10,6 @@ _load shell/zsh/proxy.zsh
 
 _load_all aliases.zsh
 
-if [ -f ~/Dotfiles/shell/zsh/local.zsh ]; then
-  source ~/Dotfiles/shell/zsh/local.zsh
+if [ -f ${0:A:h}/local.zsh ]; then
+  source ${0:A:h}/local.zsh
 fi
