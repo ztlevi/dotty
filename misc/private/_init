@@ -13,11 +13,8 @@ install() {
     brew install suspicious-package apparency
 
     brew install mas
-    mas install 937984704  # Amphetamine
-    mas install 695406827  # Dropzone 3
-    mas install 441258766  # Magnet
-    mas install 585829637  # Todoist
-    mas install 1127253508 # DrUnarchiver
+    mas install 1485052491 # Dropzone 4: https://aptonic.com/
+    mas install 1127253508 # Unarchiver One: RAR & Zip Tool
     mas install 1176895641 # Spark
     mas install 576338668  # Leaf
     mas install 747648890  # telegram
