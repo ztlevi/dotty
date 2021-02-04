@@ -10,6 +10,7 @@ function! myspacevim#before() abort
     call SpaceVim#custom#SPC('nnoremap', ['f', 'j'], 'Ranger', 'ranger', 1)
     call SpaceVim#custom#SPC('nnoremap', ['c', 'f'], 'Neoformat', 'format-code', 1)
     call SpaceVim#custom#SPC('nnoremap', ['t', 'c'], 'ColorToggle', 'rainbow-mode', 1)
+    call SpaceVim#custom#SPC('nnoremap', ['b', 'r'], 'e', 'Reload', 1)
 endfunction
 
 function! myspacevim#after() abort
