@@ -45,6 +45,11 @@ cd ~/Dotfiles
 ./deploy misc/private
 ```
 
+## Post-Installation
+
+1. Git now uses personal tokens as password, go [here](https://github.com/settings/tokens) to create a new token.
+2. Don't forget to import your private/public GPG keys, see [README](./misc/gpg/README.md).
+
 ## Overview
 
 ```sh
