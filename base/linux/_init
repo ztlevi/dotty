@@ -3,13 +3,20 @@ source ${0:A:h}/../../deploy
 source ${0:A:h}/env.zsh
 
 install() {
-  sudo apt-get update
+  case $(_os) in
+  debian)
+    sudo apt-get update
 
-  # Core essentials
-  $APT_INSTALL build-essential wget git curl tree ssh rsync dnsutils
+    # Core essentials
+    $APT_INSTALL build-essential wget git curl tree ssh rsync dnsutils
 
-  # Extra packages
-  $APT_INSTALL net-tools exfat-fuse exfat-utils p7zip-full wmctrl
+    # Extra packages
+    $APT_INSTALL net-tools exfat-fuse exfat-utils p7zip-full wmctrl
+    ;;
+  RHEL)
+    sudo yum groupinstall "Development Tools" "Development Libraries"
+    ;;
+  esac
 
   # Linuxbrew
   if ! _is_callable brew; then
