@@ -66,7 +66,7 @@ link() {
   case $(_os) in
   macos)
     # Increase macos font size by 3
-    local increased_font_size=$(($(yq eval '.font.size' $config_file) + 3))
+    local increased_font_size=$(($(yq eval '.font.size' $config_file) + 1))
     yq eval ".font.size = $increased_font_size" $config_file --inplace
     ;;
   esac
