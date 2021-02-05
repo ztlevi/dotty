@@ -30,6 +30,9 @@ link() {
     cred_path=$(realpath $HOME/.config/git/credentials)
     keyring="store --file ${cred_path}"
     ;;
+  linux-RHEL)
+    keyring=/usr/libexec/git-core/git-credential-libsecret
+    ;;
   linux-arch)
     keyring=/usr/lib/git-core/git-credential-libsecret
     ;;
