@@ -18,7 +18,8 @@ install() {
   curl -fsSL https://starship.rs/install.sh | bash -s -- -y
 
   # Set default shell to zsh
-  chsh -s $(which zsh) $(whoami)
+  [[ $SHELL != */zsh ]] && chsh -s $(which zsh) $(whoami)
+
   # alternative for Linux `sudo usermod -s /usr/bin/zsh <username>`
 
   local zsh="$(which zsh)"
