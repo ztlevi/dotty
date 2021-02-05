@@ -34,6 +34,7 @@
 	accept-ours = "!f() { git checkout --ours -- \"${@:-.}\"; git add -u \"${@:-.}\"; }; f"
 	accept-theirs = "!f() { git checkout --theirs -- \"${@:-.}\"; git add -u \"${@:-.}\"; }; f"
 	tagcommit = !sh -c 'git rev-list $0 | head -n 1'
+	dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)%an <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s' --date-order
 [commit]
 	gpgsign = true
 [tag]
@@ -41,6 +42,7 @@
 [core]
 	editor = nvim
 	ignorecase = false
+	pager = less -FMRiX
 [pull]
 	rebase = false
 [push]
@@ -66,3 +68,5 @@
 [hub]
 	host = github.argo.ai
 	protocol = https
+[color]
+	ui = auto

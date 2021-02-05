@@ -18,7 +18,7 @@ install() {
     # $APT_INSTALL oracle-java12-set-default
     ;;
   linux-RHEL)
-    # TODO: add RHEL java package
+    sudo yum install java-1.8.0-openjdk java-1.8.0-openjdk-devel
     ;;
   esac
   brew install gradle maven
