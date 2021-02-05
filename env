@@ -76,6 +76,8 @@ function _ensure_repo() {
     fi
     [[ -n ${dest%/*} ]] && mkdir -p ${dest%/*}
     git clone --recursive "$url" "$dest" || return 1
+  else
+    git -C $dest pull
   fi
 }
 
