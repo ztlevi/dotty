@@ -24,14 +24,11 @@ link() {
   cp -fv ${0:A:h}/config $GIT_DIR/config
 
   case $(_os) in
-  linux-debian)
+  linux-debian | linux-RHEL)
     # keyring="cache --timeout 604800" # keep for a week
     # Plain text
     cred_path=$(realpath $HOME/.config/git/credentials)
     keyring="store --file ${cred_path}"
-    ;;
-  linux-RHEL)
-    keyring=/usr/libexec/git-core/git-credential-libsecret
     ;;
   linux-arch)
     keyring=/usr/lib/git-core/git-credential-libsecret
