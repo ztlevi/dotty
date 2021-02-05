@@ -58,7 +58,7 @@ fi
 
   # OS specific apps
   case $(_os) in
-  arch)
+  linux-arch)
     # Manjaro linux fix add/remove software auth issue
     _call /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
     ;;

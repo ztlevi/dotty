@@ -3,14 +3,7 @@ source ${0:A:h}/../../deploy
 source env.zsh
 
 install() {
-  case $(_os) in
-  macos | debian)
-    brew install rustup
-    ;;
-  arch)
-    yay --needed --noconfirm -S rustup
-    ;;
-  esac
+  brew install rustup
   rustup-init -y
 }
 

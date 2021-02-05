@@ -2,6 +2,9 @@
 
 case $(_os) in
 macos) "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" $@ ;;
-arch) /opt/google/chrome/chrome $@ ;;
-debian) google-chrome $@ ;;
+linux-arch) /opt/google/chrome/chrome $@ ;;
+linux-debian) google-chrome $@ ;;
+linux-RHEL)
+  # TODO
+  ;;
 esac

@@ -4,16 +4,12 @@ source ${0:A:h}/../../env
 GIT_DIR="$XDG_CONFIG_HOME/git"
 
 install() {
+  brew install git git-lfs gh diff-so-fancy git-standup git-extras git-flow-avh
   case $(_os) in
-  macos) brew install git git-lfs gh diff-so-fancy git-standup git-extras git-flow-avh ;;
-  debian)
-    brew install git git-lfs gh diff-so-fancy git-standup git-extras git-flow-avh
+  linux-debian)
     sudo apt install libgnome-keyring-dev
     ;;
-  arch)
-    yay --needed --noconfirm -S git github-cli \
-      git-lfs diff-so-fancy git-standup-git git-extras \
-      gitflow-avh
+  linux-arch)
     yay --needed -noconfirm -S gnome-keyring libsecret
     ;;
   esac
@@ -28,13 +24,13 @@ link() {
   cp -fv ${0:A:h}/config $GIT_DIR/config
 
   case $(_os) in
-  debian)
+  linux-debian)
     # keyring="cache --timeout 604800" # keep for a week
     # Plain text
     cred_path=$(realpath $HOME/.config/git/credentials)
     keyring="store --file ${cred_path}"
     ;;
-  arch)
+  linux-arch)
     keyring=/usr/lib/git-core/git-credential-libsecret
     ;;
   macos)

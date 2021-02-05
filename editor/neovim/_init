@@ -2,10 +2,7 @@
 source ${0:A:h}/../../deploy
 
 install() {
-  case $(_os) in
-  macos | debian) brew install neovim ;;
-  arch) yay --needed --noconfirm -S make neovim python-neovim ;;
-  esac
+  brew install neovim
 
   # Remove old files and symlinks
   rm -rf ~/.vimrc ~/.config/nvim ~/.space-vim ~/.spacevim ~/.SpaceVim ~/.SpaceVim.d

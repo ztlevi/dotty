@@ -8,8 +8,10 @@ install() {
     sudo tlmgr update --self
     sudo tlmgr install latexmk multirow
     ;;
-  arch) yay --needed --noconfirm texlive-most texlive-lang ;;
-  debian) $APT_INSTALL texlive-full ;;
+  linux-debian) $APT_INSTALL texlive-full ;;
+  linux-RHEL)
+    # TODO: add RHEL tex packages
+    ;;
   esac
 
 }

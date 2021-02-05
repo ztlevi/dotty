@@ -2,14 +2,7 @@
 source ${0:A:h}/../../deploy
 
 install() {
-  case $(_os) in
-  macos)
-    brew install aspell
-    ;;
-  arch)
-    yay --needed --noconfirm -S aspell-en
-    ;;
-  esac
+  brew install aspell
 }
 
 # update() {}

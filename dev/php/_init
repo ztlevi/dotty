@@ -5,10 +5,7 @@ source env.zsh
 install() {
   _ensure_repo madumlao/phpenv $PHPENV_ROOT
   _ensure_repo php-build/php-build $PHPENV_ROOT/plugins/php-build
-  case $(_os) in
-  arch) yay --needed --noconfirm -S libmcrypt ;;
-  macos) brew install libmcrypt ;;
-  esac
+  brew install libmcrypt
 }
 
 update() {

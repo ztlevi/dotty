@@ -20,11 +20,11 @@ _uncallable() { ! command -v "$1" >/dev/null; }
 function _os() {
   case $OSTYPE in
   linux*) if [[ -f /etc/arch-release ]]; then
-    echo arch
+    echo linux-arch
   elif [[ -f /etc/debian_version ]]; then
-    echo debian
+    echo linux-debian
   elif [[ -f /etc/yum.conf ]]; then
-    echo RHEL
+    echo linux-RHEL
   fi ;;
   darwin*) echo macos ;;
   cygwin*) echo cygwin ;;
@@ -41,15 +41,12 @@ if _uncallable zsh || _uncallable gh; then
     fi
     brew install gh zsh
     ;;
-  debian | RHEL)
+  linux-*)
     if ! _is_callable brew; then
       sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
     fi
     eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
     brew install gh zsh
-    ;;
-  arch)
-    sudo pacman --needed --noconfirm -S github-cli zsh
     ;;
   esac
 fi

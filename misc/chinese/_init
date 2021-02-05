@@ -3,9 +3,9 @@ source ${0:A:h}/../../deploy
 source ${0:A:h}/../../env
 
 install() {
+  brew install wget
   case $(_os) in
   macos)
-    brew install wget
     # librime
     (
       cd /tmp
@@ -15,10 +15,13 @@ install() {
     )
     brew install --cask squirrel
     ;;
-  arch)
+  linux-RHEL)
+    # TODO
+    ;;
+  linux-arch)
     yay --needed --noconfirm -S fcitx fcitx-im fcitx-configtool librime fcitx-rime
     ;;
-  debian)
+  linux-debian)
     sudo apt install fcitx fcitx-rime
 
     # docker build https://github.com/rime/librime.git -t librime

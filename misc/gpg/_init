@@ -2,13 +2,10 @@
 source ${0:A:h}/../../deploy
 
 install() {
-
-  case $(_os) in
-  debian | RHEL) brew install gnupg ;;
-  macos)
-    brew install gnupg pinentry-mac
-    ;;
-  esac
+  brew install gnupg
+  if [[ $(_os) == "macos" ]]; then
+    brew install pinentry-mac
+  fi
 }
 
 # update() {}

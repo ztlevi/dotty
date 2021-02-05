@@ -4,12 +4,15 @@ source ${0:A:h}/aliases.zsh
 
 install() {
   case $(_os) in
-  arch)
+  linux-arch)
     yay --needed --noconfirm -S flat-remix-gnome flat-remix-gtk flat-remix
 
     sudo pacman -S gnome gnome-extra gdm manjaro-gnome-assets manjaro-gdm-theme manjaro-settings-manager
     ;;
-  debian)
+  linux-RHEL)
+    # TODO:
+    ;;
+  linux-debian)
     $APT_INSTALL gnome-shell ubuntu-gnome-desktop
     tempdir=/tmp/temp-install
     mkdir -p $tempdir

@@ -2,17 +2,7 @@
 source ${0:A:h}/../../deploy
 
 install() {
-  case $(_os) in
-  macos)
-    brew install asciinema
-    ;;
-  arch)
-    yay --needed --noconfirm -S asciinema
-    ;;
-  debian)
-    $APT_INSTALL asciinema
-    ;;
-  esac
+  brew install asciinema
 }
 
 # update() {}

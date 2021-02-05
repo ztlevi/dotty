@@ -7,10 +7,13 @@ install() {
     brew install --cask docker
     brew install dive
     ;;
-  arch)
+  linux-arch)
     yay --needed --noconfirm -S docker docker-compose dive
     ;;
-  debian)
+  linux-RHEL)
+    # TODO
+    ;;
+  linux-debian)
     sudo apt-get update
     $APT_INSTALL apt-transport-https ca-certificates curl gnupg-agent software-properties-common
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -31,12 +34,7 @@ install() {
     ;;
   esac
 
-  case $(_os) in
-  macos | debian)
-    sudo usermod -a -G docker $USER # logout required, and docker should appear in `groups` output
-    ;;
-  esac
-
+  sudo usermod -a -G docker $USER # logout required, and docker should appear in `groups` output
 }
 
 # update() {}

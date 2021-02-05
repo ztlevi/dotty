@@ -14,7 +14,7 @@ dke() {
 
 dk() {
   case $(_os) in
-  arch | debian) systemctl -q is-active docker || sudo systemctl start docker ;;
+  linux-*) systemctl -q is-active docker || sudo systemctl start docker ;;
   esac
   docker $@
 }

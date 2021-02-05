@@ -32,7 +32,7 @@ spa() {
   macos)
     open ${file}
     ;;
-  debian | arch)
+  linux-*)
     xdg-open ${file}
     ;;
   esac

@@ -92,10 +92,12 @@ fi
 if [[ $(_os) == 'macos' ]]; then
   antigen bundle brew
   antigen bundle osx
-elif [[ $(_os) == 'arch' ]]; then
+elif [[ $(_os) == 'linux-arch' ]]; then
   antigen bundle archlinux
-elif [[ $(_os) == 'debian' ]]; then
+elif [[ $(_os) == 'linux-debian' ]]; then
   antigen bundle ubuntu
+elif [[ $(_os) == 'linux-RHEL' ]]; then
+  antigen bundle yum
 elif [[ $(_os) == 'cygwin' ]]; then
   antigen bundle cygwin
 fi

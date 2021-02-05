@@ -3,17 +3,10 @@ source ${0:A:h}/../../deploy
 source env.zsh
 
 install() {
-  case $(_os) in
-  macos)
-    brew install tmux reattach-to-user-namespace
-    ;;
-  arch)
-    yay --needed --noconfirm -S tmux xclip
-    ;;
-  debian)
-    brew install tmux xclip
-    ;;
-  esac
+  brew install tmux xclip
+  if [[ $(_os) == "macos" ]]; then
+    brew install reattach-to-user-namespace
+  fi
 
   _ensure_repo tmux-plugins/tpm $TMUX_PLUGIN_MANAGER_PATH/tpm
 

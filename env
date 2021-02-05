@@ -82,11 +82,11 @@ function _ensure_repo() {
 function _os() {
   case $OSTYPE in
     linux*) if [[ -f /etc/arch-release ]]; then
-      echo arch
+      echo linux-arch
     elif [[ -f /etc/debian_version ]]; then
-      echo debian
+      echo linux-debian
     elif [[ -f /etc/yum.conf ]]; then
-      echo RHEL
+      echo linux-RHEL
     fi ;;
     darwin*) echo macos ;;
     cygwin*) echo cygwin ;;

@@ -8,10 +8,10 @@ install() {
 
   # npm install --global lua-fmt
   case $(_os) in
-  arch)
+  linux-arch)
     yay --needed --noconfirm -S awesome i3lock-fancy-rapid-git xfce4-power-manager
     ;;
-  debian)
+  linux-debian)
     sudo add-apt-repository ppa:klaus-vormweg/awesome
     sudo apt-get update
     $APT_INSTALL awesome i3lock libx11-dev xfce4-power-manager
@@ -24,6 +24,9 @@ install() {
       sudo cp i3lock-fancy-rapid /usr/local/bin
       rm -rf /tmp/i3lock-fancy-rapid
     )
+    ;;
+  linux-RHEL)
+    # TODO
     ;;
   esac
 }
@@ -44,10 +47,10 @@ link() {
   remove_configs config
   remove_configs ../general/config
   case $(_os) in
-  debian)
+  linux-debian)
     mklink config/awesome-4.2 $XDG_CONFIG_HOME/awesome
     ;;
-  arch)
+  linux-arch)
     mklink config/awesome $XDG_CONFIG_HOME/awesome
     ;;
   esac

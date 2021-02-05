@@ -25,14 +25,17 @@ install() {
     # Set default apps
     ${0:A:h}/bin/macos_set_default_apps.sh
     ;;
-  arch)
+  linux-arch)
     yay --needed --noconfirm -S \
       telegram-desktop jetbrains-toolbox \
       dropbox webtorrent-desktop typora youtube-dl
     ;;
-
-  # TODO: debian apps
-  debian) # Insatll typora
+  linux-RHEL)
+    # TODO
+    ;;
+  linux-debian)
+    # TODO: debian apps
+    # Insatll typora
     brew install youtube-dl
     wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
     # add Typora's repository

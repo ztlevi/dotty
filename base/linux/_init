@@ -4,7 +4,7 @@ source ${0:A:h}/env.zsh
 
 install() {
   case $(_os) in
-  debian)
+  linux-debian)
     sudo apt-get update
 
     # Core essentials
@@ -13,7 +13,7 @@ install() {
     # Extra packages
     $APT_INSTALL net-tools exfat-fuse exfat-utils p7zip-full wmctrl
     ;;
-  RHEL)
+  linux-RHEL)
     sudo yum groupinstall "Development Tools" "Development Libraries"
     ;;
   esac

@@ -7,14 +7,16 @@ install() {
   mkdir -p $tempdir
 
   case $(_os) in
-  arch)
+  linux-arch)
     yay --needed --noconfirm -S \
       xorg-server xorg-xrandr xorg-xinit xorg-xsetroot xorg-xbacklight xdotool wmname maim wmctrl \
       bspwm sxhkd compton dunst rofi feh xcb-proto polybar libnotify redshift pavucontrol \
       flat-remix-gnome flat-remix-gtk flat-remix qt5-styleplugins i3lock
     ;;
-
-  debian)
+  linux-RHEL)
+    # TODO: add RHEL bspwm packages
+    ;;
+  linux-debian)
     sudo apt install -y compton i3lock suckless-tools redshift xdotool xbacklight gcc make pavucontrol
 
     brew install feh

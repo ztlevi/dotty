@@ -4,11 +4,7 @@ source ${0:A:h}/../../deploy
 wee=${0:A:h}/bin/wee
 
 install() {
-  case $(_os) in
-  macos) brew install weechat ;;
-  arch) yay --needed --noconfirm -S weechat ;;
-  debian) $APT_INSTALL weechat ;; # NOTE untested
-  esac
+  brew install weechat
 
   # NOTE: init.sh needs to be run separately, afterward
   echo "Don't forget to run weechat/scripts/bootstrap.sh while weechat is open"

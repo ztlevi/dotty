@@ -12,15 +12,17 @@ install() {
     defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false # For VS Code Insider
     defaults delete -g ApplePressAndHoldEnabled                                      # If necessary, reset global default
     ;;
-  arch)
+  linux-arch)
     yay --needed --noconfirm -S \
       pandoc ffmpeg glances mimeo bandwhich \
       google-chrome visual-studio-code-bin
 
     mimeo --prefer google-chrome.desktop --prefer vlc.desktop
-
     ;;
-  debian) # Insatll typora
+  linux-RHEL)
+    # TODO
+    ;;
+  linux-debian) # Insatll typora
     brew install pandoc ffmpeg glances
 
     ${0:A:h}/../../deploy dev/rust

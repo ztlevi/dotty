@@ -2,11 +2,7 @@
 source ${0:A:h}/../../deploy
 
 install() {
-  case $(_os) in
-  macos) brew install editorconfig ;;
-  arch) yay --needed --noconfirm -S editorconfig-core-c ;;
-  debian) $APT_INSTALL editorconfig ;;
-  esac
+  brew install editorconfig
 }
 
 # update() {}

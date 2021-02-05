@@ -2,40 +2,9 @@
 source ${0:A:h}/../../deploy
 
 install() {
-  case $(_os) in
-  macos)
-    brew install cmake ninja clang-format
-    brew tap twlz0ne/homebrew-ccls
-    brew install ccls
-    ;;
-  arch) yay --needed --noconfirm -S cmake ninja clang ccls ;;
-  debian)
-    brew install cmake ninja
-    $APT_INSTALL clang-format
-
-    # Install the gcc-7 packages:
-    sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
-    sudo apt update
-    sudo apt install g++-7 -y
-    # Set it up so the symbolic links gcc, g++ point to the newer version:
-    sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 60 \
-      --slave /usr/bin/g++ g++ /usr/bin/g++-7
-    sudo update-alternatives --config gcc
-    gcc --version
-    g++ --version
-
-    # Build ccls
-    (
-      mkdir -p /tmp/temp-install && cd /tmp/temp-install
-      git clone --depth=1 --recursive https://github.com/MaskRay/ccls
-      cd ccls
-      wget -c http://releases.llvm.org/8.0.0/clang+llvm-8.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz
-      tar xf clang+llvm-8.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz
-      cmake -H. -BRelease -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=$PWD/clang+llvm-8.0.0-x86_64-linux-gnu-ubuntu-18.04
-      cmake --build Release
-    )
-    ;;
-  esac
+  brew install cmake ninja clang-format
+  brew tap twlz0ne/homebrew-ccls
+  brew install ccls
 }
 
 # update() {}

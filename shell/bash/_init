@@ -2,11 +2,7 @@
 source ${0:A:h}/../../deploy
 
 install() {
-  case $(_os) in
-  macos) brew install bash ;;
-  # arch) ;;  # NOTE Already installed
-  debian) $APT_INSTALL bash ;;
-  esac
+  brew install bash
 }
 
 # update() { }

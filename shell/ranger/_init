@@ -2,18 +2,7 @@
 source ${0:A:h}/../../deploy
 
 install() {
-  case $(_os) in
-  macos)
-    brew install ranger
-    ;;
-  arch)
-    yay --needed --noconfirm -S ranger
-    ;;
-  debian)
-    $APT_INSTALL ranger
-    ;;
-  esac
-
+  brew install ranger
 }
 
 # update() {}

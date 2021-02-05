@@ -3,22 +3,7 @@ source ${0:A:h}/../../deploy
 source env.zsh
 
 install() {
-  case $(_os) in
-  macos)
-    brew install python pyenv
-    ;;
-  arch)
-    yay --needed --noconfirm -S python-pip pyenv
-    ;;
-  debian)
-    $APT_INSTALL python3-pip
-
-    # Install pyenv
-    PROJ=pyenv-installer
-    SCRIPT_URL=https://github.com/pyenv/$PROJ/raw/master/bin/$PROJ
-    curl -L $SCRIPT_URL | bash
-    ;;
-  esac
+  brew install python pyenv
 
   python3 -m pip install --user --upgrade pip setuptools pipenv
 }

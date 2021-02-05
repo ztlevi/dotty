@@ -8,11 +8,15 @@
 source ${0:A:h}/../../deploy
 
 install() {
+  brew install yq
   case $(_os) in
-  arch)
-    yay --needed --noconfirm -S alacritty yq
+  linux-arch)
+    yay --needed --noconfirm -S alacritty
     ;;
-  debian)
+  linux-RHEL)
+    # TODO
+    ;;
+  linux-debian)
     # For Ubuntu 18 and over
     # sudo add-apt-repository ppa:mmstick76/alacritty
     # sudo apt-get update
@@ -36,11 +40,9 @@ install() {
       sudo cp -f target/release/alacritty /usr/local/bin
       rm -rf $tempdir/alacritty-*
     )
-    brew install yq
     ;;
   macos)
     brew install --cask alacritty
-    brew install yq
     ;;
   esac
 }
@@ -63,13 +65,11 @@ link() {
     fi
     yq eval-all $yq_expression ${config_files[@]} >$config_file
   )
-  case $(_os) in
-  macos)
+  if [[ $(_os) == "macos" ]]; then
     # Increase macos font size by 3
     local increased_font_size=$(($(yq eval '.font.size' $config_file) + 1))
     yq eval ".font.size = $increased_font_size" $config_file --inplace
-    ;;
-  esac
+  fi
 }
 
 clean() {

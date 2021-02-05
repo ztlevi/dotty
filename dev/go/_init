@@ -3,11 +3,7 @@ source ${0:A:h}/../../deploy
 source env.zsh
 
 install() {
-  case $(_os) in
-  macos) brew install go ;;
-  arch) yay --needed --noconfirm -S go ;;
-  debian) sudo apt install -y golang-go ;;
-  esac
+  brew install go
 
   update
 }
