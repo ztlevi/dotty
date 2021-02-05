@@ -23,6 +23,8 @@ function _os() {
     echo arch
   elif [[ -f /etc/debian_version ]]; then
     echo debian
+  elif [[ -f /etc/yum.conf ]]; then
+    echo RHEL
   fi ;;
   darwin*) echo macos ;;
   cygwin*) echo cygwin ;;
@@ -39,7 +41,7 @@ if _uncallable zsh || _uncallable gh; then
     fi
     brew install gh zsh
     ;;
-  debian)
+  debian | RHEL)
     if ! _is_callable brew; then
       sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
     fi

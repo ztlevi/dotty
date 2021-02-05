@@ -4,7 +4,7 @@ source ${0:A:h}/../../deploy
 install() {
 
   case $(_os) in
-  debian) brew install gnupg ;;
+  debian | RHEL) brew install gnupg ;;
   macos)
     brew install gnupg pinentry-mac
     ;;
