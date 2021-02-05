@@ -66,8 +66,8 @@ link() {
     yq eval-all $yq_expression ${config_files[@]} >$config_file
   )
   if [[ $(_os) == "macos" ]]; then
-    # Increase macos font size by 3
-    local increased_font_size=$(($(yq eval '.font.size' $config_file) + 1))
+    # Increase macos font size by 2
+    local increased_font_size=$(($(yq eval '.font.size' $config_file) + 2))
     yq eval ".font.size = $increased_font_size" $config_file --inplace
   fi
 }
