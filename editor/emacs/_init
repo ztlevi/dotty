@@ -20,6 +20,9 @@ install() {
     sudo apt-get update
     sudo apt install emacs27
     ;;
+  RHEL)
+    brew install emacs
+    ;;
   esac
 
   # Clone Doom Eemacs
