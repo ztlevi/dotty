@@ -25,8 +25,8 @@ cd ~/Dotfiles
 ./deploy base/macos shell/zsh
 # Arch
 ./deploy base/arch shell/zsh
-# Debian
-./deploy base/debian shell/zsh
+# Debian or RHEL
+./deploy base/linux shell/zsh
 
 # Linux Desktop Environment (Gnome/Awesome/Bspwm)
 ./deploy desktop/bspwm
