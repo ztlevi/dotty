@@ -8,6 +8,7 @@ install() {
 # update() {}
 
 link() {
+  rm -rf $XDG_CONFIG_HOME/ranger
   mklink config/* $XDG_CONFIG_HOME/
 }
 
