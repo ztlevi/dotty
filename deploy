@@ -95,6 +95,11 @@ function topic-init {
       echo-ok "$topic: added $topic/bin to PATH, temporarily"
     fi
 
+    if [[ -n $LINK ]] || ! topic-enabled-p $topic; then
+      local op=install
+      mklink $tpath $tsympath
+    fi
+
     if [[ -z $INHIBIT_INIT ]]; then
       _topic-do $topic ${FORCE_OP:-${op:-update}}
       if [[ $op == install && $? != 0 ]]; then
@@ -103,8 +108,6 @@ function topic-init {
     fi
 
     if [[ -n $LINK ]] || ! topic-enabled-p $topic; then
-      local op=install
-      mklink $tpath $tsympath
       _topic-do $topic link
     fi
   done
