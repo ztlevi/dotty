@@ -10,11 +10,16 @@ install() {
     brew tap microsoft/git
     brew install --cask git-credential-manager-core
     ;;
-  linux-debian)
-    sudo apt install libgnome-keyring-dev
-    ;;
-  linux-arch)
-    yay --needed -noconfirm -S gnome-keyring libsecret
+  linux-*)
+    local tempdir=/tmp/temp-install
+    mkdir -p $tempdir
+    (
+      cd $tempdir
+      wget --no-check-certificate \
+        $(get_github_latest_release_url microsoft/Git-Credential-Manager-Core .tar.gz) -O gcm.tar.gz
+      sudo tar -xvf gcm.tar.gz -C /usr/local/bin
+      rm -f gcm.tar.gz
+    )
     ;;
   esac
 }
