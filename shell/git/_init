@@ -6,6 +6,10 @@ GIT_DIR="$XDG_CONFIG_HOME/git"
 install() {
   brew install git git-lfs gh diff-so-fancy git-standup git-extras git-flow-avh
   case $(_os) in
+  macos)
+    brew tap microsoft/git
+    brew install --cask git-credential-manager-core
+    ;;
   linux-debian)
     sudo apt install libgnome-keyring-dev
     ;;
@@ -19,25 +23,7 @@ install() {
 
 link() {
   rm -fv ~/.gitconfig $GIT_DIR/config
-  mklink ignore $GIT_DIR/
-
-  cp -fv ${0:A:h}/config $GIT_DIR/config
-
-  case $(_os) in
-  linux-debian | linux-RHEL)
-    # keyring="cache --timeout 604800" # keep for a week
-    # Plain text
-    cred_path=$(realpath $HOME/.config/git/credentials)
-    keyring="store --file ${cred_path}"
-    ;;
-  linux-arch)
-    keyring=/usr/lib/git-core/git-credential-libsecret
-    ;;
-  macos)
-    keyring=osxkeychain
-    ;;
-  esac
-  git config --global --add credential.helper $keyring
+  mklink config $GIT_DIR/
 }
 
 clean() {

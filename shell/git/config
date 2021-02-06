@@ -35,6 +35,8 @@
 	accept-theirs = "!f() { git checkout --theirs -- \"${@:-.}\"; git add -u \"${@:-.}\"; }; f"
 	tagcommit = !sh -c 'git rev-list $0 | head -n 1'
 	dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)%an <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s' --date-order
+[init]
+	defaultBranch = master
 [commit]
 	gpgsign = true
 [tag]
@@ -44,11 +46,15 @@
 	ignorecase = false
 	pager = less -FMRiX
 [pull]
-	rebase = false
+	rebase = true
 [push]
 	default = matching
 [branch]
 	autosetuprebase = always
+[credential]
+	helper = /usr/local/bin/git-credential-manager-core
+[color]
+	ui = auto
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -68,5 +74,3 @@
 [hub]
 	host = github.argo.ai
 	protocol = https
-[color]
-	ui = auto
