@@ -44,6 +44,7 @@ host ${connection_name}
   hostname ${hostname}
   user ${user}
   RemoteForward ${remote_socket} ${local_extra_socket}
+  ForwardAgent yes
   ExitOnForwardFailure yes
 EOF
 }
