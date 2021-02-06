@@ -49,7 +49,8 @@ cd ~/Dotfiles
 
 1. Don't forget to import your private/public GPG keys, see [README](./misc/gpg/README.md).
 2. On Linux, you will need to init pass to enable Git-Credential-Manager-Core (GCM-Core), `pass init ztlevi.work@gmail.com`.
-3. Git now uses personal tokens as password, go [here](https://github.com/settings/tokens) to create a new token. If you are on linux, our first git auth should be inside terminal and select `personal access token` when GCM-Core pop authentication.
+3. First git auth should be inside terminal and select auth options when GCM-Core pop authentication.
+   - (Optional) If you select **personal access token**, go [here](https://github.com/settings/tokens) to create a new token.
 
 ## Overview
 
