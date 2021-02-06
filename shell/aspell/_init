@@ -13,8 +13,7 @@ link() {
 }
 
 clean() {
-  ~/.aspell.en.prepl
-  ~/.aspell.en.pws
+  rm -f ~/.aspell.en.prepl ~/.aspell.en.pws
 }
 
 init "$@"
