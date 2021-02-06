@@ -1,5 +1,9 @@
 # Git Setup
 
+## Personal token as password
+
+Git now uses personal tokens as password, go [here](https://github.com/settings/tokens) to create a new token.
+
 ## Credential Storage: default credential is stored in "~/.git-credentials".
 
 https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage

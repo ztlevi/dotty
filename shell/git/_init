@@ -11,6 +11,7 @@ install() {
     brew install --cask git-credential-manager-core
     ;;
   linux-*)
+    brew install pass
     local tempdir=/tmp/temp-install
     mkdir -p $tempdir
     (
@@ -29,6 +30,7 @@ install() {
 link() {
   rm -fv ~/.gitconfig $GIT_DIR/config
   mklink config $GIT_DIR/
+  mklink ignore $GIT_DIR/
 }
 
 clean() {

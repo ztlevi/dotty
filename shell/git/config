@@ -51,6 +51,8 @@
 	default = matching
 [branch]
 	autosetuprebase = always
+[credential "https://dev.azure.com"]
+	useHttpPath = true
 [credential]
 	helper = /usr/local/bin/git-credential-manager-core
 [color]

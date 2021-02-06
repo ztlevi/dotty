@@ -17,11 +17,21 @@ Linux will pinentry-gnome, macos will use pinentry-mac as interface client.
 3. Copy the puclic key to the remote machine
 
    ```sh
-   scp $HOME/.gnupg/pubring.kbx kuro:/home/ztlevi/.gnupg
+   scp -r $HOME/.gnupg kuro:/home/zhot
+   # Then on remove server, e.g. kuro, do:
+   gpgconf --kill gpg-agent
    ```
 
-   If you already exported it, you can do
+   Or, if you exported already:
 
    ```sh
-   gpg --import mypublickey.pub
+   cd ~/Downloads/mygpgexport
+   gpg --import myprivatekeys.asc
+   gpg --import mypubkeys.asc
+   gpg -K
+   gpg -k
+   gpg --import-ownertrust otrust.txt
+
+   # restart agent
+   gpgconf --kill gpg-agent
    ```
