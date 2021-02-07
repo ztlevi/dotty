@@ -92,6 +92,7 @@ function update_my_repos() {
     )
   } &
   PID1=$!
+  local last_doom_rev=$(git -C ${XDG_CONFIG_HOME}/doom rev-parse HEAD)
   update_git_repo ${XDG_CONFIG_HOME}/doom &
   PID2=$!
   antigen update >${ANTIGEN_SUMMARY_FILE} &
@@ -104,7 +105,8 @@ function update_my_repos() {
   _cache_clear
 
   echo ${fg_bold[white]}${bg[blue]}"$(center_text 'Doom Sync Summary' '>')"${reset_color}
-  doom sync
+  local cur_doom_rev=$(git -C ${XDG_CONFIG_HOME}/doom rev-parse HEAD)
+  [[ $cur_doom_rev != $last_doom_rev ]] && doom sync
 
   echo ${fg_bold[white]}${bg[blue]}"$(center_text 'Antigen Summary' '>')"${reset_color}
   cat ${ANTIGEN_SUMMARY_FILE}
