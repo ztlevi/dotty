@@ -11,7 +11,7 @@ install() {
   _ensure_repo tmux-plugins/tpm $TMUX_PLUGIN_MANAGER_PATH/tpm
 
   # kill tmux to avoid protocol version mismatch (client 8, server 7) error
-  pkill tmux || echo
+  pkill tmux || true
 
   local tpm=$TMUX_PLUGIN_MANAGER_PATH/tpm
   if [[ -d $tpm ]]; then

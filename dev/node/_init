@@ -23,6 +23,8 @@ update() {
 
 # link() {}
 
-# clean() {}
+clean() {
+  rm -rf $NODENV_ROOT
+}
 
 init "$@"

@@ -75,7 +75,7 @@ function _ensure_repo() {
       url=git@github.com:$USER/$target.git
     fi
     [[ -n ${dest%/*} ]] && mkdir -p ${dest%/*}
-    git clone --recursive "$url" "$dest" || return 1
+    git clone --recursive --depth 1 "$url" "$dest" || return 1
   else
     git -C $dest pull
   fi
@@ -96,6 +96,7 @@ function _os() {
 }
 
 function _cache() {
+  command -v "$1" >/dev/null || return 1
   local cache_dir="$XDG_CACHE_HOME/${SHELL##*/}"
   local cache="$cache_dir/$1"
   if [[ ! -f $cache || ! -s $cache ]]; then
@@ -103,7 +104,7 @@ function _cache() {
     mkdir -p $cache_dir
     "$@" >$cache
   fi
-  source $cache
+  source $cache || rm -f $cache
 }
 
 function _cache_clear() {
