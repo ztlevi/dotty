@@ -22,7 +22,7 @@ install() {
   linux-RHEL)
     # TODO
     ;;
-  linux-debian) # Insatll typora
+  linux-debian)
     brew install pandoc ffmpeg glances
 
     ${0:A:h}/../../deploy dev/rust
@@ -31,7 +31,7 @@ install() {
   esac
   # NPM Packages
   npm install -g npm yarn prettier live-server hexo-cli \
-    reveal-md typescript tslint cspell import-js
+    reveal-md typescript tslint cspell typescript-language-server
 
   # PIP
   python3 -m pip install --user --upgrade pylint yapf autoflake gnureadline black grip cpplint

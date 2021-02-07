@@ -35,22 +35,16 @@ install() {
     ;;
   linux-debian)
     # TODO: debian apps
-    # Insatll typora
     brew install youtube-dl
+
+    # install typora
     wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
     # add Typora's repository
     sudo add-apt-repository 'deb https://typora.io/linux ./'
     sudo apt-get update
-    # install typora
     $APT_INSTALL typora
     ;;
   esac
-  # NPM Packages
-  npm install -g npm yarn prettier live-server hexo-cli \
-    reveal-md typescript tslint cspell import-js
-
-  # PIP
-  python3 -m pip install --user --upgrade pylint yapf autoflake gnureadline black importmagic epc grip cpplint
 }
 
 # update() {}
