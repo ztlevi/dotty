@@ -8,6 +8,7 @@ The work directory structure at `.work` should look like this:
 │   ├── aliases.zsh  # file contains aliases
 │   ├── env.zsh      # file contains environment variables
 │   ├── preload.zsh  # company predefined zshrc
+│   ├── local.el     # emacs local config
 ├── notes
 ```
 
