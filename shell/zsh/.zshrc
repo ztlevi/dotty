@@ -1,4 +1,6 @@
 # Load Antigen bundles first
+[[ -f $HOME/.work/dots/preload.zsh ]] && source $HOME/.work/dots/preload.zsh
+
 _load shell/zsh/bundles.zsh
 _load shell/zsh/fasd.zsh
 

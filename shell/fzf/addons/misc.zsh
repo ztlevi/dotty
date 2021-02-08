@@ -3,12 +3,14 @@
 # Switch projects
 function fzf_projects() {
   # Each root is consist of PATH:scan_depth
-  project_scans=("${HOME}:1" "${HOME}/Dropbox:1" "${HOME}/go/src:1" "${HOME}/dev:2" "${XDG_CONFIG_HOME}:1")
+  project_scans=("${HOME}:1" "${HOME}/Dropbox:1" "${HOME}/go/src:1" "${HOME}/dev:2" "${HOME}/workplace:3"
+    "${XDG_CONFIG_HOME}:1")
 
   projects=()
   local project scan_depth
   for project_scan in ${project_scans[@]}; do
     IFS=: read -r project scan_depth <<<"${project_scan}"
+    project=$(readlink $project)
     if [[ -d ${project} ]]; then
       for dir in $(find ${project} -maxdepth ${scan_depth} -type d); do
         if [[ -d ${dir}/.git ]]; then
