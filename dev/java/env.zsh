@@ -11,6 +11,7 @@ if [[ -f /usr/libexec/java_home ]]; then
 elif [[ -f /usr/bin/javac ]]; then
   export JAVA_HOME=$(dirname $(dirname $(readlink -e /usr/bin/javac)))
 fi
+
 if [[ $JAVA_HOME ]]; then
   export JRE_HOME=$JAVA_HOME/jre
   export CLASSPATH=$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH

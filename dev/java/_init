@@ -18,8 +18,8 @@ install() {
     # $APT_INSTALL oracle-java12-set-default
     ;;
   linux-RHEL)
-    sudo yum install java-1.8.0-openjdk java-1.8.0-openjdk-devel
-    _is_callable amazon-linux-extras && sudo amazon-linux-extras install java-openjdk11
+    sudo yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel
+    sudo yum -y install java-11-amazon-corretto-headless
     ;;
   esac
   brew install gradle maven

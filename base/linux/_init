@@ -14,7 +14,7 @@ install() {
     $APT_INSTALL net-tools exfat-fuse exfat-utils p7zip-full wmctrl
     ;;
   linux-RHEL)
-    sudo yum groupinstall "Development Tools" "Development Libraries"
+    sudo yum -y groupinstall "Development Tools" "Development Libraries"
     ;;
   esac
 

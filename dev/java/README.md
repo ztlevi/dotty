@@ -23,7 +23,7 @@ So to switch version, use the following command,
 Use the _alternative_ configuration tool,
 
 ```bash
-sudo update-alternatives — config java
+sudo update-alternatives —config java
 ```
 
 ### For RedHat/Fedora -like Linux
