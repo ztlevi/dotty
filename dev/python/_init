@@ -6,6 +6,10 @@ install() {
   brew install python pyenv
 
   python3 -m pip install --user --upgrade pip setuptools pipenv
+
+  # Other packages
+  python3 -m pip install --user --upgrade pylint yapf autoflake gnureadline black grip cpplint
+
 }
 
 update() {
@@ -15,7 +19,7 @@ update() {
 link() {
   mklink config/flake8 $XDG_CONFIG_HOME/
   mklink config/pudb/pudb.cfg $XDG_CONFIG_HOME/pudb/
-  mklink .mypy.ini ~/
+  mklink .* ~/
 }
 
 clean() {

@@ -8,6 +8,10 @@ install() {
 
   nodenv install $NODE_VERSION
   nodenv global $NODE_VERSION
+
+  # NPM Packages
+  npm install -g npm yarn prettier live-server hexo-cli \
+    reveal-md typescript tslint cspell typescript-language-server
 }
 
 update() {
@@ -21,7 +25,9 @@ update() {
   npm update -g
 }
 
-# link() {}
+link() {
+  mklink .* ~/
+}
 
 clean() {
   rm -rf $NODENV_ROOT
