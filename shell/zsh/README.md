@@ -6,3 +6,4 @@
    `/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:` into
    your system PATH at the beginning of zprofile (or the end of zshenv).
 2. System PATH changes should go to profile.
+3. Host specific config see `shell/work/README.md` (pre-load.zsh and post-load.zsh).

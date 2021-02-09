@@ -1,5 +1,5 @@
 # Load Antigen bundles first
-[[ -f $HOME/.work/dots/preload.zsh ]] && source $HOME/.work/dots/preload.zsh
+[[ -f $HOME/.work/dots/pre-load.zsh ]] && source $HOME/.work/dots/pre-load.zsh
 
 _load shell/zsh/bundles.zsh
 _load shell/zsh/fasd.zsh
@@ -12,6 +12,4 @@ _load shell/zsh/proxy.zsh
 
 _load_all aliases.zsh
 
-if [ -f ${0:A:h}/local.zsh ]; then
-  source ${0:A:h}/local.zsh
-fi
+[[ -f $HOME/.work/dots/post-load.zsh ]] && source $HOME/.work/dots/post-load.zsh
