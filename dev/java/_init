@@ -7,7 +7,7 @@ install() {
   case $(_os) in
   macos)
     brew tap adoptopenjdk/openjdk
-    brew install --cask adoptopenjdk8
+    brew install --cask adoptopenjdk8 adoptopenjdk11
     ;;
   linux-debian)
     sudo apt install openjdk-8-jdk
@@ -19,6 +19,7 @@ install() {
     ;;
   linux-RHEL)
     sudo yum install java-1.8.0-openjdk java-1.8.0-openjdk-devel
+    _is_callable amazon-linux-extras && sudo amazon-linux-extras install java-openjdk11
     ;;
   esac
   brew install gradle maven

@@ -4,37 +4,14 @@ source ${0:A:h}/../../deploy
 install() {
   case $(_os) in
   macos)
-    brew install --cask docker
-    brew install dive
+    brew uninstall --cask docker
+    brew install docker-compose dive
     ;;
-  linux-arch)
-    yay --needed --noconfirm -S docker docker-compose dive
-    ;;
-  linux-RHEL)
-    # TODO
-    ;;
-  linux-debian)
-    sudo apt-get update
-    $APT_INSTALL apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-    sudo apt-key fingerprint 0EBFCD88
-    sudo add-apt-repository \
-      "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-      $(lsb_release -cs) \
-      stable"
-    sudo apt-get update
-    $APT_INSTALL docker-ce docker-ce-cli containerd.io
-
-    (
-      cd /tmp
-      wget --no-check-certificate $(get_github_latest_release_url 'wagoodman/dive' 'deb') -O dive_linux_amd64.deb
-      sudo apt install ./dive_linux_amd64.deb
-      rm -rf ./dive_linux_amd64.deb
-    )
+  linux-*)
+    brew install docker docker-compose dive
+    sudo usermod -a -G docker $USER # logout required, and docker should appear in `groups` output
     ;;
   esac
-
-  sudo usermod -a -G docker $USER # logout required, and docker should appear in `groups` output
 }
 
 # update() {}
