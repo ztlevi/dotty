@@ -2,7 +2,7 @@ function unison-sync() {
   # Usage:
   # unison-sync <path-to-your-local-workplace> ssh://<username>@<remote-hostname>/<remote-workplace>
   # You need to remove local or remote ~/.unison cache if failed
-  if ! pgrep -qi unison; then
+  if ! pgrep unison >/dev/null; then
     while :; do
       echo "Starting unison process... " $(date)
       unison -ui text default.prf $1 $2
