@@ -3,18 +3,11 @@ source ${0:A:h}/../../deploy
 source env.zsh
 
 install() {
-  _ensure_repo madumlao/phpenv $PHPENV_ROOT
-  _ensure_repo php-build/php-build $PHPENV_ROOT/plugins/php-build
-  brew install libmcrypt
+  brew install phpenv php-build libmcrypt
 }
 
 update() {
-  if [[ -n $PHPENV_ROOT ]]; then
-    cd $PHPENV_ROOT && git pull
-    for ver in $PHPENV_ROOT/plugins/*(/N); do
-      cd $ver && git pull
-    done
-  fi
+  brew upgrade phpenv php-build libmcrypt
 }
 
 # link() { }

@@ -3,8 +3,7 @@ source ${0:A:h}/../../deploy
 source env.zsh
 
 install() {
-  _ensure_repo nodenv/nodenv $NODENV_ROOT
-  _ensure_repo nodenv/node-build $NODENV_ROOT/plugins/node-build
+  brew install nodenv node-build
 
   nodenv install $NODE_VERSION
   nodenv global $NODE_VERSION
@@ -15,13 +14,7 @@ install() {
 }
 
 update() {
-  if [[ -n $NODENV_ROOT ]]; then
-    cd $NODENV_ROOT && git pull
-    for ver in $NODENV_ROOT/plugins/*(/); do
-      cd $ver && git pull
-    done
-  fi
-
+  brew upgrade nodenv node-build
   npm update -g
 }
 
