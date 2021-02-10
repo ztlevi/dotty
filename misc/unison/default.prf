@@ -1,0 +1,94 @@
+# Manual: http://www.cis.upenn.edu/~bcpierce/unison/download/releases/stable/unison-manual.html
+
+# Roots of the synchronization
+# root = <path-to-your-local-workplace>
+# root = ssh://<username>@<remote-hostname>/<remote-workplace>
+
+# Log output to file
+log = true
+logfile = .unison/unison.log
+
+# Specific paths to synchronize (or leave out to sync entire root)
+# Note that path will be included for the matches below so (for example) */.idea below will match workspace_name/.idea
+#   if your path is multilevel (i.e. has a slash in it), you will need to adjust (ex: */*/.idea), since the * will not match a path separator!
+#path = workspace_name
+
+# Ignore rules for macOS
+ignore = Name {.DS_Store,.Spotlight-V100,.Trashes,.fseventsd,.Trash*}
+
+# Ignore rules for Eclipse
+ignore = Path */{.metadata,.settings,.project,.classpath}
+
+# Ignore rules for JetBrains/IntelliJ
+ignore = Name {.iml,.iws}
+ignore = Path */.idea
+
+# Ignore rules for vim
+ignore = Name {[._]*.s[a-v][a-z],[._]*.sw[a-p],[._]s[a-v][a-z],[._]sw[a-p],Session.vim,Sessionx.vim}
+
+# Ignore rules for brazil
+ignore = BelowPath */{env,logs,out}
+
+# target of `WORKSPACE/src/PACKAGE/build` symlink
+# Ignore everything inside except for integration and unit test output
+# Consider that you may need to do more if you are using gradle or other tools: https://sage.amazon.com/questions/976217 
+ignore    = Path */build/*/*/*/*/build/{,.}?*
+ignorenot = Path */build/*/*/*/*/build/brazil-integ-tests
+ignore    = Path */build/*/*/*/*/build/brazil-integ-tests/{,.}?*
+ignorenot = Path */build/*/*/*/*/build/brazil-integ-tests/{*.html,*.css,com}
+ignorenot = Path */build/*/*/*/*/build/brazil-unit-tests
+ignore    = Path */build/*/*/*/*/build/brazil-unit-tests/{,.}?*
+ignorenot = Path */build/*/*/*/*/build/brazil-unit-tests/{*.html,*.css,com}
+
+# Log files, in general
+ignore = Name log{,s}/*.log{,.*}
+
+# Uncomment to sync `package/build` contents. Doing so may confuse BrazilCLI2.0 and/or your IDE
+#ignorenot = Path */src/*/build/generated-src
+
+# Ignore ~/workplace/.unison/ config dir itself
+ignore = Path .unison
+
+# Establish case-sensitivity
+ignorecase = false
+
+# Poll files for changes every 5 seconds while CLI runs
+# Alternatively, cron/launchd can be used to sync periodically on unix/macOS
+# If you have unison-fsmonitor, set this to "watch" for filesystem events instead of polling
+repeat = 5
+
+# Backup settings. Keep 5 backups of all changed files
+backup = Name *
+maxbackups = 5
+
+# Retry once on failure
+retry = 1
+
+# Skip asking for confirmation on non-conflicting changes
+auto = true
+
+# No questions asked by the user interface
+batch = true
+
+# Unison will request an extra confirmation if it appears that the entire replica has been deleted
+confirmbigdeletes = true
+
+# Synchronize modification times (needed for below)
+times = true
+
+# Automatically take the newer version when there's a conflict
+prefer = newer
+
+# Suppress status messages
+terse = true
+
+# Suppress the contacting server message during startup
+contactquietly = true
+
+# path to unison executable on CloudDesk, if not in $PATH of non-login non-interactive shell
+# servercmd = /local/home/zhot/bin/unison
+
+# Load rules from another file in ~/.unison/ (can share a team .prf and still have local customizations)
+#include = local.config
+
+# vim: ft=dosini

@@ -1,0 +1,18 @@
+#!/usr/bin/env zsh
+source ${0:A:h}/../../deploy
+
+install() {
+  brew install unison
+}
+
+update() {
+  brew upgrade unison
+}
+
+link() {
+  mklink default.prf ~/.unison/default.prf
+}
+
+clean() {}
+
+init "$@"
