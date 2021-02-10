@@ -17,3 +17,5 @@ if [[ $JAVA_HOME ]]; then
   export CLASSPATH=$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH
   path=($JAVA_HOME/bin $path)
 fi
+
+_cache jenv init - --no-rehash
