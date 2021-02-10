@@ -18,7 +18,7 @@ Linux will pinentry-gnome, macos will use pinentry-mac as interface client.
 
    ```sh
    scp -r $HOME/.gnupg kuro:/home/zhot
-   # Then on remove server, e.g. kuro, do:
+   # Then on remote server, e.g. kuro, do:
    gpgconf --kill gpg-agent
    ```
 
