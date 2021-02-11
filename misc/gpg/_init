@@ -19,6 +19,13 @@ max-cache-ttl 1036800
 default-cache-ttl-ssh 86400
 max-cache-ttl-ssh 1036800
 EOF
+  case $(_os) in
+  macos)
+    cat <<EOF >>$HOME/.gnupg/gpg-agent.conf
+pinentry-program /usr/local/MacGPG2/libexec/pinentry-mac.app/Contents/MacOS/pinentry-mac
+EOF
+    ;;
+  esac
   # Restart gpg
   # gpgconf --kill gpg-agent
 }
