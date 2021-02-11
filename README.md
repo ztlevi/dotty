@@ -48,9 +48,9 @@ cd ~/Dotfiles
 ## Post-Installation
 
 1. Don't forget to import your private/public GPG keys, see [README](./misc/gpg/README.md).
-2. On Linux, you will need to init pass to enable Git-Credential-Manager-Core (GCM-Core), `pass init ztlevi.work@gmail.com`.
-3. First git auth should be inside terminal and select auth options when GCM-Core pop authentication.
-   - (Optional) If you select **personal access token**, go [here](https://github.com/settings/tokens) to create a new token.
+2. On Linux, you will need to init pass to enable Git-Credential-Manager-Core (GCM-Core),
+   `pass init ztlevi.work@gmail.com`. If you select **personal access token**, go
+   [here](https://github.com/settings/tokens) to create a new token.
 
 ## Overview
 
