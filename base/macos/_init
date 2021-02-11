@@ -48,6 +48,13 @@ update() {
 link() {
   mklink Library/Keybindings/* $HOME/Library/
 
+  # Sync karabiner config. It deos not allow symlink.
+  if [[ -f "$XDG_CONFIG_HOME/karabiner/karabiner.json" ]]; then
+    cp -f $XDG_CONFIG_HOME/karabiner/karabiner.json ${0:A:h}/config/karabiner/karabiner.json
+  else
+    cp -f ${0:A:h}/config/karabiner/karabiner.json $XDG_CONFIG_HOME/karabiner/karabiner.json
+  fi
+
   # Copy fonts
   mkdir -p ~/Library/Fonts
   fd ".*\.(ttf|otf)" "$DOTFILES/assets/fonts/general" --print0 | xargs -0 -n 1 -I{} rsync -a --ignore-existing "{}" ~/Library/Fonts
