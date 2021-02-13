@@ -7,7 +7,7 @@ _is_callable autoflake && alias remove-py-imports="git diff --name-only origin/d
 _is_callable prettier && alias format-all-prettier='prettier --write "**/*.{js,ts,jsx,tsx,json,css,scss,md}" --ignore-path $DOTFILES/shell/git/ignore'
 if _is_callable clang-format; then
   # alias format-all-clang="find . -regex '.*\.\(cpp\|hpp\|cc\|cxx\|h\)' -exec clang-format -style=file -i {} \;"
-  alias format-all-clang="fd -x clang-format -i -style=file {} \; -e c -e cc -e cpp -e h -e hh -e hpp . ."
+  alias format-all-clang="fd -x clang-format -i -style=file {} \; -e c -e cc -e cpp -e java -e h -e hh -e hpp . ."
 fi
 
 # used for mas
