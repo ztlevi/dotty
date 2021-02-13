@@ -12,7 +12,7 @@
     # if you want to use more colorscheme, please load the colorscheme
     # layer
     colorscheme = "one"
-    colorscheme_bg = "light"
+    colorscheme_bg = "dark"
     filetree_direction = "left"
     filemanager = "nerdtree"
     # Disable guicolors in basic mode, many terminal do not support 24bit
