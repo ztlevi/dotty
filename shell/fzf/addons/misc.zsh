@@ -10,7 +10,7 @@ function fzf_projects() {
   local project scan_depth
   for project_scan in ${project_scans[@]}; do
     IFS=: read -r project scan_depth <<<"${project_scan}"
-    project=$(readlink $project)
+    project="$(readlink $project || echo $project)"
     if [[ -d ${project} ]]; then
       for dir in $(find ${project} -maxdepth ${scan_depth} -type d); do
         if [[ -d ${dir}/.git ]]; then
