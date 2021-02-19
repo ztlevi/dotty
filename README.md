@@ -32,12 +32,12 @@ cd ~/Dotfiles
 ./deploy desktop/bspwm
 
 # Shell
-./deploy shell/alacritty shell/tmux shell/ranger \
+./deploy shell/alacritty shell/tmux shell/git shell/ranger \
   shell/fzf shell/aspell shell/work
 # Editor
 ./deploy editor/emacs editor/neovim editor/editorconfig
 # Development
-./deploy dev/cc dev/go dev/latex dev/node dev/python
+./deploy dev/cc dev/go dev/latex dev/node dev/python dev/java
 # Misc
 ./deploy misc/docker misc/gpg misc/apps
 
