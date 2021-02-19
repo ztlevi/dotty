@@ -18,15 +18,15 @@ install() {
   esac
 
   # Clone Doom Eemacs
-  rm -rfv ~/.emacs.d
-  git clone https://github.com/hlissner/doom-emacs -b develop ~/.emacs.d
+  rm -rfv $XDG_CONFIG_HOME/emacs.d
+  git clone https://github.com/hlissner/doom-emacs -b develop $XDG_CONFIG_HOME/emacs.d
 
   # Clone my config
-  rm -rfv ~/.doom.d
-  git clone https://github.com/ztlevi/doom-config ~/.doom.d
+  rm -rfv $XDG_CONFIG_HOME/doom.d
+  git clone https://github.com/ztlevi/doom-config $XDG_CONFIG_HOME/doom.d
 
-  cd ~/.emacs.d
-  ~/.emacs.d/bin/doom install
+  cd $XDG_CONFIG_HOME/emacs.d
+  $XDG_CONFIG_HOME/emacs.d/bin/doom install
 }
 
 update() {
@@ -34,17 +34,17 @@ update() {
 }
 
 link() {
-  [[ -d ~/.doom.d ]] && mv ~/.doom.d $XDG_CONFIG_HOME/doom
-  if [[ -d ~/.emacs.d ]]; then
-    rm -rf ~/.emacs.d/.local
-    mv ~/.emacs.d $XDG_CONFIG_HOME/emacs
+  [[ -d $XDG_CONFIG_HOME/doom.d ]] && mv $XDG_CONFIG_HOME/doom.d $XDG_CONFIG_HOME/doom
+  if [[ -d $XDG_CONFIG_HOME/emacs.d ]]; then
+    rm -rf $XDG_CONFIG_HOME/emacs.d/.local
+    mv $XDG_CONFIG_HOME/emacs.d $XDG_CONFIG_HOME/emacs
   fi
   mklink .ctags ~/.ctags
 }
 
 clean() {
-  rm -rfv ~/.doom.d
-  rm -rfv ~/.emacs.d
+  rm -rfv $XDG_CONFIG_HOME/doom.d
+  rm -rfv $XDG_CONFIG_HOME/emacs.d
 }
 
 init "$@"
