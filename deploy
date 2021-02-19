@@ -10,6 +10,11 @@
 source "${0:A:h}/env"
 SEP='.'
 
+if ! _is_callable brew; then
+    echo "homebrew cannot be found! Please edit your zshrc..."
+    exit 1
+fi
+
 # helpers
 function echo-debug { echo "$@" | sed -e "s%$HOME%~%g" -e "s%$DOTFILES%.%g"; }
 function echo-info  { printf "\r\033[2K\033[0;34m[ .. ]\033[0m %s\n" "$*"; }
