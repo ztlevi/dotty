@@ -34,11 +34,6 @@ update() {
 }
 
 link() {
-  [[ -d $XDG_CONFIG_HOME/doom ]] && mv $XDG_CONFIG_HOME/doom $XDG_CONFIG_HOME/doom
-  if [[ -d $XDG_CONFIG_HOME/emacs ]]; then
-    rm -rf $XDG_CONFIG_HOME/emacs/.local
-    mv $XDG_CONFIG_HOME/emacs $XDG_CONFIG_HOME/emacs
-  fi
   mklink .ctags ~/.ctags
 }
 
