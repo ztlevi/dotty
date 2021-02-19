@@ -17,7 +17,7 @@ Linux will pinentry-gnome, macos will use pinentry-mac as interface client.
 3. Copy the puclic key to the remote machine
 
    ```sh
-   scp -r $HOME/.gnupg kuro:/home/zhot
+   scp -r $HOME/.gnupg kuro:/home/ztlevi
    # Then on remote server, e.g. kuro, do:
    gpgconf --kill gpg-agent
    ```
