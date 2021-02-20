@@ -51,7 +51,7 @@ link() {
   rm -rf $XDG_CONFIG_HOME/alacritty
   mkdir -p $XDG_CONFIG_HOME/alacritty
   config_file=$XDG_CONFIG_HOME/alacritty/alacritty.yml
-  theme_file=city-lights-theme.yml
+  theme_file=one-light-theme.yml
   private_file=private.yml
   (
     cd $DOTFILES/shell/alacritty/config/alacritty
