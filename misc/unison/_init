@@ -13,6 +13,8 @@ link() {
   mklink default.prf ~/.unison/default.prf
 }
 
-clean() {}
+clean() {
+  brew uninstall unison
+}
 
 init "$@"

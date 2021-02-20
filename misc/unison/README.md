@@ -6,6 +6,10 @@ Ensure Passphrase-less SSH
 
 ## Increase MacOS File Descriptor Limits
 
+```sh
+sudo sysctl kern.maxfiles=131072 kern.maxfilesperproc=65536
+```
+
 Add to /etc/sysctl.conf to persist across reboots (use sudo):
 
 ```sh
@@ -15,6 +19,10 @@ kern.maxfilesperproc=65536
 
 ## Increase Linux File Watch Limit
 
+```sh
+sudo sysctl -w fs.inotify.max_user_watches=131072
+```
+
 Add to /etc/sysctl.conf to persist across reboots:
 
 ```sh
@@ -22,4 +30,11 @@ Add to /etc/sysctl.conf to persist across reboots:
 fs.inotify.max_user_watches = 131072
 ```
 
-## TODO: macos create case sensitive volume
+## MacOS create case sensitive volume
+
+- Launch Disk Utility
+- Choose "New Image"
+- Enter a nice Name for your Volume, e.g "Workspace"
+- Set the size to something that will most likely fit your needs (resizing is a whole another story)
+- Select "APFS (Case-sensitive)" or encrypted in "Format".
+- Save and create
