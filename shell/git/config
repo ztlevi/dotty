@@ -71,8 +71,3 @@
 	includeStatusHeader = false
 	includePullRequestsSection = false
 	includeIssuesSection = false
-[github "github.argo.ai/api/v3"]
-	user = ztlevi
-[hub]
-	host = github.argo.ai
-	protocol = https
