@@ -12,11 +12,14 @@ function fzf_projects() {
     IFS=: read -r project scan_depth <<<"${project_scan}"
     project="$(readlink $project || echo $project)"
     if [[ -d ${project} ]]; then
-      for dir in $(find ${project} -maxdepth ${scan_depth} -type d); do
-        if [[ -d ${dir}/.git ]]; then
-          projects+=(${dir})
-        fi
-      done
+      # Suppress errors, some dirs, e.g. .Trash, sometimes are not readable
+      {
+        for dir in $(find ${project} -maxdepth ${scan_depth} -type d); do
+          if [[ -d ${dir}/.git ]]; then
+            projects+=(${dir})
+          fi
+        done
+      } 2>/dev/null
     fi
   done
 
