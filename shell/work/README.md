@@ -22,11 +22,12 @@ hard code PATH.
 
 ```sh
 _git_config_company_user() {
+  local my_email="your-email@cc.com"
   if [[ $PWD == $HOME/workplace/* ]] || [[ $PWD == /workplace/* ]] || [[ $PWD == /Volumes/workplace/* ]]; then
-    if [[ -d "$PWD/.git" ]]; then
+    if [[ -d "$PWD/.git" ]] && [[ $(git config --get user.signingkey) != "$my_email" ]]; then
       git config user.name "Your Name"
-      git config user.email "your-email@cc.com"
-      git config user.signingkey "your-email@cc.com"
+      git config user.email "$my_email"
+      git config user.signingkey "$my_email"
     fi
   fi
 }
