@@ -4,6 +4,7 @@ export TERM="xterm-256color"
 export ARCHFLAGS="-arch x86_64"
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 export MANPATH="/usr/local/man:$MANPATH"
+export MANPAGER="nvim -c 'set ft=man' -"
 
 source $(cd ${${(%):-%x}:A:h}/../.. && pwd -P)/env
 

@@ -59,13 +59,6 @@ alias rg='noglob rg'
 alias prg="ps aux | rg -i"
 function grep_search() { echo $2 | grep -qiP $1; }
 function rg_search() { echo $2 | rg -qS $1; }
-function vread() {
-  (
-    $@ > /tmp/dummy_vread_file
-    nvim /tmp/dummy_vread_file
-    rm -f /tmp/dummy_vread_file
-  )
-}
 
 # For example, to list all directories that contain a certain file: find . -name
 # .gitattributes | map dirname
