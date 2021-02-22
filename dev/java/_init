@@ -22,7 +22,7 @@ install() {
     sudo yum -y install java-11-amazon-corretto-headless
     ;;
   esac
-  brew install gradle maven
+  brew install gradle maven jenv
 }
 
 # update() {}

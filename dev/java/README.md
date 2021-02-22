@@ -2,6 +2,15 @@
 
 ## Switching java versions
 
+### Use jenv to manage java version
+
+```bash
+jenv add /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/
+jenv versions
+jenv local 1.8
+jenv global 1.8
+```
+
 ### For MacOS
 
 The default location of Oracle Java is at,
@@ -34,7 +43,8 @@ Use the alternative configuration tool, but first, you must become a superuser
 **su****/usr/sbin/alternatives — config java****/usr/sbin/alternatives — config javac**
 ```
 
-_Note: for the RedHat/Fedora -like distros, you need to run configuration for both_ **_java_** _and_ **_javac_**_._
+_Note: for the RedHat/Fedora -like distros, you need to run configuration for both_ **_java_** _and_
+**_javac_**_._
 
 ### For Manjaro/Arch Linux
 

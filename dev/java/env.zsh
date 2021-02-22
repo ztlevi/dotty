@@ -7,7 +7,7 @@ path=($ANDROID_SDK_HOME/bin $path)
 
 # Java
 if [[ -f /usr/libexec/java_home ]]; then
-  export JAVA_HOME=$(/usr/libexec/java_home -v 1.8) # 1.8 or 12
+  export JAVA_HOME=$(/usr/libexec/java_home -v 1.8) # 1.8 or 11
 elif [[ -f /usr/bin/javac ]]; then
   export JAVA_HOME=$(dirname $(dirname $(readlink -e /usr/bin/javac)))
 fi
@@ -18,4 +18,5 @@ if [[ $JAVA_HOME ]]; then
   path=($JAVA_HOME/bin $path)
 fi
 
+path=($HOME/.jenv/bin $path)
 _cache jenv init - --no-rehash
