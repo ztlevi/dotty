@@ -14,9 +14,9 @@ link() {
   rm -f $HOME/.gnupg/gpg-agent.conf
   mkdir -p $HOME/.gnupg && chmod 700 $HOME/.gnupg
   cat <<EOF >$HOME/.gnupg/gpg-agent.conf
-default-cache-ttl 86400
+default-cache-ttl 604800
 max-cache-ttl 1036800
-default-cache-ttl-ssh 86400
+default-cache-ttl-ssh 604800
 max-cache-ttl-ssh 1036800
 EOF
   case $(_os) in
