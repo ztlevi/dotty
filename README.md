@@ -106,6 +106,11 @@ else
 fi
 ```
 
+## FAQ
+
+- Why I cannot do git commit? Make sure you create your GPG key or delete `user.signingkey` property
+  in `$HOME/.config/git/config`.
+
 ## Relevant projects
 
 - [DOOM Emacs](https://github.com/ztlevi/doom-config) (pulled by `editor/emacs`)
