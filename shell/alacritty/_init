@@ -64,8 +64,14 @@ link() {
     yq eval-all $yq_expression ${config_files[@]} >$config_file
   )
   if [[ $(_os) == "macos" ]]; then
-    # Increase macos font size by 2
-    local increased_font_size=$(($(yq eval '.font.size' $config_file) + 4))
+    # Increase macos font size
+    # I have a 2K monitor which doesn't support scaling :(
+    local res=$(system_profiler SPDisplaysDataType | awk '/Resolution/{print $2, $3, $4}')
+    local add_num=2
+    if echo $res | rg -q '2560'; then
+      add_num=4
+    fi
+    local increased_font_size=$(($(yq eval '.font.size' $config_file) + $add_num))
     yq eval ".font.size = $increased_font_size" $config_file --inplace
   fi
 }
