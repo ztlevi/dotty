@@ -6,5 +6,3 @@ export PRYRC="$XDG_CONFIG_HOME/pry/rc"
 export SPEC_OPTS="--color --order random"
 
 export RBENV_ROOT="$XDG_DATA_HOME/rbenv"
-path=($RBENV_ROOT/bin $GEM_HOME/bin $path)
-_cache rbenv init - --no-rehash

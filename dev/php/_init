@@ -12,6 +12,8 @@ update() {
 
 # link() { }
 
-# clean() { }
+clean() {
+  rm -rf $PHPENV_ROOT
+}
 
 init "$@"

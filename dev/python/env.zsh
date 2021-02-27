@@ -9,15 +9,5 @@ export PYTHONBREAKPOINT="pudb.set_trace"
 
 export PYTHONPATH=$PYTHONPATH:.
 
-# Anaconda
-if [[ $(_os) == 'macos' ]]; then
-  export PATH=$PATH:/usr/local/anaconda3/bin
-  export PATH=$PATH:$HOME/Library/Python/3.8/bin
-else
-  export PATH=$PATH:$HOME/anaconda3/bin
-fi
-
-# export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
-# path=($PYENV_ROOT/bin $path)
-
-# _cache pyenv init - --no-rehash
+export PYTHON_VERSION=3.9.1
+export PYENV_ROOT="$XDG_DATA_HOME/pyenv"

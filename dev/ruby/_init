@@ -18,6 +18,7 @@ link() {
 clean() {
   rm -fv $IRBRC $PRYRC
   rmdir -v ${IRBRC%/*} ${PRYRC%/*}
+  rm -rf $RBENV_ROOT
 }
 
 init "$@"

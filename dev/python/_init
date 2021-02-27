@@ -3,17 +3,22 @@ source ${0:A:h}/../../deploy
 source env.zsh
 
 install() {
-  brew install python pyenv black
+  brew install pyenv black
 
-  python3 -m pip install --user --upgrade pip setuptools pipenv
+  pyenv install $PYTHON_VERSION
+  pyenv global $PYTHON_VERSION
+
+  pip3 install --user --upgrade pip setuptools pipenv
 
   # Other packages
-  python3 -m pip install --user --upgrade pylint autoflake gnureadline grip cpplint
-
+  pip3 install --user --upgrade pylint autoflake gnureadline grip cpplint
 }
 
 update() {
   python3 -m pip install --user --upgrade pip setuptools pipenv
+
+  # Other packages
+  pip3 install --user --upgrade pylint autoflake gnureadline grip cpplint
 }
 
 link() {
@@ -24,6 +29,7 @@ link() {
 
 clean() {
   rm -fv $XDG_CONFIG_HOME/flake8 $XDG_CONFIG_HOME/pudb
+  rm -rf $PYENV_ROOT
 }
 
 init "$@"

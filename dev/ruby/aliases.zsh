@@ -1,3 +1,5 @@
+_cache rbenv init - --no-rehash
+
 alias rb="ruby"
 alias rbe="rbenv"
 alias rdb="pry -r"

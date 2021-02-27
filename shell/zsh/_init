@@ -26,6 +26,7 @@ update() {
 }
 
 link() {
+  rm -f ~/.profile
   mklink .zsh* ~/
   mklink config/* $XDG_CONFIG_HOME/
 }

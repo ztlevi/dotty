@@ -1,3 +1,6 @@
+# Cache in aliases because /usr/bin will be moved to top in .zshrc
+_cache pyenv init - --no-rehash
+
 alias py=python
 _is_callable python2 && alias py2=python2
 _is_callable python3 && alias py3=python3
