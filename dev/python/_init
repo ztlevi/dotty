@@ -3,7 +3,7 @@ source ${0:A:h}/../../deploy
 source env.zsh
 
 install() {
-  brew install pyenv black
+  brew install pyenv
 
   pyenv install $PYTHON_VERSION
   pyenv global $PYTHON_VERSION
@@ -11,7 +11,7 @@ install() {
   pip3 install --user --upgrade pip setuptools pipenv
 
   # Other packages
-  pip3 install --user --upgrade pylint autoflake gnureadline grip cpplint
+  pip3 install --user --upgrade black pylint autoflake gnureadline grip cpplint
 }
 
 update() {
