@@ -3,12 +3,12 @@ source ${0:A:h}/../../deploy
 source env.zsh
 
 install() {
-  brew install python pyenv
+  brew install python pyenv black
 
   python3 -m pip install --user --upgrade pip setuptools pipenv
 
   # Other packages
-  python3 -m pip install --user --upgrade pylint yapf autoflake gnureadline black grip cpplint
+  python3 -m pip install --user --upgrade pylint autoflake gnureadline grip cpplint
 
 }
 
