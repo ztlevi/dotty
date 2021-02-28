@@ -84,7 +84,7 @@ function update_my_repos() {
 
   local ANTIGEN_SUMMARY_FILE=/tmp/antigen_update_summary
   {
-    update_git_repo ${HOME}/Dotfiles
+    update_git_repo $DOTFILES
     (
       cd ${HOME}/Dotfiles
       git submodule update -- assets
@@ -115,6 +115,9 @@ function update_my_repos() {
   cat ${ERROR_SUMMARY_FILE}
 
   rm -f ${ERROR_SUMMARY_FILE} ${ANTIGEN_SUMMARY_FILE}
+
+  # Sync uninstalled some software if we deleted on one machine
+  $DOTFILES/legacy_sync_script.zsh
 
   # Start a new shell
   $SHELL

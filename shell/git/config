@@ -44,7 +44,9 @@
 [core]
 	editor = nvim
 	ignorecase = false
-	pager = less -FMRiX
+	pager = diff-so-fancy | less --tabs=4 -RFX
+[interactive]
+	diffFilter = diff-so-fancy --patch
 [pull]
 	rebase = true
 [push]

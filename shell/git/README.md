@@ -1,8 +1,11 @@
+# [Git extras commands](https://github.com/tj/git-extras/blob/master/Commands.md)
+
 # Git Setup
 
 ## Personal token as password
 
-Git now uses personal tokens as password, go [here](https://github.com/settings/tokens) to create a new token.
+Git now uses personal tokens as password, go [here](https://github.com/settings/tokens) to create a
+new token.
 
 ## Credential Storage: default credential is stored in "~/.git-credentials".
 
