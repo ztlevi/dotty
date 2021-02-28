@@ -283,6 +283,5 @@ EOL
     popd -q
   fi
 fi
-$SHELL
 
 # vim:set ft=sh:

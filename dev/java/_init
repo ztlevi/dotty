@@ -29,6 +29,8 @@ install() {
 
 # link() {}
 
-# clean() {}
+clean() {
+  rm -f $XDG_CACHE_HOME/${SHELL##*/}/jenv
+}
 
 init "$@"

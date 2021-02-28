@@ -25,6 +25,7 @@ link() {
 
 clean() {
   rm -rf $NODENV_ROOT
+  rm -f $XDG_CACHE_HOME/${SHELL##*/}/nodenv
 }
 
 init "$@"

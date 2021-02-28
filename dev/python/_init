@@ -34,6 +34,7 @@ link() {
 clean() {
   rm -rf $XDG_CONFIG_HOME/flake8 $XDG_CONFIG_HOME/pudb
   rm -rf $PYENV_ROOT
+  rm -f $XDG_CACHE_HOME/${SHELL##*/}/pyenv
 }
 
 init "$@"

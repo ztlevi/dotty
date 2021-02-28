@@ -19,6 +19,7 @@ clean() {
   rm -fv $IRBRC $PRYRC
   rmdir -v ${IRBRC%/*} ${PRYRC%/*}
   rm -rf $RBENV_ROOT
+  rm -f $XDG_CACHE_HOME/${SHELL##*/}/rbenv
 }
 
 init "$@"
