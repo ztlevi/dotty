@@ -2,23 +2,27 @@
 source ${0:A:h}/../../deploy
 source env.zsh
 
+_install_pip_packages() {
+  python3 -m pip install --upgrade pip setuptools pipenv
+
+  # Other packages
+  python3 -m pip install --upgrade black pylint autoflake gnureadline grip cpplint
+}
+
 install() {
   brew install pyenv
 
   pyenv install $PYTHON_VERSION
   pyenv global $PYTHON_VERSION
 
-  pip3 install --user --upgrade pip setuptools pipenv
+  # temp add pyenv shims path, `pyenv init` is inside aliases.zsh
+  path=($PYENV_ROOT/shims $path)
 
-  # Other packages
-  pip3 install --user --upgrade black pylint autoflake gnureadline grip cpplint
+  _install_pip_packages
 }
 
 update() {
-  python3 -m pip install --user --upgrade pip setuptools pipenv
-
-  # Other packages
-  pip3 install --user --upgrade pylint autoflake gnureadline grip cpplint
+  _install_pip_packages
 }
 
 link() {
@@ -28,7 +32,7 @@ link() {
 }
 
 clean() {
-  rm -fv $XDG_CONFIG_HOME/flake8 $XDG_CONFIG_HOME/pudb
+  rm -rf $XDG_CONFIG_HOME/flake8 $XDG_CONFIG_HOME/pudb
   rm -rf $PYENV_ROOT
 }
 

@@ -115,5 +115,8 @@ function update_my_repos() {
   cat ${ERROR_SUMMARY_FILE}
 
   rm -f ${ERROR_SUMMARY_FILE} ${ANTIGEN_SUMMARY_FILE}
+
+  # Start a new shell
+  $SHELL
 }
 alias uu='update_my_repos'
