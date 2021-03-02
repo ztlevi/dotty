@@ -5,8 +5,11 @@ install() {
   case $(_os) in
   macos)
     rm -r /Applications/Emacs.app
-    brew tap railwaycat/emacsmacport
-    brew install --cask emacs-mac
+
+    brew tap d12frosted/emacs-plus
+    brew install emacs-plus@28 --with-native-comp
+    ln -Fs $(sudo find /usr/local/Cellar/emacs-* -name "Emacs.app") /Applications/Emacs.app
+
     # Other tweaks
     defaults write org.gnu.Emacs Emacs.ToolBar -string no
     defaults write org.gnu.Emacs Emacs.ScrollBar -string no
