@@ -9,16 +9,16 @@ antigen use oh-my-zsh
 # GIT
 antigen bundle git
 antigen bundle github
-antigen bundle git-extras
 antigen bundle gitignore
 antigen bundle git_remote_branch
-antigen bundle gitfast
-antigen bundle 'wfxr/forgit'
+# antigen bundle git-extras
+# antigen bundle gitfast
+# antigen bundle 'wfxr/forgit'
 
 # DOCKER
 antigen bundle docker
 antigen bundle docker-compose
-antigen bundle docker-machine
+# antigen bundle docker-machine
 
 # RUBY
 # antigen bundle ruby
@@ -28,7 +28,7 @@ antigen bundle docker-machine
 # PYTHON
 antigen bundle python
 antigen bundle pip
-antigen bundle django
+# antigen bundle django
 
 # GO
 antigen bundle golang
@@ -48,46 +48,40 @@ antigen bundle zdharma/fast-syntax-highlighting
 
 # Vi-mode
 antigen bundle jeffreytse/zsh-vi-mode
-export ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLOCK
-# Always starting with insert mode for each command line
-export ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
 
 # TMUX
 antigen bundle tmux
 antigen bundle tmux-cssh
-antigen bundle tmuxinator
+# antigen bundle tmuxinator
 
 # CLOUD
 antigen bundle aws
 
 # MISC
 antigen bundle fzf
-antigen bundle jira
 antigen bundle history
 antigen bundle ripgrep
 antigen bundle web-search
 antigen bundle nmap
-# antigen bundle heroku
 antigen bundle copydir
 antigen bundle copyfile
 antigen bundle common-aliases
 antigen bundle command-not-found
-antigen bundle colored-man-pages
 antigen bundle rsync
 antigen bundle dotenv
 antigen bundle fd
-antigen bundle mosh
 antigen bundle extract
 antigen bundle soimort/you-get
+antigen bundle jira
+# antigen bundle heroku
+# antigen bundle mosh
+# antigen bundle colored-man-pages
 
 # THEME
 if _is_callable starship; then
   eval "$(starship init zsh)"
-  export SPACESHIP_TIME_SHOW=true
 else
   antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-train
-  export BULLETTRAIN_CUSTOM_FG=white
-  export BULLETTRAIN_CONTEXT_FG=white
   # antigen theme jispwoso
   # antigen theme bureau
   # antigen theme denysdovhan/spaceship-prompt
@@ -109,3 +103,5 @@ fi
 
 # Tell antigen that you're done.
 antigen apply
+
+source $DOTFILES/shell/zsh/post-bundles.zsh
