@@ -78,6 +78,7 @@ __pycache__
 .project
 .classpath
 build
+*.iml
 
 # Custom #
 ##########
