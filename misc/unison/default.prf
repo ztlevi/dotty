@@ -14,7 +14,7 @@ logfile = .unison/unison.log
 #path = workspace_name
 
 # Ignore rules for macOS
-ignore = Name {.DS_Store,.Spotlight-V100,.Trashes,.fseventsd,.Trash*}
+ignore = Name {.DS_Store,.Spotlight-V100,.fseventsd,.Trash*,.DocumentRevisions*,.TemporaryItems}
 
 # Ignore rules for Eclipse
 ignore = Path */{.metadata,.settings,.project,.classpath}
