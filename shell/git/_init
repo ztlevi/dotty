@@ -39,7 +39,7 @@ link() {
 }
 
 clean() {
-  rm -rfv $GIT_DIR
+  rm -rf $GIT_DIR
 }
 
 init "$@"

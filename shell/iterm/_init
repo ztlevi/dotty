@@ -15,7 +15,7 @@ link() {
 }
 
 clean() {
-  rm -rfv $HOME/Library/Preferences/com.googlecode.iterm2.plist
+  rm -rf $HOME/Library/Preferences/com.googlecode.iterm2.plist
   brew uninstall --cask iterm2
 }
 

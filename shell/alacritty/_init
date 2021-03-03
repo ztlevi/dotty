@@ -77,7 +77,7 @@ link() {
 }
 
 clean() {
-  rm -rvf $XDG_CONFIG_HOME/alacritty
+  rm -rf $XDG_CONFIG_HOME/alacritty
 }
 
 init "$@"
