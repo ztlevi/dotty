@@ -21,3 +21,6 @@ _pipenv() {
   eval $(env COMMANDLINE="${words[1, $CURRENT]}" _PIPENV_COMPLETE=complete-zsh pipenv)
 }
 compdef _pipenv pipenv
+
+_is_callable black && alias format-all-black='black -q **/*.py'
+_is_callable autoflake && alias remove-py-imports="git diff --name-only origin/develop | xargs -I{} autoflake --in-place --remove-all-unused-imports {}"
