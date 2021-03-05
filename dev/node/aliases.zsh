@@ -1,4 +1,5 @@
 _cache nodenv init - --no-rehash
+path=($XDG_DATA_HOME/nodenv/versions/$NODE_VERSION/bin $path)
 
 # Run locally installed bin-script, e.g. n coffee file.coffee
 alias n='PATH="$(npm bin):$PATH"'
