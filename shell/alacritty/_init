@@ -6,7 +6,7 @@
 source ${0:A:h}/../../deploy
 
 install() {
-  brew install yq
+  brew install yq neofetch
   case $(_os) in
   linux-arch)
     yay --needed --noconfirm -S alacritty
@@ -66,7 +66,7 @@ link() {
   if [[ $(_os) == "macos" ]]; then
     # Increase macos font size
     # I have a 2K monitor which doesn't support scaling :(
-    local res=$(system_profiler SPDisplaysDataType | awk '/Resolution/{print $2, $3, $4}')
+    local res=$(neofetch resolution | awk '/resolution/{print $2}') # get the main monitor resolution
     local add_num=2
     if echo $res | rg -q '2560'; then
       add_num=4
