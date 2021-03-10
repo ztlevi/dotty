@@ -7,3 +7,7 @@ success_symbol = "[➜](bold green)"     # The "success_symbol" segment is being
 error_symbol = "[✖](bold red)"
 vicmd_symbol = "[](bold blue)"
 use_symbol_for_status = true
+
+[username]
+style_user = "blue bold"
+format = "[   $user]($style) in "
