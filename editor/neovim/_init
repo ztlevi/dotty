@@ -21,6 +21,8 @@ link() {
   # rm -rf ~/.SpaceVim.d
   # mklink SpaceVim.d ~/.SpaceVim.d
 
+  mklink config/* $XDG_CONFIG_HOME/
+
   rm -f ~/.ideavimrc
   mklink .ideavimrc ~/.ideavimrc
 }
