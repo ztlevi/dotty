@@ -46,8 +46,6 @@ update() {
 }
 
 link() {
-  mklink Library/Keybindings/* $HOME/Library/
-
   # Sync karabiner config. It deos not allow symlink.
   mkdir -p $XDG_CONFIG_HOME/karabiner/
   cp -f ${0:A:h}/config/karabiner/karabiner.json $XDG_CONFIG_HOME/karabiner/karabiner.json

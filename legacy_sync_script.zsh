@@ -4,3 +4,5 @@
 
 # brew uninstall git-standup
 # brew link git-extras
+
+rm -f $HOME/Library/DefaultKeyBinding.dict
