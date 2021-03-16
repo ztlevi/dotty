@@ -1,4 +1,5 @@
 set smartcase
+set background=light
 
 " Enable global clipboard
 set clipboard+=unnamedplus
