@@ -48,9 +48,8 @@ install() {
 # update() {}
 
 link() {
-  rm -rf $XDG_CONFIG_HOME/alacritty
   mkdir -p $XDG_CONFIG_HOME/alacritty
-  config_file=$XDG_CONFIG_HOME/alacritty/alacritty.yml
+  config_file=$XDG_CONFIG_HOME/alacritty/alacritty-temp.yml
   theme_file=one-light-theme.yml
   private_file=private.yml
   (
@@ -74,6 +73,7 @@ link() {
     local increased_font_size=$(($(yq eval '.font.size' $config_file) + $add_num))
     yq eval ".font.size = $increased_font_size" $config_file --inplace
   fi
+  mv -f $config_file $XDG_CONFIG_HOME/alacritty/alacritty.yml
 }
 
 clean() {
