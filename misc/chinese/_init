@@ -55,9 +55,17 @@ link() {
   mklink ${DOTFILES_ASSETS}/rime-dictionaries/*.dict.yaml ${XDG_CONFIG_HOME}/fcitx/rime/
   mklink pam_environment ${HOME}/.pam_environment
 
+  # macos system input uses $HOME/Library/Rime/.
+  # Don't symlink as ${XDG_CONFIG_HOME}/fcitx/config. It will cause conflict.
   case $(_os) in
   macos)
     mklink config/fcitx/rime/* $HOME/Library/Rime/
+    mklink ${DOTFILES_ASSETS}/rime-dictionaries/*.dict.yaml $HOME/Library/Rime/
+
+    local link_files=("opencc" "emoji_suggestion.yaml" "zhwiki.dict.yaml")
+    for file in ${link_files[@]}; do
+      mklink ${XDG_CONFIG_HOME}/fcitx/rime/$file $HOME/Library/Rime/
+    done
     ;;
   esac
 
