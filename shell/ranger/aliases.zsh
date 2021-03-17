@@ -5,7 +5,7 @@ function ranger-cd() {
   curdir=$(pwd)
   ranger --choosedir="$tmpfile" "${@:-$curdir}"
   if [[ -f "$tmpfile" ]] && [[ $(cat "$tmpfile") != $curdir ]]; then
-    cd $(cat $tmpfile)
+    cd "$(cat $tmpfile)"
   fi
   if [[ -f "$tempres" ]]; then cat $tempres; fi
   rm -f "$tmpfile"
