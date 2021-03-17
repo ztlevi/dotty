@@ -9,7 +9,7 @@ patch:
   "translator/dictionary": luna_pinyin.extended
   punctuator/symbols:
     # 个人常用信息
-    "/zt": [ztlevi.work@gmail.com, ztlevi1993@gmail.com, ztlevi]
+    "/zt": [ztlevi.work@gmail.com, ztlevi1993@gmail.com, zhot@amazon.com, ztlevi]
     # 快速输入勾和叉
     "/ck": [✓, ✗, ☒]
   switches: # 注意缩进
