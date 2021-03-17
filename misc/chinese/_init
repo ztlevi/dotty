@@ -52,12 +52,12 @@ install() {
 link() {
   mklink config/fcitx/config ${XDG_CONFIG_HOME}/fcitx/config
   mklink config/fcitx/rime/* ${XDG_CONFIG_HOME}/fcitx/rime/
-  mklink pam_environment ${HOME}/.pam_environment
   mklink ${DOTFILES_ASSETS}/rime-dictionaries/*.dict.yaml ${XDG_CONFIG_HOME}/fcitx/rime/
+  mklink pam_environment ${HOME}/.pam_environment
 
   case $(_os) in
   macos)
-    mklink ~/.config/fcitx/rime ~/Library/Rime
+    mklink config/fcitx/rime/* $HOME/Library/Rime/
     ;;
   esac
 
