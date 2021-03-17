@@ -1,0 +1,14 @@
+# Themes resources
+# https://scomper.me/gtd/shu-xu-guan-shu-ru-fa-de-xin-pei-se
+
+patch:
+  style:
+    color_scheme: apathy
+    horizontal: true
+    inline_preedit: true
+    candidate_format: "%c\u2005%@ \u2005" # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间。
+    font_point: 16 # 候选文字大小
+    label_font_point: 14 # 候选编号大小
+    corner_radius: 5 # 候选条圆角
+    border_height: 0 # 窗口边界高度，大于圆角半径才生效
+    border_width: 0 # 窗口边界宽度，大于圆角半径才生效
