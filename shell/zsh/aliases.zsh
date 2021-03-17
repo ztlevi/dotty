@@ -78,3 +78,12 @@ compdef take=mkdir
 hex() { echo -n $@ | xxd -psdu; }
 
 _is_callable antigen && alias ar="antigen reset"
+
+function format-all-dos2unix() {
+  if [[ -z $1 ]]; then
+    echo "Missing file extension as first argument, e.g. java..."
+  fi
+  for filename in ./**/*.$1; do
+    dos2unix $filename
+  done
+}
