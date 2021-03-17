@@ -37,6 +37,14 @@ install() {
   # Download zhwiki pinyin dictionary
   wget --no-check-certificate $(get_github_latest_release_url felixonmars/fcitx5-pinyin-zhwiki "\.dict\.yaml") \
     -O $XDG_CONFIG_HOME/fcitx/rime/zhwiki.dict.yaml
+
+  # Install emoji
+  mkdir -p /tmp/fcitx-install
+  (
+    cd /tmp/fcitx-install
+    curl -fsSL https://git.io/rime-install | bash -s -- emoji
+  )
+  rm -rf /tmp/fcitx-install
 }
 
 # update() {}

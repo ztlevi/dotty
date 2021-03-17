@@ -1,7 +1,17 @@
 # luna_pinyin.custom.yaml
 
+__patch:
+  # Rx: emoji:customize:schema=luna_pinyin_simp
+  - patch/+:
+      __include: emoji_suggestion:/patch
+
 patch:
   "translator/dictionary": luna_pinyin.extended
+  punctuator/symbols:
+    # 个人常用信息
+    "/zt": [ztlevi.work@gmail.com, ztlevi1993@gmail.com, ztlevi]
+    # 快速输入勾和叉
+    "/ck": [✓, ✗, ☒]
   switches: # 注意缩进
     - name: ascii_mode
       reset: 0 # reset 0 的作用是当从其他输入法切换到本输入法重设为指定状态
