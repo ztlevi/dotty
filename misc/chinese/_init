@@ -10,7 +10,8 @@ install() {
     (
       cd /tmp
       wget --no-check-certificate $(get_github_latest_release_url 'rime/librime' 'osx\.zip') -O rime-osx.zip
-      unzip rime-osx.zip -d ~/.emacs.d/librime
+      mkdir -p $XDG_CONFIG_HOME/emacs/librime
+      unzip rime-osx.zip -d $XDG_CONFIG_HOME/emacs/librime
       rm -rf rime-osx.zip
     )
     brew install --cask squirrel
@@ -34,7 +35,7 @@ install() {
   esac
 
   # Download zhwiki pinyin dictionary
-  wget --no-check-certificate https://github.com/felixonmars/fcitx5-pinyin-zhwiki/releases/download/0.2.1/zhwiki-20200601.dict.yaml \
+  wget --no-check-certificate $(get_github_latest_release_url felixonmars/fcitx5-pinyin-zhwiki "\.dict\.yaml") \
     -O $XDG_CONFIG_HOME/fcitx/rime/zhwiki.dict.yaml
 }
 
