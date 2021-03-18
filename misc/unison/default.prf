@@ -1,4 +1,5 @@
 # Manual: http://www.cis.upenn.edu/~bcpierce/unison/download/releases/stable/unison-manual.html
+# Path specification https://www.cis.upenn.edu/~bcpierce/unison/download/releases/stable/unison-manual.html#pathspec
 
 # Roots of the synchronization
 # root = <path-to-your-local-workplace>
@@ -25,6 +26,9 @@ ignore = Path */.idea
 
 # Ignore rules for vim
 ignore = Name {[._]*.s[a-v][a-z],[._]*.sw[a-p],[._]s[a-v][a-z],[._]sw[a-p],Session.vim,Sessionx.vim}
+
+# Ignore Amazon tools
+ignore = Name {.rde}
 
 # Ignore rules for brazil
 ignore = BelowPath */{env,logs,out}
