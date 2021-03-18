@@ -11,7 +11,7 @@ install() {
       cd /tmp
       wget --no-check-certificate $(get_github_latest_release_url 'rime/librime' 'osx\.zip') -O rime-osx.zip
       mkdir -p $XDG_CONFIG_HOME/emacs/librime
-      unzip rime-osx.zip -d $XDG_CONFIG_HOME/emacs/librime
+      unzip rime-osx.zip -d $XDG_CONFIG_HOME/fcitx/librime
       rm -rf rime-osx.zip
     )
     brew install --cask squirrel
@@ -50,27 +50,35 @@ install() {
 # update() {}
 
 link() {
+  mkdir -p ${XDG_CONFIG_HOME}/fcitx
+
+  # 1. System input method
   mklink config/fcitx/config ${XDG_CONFIG_HOME}/fcitx/config
   mklink config/fcitx/rime/* ${XDG_CONFIG_HOME}/fcitx/rime/
   mklink ${DOTFILES_ASSETS}/rime-dictionaries/*.dict.yaml ${XDG_CONFIG_HOME}/fcitx/rime/
   mklink pam_environment ${HOME}/.pam_environment
 
-  # macos system input uses $HOME/Library/Rime/.
-  # Don't symlink as ${XDG_CONFIG_HOME}/fcitx/config. It will cause conflict.
   case $(_os) in
   macos)
-    mklink config/fcitx/rime/* $HOME/Library/Rime/
-    mklink ${DOTFILES_ASSETS}/rime-dictionaries/*.dict.yaml $HOME/Library/Rime/
-
-    local link_files=("opencc" "emoji_suggestion.yaml" "zhwiki.dict.yaml")
-    for file in ${link_files[@]}; do
-      mklink ${XDG_CONFIG_HOME}/fcitx/rime/$file $HOME/Library/Rime/
-    done
+    mklink ~/.config/fcitx/rime ~/Library/Rime
     ;;
   esac
 
+  # 2. Emacs input method
+
+  # Don't use ${XDG_CONFIG_HOME}/fcitx/rime as your emacs fcitx config dir. It will cause conflict.
+  mklink config/fcitx/rime/* $XDG_CONFIG_HOME/fcitx/emacs-rime/
+  mklink ${DOTFILES_ASSETS}/rime-dictionaries/*.dict.yaml $XDG_CONFIG_HOME/fcitx/emacs-rime/
+
+  local link_files=("opencc" "emoji_suggestion.yaml" "zhwiki.dict.yaml")
+  for file in ${link_files[@]}; do
+    mklink ${XDG_CONFIG_HOME}/fcitx/rime/$file $XDG_CONFIG_HOME/fcitx/emacs-rime/
+  done
+
 }
 
-# clean() {}
+clean() {
+  rm -rf ${XDG_CONFIG_HOME}/fcitx
+}
 
 init "$@"
