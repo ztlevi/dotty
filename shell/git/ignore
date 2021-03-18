@@ -88,3 +88,8 @@ build
 .projectile
 .osync_workdir
 .node-version
+
+# Amazon #
+##########
+annotation-generated-src
+annotation-generated-tst
