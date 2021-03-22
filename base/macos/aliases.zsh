@@ -21,7 +21,7 @@ if [ -d '/Applications/ForkLift.app' ]; then
   alias oo="open -a ForkLift ."
   alias soo="sudo open -a ForkLift ."
 else
-  alias oo="sudo open ."
+  alias oo="open ."
 fi
 
 alias cdicloud="cd '$HOME/Library/Mobile Documents/com~apple~CloudDocs'"
