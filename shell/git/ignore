@@ -84,6 +84,7 @@ build
 ##########
 .idea
 .env
+.dir-locals.el
 .flycheck_*
 .projectile
 .osync_workdir
