@@ -51,3 +51,8 @@ inoremap <c-n> <down>
 " command line
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
+
+" Macos keybindings
+nmap <A-s> :wa<cr>
+vmap <A-s> :wa<cr>
+imap <A-s> <Esc>:wa<cr>a
