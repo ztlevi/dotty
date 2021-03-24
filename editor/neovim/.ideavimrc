@@ -130,6 +130,8 @@ nmap <leader>dD      :action DebugClass<CR>
 vmap <leader>dD      :<Backspace><Backspace><Backspace><Backspace><Backspace>action DebugClass<CR>
 nmap <leader>dd      :action Debug<CR>
 vmap <leader>dd      :<Backspace><Backspace><Backspace><Backspace><Backspace>action Debug<CR>
+nmap <leader>dbb     :action ToggleLineBreakpoint<CR>
+vmap <leader>dbb     :<Backspace><Backspace><Backspace><Backspace><Backspace>action ToggleLineBreakpoint<CR>
 nmap <leader>ee      :action ShowErrorDescription<CR>
 vmap <leader>ee      :<Backspace><Backspace><Backspace><Backspace><Backspace>action ShowErrorDescription<CR>
 nmap <leader>op      :action SelectInProjectView<CR>
@@ -163,8 +165,6 @@ nmap <leader>ss      :action Stop<CR>
 vmap <leader>ss      :<Backspace><Backspace><Backspace><Backspace><Backspace>action Stop<CR>
 nmap <leader>tb      :action ToggleBookmark<CR>
 vmap <leader>tb      :<Backspace><Backspace><Backspace><Backspace><Backspace>action ToggleBookmark<CR>
-nmap <leader>tt      :action ToggleLineBreakpoint<CR>
-vmap <leader>tt      :<Backspace><Backspace><Backspace><Backspace><Backspace>action ToggleLineBreakpoint<CR>
 nmap gR              :action Resume<CR>
 vmap gR              :<Backspace><Backspace><Backspace><Backspace><Backspace>action Resume<CR>
 nmap gd              :action GotoDeclaration<CR>
