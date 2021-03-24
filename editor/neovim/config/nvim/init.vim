@@ -21,6 +21,8 @@ set hls
 " Code
 syntax enable
 
+imap jk <Esc>
+
 " black hole register
 vmap <backspace> "_d
 vmap <del> "_d
