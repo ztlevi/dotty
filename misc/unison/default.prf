@@ -32,23 +32,23 @@ ignore = Name {.rde}
 
 # Ignore rules for brazil
 ignore = BelowPath */{env,logs,out}
+ignore = BelowPath */src/*/build
+ignore = BelowPath */build
 
-# target of `WORKSPACE/src/PACKAGE/build` symlink
-# Ignore everything inside except for integration and unit test output
-# Consider that you may need to do more if you are using gradle or other tools: https://sage.amazon.com/questions/976217 
-ignore    = Path */build/*/*/*/*/build/{,.}?*
-ignorenot = Path */build/*/*/*/*/build/brazil-integ-tests
-ignore    = Path */build/*/*/*/*/build/brazil-integ-tests/{,.}?*
-ignorenot = Path */build/*/*/*/*/build/brazil-integ-tests/{*.html,*.css,com}
-ignorenot = Path */build/*/*/*/*/build/brazil-unit-tests
-ignore    = Path */build/*/*/*/*/build/brazil-unit-tests/{,.}?*
-ignorenot = Path */build/*/*/*/*/build/brazil-unit-tests/{*.html,*.css,com}
+# Ignore gradle details
+ignore = Path */src/*/buildSrc/build
+ignore = Path */src/*/buildSrc/.gradle
+ignore = Name .gradle
+ignore = Name gradle
+ignore = Name gradlew
+ignore = Name gradlew.bat
+ignore = Name wrapper
+# Uncomment to sync `package/build` contents. Doing so may confuse BrazilCLI2.0 and/or your IDE
+#ignorenot = Path */src/*/build/generated-src
 
 # Log files, in general
 ignore = Name log{,s}/*.log{,.*}
 
-# Uncomment to sync `package/build` contents. Doing so may confuse BrazilCLI2.0 and/or your IDE
-#ignorenot = Path */src/*/build/generated-src
 
 # Ignore ~/workplace/.unison/ config dir itself
 ignore = Path .unison
