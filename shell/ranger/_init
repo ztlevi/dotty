@@ -2,7 +2,7 @@
 source ${0:A:h}/../../deploy
 
 install() {
-  brew install ranger
+  brew install ranger atool
 }
 
 # update() {}

@@ -1,5 +1,5 @@
 # License inventory
 
-| license          | packages |
-| ---------------- | -------- |
-| GPL-3.0-or-later | ranger   |
+| license          | packages      |
+| ---------------- | ------------- |
+| GPL-3.0-or-later | ranger, atool |
