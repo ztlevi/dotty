@@ -1212,7 +1212,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open -a '/Applications/IntelliJ IDEA.app'"
+                                        "shell_command": "open -a '/Applications/IntelliJ IDEA.app' || zsh -c 'open -a \"$(fd \"^IntelliJ IDEA.app$\" \"$HOME/Library/Application Support/JetBrains/Toolbox/apps/\")\"' "
                                     }
                                 ],
                                 "type": "basic"
