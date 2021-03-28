@@ -6,7 +6,7 @@ install() {
   macos)
     brew install duti rga pandoc poppler tesseract ffmpeg imagemagick graphicsmagick youtube-dl
     brew install --cask dropbox neteasemusic webtorrent \
-      jetbrains-toolbox typora iina keycastr discord zoomus \
+      typora iina keycastr discord zoomus \
       clashx google-backup-and-sync kap obs balenaEtcher
 
     # Optional preview apps
@@ -27,7 +27,7 @@ install() {
     ;;
   linux-arch)
     yay --needed --noconfirm -S \
-      telegram-desktop jetbrains-toolbox \
+      telegram-desktop \
       dropbox webtorrent-desktop typora youtube-dl
     ;;
   linux-RHEL)
