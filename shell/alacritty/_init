@@ -6,7 +6,7 @@
 source ${0:A:h}/../../deploy
 
 install() {
-  brew install yq neofetch
+  brew install yq neofetch vivid
   case $(_os) in
   linux-arch)
     yay --needed --noconfirm -S alacritty
