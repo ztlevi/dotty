@@ -1219,7 +1219,7 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "d",
+                                    "key_code": "e",
                                     "modifiers": {
                                         "mandatory": [
                                             "left_option"
