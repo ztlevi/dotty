@@ -22,17 +22,20 @@ cd ~/Dotfiles
 
 # Minimal os setup
 # MacOS
-./deploy base/macos shell/zsh
+./deploy base/macos
 # Arch
-./deploy base/arch shell/zsh
+./deploy base/arch
 # Debian or RHEL
-./deploy base/linux shell/zsh
+./deploy base/linux
+
+# Shell basics
+./deploy shell/zsh shell/git
 
 # Linux Desktop Environment (Gnome/Awesome/Bspwm)
 ./deploy desktop/bspwm
 
 # Shell
-./deploy shell/alacritty shell/tmux shell/git shell/ranger \
+./deploy shell/alacritty shell/tmux shell/ranger \
   shell/fzf shell/aspell shell/work
 # Editor
 ./deploy editor/emacs editor/neovim editor/editorconfig
