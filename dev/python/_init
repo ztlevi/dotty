@@ -6,7 +6,7 @@ _install_pip_packages() {
   pip3 install --upgrade pip setuptools pipenv
 
   # Other packages
-  pip3 install --upgrade black pylint autoflake gnureadline grip cpplint
+  pip3 install --upgrade black debugpy pdbpp pylint autoflake gnureadline grip cpplint
 }
 
 install() {
