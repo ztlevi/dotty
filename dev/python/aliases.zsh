@@ -1,6 +1,5 @@
 # Cache in aliases because /usr/bin will be moved to top in .zshrc
 _cache pyenv init - --no-rehash
-path=($PYENV_ROOT/versions/$PYTHON_VERSION/bin $path)
 
 alias py=python
 _is_callable python2 && alias py2=python2
