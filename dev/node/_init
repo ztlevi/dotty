@@ -4,6 +4,9 @@ source env.zsh
 
 install() {
   brew install nodenv node-build
+  # Install nodenv-package-rehash, which runs `nodenv rehash` automatically
+  git clone https://github.com/nodenv/nodenv-package-rehash.git "$(nodenv root)"/plugins/nodenv-package-rehash
+  nodenv package-hooks install --all
 
   nodenv install $NODE_VERSION
   nodenv global $NODE_VERSION
