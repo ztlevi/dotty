@@ -4,9 +4,6 @@ source env.zsh
 
 install() {
   brew install nodenv node-build
-  # Install nodenv-package-rehash, which runs `nodenv rehash` automatically
-  git clone https://github.com/nodenv/nodenv-package-rehash.git "$(nodenv root)"/plugins/nodenv-package-rehash
-  nodenv package-hooks install --all
 
   nodenv install $NODE_VERSION
   nodenv global $NODE_VERSION
@@ -15,6 +12,8 @@ install() {
   # NPM Packages
   npm install -g npm yarn prettier live-server hexo-cli \
     reveal-md typescript tslint cspell typescript-language-server
+  # Run rehash everytime install global package
+  nodenv rehash
 }
 
 update() {

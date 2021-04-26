@@ -19,6 +19,8 @@ install() {
   path=($PYENV_ROOT/shims $path)
 
   _install_pip_packages
+  # Run rehash everytime install global package
+  pyenv rehash
 }
 
 update() {
