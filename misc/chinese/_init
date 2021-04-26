@@ -55,7 +55,7 @@ link() {
   # 1. System input method
   mklink config/fcitx/config ${XDG_CONFIG_HOME}/fcitx/config
   mklink config/fcitx/rime/* ${XDG_CONFIG_HOME}/fcitx/rime/
-  mklink ${DOTFILES_ASSETS}/rime-dictionaries/*.dict.yaml ${XDG_CONFIG_HOME}/fcitx/rime/
+  [[ -d ${DOTFILES_ASSETS} ]] && mklink ${DOTFILES_ASSETS}/rime-dictionaries/*.dict.yaml ${XDG_CONFIG_HOME}/fcitx/rime/
   mklink pam_environment ${HOME}/.pam_environment
 
   case $(_os) in
@@ -68,7 +68,7 @@ link() {
 
   # Don't use ${XDG_CONFIG_HOME}/fcitx/rime as your emacs fcitx config dir. It will cause conflict.
   mklink config/fcitx/rime/* $XDG_CONFIG_HOME/fcitx/emacs-rime/
-  mklink ${DOTFILES_ASSETS}/rime-dictionaries/*.dict.yaml $XDG_CONFIG_HOME/fcitx/emacs-rime/
+  [[ -d ${DOTFILES_ASSETS} ]] && mklink ${DOTFILES_ASSETS}/rime-dictionaries/*.dict.yaml $XDG_CONFIG_HOME/fcitx/emacs-rime/
 
   local link_files=("opencc" "emoji_suggestion.yaml" "zhwiki.dict.yaml")
   for file in ${link_files[@]}; do
