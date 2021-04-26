@@ -113,6 +113,9 @@ fi
 
 - Why I cannot do git commit? Make sure you create your GPG key or delete `user.signingkey` property
   in `$HOME/.config/git/config`.
+- I installed npm packages globally but it not showed up in `$HOME/.local/share/nodenv/shims` path.
+  Make sure you run `nodenv rehash` to generate bin files.
+
 
 ## Relevant projects
 
