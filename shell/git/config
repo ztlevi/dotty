@@ -59,6 +59,8 @@
 	useHttpPath = true
 [credential]
 	helper = /usr/local/bin/git-credential-manager-core
+[http]
+	sslVerify = true
 [color]
 	ui = auto
 [filter "lfs"]
