@@ -28,7 +28,7 @@ ignore = Path */.idea
 ignore = Name {[._]*.s[a-v][a-z],[._]*.sw[a-p],[._]s[a-v][a-z],[._]sw[a-p],Session.vim,Sessionx.vim}
 
 # Ignore Amazon tools
-ignore = Name {.rde}
+ignore = Name {.rde,.bemol}
 
 # Ignore rules for brazil
 ignore = BelowPath */{env,logs,out}
