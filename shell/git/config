@@ -2,8 +2,6 @@
 	name = Ting Zhou
 	email = ztlevi.work@gmail.com
 	signingkey = ztlevi.work@gmail.com
-[includeIf "gitdir:workplace/"]
-	path = ~/Dotfiles/shell/git/git-company-config
 [alias]
 	# Show the diff between the latest commit and the current state
 	d	= !"git diff"
@@ -77,3 +75,5 @@
 	includeStatusHeader = false
 	includePullRequestsSection = false
 	includeIssuesSection = false
+[includeIf "gitdir:workplace/"]
+	path = ~/Dotfiles/shell/git/git-company-config
