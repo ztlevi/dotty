@@ -14,6 +14,9 @@ install() {
     defaults write org.gnu.Emacs Emacs.ToolBar -string no
     defaults write org.gnu.Emacs Emacs.ScrollBar -string no
     defaults write org.gnu.Emacs Emacs.MenuBar -string no
+
+    # Set emacs as default editor
+    ${0:A:h}/bin/macos_set_emacs_as_default.sh
     ;;
   linux-*)
     brew install emacs

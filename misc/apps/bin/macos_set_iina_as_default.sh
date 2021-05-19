@@ -22,25 +22,15 @@
 
 {
   cat <<eof
-com.readdle.PDFExpert-Mac:pdf
-
-abnerworks.Typora:markdown
-abnerworks.Typora:md
-abnerworks.Typora:mdwn
-
-com.netease.163music:mp3
-com.netease.163music:wav
-com.netease.163music:aac
-com.netease.163music:ogg
-com.netease.163music:wma
-com.netease.163music:flac
-com.netease.163music:alac
-
-com.trendmicro.DrUnzip:gz
-com.trendmicro.DrUnzip:7z
-com.trendmicro.DrUnzip:rar
-com.trendmicro.DrUnzip:tar
-com.trendmicro.DrUnzip:zip
+com.colliderli.iina:mp4
+com.colliderli.iina:mpeg
+com.colliderli.iina:mov
+com.colliderli.iina:mkv
+com.colliderli.iina:rmvb
+com.colliderli.iina:wmv
+com.colliderli.iina:webm
+com.colliderli.iina:flv
+com.colliderli.iina:avi
 eof
 } | grep . |
   while IFS=$':' read bundle_id extension; do

@@ -5,12 +5,16 @@ install() {
   case $(_os) in
   macos)
     brew install pandoc ffmpeg glances bandwhich
-    brew install --cask google-chrome forklift visual-studio-code bitwarden ticktick keepingyouawake
+    brew install --cask google-chrome forklift visual-studio-code bitwarden \
+      iina ticktick keepingyouawake
 
     # Vscode enable key-repeating
     defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false         # For VS Code
     defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false # For VS Code Insider
     defaults delete -g ApplePressAndHoldEnabled                                      # If necessary, reset global default
+
+    # Set iina as default video player
+    ${0:A:h}/bin/macos_set_iina_as_default.sh
     ;;
   linux-arch)
     yay --needed --noconfirm -S \

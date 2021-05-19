@@ -22,25 +22,37 @@
 
 {
   cat <<eof
-com.readdle.PDFExpert-Mac:pdf
+org.gnu.Emacs:sh
+org.gnu.Emacs:bash
+org.gnu.Emacs:zsh
+org.gnu.Emacs:nix
+org.gnu.Emacs:c
+org.gnu.Emacs:cc
+org.gnu.Emacs:cpp
+org.gnu.Emacs:h
+org.gnu.Emacs:hh
+org.gnu.Emacs:hpp
+org.gnu.Emacs:cmake
+org.gnu.Emacs:text
+org.gnu.Emacs:txt
+org.gnu.Emacs:xml
+org.gnu.Emacs:json
+org.gnu.Emacs:el
+org.gnu.Emacs:elc
+org.gnu.Emacs:go
+org.gnu.Emacs:java
+org.gnu.Emacs:js
+org.gnu.Emacs:jsx
+org.gnu.Emacs:kt
+org.gnu.Emacs:kts
+org.gnu.Emacs:tex
+org.gnu.Emacs:bbl
+org.gnu.Emacs:org
+org.gnu.Emacs:py
+org.gnu.Emacs:rs
+org.gnu.Emacs:html
+org.gnu.Emacs:css
 
-abnerworks.Typora:markdown
-abnerworks.Typora:md
-abnerworks.Typora:mdwn
-
-com.netease.163music:mp3
-com.netease.163music:wav
-com.netease.163music:aac
-com.netease.163music:ogg
-com.netease.163music:wma
-com.netease.163music:flac
-com.netease.163music:alac
-
-com.trendmicro.DrUnzip:gz
-com.trendmicro.DrUnzip:7z
-com.trendmicro.DrUnzip:rar
-com.trendmicro.DrUnzip:tar
-com.trendmicro.DrUnzip:zip
 eof
 } | grep . |
   while IFS=$':' read bundle_id extension; do
