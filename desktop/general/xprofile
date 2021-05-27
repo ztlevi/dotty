@@ -2,7 +2,7 @@
 # ASCII text
 # http://patorjk.com/software/taag/#p=display&f=Broadway&t=gnome
 
-DOTFILES=${HOME}/Dotfiles
+DOTFILES=${HOME}/.dotty
 DESKTOP=${DOTFILES}/desktop/general
 
 source ${DOTFILES}/env

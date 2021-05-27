@@ -21,5 +21,5 @@ super.
 
 ## Apps
 
-Control center: See `~/Dotfiles/desktop/bspwm/bin/settings` Software update manager:
+Control center: See `~/.dotty/desktop/bspwm/bin/settings` Software update manager:
 `sudo /usr/bin/python3 /usr/bin/update-manager` Software updates app: `sudo software-properties-gtk`

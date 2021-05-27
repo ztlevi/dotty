@@ -1148,7 +1148,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "$HOME/Dotfiles/base/macos/bin/toggle_finder"
+                                        "shell_command": "$HOME/.dotty/base/macos/bin/toggle_finder"
                                     }
                                 ],
                                 "type": "basic"

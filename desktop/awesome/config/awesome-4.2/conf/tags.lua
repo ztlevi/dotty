@@ -24,7 +24,7 @@ local tags = {
     {
         icon = icons.chrome,
         type = "chrome",
-        defaultApp = os.getenv("HOME") .. "/Dotfiles/desktop/bspwm/bin/launch-browser",
+        defaultApp = os.getenv("HOME") .. "/.dotty/desktop/bspwm/bin/launch-browser",
         screen = 1
     },
     {

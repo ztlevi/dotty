@@ -5,13 +5,13 @@
 1. Generate package list
 
 ```sh
-pacman -Qqe > ~/Dotfiles/ArchPackageList.txt
+pacman -Qqe > ~/.dotty/ArchPackageList.txt
 ```
 
 2. Reinstall the packages
 
 ```sh
-sudo pacman -S `cat ~/Dotfiles/ArchPackageList.txt`
+sudo pacman -S `cat ~/.dotty/ArchPackageList.txt`
 # This will also work, but Pacman will exit if you have a package
 # installed that is not in the repositories.
 ```
@@ -20,7 +20,7 @@ sudo pacman -S `cat ~/Dotfiles/ArchPackageList.txt`
 
 ```sh
 # Grsync additional options
---exclude-from="/home/ztlevi/Dotfiles/grsync-rules"
+--exclude-from="/home/ztlevi/.dotty/grsync-rules"
 ```
 
 ## Nvidia Drivers

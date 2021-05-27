@@ -11,12 +11,12 @@ Dotfiles for Ubuntu, Arch and MacOS!
 
 ## Quick start
 
-`bash <(curl -s https://raw.githubusercontent.com/ztlevi/Dotfiles/master/bootstrap.sh)`
+`bash <(curl -s https://raw.githubusercontent.com/ztlevi/dotty/master/bootstrap.sh)`
 
 ## Install
 
 ```sh
-cd ~/Dotfiles
+cd ~/.dotty
 
 # Git
 

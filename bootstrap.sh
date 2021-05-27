@@ -2,12 +2,12 @@
 
 # dotfiles bootstrapper
 #
-# Installs zsh & git, then clones this repo to ~/Dotfiles. This script is
+# Installs zsh & git, then clones this repo to ~/.dotty. This script is
 # intended to be run remotely, via curl:
 #
-# bash <(curl -s https://raw.githubusercontent.com/ztlevi/Dotfiles/master/bootstrap.sh)
+# bash <(curl -s https://raw.githubusercontent.com/ztlevi/dotty/master/bootstrap.sh)
 
-export DOTFILES=~/Dotfiles
+export DOTFILES=~/.dotty
 set -e
 
 _msg() { printf "\r\033[2K\033[0;32m[ .. ] %s\033[0m\n" "$*"; }
@@ -53,7 +53,7 @@ fi
 
 if [[ ! -d "$DOTFILES" ]]; then
   _msg "Deploying dotfiles repository..."
-  git clone --recurse-submodules -j8 https://github.com/ztlevi/Dotfiles.git $DOTFILES
+  git clone --recurse-submodules -j8 https://github.com/ztlevi/dotty.git $DOTFILES
 fi
 
 #

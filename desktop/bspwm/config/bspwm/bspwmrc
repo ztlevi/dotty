@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-source $HOME/Dotfiles/env
+source $HOME/.dotty/env
 
 #
 # Essentials

@@ -37,9 +37,9 @@ Setup SSH key to prevent typing username and password each time you operate your
    ```
 5. Go to Github profile-->settings-->SSH and GPG keys-->New SSH key or Add SSH key-->paste ssh key
    you copy-->Add SSH key
-6. Go to repo-->Clone or download-->Use SSH: git@github.com:ztlevi/Dotfiles.git
+6. Go to repo-->Clone or download-->Use SSH: git@github.com:ztlevi/dotty.git
    ```sh
-   git remote set-url origin git@github.com:ztlevi/Dotfiles.git
+   git remote set-url origin git@github.com:ztlevi/dotty.git
    ```
 
 # [Forgit](https://github.com/wfxr/forgit)

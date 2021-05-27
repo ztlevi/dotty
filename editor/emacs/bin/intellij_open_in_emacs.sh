@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 # Tutorial: https://developer.atlassian.com/blog/2015/03/emacs-intellij/
 # Name: Open in Emacs
-# Program: /Users/ztlevi/Dotfiles/intellij_open_in_emacs.sh
+# Program: /Users/ztlevi/.dotty/intellij_open_in_emacs.sh
 # Arguments: $FilePath$ $LineNumber$ $ColumnNumber$
 # Working directory: $FileDir$
 # Advanced Options: Uncheck open counsel for tool output

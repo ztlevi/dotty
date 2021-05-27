@@ -3964,7 +3964,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/ztlevi/Dotfiles/misc/apps/iterm</string>
+	<string>/Users/ztlevi/.dotty/misc/apps/iterm</string>
 	<key>Print In Black And White</key>
 	<true/>
 	<key>PromptOnQuit</key>

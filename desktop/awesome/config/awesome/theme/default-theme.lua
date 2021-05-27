@@ -23,7 +23,7 @@ local awesome_overrides = function(theme)
     --theme.dir             = os.getenv("HOME") .. "/code/awesome-pro/themes/pro-dark"
 
     theme.icons = theme.dir .. "/icons/"
-    theme.wallpaper = os.getenv("HOME") .. "/Dotfiles/assets/wallpapers/1_inspration.jpg"
+    theme.wallpaper = os.getenv("HOME") .. "/.dotty/assets/wallpapers/1_inspration.jpg"
     -- theme.wallpaper = '#e0e0e0'
     theme.font = "FiraCode Nerd Font 10"
     theme.title_font = "FiraCode Nerd Font 14"
