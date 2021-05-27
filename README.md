@@ -1,4 +1,6 @@
-# Tidy Dotfiles
+# dotty - Scalable dotfiles
+
+Dotty with your dotfiles? Try dotty, a scalable dotfiles manager for linux and macos.
 
 This repo is forked from [Hlissner's dotfiles](https://github.com/hlissner/dotfiles).
 
