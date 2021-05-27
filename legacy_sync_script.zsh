@@ -4,3 +4,4 @@
 
 [[ -d ~/Dotfiles ]] && mv ~/Dotfiles ~/.dotty
 rm -rf ~/.local/share/Dotfiles
+[[ -d $XDG_DATA_HOME/.dotty ]] && mv $XDG_DATA_HOME/.dotty $XDG_DATA_HOME/dotty

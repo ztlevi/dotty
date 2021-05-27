@@ -86,7 +86,7 @@ function update_my_repos() {
   {
     update_git_repo $DOTFILES
     (
-      cd ${HOME}/.dotty
+      cd $DOTFILES
       git submodule update -- assets
       update_topics &>/dev/null
     )

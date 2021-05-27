@@ -5,13 +5,13 @@
 1. Generate package list
 
 ```sh
-pacman -Qqe > ~/.dotty/ArchPackageList.txt
+pacman -Qqe > $DOTFILES/ArchPackageList.txt
 ```
 
 2. Reinstall the packages
 
 ```sh
-sudo pacman -S `cat ~/.dotty/ArchPackageList.txt`
+sudo pacman -S `cat $DOTFILES/ArchPackageList.txt`
 # This will also work, but Pacman will exit if you have a package
 # installed that is not in the repositories.
 ```
