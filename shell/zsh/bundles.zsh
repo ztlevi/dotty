@@ -8,8 +8,8 @@ antigen use oh-my-zsh
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
 # GIT
 antigen bundle git
-antigen bundle gh
 antigen bundle gitignore
+# antigen bundle gh
 # antigen bundle git-extras
 # antigen bundle gitfast
 # antigen bundle 'wfxr/forgit'
