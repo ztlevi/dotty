@@ -118,6 +118,8 @@ nmap <leader>aa      :action $SelectAll<CR>
 vmap <leader>aa      :<Backspace><Backspace><Backspace><Backspace><Backspace>action $SelectAll<CR>
 nmap <leader>al      :actionlist<CR>
 vmap <leader>al      :<Backspace><Backspace><Backspace><Backspace><Backspace>actionlist<CR>
+nmap <leader>ac      :action CloseAllNotifications<CR>
+vmap <leader>ac      :<Backspace><Backspace><Backspace><Backspace><Backspace>action CloseAllNotifications<CR>
 nmap <leader>bb      :action RecentFiles<CR>
 vmap <leader>bb      :<Backspace><Backspace><Backspace><Backspace><Backspace>action RecentFiles<CR>
 nmap <leader>si      :action ActivateStructureToolWindow<CR>
