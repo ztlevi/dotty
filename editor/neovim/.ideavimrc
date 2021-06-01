@@ -41,9 +41,9 @@ vmap <del> "_d
 nmap <c-g> <Esc>
 vmap <c-g> <Esc>
 imap <c-g> <Esc>a
-nmap <c-a> ^
+nmap <c-a> 0
 nmap <c-e> $
-vmap <c-a> ^
+vmap <c-a> 0
 vmap <c-e> $
 imap <c-e> <Esc>A
 imap <c-a> <Esc>I
