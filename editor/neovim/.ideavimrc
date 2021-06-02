@@ -71,23 +71,26 @@ cnoremap <C-e> <End>
 " h left, l right, k up, j down
 " ============================================================================
 nmap <leader>wh <c-w>h
-nmap <leader>wl <c-w>l
-nmap <leader>wk <c-w>k
-nmap <leader>wj <c-w>j
-nmap <leader>wv <c-w>v
-nmap <leader>ws <c-w>s
-nmap <leader>wc <c-w>c
-nmap <leader>wo :action HideAllWindows<CR>
-nmap <leader>wz :action ToggleDistractionFreeMode<CR>
-
 vmap <leader>wh <c-w>h
+nmap <leader>wl <c-w>l
 vmap <leader>wl <c-w>l
+nmap <leader>wk <c-w>k
 vmap <leader>wk <c-w>k
+nmap <leader>wj <c-w>j
 vmap <leader>wj <c-w>j
+nmap <leader>wv <c-w>v
 vmap <leader>wv <c-w>v
+nmap <leader>ws <c-w>s
 vmap <leader>ws <c-w>s
+nmap <leader>wc <c-w>c
 vmap <leader>wc <c-w>c
+nmap <leader>wH :action MoveEditorToOppositeTabGroup<CR>
+vmap <leader>wH :<Backspace><Backspace><Backspace><Backspace><Backspace>action MoveEditorToOppositeTabGroup<CR>
+nmap <leader>wL :action MoveEditorToOppositeTabGroup<CR>
+vmap <leader>wL :<Backspace><Backspace><Backspace><Backspace><Backspace>action MoveEditorToOppositeTabGroup<CR>
+nmap <leader>wo :action HideAllWindows<CR>
 vmap <leader>wo :<Backspace><Backspace><Backspace><Backspace><Backspace>action HideAllWindows<CR>
+nmap <leader>wz :action ToggleDistractionFreeMode<CR>
 vmap <leader>wz :<Backspace><Backspace><Backspace><Backspace><Backspace>action ToggleDistractionFreeMode<CR>
 
 " ============================================================================
