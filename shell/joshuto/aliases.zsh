@@ -1,31 +1,17 @@
-# function ranger-cd() {
-#   tmpfile='/tmp/choosedir'
-#   curdir=$(pwd)
-#   ranger --choosedir="$tmpfile" "${@:-$curdir}"
-#   if [[ -f "$tmpfile" ]] && [[ $(cat "$tmpfile") != $curdir ]]; then
-#     cd $(cat $tmpfile)
-#   fi
-#   rm -f "$tmpfile"
-# }
-
-# function widget-ranger-cd() {
-#   BUFFER="ranger-cd"
-#   zle accept-line
-# }
-# zle -N widget-ranger-cd
-
 function joshuto-cd() {
-  OUTPUT_FILE=/tmp/$USER/joshuto-lastdir
-  joshuto
-  LASTDIR=$(cat $OUTPUT_FILE)
-  cd "$LASTDIR"
+  joshuto --lastdir /tmp/joshuto-lastdir
+  LASTDIR="$(cat /tmp/joshuto-lastdir)"
+  [ "$LASTDIR" != "$(pwd)" ] && cd "$LASTDIR"
 }
 
-function widget-joshuto() {
+function widget-joshuto-cd() {
   BUFFER="joshuto-cd"
   zle accept-line
 }
-zle -N widget-joshuto
-# # Ranger
-# bindkey '^o' widget-ranger-cd
-bindkey '^o' widget-joshuto
+zle -N widget-joshuto-cd
+
+# Define an init function and append to zvm_after_init_commands
+function personal_joshuto_bind_keys() {
+  bindkey '^o' widget-joshuto-cd
+}
+zvm_after_init_commands+=(personal_joshuto_bind_keys)
