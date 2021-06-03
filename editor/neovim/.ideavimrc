@@ -26,6 +26,7 @@ map <A-S> :action SaveAll<CR>
 map <A-Z> :action $Undo<CR>
 map <A-S-Z> :action $Redo<CR>
 map <A-X> :action $Cut<CR>
+map <C-L> :action EditorScrollToCenter<CR>
 
 " Allow backspace and cursor keys to cross line boundaries
 set whichwrap+=<,>,h,l
