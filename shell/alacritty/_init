@@ -55,11 +55,25 @@ link() {
   (
     cd $DOTFILES/shell/alacritty/config/alacritty
     local config_files=(basic.yml keybinding.yml ${theme_file})
-    local yq_expression='select(fi == 0) * select(fi == 1) * select(fi == 2)'
+    if [[ $(_os) == "macos" ]]; then
+      config_files+=(macos.yml)
+    fi
+
     if [[ -f ${private_file} ]]; then
       config_files+=(${private_file})
-      yq_expression+=" * select(fi == 3)"
     fi
+
+    function string_join() {
+        local IFS="$1"
+        shift
+        echo "$*"
+    }
+    local select_expression=()
+    for i in {0..$((${#config_files} - 1))}; do
+      select_expression+=(" select(fi == $i) ")
+    done
+    local yq_expression=`string_join "*" "${select_expression[@]}"`
+
     yq eval-all $yq_expression ${config_files[@]} >$config_file
   )
   if [[ $(_os) == "macos" ]]; then
