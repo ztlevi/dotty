@@ -105,6 +105,8 @@ nmap zm :action CollapseAllRegions<CR>
 " IDE actions
 " ============================================================================
 
+nmap K               :action QuickImplementations<CR>
+vmap K               :<Backspace><Backspace><Backspace><Backspace><Backspace>action QuickImplementations<CR>
 nmap <CR>            :action RecentFiles<CR>
 vmap <CR>            :<Backspace><Backspace><Backspace><Backspace><Backspace>action RecentFiles<CR>
 nmap <c-i>           :action Forward<CR>
