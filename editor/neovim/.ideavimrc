@@ -27,6 +27,7 @@ map <A-Z> :action $Undo<CR>
 map <A-S-Z> :action $Redo<CR>
 map <A-X> :action $Cut<CR>
 map <C-L> :action EditorScrollToCenter<CR>
+map <C-M> :action HideAllWindows<CR>
 
 " Allow backspace and cursor keys to cross line boundaries
 set whichwrap+=<,>,h,l
@@ -108,8 +109,6 @@ nmap zm :action CollapseAllRegions<CR>
 
 nmap K               :action QuickImplementations<CR>
 vmap K               :<Backspace><Backspace><Backspace><Backspace><Backspace>action QuickImplementations<CR>
-nmap <CR>            :action RecentFiles<CR>
-vmap <CR>            :<Backspace><Backspace><Backspace><Backspace><Backspace>action RecentFiles<CR>
 nmap <c-i>           :action Forward<CR>
 vmap <c-i>           :<Backspace><Backspace><Backspace><Backspace><Backspace>action Forward<CR>
 nmap <c-o>           :action Back<CR>
