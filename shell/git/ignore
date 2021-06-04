@@ -94,3 +94,7 @@ build
 ##########
 annotation-generated-src
 annotation-generated-tst
+.factorypath
+# https://stackoverflow.com/questions/43555850/git-gitignore-to-ignore-only-folder-in-root-directory
+# ^ forward slash before the folder name signifies root dir
+/out
