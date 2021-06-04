@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+local bundle_identifie=$(env | rg '__CFBundleIdentifie')
+
+if [[ "$bundle_identifie" == *intellij ]]; then
+  idea $@
+elif [[ "$bundle_identifie" == *VSCode ]]; then
+  code $@
+else
+  nvim $@
+fi
