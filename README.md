@@ -15,6 +15,8 @@ Dotfiles for Ubuntu, Arch and MacOS!
 
 `bash <(curl -s https://raw.githubusercontent.com/ztlevi/dotty/master/bootstrap.sh)`
 
+Do a global replace in this repo. Replace my name `Ting Zhou` and my email `ztlevi.work@gmail.com`.
+
 ## Install
 
 ```sh
