@@ -27,7 +27,8 @@ map <A-Z> :action $Undo<CR>
 map <A-S-Z> :action $Redo<CR>
 map <A-X> :action $Cut<CR>
 map <C-L> :action EditorScrollToCenter<CR>
-map <C-M> :action HideAllWindows<CR>
+" <CR> is also equivalent to <C-M>
+map <CR> :action HideAllWindows<CR>
 map <C-T> :action ActivateTerminalToolWindow<CR>
 map <C-G> <esc>
 

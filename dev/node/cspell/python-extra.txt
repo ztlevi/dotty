@@ -1,5 +1,6 @@
 pylint
 plotly
+pydoc
 shutil
 rmtree
 functools
