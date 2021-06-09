@@ -23,7 +23,7 @@ install() {
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
   fi
 
-  brew install ripgrep fd jq
+  brew install ripgrep fd jq ssh
 
   # Install fonts
   mkdir -p $XDG_DATA_HOME/fonts/

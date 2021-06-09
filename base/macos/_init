@@ -11,7 +11,7 @@ install() {
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   fi
 
-  brew install wget curl git tree coreutils bash gnupg2 p7zip ripgrep fd jq duti
+  brew install wget curl git tree coreutils bash gnupg2 p7zip ripgrep fd jq ssh duti
 
   brew tap buo/cask-upgrade # Upgrade with `brew cu`
 
