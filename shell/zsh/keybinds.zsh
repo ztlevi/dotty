@@ -8,9 +8,6 @@ autoload -U is-at-least
 
 # Define an init function and append to zvm_after_init_commands
 function personal_bind_keys() {
-  ## vi-mode ###############
-  bindkey -M viins 'jk' vi-cmd-mode
-
   # Open current prompt in external editor
   autoload -Uz edit-command-line
   zle -N edit-command-line
@@ -19,6 +16,7 @@ function personal_bind_keys() {
   bindkey -M viins '^N' history-substring-search-down
   bindkey -M viins '^P' history-substring-search-up
   bindkey -M viins '^S' history-incremental-pattern-search-backward
+  bindkey -M viins '^K' kill-line
   bindkey -M viins '^U' backward-kill-line
   bindkey -M viins '^W' backward-kill-word
   bindkey -M viins '^H' backward-delete-char
@@ -29,13 +27,6 @@ function personal_bind_keys() {
   bindkey -M viins '^G' push-line-or-edit
   bindkey -M viins '^A' beginning-of-line
   bindkey -M viins '^E' end-of-line
-  bindkey -M viins '^K' kill-line
-
-  bindkey -M vicmd 'H' run-help
-
-  # Fix the DEL key
-  bindkey -M vicmd "^[[3~" delete-char
-  bindkey "^[[3~" delete-char
 
   # Shift + Tab
   bindkey -M viins '^[[Z' reverse-menu-complete
