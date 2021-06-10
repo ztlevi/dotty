@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-# ClashX Pro
+# ClashX Pro: Copy shell command
 http_port=7890
 socks_port=7890
 proxyon() {
