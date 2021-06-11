@@ -24,7 +24,7 @@ cd ~/.dotty
 
 # Git
 
-# Minimal os setup
+# Minimal os setup (required)
 # MacOS
 ./deploy base/macos
 # Arch
@@ -32,7 +32,7 @@ cd ~/.dotty
 # Debian or RHEL
 ./deploy base/linux
 
-# Shell basics
+# Shell basics (required)
 ./deploy shell/zsh shell/git
 
 # Linux Desktop Environment (Gnome/Awesome/Bspwm)
