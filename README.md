@@ -120,6 +120,10 @@ fi
     `$HOME/.config/git/config`.
 - I installed npm packages globally but it not showed up in `$HOME/.local/share/nodenv/shims` path.
   - Make sure you run `nodenv rehash` to generate bin files.
+- I want to use dark theme, what changes should I make?
+  - Change LS_COLORS in `~/.dotty/shell/alacritty/env.zsh`.
+  - Change the theme_file [here](https://github.com/ztlevi/dotty/blob/master/shell/alacritty/_init#L53).
+  - Delete the maglev plugin under `~/.local/share/tmux/plugins`. Change tmux plugin [here](https://github.com/ztlevi/dotty/blob/master/shell/tmux/tmux.conf#L44) to `ztlevi/maglev-dark`.
 
 ## Relevant projects
 
