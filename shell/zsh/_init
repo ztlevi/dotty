@@ -28,6 +28,7 @@ install() {
 }
 
 update() {
+  zinit self-update
   zinit update
 }
 
