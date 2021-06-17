@@ -40,7 +40,7 @@ alias dud="du -d 1"
 
 _is_callable exa && alias ls="exa"
 alias ls="${aliases[ls]:-ls} --color=auto --group-directories-first"
-alias llh="ls -lgh"
+alias ll="ls -lgh"
 
 alias ..='cd ..'
 alias ...='cd ../..'

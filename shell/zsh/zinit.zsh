@@ -7,36 +7,46 @@ source ~/.zinit/bin/zinit.zsh
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-# Load a few important annexes, without Turbo
-# (this is currently required for annexes)
-zinit light-mode for \
-      zinit-zsh/z-a-rust \
-      zinit-zsh/z-a-readurl \
-      zinit-zsh/z-a-patch-dl \
-      zinit-zsh/z-a-bin-gem-node
+zinit light-mode for zinit-zsh/z-a-meta-plugins
+# Load a few important annexes, without Turbo (this is currently required for annexes)
+zinit for annexes
+
+# This loads plugin groups defined in zinit-zsh/z-a-meta-plugins
+zinit skip'zsh-users/zsh-autosuggestions' for zsh-users+fast
+zinit skip'dircolors-material jonas/tig' for console-tools
+zinit skip'lotabout/skim peco/peco fzy' for fuzzy
+
+# ZSH
+zinit wait lucid for OMZP::zsh_reload
+zinit wait lucid light-mode for \
+  hlissner/zsh-autopair \
+  zsh-users/zsh-history-substring-search
+
+# VI-MODE
+zinit light jeffreytse/zsh-vi-mode
 
 # Oh My Zsh
-zinit for \
-      OMZL::bzr.zsh \
-      OMZL::cli.zsh \
-      OMZL::clipboard.zsh \
-      OMZL::compfix.zsh \
-      OMZL::completion.zsh \
-      OMZL::correction.zsh \
-      OMZL::diagnostics.zsh \
-      OMZL::directories.zsh \
-      OMZL::functions.zsh \
-      OMZL::git.zsh \
-      OMZL::grep.zsh \
-      OMZL::history.zsh \
-      OMZL::key-bindings.zsh \
-      OMZL::misc.zsh \
-      OMZL::nvm.zsh \
-      OMZL::prompt_info_functions.zsh \
-      OMZL::spectrum.zsh \
-      OMZL::termsupport.zsh \
-      OMZL::theme-and-appearance.zsh \
-      OMZP::common-aliases
+zinit light-mode for \
+  OMZL::bzr.zsh \
+  OMZL::cli.zsh \
+  OMZL::clipboard.zsh \
+  OMZL::compfix.zsh \
+  OMZL::completion.zsh \
+  OMZL::correction.zsh \
+  OMZL::diagnostics.zsh \
+  OMZL::directories.zsh \
+  OMZL::functions.zsh \
+  OMZL::git.zsh \
+  OMZL::grep.zsh \
+  OMZL::history.zsh \
+  OMZL::key-bindings.zsh \
+  OMZL::misc.zsh \
+  OMZL::nvm.zsh \
+  OMZL::prompt_info_functions.zsh \
+  OMZL::spectrum.zsh \
+  OMZL::termsupport.zsh \
+  OMZL::theme-and-appearance.zsh \
+  OMZP::common-aliases
 
 # GIT
 zinit wait lucid for \
@@ -78,20 +88,6 @@ zinit wait lucid for \
   OMZP::yarn
 # OMZP::react-native
 
-# ZSH
-zinit wait lucid for OMZP::zsh_reload
-zinit wait lucid light-mode for \
-  hlissner/zsh-autopair \
-  zsh-users/zsh-completions \
-  zsh-users/zsh-history-substring-search
-
-# VI-MODE
-zinit light jeffreytse/zsh-vi-mode
-
-# Load zdharma/fast-syntax-highlighting in the end: https://github.com/zdharma/zinit/issues/61
-zinit ice wait"1" lucid atinit"zicompinit; zicdreplay"
-zinit light zdharma/fast-syntax-highlighting
-
 # TMUX
 zinit wait lucid for \
   OMZP::tmux
@@ -103,9 +99,6 @@ zinit wait lucid for \
   OMZP::aws
 
 # MISC
-zinit ice as"completion"; zinit snippet OMZ::plugins/ripgrep/_ripgrep
-zinit ice as"completion"; zinit snippet OMZ::plugins/fd/_fd
-
 zinit wait lucid for \
   OMZP::fzf \
   OMZP::history \
@@ -113,7 +106,6 @@ zinit wait lucid for \
   OMZP::nmap \
   OMZP::copydir \
   OMZP::copyfile \
-  OMZP::common-aliases \
   OMZP::command-not-found \
   OMZP::rsync \
   OMZP::dotenv \

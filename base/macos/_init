@@ -11,7 +11,7 @@ install() {
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   fi
 
-  brew install wget curl git tree coreutils bash gnupg2 p7zip ripgrep fd jq ssh duti
+  brew install wget curl git tree coreutils bash gnupg2 p7zip jq ssh duti
 
   brew tap buo/cask-upgrade # Upgrade with `brew cu`
 
@@ -55,7 +55,8 @@ link() {
 
   # Copy fonts
   mkdir -p ~/Library/Fonts
-  fd ".*\.(ttf|otf)" "$DOTFILES/assets/fonts/general" --print0 | xargs -0 -n 1 -I{} rsync -a --ignore-existing "{}" ~/Library/Fonts
+  [[ -d ${DOTFILES_ASSETS} ]] && find "$DOTFILES_ASSETS/fonts/general" -iname "*.ttf" -or -iname "*.otf" -print0 | \
+    xargs -0 -n 1 -I{} rsync -a --ignore-existing "{}" ~/Library/Fonts
 
   # Create wgetrc
   [[ ! -f $WGETRC ]] && touch $WGETRC

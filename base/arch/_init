@@ -8,7 +8,7 @@ install() {
   sudo pacman -Syyu
 
   # Core essentials
-  sudo pacman --needed --noconfirm -S wget git curl tree rsync dnsutils base-devel net-tools fd jq \
+  sudo pacman --needed --noconfirm -S wget git curl tree rsync dnsutils base-devel net-tools jq \
     noto-fonts-emoji nerd-fonts-{fira-code,ubuntu-mono} ttf-font-awesome
 
   # Set up yay (AUR helper)
@@ -35,7 +35,8 @@ link() {
   rm -f ~/.xprofile && mklink ${0:A:h}/../../desktop/general/xprofile ~/.xprofile
 
   mkdir -p $XDG_DATA_HOME/fonts/
-  fd ".*\.(ttf|otf)" "$DOTFILES/assets/fonts/general" --print0 | xargs -0 -n 1 -I{} rsync -a --ignore-existing {} $XDG_DATA_HOME/fonts/
+  [[ -d ${DOTFILES_ASSETS} ]] && find "$DOTFILES_ASSETS/fonts/general" -iname "*.ttf" -or -iname "*.otf" -print0 | \
+    xargs -0 -n 1 -I{} rsync -a --ignore-existing "{}" $XDG_DATA_HOME/fonts/
 
 }
 

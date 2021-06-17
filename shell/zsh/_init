@@ -9,8 +9,8 @@ install() {
     git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
   fi
 
-  brew install zsh ripgrep fd jq \
-    fasd direnv shfmt zshdb bashdb exa procs bat dust shellcheck neofetch mosh
+  brew install zsh jq \
+    fasd direnv shfmt zshdb bashdb procs dust shellcheck neofetch mosh
 
   # Macos uses different trash app
   case $(_os) in
