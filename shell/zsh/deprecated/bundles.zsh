@@ -103,4 +103,4 @@ fi
 # Tell antigen that you're done.
 antigen apply
 
-source $DOTFILES/shell/zsh/post-bundles.zsh
+source $DOTFILES/shell/zsh/post-zsh-plugins.zsh

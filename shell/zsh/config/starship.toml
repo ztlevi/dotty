@@ -6,7 +6,6 @@
 success_symbol = "[➜](bold green)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
 error_symbol = "[✖](bold red)"
 vicmd_symbol = "[](bold blue)"
-use_symbol_for_status = true
 
 [username]
 style_user = "blue bold"

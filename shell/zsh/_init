@@ -3,21 +3,20 @@ source ${0:A:h}/../../deploy
 source .zshenv
 
 install() {
-  brew install zsh fasd fd direnv shfmt zshdb bashdb exa procs bat dust ripgrep shellcheck \
-    neofetch mosh jq
+  brew install zsh ripgrep fd jq \
+    fasd direnv shfmt zshdb bashdb exa procs bat dust shellcheck neofetch mosh
 
   # Macos uses different trash app
   case $(_os) in
-  macos)
-    brew install trash
-    ;;
-  linux-*)
-    brew install trash-cli
-    ;;
+    macos) brew install trash ;;
+    linux-*) brew install trash-cli ;;
   esac
 
-  # Install starship theme
-  curl -fsSL https://starship.rs/install.sh | bash -s -- -y
+  # zinit
+  if [[ ! -d ~/.zinit ]]; then
+    mkdir -p ~/.zinit
+    git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
+  fi
 
   # Set default shell to zsh
   chsh -s $(which zsh) $(whoami)
