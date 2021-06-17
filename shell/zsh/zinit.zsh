@@ -46,12 +46,10 @@ zinit wait lucid for \
 # OMZP::git-extras
 # wfxr/forgit
 # TODO: https://github.com/zdharma/zinit/issues/477
-# zinit ice pick"git-prompt.sh" cp"git-prompt.sh -> git-prompt.sh"
-# zinit snippet OMZP::gitfast
+# zinit ice svn wait lucid; zinit snippet OMZP::gitfast
 
 # DOCKER
-zinit ice as"completion"
-zinit snippet OMZ::plugins/docker/_docker
+zinit ice as"completion"; zinit snippet OMZ::plugins/docker/_docker
 
 zinit wait lucid for \
   OMZP::docker-compose \
@@ -98,18 +96,15 @@ zinit light zdharma/fast-syntax-highlighting
 zinit wait lucid for \
   OMZP::tmux
 # OMZP::tmuxinator
-# zinit ice as"completion"
-# zinit snippet OMZ::plugins/tmux-cssh/_tmux-cssh
+# zinit ice as"completion"; zinit snippet OMZ::plugins/tmux-cssh/_tmux-cssh
 
 # CLOUD
 zinit wait lucid for \
   OMZP::aws
 
 # MISC
-zinit ice as"completion"
-zinit snippet OMZ::plugins/ripgrep/_ripgrep
-zinit ice as"completion"
-zinit snippet OMZ::plugins/fd/_fd
+zinit ice as"completion"; zinit snippet OMZ::plugins/ripgrep/_ripgrep
+zinit ice as"completion"; zinit snippet OMZ::plugins/fd/_fd
 
 zinit wait lucid for \
   OMZP::fzf \
@@ -127,8 +122,23 @@ zinit wait lucid for \
 # OMZP::heroku
 # OMZP::mosh
 # OMZP::colored-man-pages
-zinit wait lucid light-mode for \
-  soimort/you-get
+zinit wait lucid light-mode for soimort/you-get
+
+# OS
+if [[ $(_os) == 'macos' ]]; then
+  zinit wait lucid for OMZP::brew
+  # zinit ice svn wait lucid; zinit snippet OMZP::osx
+  zinit wait lucid for \
+    atclone"touch music spotify _security" atpull"%atclone" 'OMZP::osx'
+elif [[ $(_os) == 'linux-arch' ]]; then
+  zinit wait lucid for OMZP::archlinux
+elif [[ $(_os) == 'linux-debian' ]]; then
+  zinit wait lucid for OMZP::ubuntu
+elif [[ $(_os) == 'linux-RHEL' ]]; then
+  zinit wait lucid for OMZP::yum
+elif [[ $(_os) == 'cygwin' ]]; then
+  zinit wait lucid for OMZP::cygwin
+fi
 
 # THEME
 zinit ice from"gh-r" as"program" atload'!eval $(starship init zsh)' pick'**/starship'

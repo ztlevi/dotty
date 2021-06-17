@@ -40,7 +40,7 @@ alias dud="du -d 1"
 
 _is_callable exa && alias ls="exa"
 alias ls="${aliases[ls]:-ls} --color=auto --group-directories-first"
-alias ll="ls -lgh"
+alias llh="ls -lgh"
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -67,9 +67,8 @@ function vread() {
   )
 }
 
-# For example, to list all directories that contain a certain file: find . -name
-# .gitattributes | map dirname
-alias map="xargs -n1"
+# For example, to list all directories that contain a certain file: find . -name .gitattributes | map dirname
+alias xmap="xargs -n1"
 
 # Convenience
 alias mk=make
