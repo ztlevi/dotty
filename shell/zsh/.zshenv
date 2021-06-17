@@ -14,8 +14,6 @@ HOMEBREW_NO_GITHUB_API=1
 # Uncomment the following line to change how often to auto-update (in days).
 export UPDATE_ZSH_DAYS=30
 
-export ANTIGEN_BUNDLES="$HOME/.antigen/bundles"
-export ZSH="$ANTIGEN_BUNDLES/robbyrussell/oh-my-zsh"
 export ZSH_CACHE="$XDG_CACHE_HOME/zsh"
 
 # paths

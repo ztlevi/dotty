@@ -1,4 +1,3 @@
-# Load Antigen bundles first
 if [[ -f $HOME/.work/dots/pre-load.zsh ]]; then source $HOME/.work/dots/pre-load.zsh; fi
 
 _load shell/zsh/zinit.zsh

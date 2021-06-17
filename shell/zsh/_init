@@ -28,10 +28,7 @@ install() {
 }
 
 update() {
-  if [[ -e antigen.zsh ]]; then
-    source antigen.zsh
-    antigen update
-  fi
+  zinit update
 }
 
 link() {

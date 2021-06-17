@@ -82,7 +82,6 @@ function update_my_repos() {
   local ERROR_SUMMARY_FILE=/tmp/update_my_repos_error_summary
   rm -f ${ERROR_SUMMARY_FILE} && touch ${ERROR_SUMMARY_FILE}
 
-  local ANTIGEN_SUMMARY_FILE=/tmp/antigen_update_summary
   {
     update_git_repo $DOTFILES
     (
@@ -95,12 +94,9 @@ function update_my_repos() {
   local last_doom_rev=$(git -C ${XDG_CONFIG_HOME}/doom rev-parse HEAD)
   update_git_repo ${XDG_CONFIG_HOME}/doom &
   PID2=$!
-  antigen update >${ANTIGEN_SUMMARY_FILE} &
-  PID3=$!
 
   wait ${PID1}
   wait ${PID2}
-  wait ${PID3}
 
   _cache_clear
 
@@ -108,13 +104,10 @@ function update_my_repos() {
   local cur_doom_rev=$(git -C ${XDG_CONFIG_HOME}/doom rev-parse HEAD)
   [[ $cur_doom_rev != $last_doom_rev ]] && doom sync
 
-  echo ${fg_bold[white]}${bg[blue]}"$(center_text 'Antigen Summary' '>')"${reset_color}
-  cat ${ANTIGEN_SUMMARY_FILE}
-
   echo ${fg_bold[white]}${bg[red]}"$(center_text 'Error Summary' '>')"${reset_color}
   cat ${ERROR_SUMMARY_FILE}
 
-  rm -f ${ERROR_SUMMARY_FILE} ${ANTIGEN_SUMMARY_FILE}
+  rm -f ${ERROR_SUMMARY_FILE}
 
   # Sync uninstalled some software if we deleted on one machine
   $DOTFILES/legacy_sync_script.zsh
