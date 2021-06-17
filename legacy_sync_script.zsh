@@ -2,6 +2,3 @@
 # This script is used in `shell/zsh/utils.zsh` update_my_repos. Whenver you have something you want to sync
 # across machines, put the scritps here.
 
-[[ -d ~/Dotfiles ]] && mv ~/Dotfiles ~/.dotty
-rm -rf ~/.local/share/Dotfiles
-[[ -d $XDG_DATA_HOME/.dotty ]] && mv $XDG_DATA_HOME/.dotty $XDG_DATA_HOME/dotty

@@ -3,6 +3,12 @@ source ${0:A:h}/../../deploy
 source .zshenv
 
 install() {
+  # zinit
+  if [[ ! -d ~/.zinit ]]; then
+    mkdir -p ~/.zinit
+    git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
+  fi
+
   brew install zsh ripgrep fd jq \
     fasd direnv shfmt zshdb bashdb exa procs bat dust shellcheck neofetch mosh
 
@@ -11,12 +17,6 @@ install() {
     macos) brew install trash ;;
     linux-*) brew install trash-cli ;;
   esac
-
-  # zinit
-  if [[ ! -d ~/.zinit ]]; then
-    mkdir -p ~/.zinit
-    git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
-  fi
 
   # Set default shell to zsh
   chsh -s $(which zsh) $(whoami)

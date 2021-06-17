@@ -85,19 +85,21 @@ zinit wait lucid for OMZP::zsh_reload
 zinit wait lucid light-mode for \
   hlissner/zsh-autopair \
   zsh-users/zsh-completions \
-  zsh-users/zsh-history-substring-search \
-  zdharma/fast-syntax-highlighting
+  zsh-users/zsh-history-substring-search
 
-# Vi-mode
-zinit wait lucid light-mode for \
-  jeffreytse/zsh-vi-mode
+# VI-MODE
+zinit light jeffreytse/zsh-vi-mode
+
+# Load zdharma/fast-syntax-highlighting in the end: https://github.com/zdharma/zinit/issues/61
+zinit ice wait"1" lucid atinit"zicompinit; zicdreplay"
+zinit light zdharma/fast-syntax-highlighting
 
 # TMUX
 zinit wait lucid for \
   OMZP::tmux
 # OMZP::tmuxinator
-zinit ice as"completion"
-zinit snippet OMZ::plugins/tmux-cssh/_tmux-cssh
+# zinit ice as"completion"
+# zinit snippet OMZ::plugins/tmux-cssh/_tmux-cssh
 
 # CLOUD
 zinit wait lucid for \
@@ -131,7 +133,6 @@ zinit wait lucid light-mode for \
 # THEME
 zinit ice from"gh-r" as"program" atload'!eval $(starship init zsh)' pick'**/starship'
 zinit load starship/starship
-# zinit ice depth"1" # git clone depth
 # zinit light caiogondim/bullet-train-oh-my-zsh-theme
 # zinit snippet jispwoso
 # zinit snippet OMZT::bureau

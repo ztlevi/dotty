@@ -3,7 +3,6 @@ function personal_fzf_bind_keys() {
   bindkey '^[x' fzf-history-widget
   bindkey '^[p' fzf-file-widget
   bindkey '^r' fzf-history-widget
-  bindkey "^I" fzf-completion
 }
 zvm_after_init_commands+=(personal_fzf_bind_keys)
 
