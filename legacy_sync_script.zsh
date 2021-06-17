@@ -3,3 +3,4 @@
 # across machines, put the scritps here.
 
 rm -rf ~/.antigen
+brew uninstall ripgrep fd exa bat vivid

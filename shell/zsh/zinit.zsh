@@ -14,7 +14,6 @@ zinit for annexes
 # This loads plugin groups defined in zinit-zsh/z-a-meta-plugins
 zinit skip'zsh-users/zsh-autosuggestions' for zsh-users+fast
 zinit skip'dircolors-material jonas/tig' for console-tools
-zinit skip'lotabout/skim peco/peco fzy' for fuzzy
 
 # ZSH
 zinit wait lucid for OMZP::zsh_reload
@@ -131,6 +130,9 @@ elif [[ $(_os) == 'linux-RHEL' ]]; then
 elif [[ $(_os) == 'cygwin' ]]; then
   zinit wait lucid for OMZP::cygwin
 fi
+
+# You will need to `zinit update ~/.dotty/shell/zsh/vivid.zsh` if you update the snippet
+zinit snippet ~/.dotty/shell/zsh/vivid.zsh
 
 # THEME
 zinit ice from"gh-r" as"program" atload'!eval $(starship init zsh)' pick'**/starship'
