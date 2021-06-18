@@ -18,6 +18,5 @@ dk() {
   esac
   docker $@
 }
-compdef dk=docker
 
 alias dkprune="docker system prune -a --filter='until=24h'"

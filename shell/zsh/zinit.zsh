@@ -166,6 +166,9 @@ zinit load starship/starship
 # zinit snippet OMZT::bureau
 # zinit light denysdovhan/spaceship-prompt
 
+# Add Compdef
+zinit snippet ~/.dotty/shell/zsh/compdef.zsh
+
 # Calling compinit Without Turbo Mode: https://github.com/zdharma/zinit#completions-2
 autoload -Uz compinit
 compinit

@@ -1,12 +1,5 @@
 zman() { PAGER="less -g -I -s '+/^       "$1"'" man zshall; }
 
-r() {
-  local time=$1
-  shift
-  sched "$time" "notify-send --urgency=critical 'Reminder' '$@'"
-}
-compdef r=sched
-
 alias D=$DOTFILES/deploy
 
 # aliases common to all shells
@@ -81,7 +74,6 @@ _is_callable neofetch && alias nf="neofetch"
 _is_callable cmatrix && alias cm="cmatrix -C red"
 
 take() { mkdir "$1" && cd "$1"; }
-compdef take=mkdir
 hex() { echo -n $@ | xxd -psdu; }
 
 function format-all-dos2unix() {
