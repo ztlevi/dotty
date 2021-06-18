@@ -28,6 +28,7 @@ zinit skip'dircolors-material jonas/tig' for console-tools
 zinit wait lucid for OMZP::zsh_reload
 zinit wait lucid light-mode for \
   hlissner/zsh-autopair \
+  agkozak/zsh-z \
   zsh-users/zsh-history-substring-search
 
 # Explain aliases

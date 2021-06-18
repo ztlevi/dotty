@@ -2,7 +2,7 @@
 
 | license          | packages                                                                                                                                     |
 | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| MIT              | zinit, fasd, direnv, exa, procs, neofetch, jq, vivid, oh-my-zsh, wfxr/forgit, hlissner/zsh-autopair, soimort/you-get, jeffreytse/zsh-vi-mode |
+| MIT              | zinit, direnv, exa, procs, neofetch, jq, vivid, oh-my-zsh, wfxr/forgit, hlissner/zsh-autopair, soimort/you-get, jeffreytse/zsh-vi-mode |
 | Apache-2.0       | fd, bat, dust                                                                                                                                |
 | BSD              | shfmt, zsh-users/zsh-history-substring-search, zdharma/fast-syntax-highlighting                                                              |
 | ISC              | starship                                                                                                                                     |
