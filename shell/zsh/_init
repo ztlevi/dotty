@@ -3,12 +3,6 @@ source ${0:A:h}/../../deploy
 source .zshenv
 
 install() {
-  # zinit
-  if [[ ! -d ~/.zinit ]]; then
-    mkdir -p ~/.zinit
-    git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
-  fi
-
   brew install zsh jq \
     fasd direnv shfmt zshdb bashdb procs dust shellcheck neofetch mosh
 

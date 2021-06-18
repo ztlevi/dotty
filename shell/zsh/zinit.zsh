@@ -2,8 +2,17 @@
 # Some references:
 # https://zdharma.github.io/zinit/wiki/INTRODUCTION/
 # https://github.com/seagle0128/dotfiles/blob/master/.zshrc
-source ~/.zinit/bin/zinit.zsh
 
+### Install zinit
+if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+  print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
+  mkdir -p "$HOME/.zinit" && chmod g-rwX "$HOME/.zinit"
+  git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" &&
+    print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" ||
+    print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
+
+source $HOME/.zinit/bin/zinit.zsh
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
@@ -20,6 +29,18 @@ zinit wait lucid for OMZP::zsh_reload
 zinit wait lucid light-mode for \
   hlissner/zsh-autopair \
   zsh-users/zsh-history-substring-search
+
+# Explain aliases
+zinit ice from'gh-r' as'program'
+zinit light sei40kr/fast-alias-tips-bin
+zinit light sei40kr/zsh-fast-alias-tips
+
+# replace zsh completion with fzf
+zinit ice wait lucid atload"zicompinit; zicdreplay" blockf
+zinit light Aloxaf/fzf-tab
+zstyle ':fzf-tab:*' default-color $'\033[39m' # change default color from white to default foreground color
+zstyle ':fzf-tab:*' switch-group ',' '.' # switch group using `,` and `.`
+# TODO: fix matched string color https://github.com/Aloxaf/fzf-tab/issues/90
 
 # VI-MODE
 zinit light jeffreytse/zsh-vi-mode
@@ -110,6 +131,7 @@ zinit wait lucid for \
   OMZP::rsync \
   OMZP::dotenv \
   OMZP::extract \
+  OMZP::fancy-ctrl-z \
   OMZP::jira
 # OMZP::heroku
 # OMZP::mosh
