@@ -50,7 +50,7 @@ zinit light-mode for \
 # GIT
 zinit wait lucid for \
   OMZP::git \
-  OMZP::gitignore \
+  OMZP::gitignore
 # OMZP::gh
 # OMZP::git-extras
 # wfxr/forgit
@@ -58,10 +58,11 @@ zinit wait lucid for \
 # zinit ice svn wait lucid; zinit snippet OMZP::gitfast
 
 # DOCKER
-zinit ice as"completion"; zinit snippet OMZ::plugins/docker/_docker
+zinit ice as"completion"
+zinit snippet OMZ::plugins/docker/_docker
 
 zinit wait lucid for \
-  OMZP::docker-compose \
+  OMZP::docker-compose
 # OMZP:docker-machine
 
 # RUBY
@@ -109,7 +110,7 @@ zinit wait lucid for \
   OMZP::rsync \
   OMZP::dotenv \
   OMZP::extract \
-  OMZP::jira \
+  OMZP::jira
 # OMZP::heroku
 # OMZP::mosh
 # OMZP::colored-man-pages
