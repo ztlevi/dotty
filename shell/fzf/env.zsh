@@ -1,7 +1,3 @@
-path=($XDG_DATA_HOME/fzf/bin $path)
-
-export FZF_BASE=$XDG_DATA_HOME/fzf
-
 export FZF_DEFAULT_COMMAND='
   (git ls-tree -r --name-only HEAD ||
    find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
@@ -13,3 +9,5 @@ export FZF_CTRL_T_COMMAND='
       sed s/^..//) 2> /dev/null'
 
 export FZF_COMPLETION_TRIGGER=','
+
+export FZF_DEFAULT_OPTS='--bind ctrl-v:page-down'

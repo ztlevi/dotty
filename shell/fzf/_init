@@ -2,10 +2,7 @@
 source ${0:A:h}/../../deploy
 source env.zsh
 
-install() {
-  brew install fzf
-  rm -f ~/.fzf.{bash,zsh}
-}
+install() {}
 
 # update() {}
 
