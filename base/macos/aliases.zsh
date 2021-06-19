@@ -1,3 +1,8 @@
+zinit wait lucid for OMZP::brew
+# zinit ice svn wait lucid; zinit snippet OMZP::osx
+zinit wait lucid for \
+  atclone"touch music spotify _security" atpull"%atclone" 'OMZP::osx'
+
 alias date=gdate
 
 alias y=pbcopy

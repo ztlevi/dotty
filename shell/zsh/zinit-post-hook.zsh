@@ -1,5 +1,5 @@
 # Add Compdef
-zinit snippet ~/.dotty/shell/zsh/compdef.zsh
+zinit snippet ${0:A:h}/compdef.zsh
 
 # Calling compinit Without Turbo Mode: https://github.com/zdharma/zinit#completions-2
 autoload -Uz compinit

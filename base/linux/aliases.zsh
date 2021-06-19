@@ -1,3 +1,11 @@
+if [[ $(_os) == 'linux-arch' ]]; then
+  zinit wait lucid for OMZP::archlinux
+elif [[ $(_os) == 'linux-debian' ]]; then
+  zinit wait lucid for OMZP::ubuntu
+elif [[ $(_os) == 'linux-RHEL' ]]; then
+  zinit wait lucid for OMZP::yum
+fi
+
 alias sc=systemctl
 alias jc=journalctl
 alias ssc='sudo systemctl'

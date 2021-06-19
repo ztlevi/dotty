@@ -1,5 +1,11 @@
 _cache nodenv init - --no-rehash
 
+zinit wait lucid for \
+  OMZP::node \
+  OMZP::npm \
+  OMZP::yarn
+# OMZP::react-native
+
 # Run locally installed bin-script, e.g. n coffee file.coffee
 alias n='PATH="$(npm bin):$PATH"'
 

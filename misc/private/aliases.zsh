@@ -1,3 +1,5 @@
+zinit wait lucid light-mode for soimort/you-get
+
 if _is_callable reveal-md; then
   alias rv='reveal-md --highlight-theme github --theme white --watch'
   alias rvs='reveal-md --highlight-theme github --theme white --static revealjs_output'

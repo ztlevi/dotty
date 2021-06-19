@@ -1,3 +1,8 @@
+zinit wait lucid for \
+  OMZP::tmux
+# OMZP::tmuxinator
+# zinit ice as"completion"; zinit snippet OMZ::plugins/tmux-cssh/_tmux-cssh
+
 alias tmux='tmux -f "$TMUX_HOME/tmux.conf"'
 
 alias ta='tmux attach -t'

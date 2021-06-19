@@ -2,6 +2,11 @@
 _cache pyenv init --path
 _cache pyenv init - --no-rehash
 
+zinit wait lucid for \
+  OMZP::python \
+  OMZP::pip
+# OMZP::django
+
 alias py=python
 _is_callable python2 && alias py2=python2
 _is_callable python3 && alias py3=python3

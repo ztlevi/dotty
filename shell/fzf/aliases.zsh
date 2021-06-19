@@ -1,4 +1,4 @@
-zinit pack"bgn-binary" for fzf
+zinit pack"bgn-binary+keys" for fzf
 
 # replace zsh completion with fzf
 zinit ice wait lucid atload"zicompinit; zicdreplay" blockf

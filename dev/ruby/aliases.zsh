@@ -1,5 +1,10 @@
 _cache rbenv init - --no-rehash
 
+zinit wait lucid for \
+  OMZP::ruby \
+  OMZP::rbenv \
+  OMZP::gem
+
 alias rb="ruby"
 alias rbe="rbenv"
 alias rdb="pry -r"

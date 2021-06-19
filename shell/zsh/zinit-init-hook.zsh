@@ -61,53 +61,6 @@ zinit light-mode for \
   OMZL::theme-and-appearance.zsh \
   OMZP::common-aliases
 
-# GIT
-zinit wait lucid for \
-  OMZP::git \
-  OMZP::gitignore
-# OMZP::gh
-# OMZP::git-extras
-# wfxr/forgit
-# TODO: https://github.com/zdharma/zinit/issues/477
-# zinit ice svn wait lucid; zinit snippet OMZP::gitfast
-
-# DOCKER
-zinit ice as"completion"
-zinit snippet OMZ::plugins/docker/_docker
-
-zinit wait lucid for \
-  OMZP::docker-compose
-# OMZP:docker-machine
-
-# RUBY
-# zinit wait lucid for \
-# OMZP::ruby
-# OMZP::rbenv
-# OMZP::gem
-
-# PYTHON
-zinit wait lucid for \
-  OMZP::python \
-  OMZP::pip
-# OMZP::django
-
-# GO
-zinit wait lucid for \
-  OMZP::golang
-
-# NODE
-zinit wait lucid for \
-  OMZP::node \
-  OMZP::npm \
-  OMZP::yarn
-# OMZP::react-native
-
-# TMUX
-zinit wait lucid for \
-  OMZP::tmux
-# OMZP::tmuxinator
-# zinit ice as"completion"; zinit snippet OMZ::plugins/tmux-cssh/_tmux-cssh
-
 # CLOUD
 zinit wait lucid for \
   OMZP::aws
@@ -115,7 +68,6 @@ zinit wait lucid for \
 # MISC
 zinit wait lucid for \
   OMZP::history \
-  OMZP::web-search \
   OMZP::nmap \
   OMZP::copydir \
   OMZP::copyfile \
@@ -125,29 +77,8 @@ zinit wait lucid for \
   OMZP::extract \
   OMZP::fancy-ctrl-z \
   OMZP::jira
-# OMZP::heroku
 # OMZP::mosh
 # OMZP::colored-man-pages
-zinit wait lucid light-mode for soimort/you-get
-
-# OS
-if [[ $(_os) == 'macos' ]]; then
-  zinit wait lucid for OMZP::brew
-  # zinit ice svn wait lucid; zinit snippet OMZP::osx
-  zinit wait lucid for \
-    atclone"touch music spotify _security" atpull"%atclone" 'OMZP::osx'
-elif [[ $(_os) == 'linux-arch' ]]; then
-  zinit wait lucid for OMZP::archlinux
-elif [[ $(_os) == 'linux-debian' ]]; then
-  zinit wait lucid for OMZP::ubuntu
-elif [[ $(_os) == 'linux-RHEL' ]]; then
-  zinit wait lucid for OMZP::yum
-elif [[ $(_os) == 'cygwin' ]]; then
-  zinit wait lucid for OMZP::cygwin
-fi
-
-# You will need to `zinit update ~/.dotty/shell/zsh/vivid.zsh` if you update the snippet
-zinit snippet ~/.dotty/shell/zsh/vivid.zsh
 
 # THEME
 zinit ice from"gh-r" as"program" atload'!eval $(starship init zsh)' pick'**/starship'

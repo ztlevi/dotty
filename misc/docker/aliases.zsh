@@ -1,3 +1,10 @@
+zinit ice as"completion"
+zinit snippet OMZ::plugins/docker/_docker
+
+zinit wait lucid for \
+  OMZP::docker-compose
+# OMZP:docker-machine
+
 alias dkc="docker-compose"
 alias dkm="docker-machine"
 alias dkl="dk logs"
