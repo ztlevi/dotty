@@ -81,10 +81,15 @@ zinit wait lucid for \
 # OMZP::colored-man-pages
 
 # THEME
-zinit ice from"gh-r" as"program" atload'!eval $(starship init zsh)' pick'**/starship'
-zinit load starship/starship
+if [[ $HOST == dev-dsk* ]]; then
+  zinit ice depth"1" # git clone depth
+  zinit light romkatv/powerlevel10k
+else
+  zinit ice from"gh-r" as"program" atload'!eval $(starship init zsh)' pick'**/starship'
+  zinit load starship/starship
+fi
 # zinit light caiogondim/bullet-train-oh-my-zsh-theme
-# zinit snippet jispwoso
+# zinit snippet OMZT::jispwoso
 # zinit snippet OMZT::bureau
 # zinit light denysdovhan/spaceship-prompt
 

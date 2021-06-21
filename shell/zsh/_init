@@ -22,7 +22,7 @@ install() {
 
 update() {
   zinit self-update
-  zinit update
+  zinit update --parallel
 }
 
 link() {
