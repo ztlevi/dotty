@@ -84,3 +84,5 @@ function format-all-dos2unix() {
     dos2unix $filename
   done
 }
+
+unalias duf 2>/dev/null

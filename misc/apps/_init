@@ -2,10 +2,14 @@
 source ${0:A:h}/../../deploy
 
 install() {
+  brew install pandoc ffmpeg bandwhich
+
+  brew tap clementtsang/bottom
+  brew install bottom
+
   case $(_os) in
   macos)
-    brew install pandoc ffmpeg glances bandwhich
-    brew install --cask google-chrome forklift visual-studio-code bitwarden \
+    brew install --cask google-chrome visual-studio-code bitwarden \
       iina ticktick keepingyouawake
 
     # Vscode enable key-repeating
@@ -15,22 +19,6 @@ install() {
 
     # Set iina as default video player
     ${0:A:h}/bin/macos_set_iina_as_default.sh
-    ;;
-  linux-arch)
-    yay --needed --noconfirm -S \
-      pandoc ffmpeg glances mimeo bandwhich \
-      google-chrome visual-studio-code-bin
-
-    mimeo --prefer google-chrome.desktop --prefer vlc.desktop
-    ;;
-  linux-RHEL)
-    # TODO
-    ;;
-  linux-debian)
-    brew install pandoc ffmpeg glances
-
-    ${0:A:h}/../../deploy dev/rust
-    cargo install bandwhich
     ;;
   esac
 }

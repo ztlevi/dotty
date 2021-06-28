@@ -3,7 +3,8 @@ source ${0:A:h}/../../deploy
 source .zshenv
 
 install() {
-  brew install zsh jq direnv shfmt zshdb bashdb procs dust shellcheck neofetch mosh
+  brew install zsh jq direnv shfmt zshdb bashdb procs dust shellcheck neofetch mosh \
+    sd duf
 
   # Macos uses different trash app
   case $(_os) in
