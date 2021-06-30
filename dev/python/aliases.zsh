@@ -15,9 +15,9 @@ alias ipy=ipython
 alias ipylab='ipython --pylab=qt5 --no-banner'
 _is_callable jupyter && alias jp='jupyter lab --NotebookApp.iopub_data_rate_limit=10000000'
 
-alias sa="source activate"
-alias sd="conda deactivate || source deactivate"
-alias cl="conda info --envs"
+alias cda="source activate"
+alias cdd="conda deactivate || source deactivate"
+alias cdl="conda info --envs"
 
 # Pipenv
 alias pe="pipenv"
