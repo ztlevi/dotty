@@ -21,6 +21,10 @@ alias magit="emacsclient -n -e \(magit-status\)"
 alias ke="pkill -SIGUSR2 -i emacs"
 alias edebug="emacs --debug-init"
 alias etime="emacs --timed-requires --profile"
+function ctagsl() {
+  # Input: e.g. c,c++,python
+  ctags --languages=$@ --kinds-all='*' --fields='*' --extras='*' -R
+}
 
 ediff() { e --eval "(ediff-files \"$1\" \"$2\")"; }
 

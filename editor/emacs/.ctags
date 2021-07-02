@@ -147,11 +147,6 @@
 --regex-ini=/^[ \t]*\[(.*)\]/\1/v,variable/
 --regex-ini=/^[ \t]*([^=]+)=(.*)/\1/v,variable/
 
---langdef=Go
---langmap=Go:.go
---regex-Go=/func([ \t]+([^)]+))?[ \t]+([[:alnum:]_]+)/\2/f,function/
---regex-Go=/(var|type)[ \t]+([[:alpha:]_][[:alnum:]_]+)/\2/v,variable/
-
 --regex-fortran=/^[ \t]*MODULE[ \t]+(PROCEDURE|SUBROUTINE)[ \t]+([[:alnum:]_]+)/\2/f,function/
 
 --langdef=orgmode
