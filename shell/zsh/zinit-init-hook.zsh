@@ -37,6 +37,12 @@ zinit light sei40kr/zsh-fast-alias-tips
 
 # VI-MODE
 zinit light jeffreytse/zsh-vi-mode
+export ZVM_CURSOR_STYLE_ENABLED=false
+# Always starting with insert mode for each command line
+export ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+# Only changing the escape key to `jk` in insert mode, we still
+# keep using the default keybindings `^[` in other modes
+# ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 
 # Oh My Zsh
 zinit light-mode for \
@@ -83,8 +89,11 @@ zinit wait lucid for \
 # THEME
 zinit ice from"gh-r" as"program" atload'!eval $(starship init zsh)' pick'**/starship'
 zinit load starship/starship
+export SPACESHIP_TIME_SHOW=true
 
 # zinit light caiogondim/bullet-train-oh-my-zsh-theme
+# export BULLETTRAIN_CUSTOM_FG=white
+# export BULLETTRAIN_CONTEXT_FG=white
 
 # zinit ice depth"1" # git clone depth
 # zinit light romkatv/powerlevel10k
@@ -94,5 +103,3 @@ zinit load starship/starship
 # zinit snippet OMZT::jispwoso
 # zinit snippet OMZT::bureau
 # zinit light denysdovhan/spaceship-prompt
-
-source $DOTFILES/shell/zsh/post-zsh-plugins.zsh
