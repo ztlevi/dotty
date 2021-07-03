@@ -20,15 +20,19 @@ zinit light-mode for zinit-zsh/z-a-meta-plugins
 zinit for annexes
 
 # This loads plugin groups defined in zinit-zsh/z-a-meta-plugins
-zinit skip'zsh-users/zsh-autosuggestions' for zsh-users+fast
 zinit skip'dircolors-material jonas/tig' for console-tools
+# zsh-users+fast does not load zdharma/fast-syntax-highlighting more lazy enough
+zinit wait lucid for \
+ atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+    zdharma/fast-syntax-highlighting \
+ blockf \
+    zsh-users/zsh-completions
 
 # ZSH
 zinit wait lucid for OMZP::zsh_reload
 zinit wait lucid light-mode for \
   hlissner/zsh-autopair \
-  agkozak/zsh-z \
-  zsh-users/zsh-history-substring-search
+  agkozak/zsh-z
 
 # Explain aliases
 zinit ice from'gh-r' as'program'

@@ -13,9 +13,6 @@ function personal_bind_keys() {
   zle -N edit-command-line
   bindkey '^ ' edit-command-line
 
-  bindkey -M viins '^N' history-substring-search-down
-  bindkey -M viins '^P' history-substring-search-up
-  bindkey -M viins '^S' history-incremental-pattern-search-backward
   bindkey -M viins '^K' kill-line
   bindkey -M viins '^U' backward-kill-line
   bindkey -M viins '^W' backward-kill-word
@@ -30,9 +27,5 @@ function personal_bind_keys() {
 
   # Shift + Tab
   bindkey -M viins '^[[Z' reverse-menu-complete
-
-  # bind UP and DOWN arrow keys
-  bindkey '^[[A' history-substring-search-up
-  bindkey '^[[B' history-substring-search-down
 }
 zvm_after_init_commands+=(personal_bind_keys)
