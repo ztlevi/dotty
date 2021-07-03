@@ -123,7 +123,7 @@ fi
 - I want to use dark theme, what changes should I make?
   - Change LS_COLORS in `~/.dotty/shell/alacritty/vivid.zsh`.
   - Change the theme_file [here](https://github.com/ztlevi/dotty/blob/master/shell/alacritty/_init#L53).
-  - Delete the maglev plugin under `~/.local/share/tmux/plugins`. Change tmux plugin [here](https://github.com/ztlevi/dotty/blob/master/shell/tmux/tmux.conf#L44) to `ztlevi/maglev-dark`.
+  - Change tmux theme option [here](https://github.com/ztlevi/dotty/blob/master/shell/tmux/tmux.conf#L40) to `dark`.
 
 ## Relevant projects
 
