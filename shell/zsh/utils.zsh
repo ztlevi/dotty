@@ -91,28 +91,25 @@ function update_my_repos() {
   local ERROR_SUMMARY_FILE=/tmp/update_my_repos_error_summary
   rm -f ${ERROR_SUMMARY_FILE} && touch ${ERROR_SUMMARY_FILE}
 
-  {
-    update_git_repo $DOTFILES
-    (
-      cd $DOTFILES
-      git submodule update -- assets
-      update_topics &>/dev/null
-    )
-  } &
-  PID1=$!
+  update_git_repo $DOTFILES
+  (
+    cd $DOTFILES
+    git submodule update -- assets
+    update_topics &>/dev/null
+  )
+  source $DOTFILES/shell/zsh/utils.zsh
 
   local last_doom_rev=$(git -C ${XDG_CONFIG_HOME}/doom rev-parse HEAD)
   update_git_repo ${XDG_CONFIG_HOME}/doom &
-  PID2=$!
+  PID1=$!
 
   wait ${PID1}
-  wait ${PID2}
 
   local tpm=$TMUX_PLUGIN_MANAGER_PATH/tpm
   if [[ -d $tpm ]]; then
     $tpm/bin/update_plugins all &
-    PID3=$!
-    wait ${PID3}
+    PID2=$!
+    wait ${PID2}
   fi
 
   _cache_clear
