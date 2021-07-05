@@ -7,7 +7,7 @@
 
 # Log output to file
 log = true
-logfile = .unison/unison.log
+logfile = unison.log
 
 # Specific paths to synchronize (or leave out to sync entire root)
 # Note that path will be included for the matches below so (for example) */.idea below will match workspace_name/.idea
