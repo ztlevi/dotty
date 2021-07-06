@@ -90,6 +90,8 @@ zinit wait lucid for \
 # OMZP::mosh
 # OMZP::colored-man-pages
 
+export ZSH_DOTENV_PROMPT=false
+
 # THEME
 zinit ice from"gh-r" as"program" atload'!eval $(starship init zsh)' pick'**/starship'
 zinit load starship/starship
