@@ -55,6 +55,10 @@
 	autosetuprebase = always
 [credential "https://dev.azure.com"]
 	useHttpPath = true
+# Require git-remote-codecommit and aws cli installed
+[credential "https://git-codecommit.*.amazonaws.com"]
+    helper = !aws codecommit credential-helper $@
+    UseHttpPath = true
 [credential]
 	helper = /usr/local/bin/git-credential-manager-core
 [http]
