@@ -124,6 +124,8 @@ fi
   - Change LS_COLORS in `~/.dotty/shell/alacritty/vivid.zsh`.
   - Change the theme_file [here](https://github.com/ztlevi/dotty/blob/master/shell/alacritty/_init#L53).
   - Change tmux theme option [here](https://github.com/ztlevi/dotty/blob/master/shell/tmux/tmux.conf#L40) to `dark`.
+- How do I sync between different machines?
+  - Unfortunately, there is no such easy way. For me, I put down install/uninstall scripts in `dotty/legacy_sync_script.zsh` and every time I run [update_my_repos](https://github.com/ztlevi/dotty/blob/master/shell/zsh/utils.zsh#L132) aliased as `uu`, it will run the `legacy_sync_script.zsh`. NixOS has such ability to resolve what have changed in your configuration and able to install and uninstall software and make sure they are consistent across machines. If you're interested, you can try my [nix-dotfiles](https://github.com/ztlevi/nix-dotfiles).
 
 ## Relevant projects
 
