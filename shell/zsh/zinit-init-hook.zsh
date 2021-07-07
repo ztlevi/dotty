@@ -23,10 +23,10 @@ zinit for annexes
 zinit skip'dircolors-material jonas/tig' for console-tools
 # zsh-users+fast does not load zdharma/fast-syntax-highlighting more lazy enough
 zinit wait lucid for \
- atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
-    zdharma/fast-syntax-highlighting \
- blockf \
-    zsh-users/zsh-completions
+  atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+  zdharma/fast-syntax-highlighting \
+  blockf \
+  zsh-users/zsh-completions
 
 # ZSH
 zinit wait lucid for OMZP::zsh_reload
@@ -84,14 +84,16 @@ zinit wait lucid for \
   OMZP::copyfile \
   OMZP::command-not-found \
   OMZP::rsync \
-  OMZP::dotenv \
   OMZP::extract \
   OMZP::fancy-ctrl-z \
   OMZP::jira
 # OMZP::mosh
 # OMZP::colored-man-pages
 
-export ZSH_DOTENV_PROMPT=false
+zinit from"gh-r" as"program" mv"direnv* -> direnv" \
+  atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' \
+  pick"direnv" src="zhook.zsh" wait lucid for \
+  direnv/direnv
 
 # THEME
 zinit ice from"gh-r" as"program" atload'!eval $(starship init zsh)' pick'**/starship'
