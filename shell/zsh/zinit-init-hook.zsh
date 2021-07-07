@@ -96,7 +96,7 @@ zinit from"gh-r" as"program" mv"direnv* -> direnv" \
   direnv/direnv
 
 # THEME
-zinit ice from"gh-r" as"program" atload'eval $(starship init zsh)' pick'**/starship'
+zinit ice from"gh-r" as"program" atload'!eval $(starship init zsh)' pick'**/starship'
 zinit load starship/starship
 export SPACESHIP_TIME_SHOW=true
 

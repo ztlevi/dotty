@@ -1,5 +1,6 @@
+_cache nodenv init - --no-rehash
+
 zinit wait lucid for \
-  atload'eval "$(nodenv init -)"' \
   OMZP::node \
   OMZP::npm \
   OMZP::yarn

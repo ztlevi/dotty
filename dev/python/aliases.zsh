@@ -1,5 +1,8 @@
+# Cache in aliases because /usr/bin will be moved to top in .zshrc
+_cache pyenv init --path
+_cache pyenv init - --no-rehash
+
 zinit wait lucid for \
-  atload'eval "$(pyenv init --path)" && eval "$(pyenv init -)"' \
   OMZP::python \
   OMZP::pip
 # OMZP::django
