@@ -1,0 +1,18 @@
+#!/usr/bin/env zsh
+source ${0:A:h}/../../deploy
+
+# install() {}
+
+# update() {}
+
+link() {
+  if [[ -d $HOME/workplace/work ]]; then
+    mklink $HOME/workplace/work ~/.work
+  fi
+}
+
+clean() {
+  rm -f ~/.work
+}
+
+init "$@"

@@ -118,6 +118,8 @@ fi
 - Why I cannot do git commit?
   - Make sure you create your GPG key or delete `user.signingkey` property in
     `$HOME/.config/git/config`.
+- What if I have some local zsh configuration?
+  - You can `./deploy shell/work`, and put things under `$HOME/.work/dots/env.zsh` or `$HOME/.work/dots/aliases.zsh`
 - I installed npm packages globally but it not showed up in `$HOME/.local/share/nodenv/shims` path.
   - Make sure you run `nodenv rehash` to generate bin files.
 - I want to use dark theme, what changes should I make?
