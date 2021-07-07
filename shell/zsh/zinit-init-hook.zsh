@@ -74,6 +74,7 @@ zinit light-mode for \
 # CLOUD
 zinit wait lucid for \
   OMZP::aws
+export SHOW_AWS_PROMPT=false
 
 # MISC
 zinit wait lucid for \

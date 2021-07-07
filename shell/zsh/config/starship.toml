@@ -10,3 +10,6 @@ vicmd_symbol = "[](bold blue)"
 [username]
 style_user = "blue bold"
 format = "[   $user]($style) in "
+
+[aws]
+symbol = " "
