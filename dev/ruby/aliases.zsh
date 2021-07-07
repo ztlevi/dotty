@@ -1,8 +1,6 @@
-_cache rbenv init - --no-rehash
-
 zinit wait lucid for \
+  atload'eval "$(rbenv init -)"' \
   OMZP::ruby \
-  OMZP::rbenv \
   OMZP::gem
 
 alias rb="ruby"

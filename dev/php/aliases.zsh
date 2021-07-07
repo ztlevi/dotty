@@ -1,4 +1,6 @@
-_cache phpenv init - --no-rehash
+zinit wait lucid for \
+  atload'eval "$(phpenv init -)"' \
+  OMZP::laravel
 
 alias phe='phpenv'
 alias phr='php-boris'
