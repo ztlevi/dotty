@@ -13,6 +13,12 @@ function palette() {
   done
 }
 
+function envrehash() {
+  for cmd in ${env_rehash_cmds[@]}; do
+    eval "$cmd"
+  done
+}
+
 center_text() {
   # Function "center_text": center the text with a surrounding border
 

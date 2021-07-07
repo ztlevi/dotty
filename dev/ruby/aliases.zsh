@@ -1,4 +1,5 @@
 _cache rbenv init - --no-rehash
+env_rehash_cmds+=("rbenv rehash")
 
 zinit wait lucid for \
   OMZP::ruby \

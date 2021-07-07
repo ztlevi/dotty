@@ -120,8 +120,8 @@ fi
     `$HOME/.config/git/config`.
 - What if I have some local zsh configuration?
   - You can `./deploy shell/work`, and put things under `$HOME/.work/dots/env.zsh` or `$HOME/.work/dots/aliases.zsh`
-- I installed npm packages globally but it not showed up in `$HOME/.local/share/nodenv/shims` path.
-  - Make sure you run `nodenv rehash` to generate bin files.
+- I installed npm packages globally but it not showed up in `$HOME/.local/share/nodenv/shims` path. It could also happens for pyenv and others.
+  - The simplest way is run `envrehash` in shell. Under the sceens, it's running commands like `nodenv rehash` to generate bin files.
 - I want to use dark theme, what changes should I make?
   - Change LS_COLORS in `~/.dotty/shell/alacritty/vivid.zsh`.
   - Change the theme_file [here](https://github.com/ztlevi/dotty/blob/master/shell/alacritty/_init#L53).

@@ -1,4 +1,5 @@
 _cache nodenv init - --no-rehash
+env_rehash_cmds+=("nodenv rehash")
 
 zinit wait lucid for \
   OMZP::node \
