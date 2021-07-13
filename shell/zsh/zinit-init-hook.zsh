@@ -73,6 +73,7 @@ zinit light-mode for \
 
 # CLOUD
 zinit wait lucid for \
+  OMZP::terraform \
   OMZP::aws
 export SHOW_AWS_PROMPT=false
 
