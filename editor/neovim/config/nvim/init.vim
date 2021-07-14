@@ -34,6 +34,8 @@ set whichwrap+=<,>,h,l
 " emacs keymaping for cursor movement
 " You have to unbind C-g before it works
 " ============================================================================
+map <c-c><c-c> <Esc>:wqa<CR>
+map <c-c><c-k> <Esc>:qa!<CR>
 nmap <c-g> <Esc>
 vmap <c-g> <Esc>
 imap <c-g> <Esc>a
