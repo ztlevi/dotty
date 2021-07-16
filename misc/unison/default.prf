@@ -47,6 +47,7 @@ ignore = Name wrapper
 #ignorenot = Path */src/*/build/generated-src
 
 # Log files, in general
+ignore = Name {.log}
 ignore = Name log{,s}/*.log{,.*}
 
 
