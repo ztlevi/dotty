@@ -33,17 +33,17 @@ function _os() {
 
 if _uncallable zsh || _uncallable gh; then
   # NOTE Macos has both already
-  _msg "Installing zsh, git"
+  _msg "Installing zsh, gh"
   case $(_os) in
   macos)
     if ! _is_callable brew; then
-      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
     brew install gh zsh
     ;;
   linux-*)
     if ! _is_callable brew; then
-      sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+      bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
     eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
     brew install gh zsh
