@@ -44,8 +44,8 @@ if _uncallable zsh || _uncallable gh; then
   linux-*)
     if ! _is_callable brew; then
       bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
     fi
-    eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
     brew install gh zsh
     ;;
   esac
