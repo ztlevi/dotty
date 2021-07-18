@@ -1,2 +1,2 @@
 compdef take=mkdir
-compdef dk=docker
+_is_callable docker && compdef dk=docker
