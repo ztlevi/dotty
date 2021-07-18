@@ -11,4 +11,5 @@ sudo rm -rf /usr/share/icons/xcursor-breeze*
 sudo cp -r breeze*/cursors/Breeze/Breeze /usr/share/icons/xcursor-breeze
 sudo cp -r breeze*/cursors/Breeze_Snow/Breeze_Snow /usr/share/icons/xcursor-breeze-snow
 sudo rm -rf /usr/share/icons/xcursor-breeze-snow/Breeze_Snow
-rm -rf $tempdir/breeze*
+
+rm -rf $tempdir

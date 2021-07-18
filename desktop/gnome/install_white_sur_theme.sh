@@ -23,5 +23,7 @@ cd WhiteSur-icon-*
 ./install.sh --theme default
 
 # Set themes
-gsettings set org.gnome.desktop.interface icon-theme "WhiteSur-dark"
+gsettings set org.gnome.desktop.interface icon-theme "WhiteSur"
 gsettings set org.gnome.desktop.interface gtk-theme 'WhiteSur-light-blue'
+
+rm -rf $tempdir

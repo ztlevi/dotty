@@ -21,3 +21,5 @@ rm -rf $tempdir/flat-remix*
 gsettings set org.gnome.desktop.interface icon-theme "Flat-Remix-Blue"
 gsettings set org.gnome.desktop.interface gtk-theme 'Flat-Remix-GTK-Blue'
 gsettings set org.gnome.shell.extensions.user-theme name 'Flat-Remix'
+
+rm -rf $tempdir
