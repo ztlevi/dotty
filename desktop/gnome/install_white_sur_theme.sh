@@ -10,7 +10,7 @@ cd $tempdir
 wget --no-check-certificate $(get_github_latest_release_url 'vinceliuice/WhiteSur-gtk-theme') -O WhiteSur-gtk.tar.gz
 tar -zxvf WhiteSur-gtk.tar.gz
 cd WhiteSur-gtk-*
-./install.sh -c light --theme blue
+./install.sh -c light --theme blue --icon simple
 ./tweaks.sh --firefox
 ./tweaks.sh --dash-to-dock
 sudo ./tweaks.sh --gdm --background default
