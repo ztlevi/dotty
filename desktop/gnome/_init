@@ -1,59 +1,25 @@
 #!/usr/bin/env zsh
 source ${0:A:h}/../../deploy
+source ${0:A:h}/../../env
 source ${0:A:h}/aliases.zsh
 
 install() {
   case $(_os) in
   linux-arch)
-    yay --needed --noconfirm -S flat-remix-gnome flat-remix-gtk flat-remix
-
-    sudo pacman -S gnome gnome-extra gdm manjaro-gnome-assets manjaro-gdm-theme manjaro-settings-manager
+    sudo pacman -S gdm gnome-extra gnome-shell gnome-tweaks
     ;;
   linux-RHEL)
     # TODO:
     ;;
   linux-debian)
-    $APT_INSTALL gnome-shell gnome-tweaks ubuntu-gnome-desktop
-    tempdir=/tmp/temp-install
-    mkdir -p $tempdir
-    (
-      # Flat-remix Theme
-      # cd $tempdir
-      # wget --no-check-certificate $(get_github_latest_release_url 'daniruiz/flat-remix-gtk') -O flat-remix-gtk.tar.gz
-      # tar -zxvf flat-remix-gtk.tar.gz
-      # mkdir -p ~/.themes && cp -r flat-remix-gtk-*/Flat-Remix-GTK-* ~/.themes
-      # rm -rf $tempdir/flat-remix-gtk*
-
-      # wget --no-check-certificate $(get_github_latest_release_url 'daniruiz/flat-remix') -O flat-remix.tar.gz
-      # tar -zxvf flat-remix.tar.gz
-      # mkdir -p ~/.icons && cp -r flat-remix-*/Flat-Remix-* ~/.icons
-      # rm -rf $tempdir/flat-remix*
-
-      # WhiteSur theme
-      cd $tempdir
-      wget --no-check-certificate $(get_github_latest_release_url 'vinceliuice/WhiteSur-gtk-theme') -O WhiteSur-gtk.tar.gz
-      tar -zxvf WhiteSur-gtk.tar.gz
-      cd WhiteSur-gtk-*
-      ./install.sh -c light --theme blue
-      ./tweaks.sh --firefox
-      ./tweaks.sh --dash-to-dock
-      sudo ./tweaks.sh --gdm --background default
-      ./tweaks.sh --snap
-
-      cd $tempdir
-      wget --no-check-certificate $(get_github_latest_release_url 'vinceliuice/WhiteSur-icon-theme') -O WhiteSur-icon.tar.gz
-      tar -zxvf WhiteSur-icon.tar.gz
-      cd WhiteSur-icon-*
-      ./install.sh --theme default
-    )
-    ;;
+    $APT_INSTALL gdm3 gnome-session gnome-shell gnome-tweaks
   esac
 
   sudo systemctl enable gdm.service --force
 
-  # Setting themes
-  gsettings set org.gnome.desktop.interface icon-theme "WhiteSur-dark"
-  gsettings set org.gnome.desktop.interface gtk-theme 'WhiteSur-light-blue'
+  zsh ${0:A:h}/install_white_sur_theme.sh
+
+  source ${0:A:h}/../general/install_breeze_cursor.sh
   gsettings set org.gnome.desktop.interface cursor-theme 'xcursor-breeze-snow'
 }
 

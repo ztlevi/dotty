@@ -5,7 +5,7 @@ source ${0:A:h}/env.zsh
 install() {
   case $(_os) in
   linux-debian)
-    sudo apt-get update
+    sudo apt-get update -y
 
     # Core essentials
     $APT_INSTALL build-essential wget git curl tree ssh rsync dnsutils
