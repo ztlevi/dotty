@@ -27,6 +27,7 @@ update() {
 }
 
 link() {
+  rm -rf ~/.zinit/snippets/*.dotty--shell--zsh
   rm -f ~/.profile
   mklink .zsh* ~/
   mklink config/* $XDG_CONFIG_HOME/
