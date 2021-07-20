@@ -69,10 +69,6 @@ function update_topics {
   declare -a topics
   topics=( "$DOTFILES_DATA"/*.topic(N) )
   for topic in ${${${topics[@]#$DOTFILES_DATA/}%.topic}/.//}; do
-    # Skip update shell/git
-    # if [[ ${topic} == "shell/git" ]]; then
-    #   continue
-    # fi
     ${DOTFILES}/deploy -l ${topic}
   done
 }
@@ -103,7 +99,6 @@ function update_my_repos() {
     git submodule update -- assets
     update_topics &>/dev/null
   )
-  source $DOTFILES/shell/zsh/utils.zsh
 
   local last_doom_rev=$(git -C ${XDG_CONFIG_HOME}/doom rev-parse HEAD)
   update_git_repo ${XDG_CONFIG_HOME}/doom &
