@@ -126,8 +126,5 @@ function update_my_repos() {
 
   # Sync uninstalled some software if we deleted on one machine
   $DOTFILES/legacy_sync_script.zsh
-
-  # Start a new shell
-  $SHELL
 }
 alias uu='update_my_repos'
