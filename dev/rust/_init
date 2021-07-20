@@ -13,6 +13,8 @@ update() {
 
 # link() {}
 
-# clean() {}
+clean() {
+  rm -rf $CARGO_HOME $RUSTUP_HOME
+}
 
 init "$@"

@@ -2,7 +2,7 @@
 source ${0:A:h}/../../deploy
 
 install() {
-  ${0:A:h}/../../deploy dev/rust
+  topic-enabled-p dev/rust || ${0:A:h}/../../deploy dev/rust
 
   cargo install --git https://github.com/kamiyaa/joshuto.git
 }

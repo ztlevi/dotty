@@ -32,8 +32,8 @@ cd ~/.dotty
 # Debian or RHEL
 ./deploy base/linux
 
-# Shell basics (required)
-./deploy shell/zsh shell/git
+# Shell basics (required), and start a new shell
+./deploy shell/zsh shell/git && zsh
 
 # Linux Desktop Environment (Gnome/Awesome/Bspwm)
 ./deploy desktop/bspwm

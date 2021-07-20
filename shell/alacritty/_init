@@ -21,7 +21,8 @@ install() {
     # sudo apt install alacritty
 
     # Install the Rust compiler with rustup
-    ${0:A:h}/../../deploy dev/rust
+    topic-enabled-p dev/rust || ${0:A:h}/../../deploy dev/rust
+
     rustup override set stable
     rustup update stable
 
