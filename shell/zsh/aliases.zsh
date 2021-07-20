@@ -1,8 +1,5 @@
 zman() { PAGER="less -g -I -s '+/^       "$1"'" man zshall; }
 
-alias D=$DOTFILES/deploy
-alias dotty=$DOTFILES/deploy
-
 # aliases common to all shells
 alias q=exit
 alias pv=printenv
