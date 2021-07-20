@@ -3,6 +3,11 @@ source ${0:A:h}/../../deploy
 
 install() {
   brew install unison
+
+  # Deploy rust if not yet deployed
+  topic-enabled-p dev/rust || ${0:A:h}/../../deploy dev/rust
+
+  cargo install unison-fsmonitor
 }
 
 update() {

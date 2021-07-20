@@ -60,7 +60,7 @@ ignorecase = false
 # Poll files for changes every 5 seconds while CLI runs
 # Alternatively, cron/launchd can be used to sync periodically on unix/macOS
 # If you have unison-fsmonitor, set this to "watch" for filesystem events instead of polling
-repeat = 5
+repeat = watch
 
 # Backup settings. Keep 5 backups of all changed files
 backup = Name *
