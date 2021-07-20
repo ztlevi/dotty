@@ -13,8 +13,12 @@ export DOTFILES_ASSETS="$DOTFILES/assets"
 
 export APT_INSTALL="sudo apt-get install -y --no-install-recommends --fix-missing"
 
-alias D=$DOTFILES/deploy
-alias dotty=$DOTFILES/deploy
+function dotty(){
+  $DOTFILES/deploy $@
+  # source/export during $DOTFILES/deploy does not work. Use source to load it.
+  _load_all env.zsh
+}
+alias D=dotty
 
 for dir in "$XDG_CACHE_HOME" "$XDG_CONFIG_HOME" "$XDG_DATA_HOME" "$XDG_BIN_HOME" "$DOTFILES_DATA"; do
   [[ -d $dir ]] || mkdir -p "$dir"

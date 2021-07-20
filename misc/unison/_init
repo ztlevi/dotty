@@ -5,7 +5,7 @@ install() {
   brew install unison
 
   # Deploy rust if not yet deployed
-  topic-enabled-p dev/rust || ${0:A:h}/../../deploy dev/rust
+  ! topic-enabled-p dev/rust && dotty dev/rust
 
   cargo install unison-fsmonitor
 }
@@ -20,6 +20,7 @@ link() {
 
 clean() {
   brew uninstall unison
+  rm -f ~/.unison/default.prf
 }
 
 init "$@"

@@ -2,7 +2,8 @@
 source ${0:A:h}/../../deploy
 
 install() {
-  topic-enabled-p dev/rust || ${0:A:h}/../../deploy dev/rust
+  # Deploy rust if not yet deployed
+  ! topic-enabled-p dev/rust && dotty dev/rust
 
   cargo install --git https://github.com/kamiyaa/joshuto.git
 }

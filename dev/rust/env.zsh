@@ -1,5 +1,4 @@
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 
-path=($CARGO_HOME/bin $path)
-[[ -d "$CARGO_HOME/env" ]] && source "$CARGO_HOME/env"
+[[ -f "$CARGO_HOME/env" ]] && source "$CARGO_HOME/env"

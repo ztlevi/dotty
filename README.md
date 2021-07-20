@@ -22,8 +22,6 @@ Do a global replace in this repo. Replace my name `Ting Zhou` and my email `ztle
 ```sh
 cd ~/.dotty
 
-# Git
-
 # Minimal os setup (required)
 # MacOS
 ./deploy base/macos
@@ -32,24 +30,24 @@ cd ~/.dotty
 # Debian or RHEL
 ./deploy base/linux
 
-# Shell basics (required), and start a new shell
+# Shell basics (required), and start a new shell, afterwards, you can use `dotty` instead `./deploy`
 ./deploy shell/zsh shell/git && zsh
 
 # Linux Desktop Environment (Gnome/Awesome/Bspwm)
-./deploy desktop/bspwm
+dotty desktop/bspwm
 
 # Shell
-./deploy shell/alacritty shell/tmux shell/ranger \
+dotty shell/alacritty shell/tmux shell/ranger \
   shell/fzf shell/aspell shell/work
 # Editor
-./deploy editor/emacs editor/neovim editor/editorconfig
+dotty editor/emacs editor/neovim editor/editorconfig
 # Development
-./deploy dev/cc dev/go dev/latex dev/node dev/python dev/java
+dotty dev/cc dev/go dev/latex dev/node dev/python dev/java
 # Misc
-./deploy misc/docker misc/gpg misc/apps
+dotty misc/docker misc/gpg misc/apps
 
 # Optional private apps. Do not install on company machines.
-./deploy misc/private
+dotty misc/private
 ```
 
 ## Post-Installation
@@ -108,6 +106,7 @@ if [[ -L $DOTFILES_DATA/${topic//\//.}.topic ]]; then
 else
     ln -sfv $DOTFILES/$topic $DOTFILES_DATA/${topic//\//.}.topic
 
+    source $DOTFILES/$topic/env.zsh
     ./_init install
     ./_init link
 fi
@@ -119,7 +118,7 @@ fi
   - Make sure you create your GPG key or delete `user.signingkey` property in
     `$HOME/.config/git/config`.
 - What if I have some local zsh configuration?
-  - You can `./deploy shell/work`, and put things under `$HOME/.work/dots/env.zsh` or `$HOME/.work/dots/aliases.zsh`
+  - You can `dotty shell/work`, and put things under `$HOME/.work/dots/env.zsh` or `$HOME/.work/dots/aliases.zsh`
 - I installed npm packages globally but it not showed up in `$HOME/.local/share/nodenv/shims` path. It could also happens for pyenv and others.
   - The simplest way is run `envrehash` in shell. Under the sceens, it's running commands like `nodenv rehash` to generate bin files.
 - I want to use dark theme, what changes should I make?

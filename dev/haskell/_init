@@ -1,6 +1,5 @@
 #!/usr/bin/env zsh
 source ${0:A:h}/../../deploy
-source env.zsh
 
 install() {
   brew install stack ghc

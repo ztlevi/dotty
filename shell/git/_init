@@ -1,6 +1,5 @@
 #!/usr/bin/env zsh
 source ${0:A:h}/../../deploy
-source ${0:A:h}/../../env
 GIT_DIR="$XDG_CONFIG_HOME/git"
 
 install() {

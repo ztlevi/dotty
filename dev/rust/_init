@@ -1,6 +1,5 @@
 #!/usr/bin/env zsh
 source ${0:A:h}/../../deploy
-source env.zsh
 
 install() {
   brew install rustup
@@ -11,9 +10,10 @@ update() {
   rustup update
 }
 
-# link() {}
+link() {}
 
 clean() {
+  brew uninstall rustup
   rm -rf $CARGO_HOME $RUSTUP_HOME
 }
 

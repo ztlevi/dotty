@@ -17,7 +17,7 @@ fi
 
 # helpers
 function echo-debug { echo "$@" | sed -e "s%$HOME%~%g" -e "s%$DOTFILES%.%g"; }
-function echo-info  { printf "\r\033[2K\033[0;34m[ .. ]\033[0m %s\n" "$*"; }
+function echo-info  { printf "\r\033[2K\033[0;34m[INFO]\033[0m %s\n" "$*"; }
 function echo-skip  { printf "\r\033[2K\033[38;05;240m[SKIP]\033[0m %s\n" "$*"; }
 function echo-ok    { printf "\r\033[2K\033[0;32m[ OK ]\033[0m %s\n" "$*"; }
 function echo-fail  { printf "\r\033[2K\033[0;31m[FAIL]\033[0m %s\n" "$*"; }
@@ -40,7 +40,6 @@ function _topics {
   local topics; topics=( "$DOTFILES_DATA"/*.topic(N) )
   echo ${${${topics[@]#$DOTFILES_DATA/}%.topic}/$SEP//}
 }
-
 
 # For _init scripts
 function topic-enabled-p { [[ -L "$(topic-path $1)" ]] }
@@ -91,7 +90,7 @@ function topic-init {
       echo-fail "$topic doesn't exist!"
       continue
     fi
-    echo-ok "$topic"
+    echo-ok "Start deploying $topic"
 
     local tpath="$DOTFILES/$topic"
     local tsympath="$(topic-path $topic)"
@@ -102,16 +101,24 @@ function topic-init {
 
     if [[ -n $LINK ]] || ! topic-enabled-p $topic; then
       local op=install
-      mklink $tpath $tsympath
-      _topic-do $topic link
     fi
 
+    # Load the env.zsh for each topic
+    [[ -f "$tpath/env.zsh" ]] && source "$tpath/env.zsh"
+
     if [[ -z $INHIBIT_INIT ]]; then
+      # installation starts here because op is install
       _topic-do $topic ${FORCE_OP:-${op:-update}}
-      _topic-do $topic link
+      # Rmoeve if installation failed
       if [[ $op == install && $? != 0 ]]; then
         topic-remove $topic
       fi
+    fi
+
+    # Link in the very end
+    if [[ -n $LINK ]] || ! topic-enabled-p $topic; then
+      mklink $tpath $tsympath
+      _topic-do $topic link
     fi
   done
 }
@@ -177,7 +184,7 @@ Usage: ${0:A:t} [-acdlLit] [TOPIC...]
        Can be used alone.
   -r   Reinstall topics(s)
   -d   Disable & unlink topic(s)
-  -l   Only enable & relink topic(s) (implies -i)
+  -l   Only enable & relink topic(s) (implies -i), LINK and INHIBIT_INIT is 1.
   -L   List enabled topics
   -i   Do not run install/update/clean init scripts
   -t   Do a test run; do not actually do anything
@@ -207,5 +214,3 @@ EOL
     popd -q
   fi
 fi
-
-# vim:set ft=sh:
