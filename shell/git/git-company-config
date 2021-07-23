@@ -1,9 +1,0 @@
-# see config file's git includeIf
-[user]
-	name = Ting Zhou
-	email = zhot@amazon.com
-	signingkey = zhot@amazon.com
-[commit]
-	gpgsign = false
-[tag]
-	gpgsign = false

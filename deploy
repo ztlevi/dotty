@@ -92,7 +92,7 @@ function topic-init {
     fi
     echo-ok "Start deploying $topic"
 
-    local tpath="$DOTTY_HOME/$topic"
+    local tpath="$DOTTY_CONFIG_HOME/$topic"
     local tsympath="$(topic-path $topic)"
     if [[ -d "$topic/bin" ]]; then
       export path; path=( $tpath/bin $path )

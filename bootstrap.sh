@@ -31,28 +31,25 @@ function _os() {
   esac
 }
 
-if _uncallable zsh || _uncallable gh; then
-  # NOTE Macos has both already
-  _msg "Installing zsh, gh"
-  case $(_os) in
-  macos)
-    # Install Xcode command line tools
-    xcode-select --install
+_msg "Installing zsh"
+case $(_os) in
+macos)
+  # Install Xcode command line tools
+  xcode-select --install
 
-    if ! _is_callable brew; then
-      bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    fi
-    brew install gh zsh
-    ;;
-  linux-*)
-    if ! _is_callable brew; then
-      bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-      eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-    fi
-    brew install gh zsh
-    ;;
-  esac
-fi
+  if ! _is_callable brew; then
+    bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  fi
+  brew install zsh
+  ;;
+linux-*)
+  if ! _is_callable brew; then
+    bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+  fi
+  brew install zsh
+  ;;
+esac
 
 if [[ ! -d "$DOTTY_HOME" ]]; then
   _msg "Cloning dotty repository..."
@@ -62,7 +59,7 @@ if [[ ! -d "$DOTTY_HOME" ]]; then
   git submodule update --init config
 fi
 
-#
+
 _msg
 _msg "And done!"
 _msg
