@@ -18,10 +18,7 @@ sudo pacman -S `cat $DOTTY_HOME/ArchPackageList.txt`
 
 3. **Grsync**: My backup path is `/home/run/media/ztlevi/65e80ac4-1f5a-4028-bfa2-885178ebdfa4`
 
-```sh
-# Grsync additional options
---exclude-from="/home/ztlevi/.dotty/grsync-rules"
-```
+Create Grsync additional options
 
 ## Nvidia Drivers
 

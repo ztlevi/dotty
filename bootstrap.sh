@@ -2,7 +2,7 @@
 
 # dotty bootstrapper
 #
-# Installs zsh & git, then clones this repo to ~/.dotty. This script is
+# Installs zsh & git, then clones this repo to DOTTY_HOME. This script is
 # intended to be run remotely, via curl:
 #
 # bash <(curl -s https://raw.githubusercontent.com/ztlevi/dotty/master/bootstrap.sh)
