@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-# env -- envvars & standard library for dotfiles; don't symlink me!
+# env -- envvars & standard library for dotty; don't symlink me!
 # Can be sourced by zsh/bash scripts
 
 export XDG_CACHE_HOME=~/.cache

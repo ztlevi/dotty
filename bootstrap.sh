@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# dotfiles bootstrapper
+# dotty bootstrapper
 #
 # Installs zsh & git, then clones this repo to ~/.dotty. This script is
 # intended to be run remotely, via curl:
@@ -55,8 +55,10 @@ if _uncallable zsh || _uncallable gh; then
 fi
 
 if [[ ! -d "$DOTTY_HOME" ]]; then
-  _msg "Deploying dotfiles repository..."
-  git clone --recurse-submodules -j8 https://github.com/ztlevi/dotty.git $DOTTY_HOME
+  _msg "Authenticate gh..."
+  gh auth login
+  _msg "Cloning dotty repository..."
+  gh repo clone ztlevi/dotty $DOTTY_HOME -- --recurse-submodules -j8
 fi
 
 #
@@ -64,4 +66,4 @@ _msg
 _msg "And done!"
 _msg
 _msg "Use $DOTTY_HOME/deploy to install your dotfiles, I suggest you begin"
-_msg "with 'base/arch' or 'base/macos'."
+_msg "with 'shell/zsh' and, then'base/arch' or 'base/macos'."

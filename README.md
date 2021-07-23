@@ -1,10 +1,10 @@
-# dotty - Scalable dotfiles
+# dotty - Scalable dotfiles manager
 
 Dotty with your dotfiles? Try dotty, a scalable dotfiles manager for linux and macos.
 
 This repo is forked from [Hlissner's dotfiles](https://github.com/hlissner/dotfiles).
 
-Dotfiles for Ubuntu, Arch and MacOS!
+Dotty is tested on Ubuntu, Arch and MacOS!
 
 > Note: Arch support is deprecated in favor of another Linux distribution NixOS. But the updates
 > should be trivial and you should be able to figure out.
