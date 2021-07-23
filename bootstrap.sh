@@ -7,7 +7,7 @@
 #
 # bash <(curl -s https://raw.githubusercontent.com/ztlevi/dotty/master/bootstrap.sh)
 
-export DOTFILES=~/.config/dotty
+export DOTTY_HOME=~/.config/dotty
 set -e
 
 _msg() { printf "\r\033[2K\033[0;32m[ .. ] %s\033[0m\n" "$*"; }
@@ -36,6 +36,9 @@ if _uncallable zsh || _uncallable gh; then
   _msg "Installing zsh, gh"
   case $(_os) in
   macos)
+    # Install Xcode command line tools
+    xcode-select --install
+
     if ! _is_callable brew; then
       bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi

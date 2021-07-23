@@ -2,8 +2,6 @@
 source ${0:A:h}/../../deploy
 
 install() {
-  # Install Xcode command line tools
-  xcode-select --install
 
   # Install homebrew
   if ! _is_callable brew; then
