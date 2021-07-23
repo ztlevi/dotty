@@ -16,7 +16,7 @@ if ! _is_callable brew; then
 fi
 
 # helpers
-function echo-debug { echo "$@" | sed -e "s%$HOME%~%g" -e "s%$DOTFILES%.%g"; }
+function echo-debug { echo "$@" | sed -e "s%$HOME%~%g" -e "s%$DOTTY_HOME%.%g"; }
 function echo-info  { printf "\r\033[2K\033[0;34m[INFO]\033[0m %s\n" "$*"; }
 function echo-skip  { printf "\r\033[2K\033[38;05;240m[SKIP]\033[0m %s\n" "$*"; }
 function echo-ok    { printf "\r\033[2K\033[0;32m[ OK ]\033[0m %s\n" "$*"; }
@@ -37,13 +37,13 @@ function _topic-do {
   fi
 }
 function _topics {
-  local topics; topics=( "$DOTFILES_DATA"/*.topic(N) )
-  echo ${${${topics[@]#$DOTFILES_DATA/}%.topic}/$SEP//}
+  local topics; topics=( "$DOTTY_DATA_HOME"/*.topic(N) )
+  echo ${${${topics[@]#$DOTTY_DATA_HOME/}%.topic}/$SEP//}
 }
 
 # For _init scripts
 function topic-enabled-p { [[ -L "$(topic-path $1)" ]] }
-function topic-path { echo "$DOTFILES_DATA/${1/\//$SEP}.topic" }
+function topic-path { echo "$DOTTY_DATA_HOME/${1/\//$SEP}.topic" }
 
 function mklink {
   if [[ $1 == '-s' ]]; then
@@ -92,7 +92,7 @@ function topic-init {
     fi
     echo-ok "Start deploying $topic"
 
-    local tpath="$DOTFILES/$topic"
+    local tpath="$DOTTY_HOME/$topic"
     local tsympath="$(topic-path $topic)"
     if [[ -d "$topic/bin" ]]; then
       export path; path=( $tpath/bin $path )
@@ -141,7 +141,7 @@ function topic-remove {
 }
 
 function clean {
-  local paths; paths=( $XDG_CACHE_HOME $XDG_CONFIG_HOME $XDG_DATA_HOME $XDG_BIN_HOME $DOTFILES_DATA )
+  local paths; paths=( $XDG_CACHE_HOME $XDG_CONFIG_HOME $XDG_DATA_HOME $XDG_BIN_HOME $DOTTY_DATA_HOME )
   local links; links=( ~/.*(-@DN) ${^paths}/**(-@DN))
   if [[ ${#links[@]} > 1 ]]; then
     echo-info "Removing dead dotfile symlinks..."
@@ -199,7 +199,7 @@ EOL
   if [[ -n "${LIST}" ]]; then
     _topics | tr ' ' $'\n'
   else
-    pushd -qL "${DOTFILES}"
+    pushd -qL "${DOTTY_HOME}"
     if [[ -n "${REINSTALL}" ]]; then
         topic-remove ${TARGETS:-$@}
         topic-init ${TARGETS:-$@}

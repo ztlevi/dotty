@@ -7,20 +7,20 @@ export XDG_CONFIG_HOME=~/.config
 export XDG_DATA_HOME=~/.local/share
 export XDG_BIN_HOME=~/.local/bin
 
-export DOTFILES="$(cd $(dirname "${BASH_SOURCE:-${(%):-%x}}") && pwd -P)"
-export DOTFILES_DATA="$XDG_DATA_HOME/dotty"
-export DOTFILES_ASSETS="$DOTFILES/assets"
+export DOTTY_HOME="$(cd $(dirname "${BASH_SOURCE:-${(%):-%x}}") && pwd -P)"
+export DOTTY_DATA_HOME="$XDG_DATA_HOME/dotty"
+export DOTTY_ASSETS_HOME="$DOTTY_HOME/assets"
 
 export APT_INSTALL="sudo apt-get install -y --no-install-recommends --fix-missing"
 
 function dotty(){
-  $DOTFILES/deploy $@
-  # source/export during $DOTFILES/deploy does not work. Use source to load it.
+  $DOTTY_HOME/deploy $@
+  # source/export during $DOTTY_HOME/deploy does not work. Use source to load it.
   _load_all env.zsh
 }
 alias D=dotty
 
-for dir in "$XDG_CACHE_HOME" "$XDG_CONFIG_HOME" "$XDG_DATA_HOME" "$XDG_BIN_HOME" "$DOTFILES_DATA"; do
+for dir in "$XDG_CACHE_HOME" "$XDG_CONFIG_HOME" "$XDG_DATA_HOME" "$XDG_BIN_HOME" "$DOTTY_DATA_HOME"; do
   [[ -d $dir ]] || mkdir -p "$dir"
 done
 
@@ -58,12 +58,12 @@ function _source() {
 function _load() {
   case $1 in
     /*) source "$1" ;;
-    *) source "$DOTFILES/$1" ;;
+    *) source "$DOTTY_HOME/$1" ;;
   esac
 }
 
 function _load_all() {
-  for file in "$DOTFILES_DATA"/*.topic/"$1"; do
+  for file in "$DOTTY_DATA_HOME"/*.topic/"$1"; do
     [[ -e $file ]] && source "$file"
   done
 }

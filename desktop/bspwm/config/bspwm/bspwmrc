@@ -118,7 +118,7 @@ bspc rule -a slack desktop=^5
 # _run launch-browser &
 # _run slack &
 
-_call $DOTFILES/bin/ding startup
+_call $DOTTY_HOME/bin/ding startup
 
 # dunst need to use zsh to run, otherwise click function fails
 zsh -c "dunst-start &" # notifyciation daemon.

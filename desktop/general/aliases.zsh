@@ -1,5 +1,5 @@
-alias xx="xmodmap $DOTFILES/desktop/general/Xmodmap_linux"
-alias xh="xmodmap $DOTFILES/desktop/general/Xmodmap_hhkb"
+alias xx="xmodmap $DOTTY_HOME/desktop/general/Xmodmap_linux"
+alias xh="xmodmap $DOTTY_HOME/desktop/general/Xmodmap_hhkb"
 
 if _is_callable xdg-open; then
   alias oo="xdg-open . >/dev/null &"

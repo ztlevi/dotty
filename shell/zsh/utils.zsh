@@ -67,9 +67,9 @@ center_text() {
 
 function update_topics {
   declare -a topics
-  topics=( "$DOTFILES_DATA"/*.topic(N) )
-  for topic in ${${${topics[@]#$DOTFILES_DATA/}%.topic}/.//}; do
-    ${DOTFILES}/deploy -l ${topic}
+  topics=( "$DOTTY_DATA_HOME"/*.topic(N) )
+  for topic in ${${${topics[@]#$DOTTY_DATA_HOME/}%.topic}/.//}; do
+    ${DOTTY_HOME}/deploy -l ${topic}
   done
 }
 
@@ -93,9 +93,9 @@ function update_my_repos() {
   local ERROR_SUMMARY_FILE=/tmp/update_my_repos_error_summary
   rm -f ${ERROR_SUMMARY_FILE} && touch ${ERROR_SUMMARY_FILE}
 
-  update_git_repo $DOTFILES
+  update_git_repo $DOTTY_HOME
   (
-    cd $DOTFILES
+    cd $DOTTY_HOME
     git submodule update -- assets
     update_topics &>/dev/null
   )
@@ -125,6 +125,6 @@ function update_my_repos() {
   rm -f ${ERROR_SUMMARY_FILE}
 
   # Sync uninstalled some software if we deleted on one machine
-  $DOTFILES/legacy_sync_script.zsh
+  $DOTTY_HOME/legacy_sync_script.zsh
 }
 alias uu='update_my_repos'

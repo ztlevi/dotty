@@ -7,7 +7,7 @@
 #
 # bash <(curl -s https://raw.githubusercontent.com/ztlevi/dotty/master/bootstrap.sh)
 
-export DOTFILES=~/.dotty
+export DOTFILES=~/.config/dotty
 set -e
 
 _msg() { printf "\r\033[2K\033[0;32m[ .. ] %s\033[0m\n" "$*"; }
@@ -51,14 +51,14 @@ if _uncallable zsh || _uncallable gh; then
   esac
 fi
 
-if [[ ! -d "$DOTFILES" ]]; then
+if [[ ! -d "$DOTTY_HOME" ]]; then
   _msg "Deploying dotfiles repository..."
-  git clone --recurse-submodules -j8 https://github.com/ztlevi/dotty.git $DOTFILES
+  git clone --recurse-submodules -j8 https://github.com/ztlevi/dotty.git $DOTTY_HOME
 fi
 
 #
 _msg
 _msg "And done!"
 _msg
-_msg "Use $DOTFILES/deploy to install your dotfiles, I suggest you begin"
+_msg "Use $DOTTY_HOME/deploy to install your dotfiles, I suggest you begin"
 _msg "with 'base/arch' or 'base/macos'."

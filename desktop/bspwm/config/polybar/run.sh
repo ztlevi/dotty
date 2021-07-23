@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 # Prerequsites:
-#   1. Asset wallpapers: my wallpapers are located at $DOTFILES/asssets/wallpapers. Wallpapers need to be named
+#   1. Asset wallpapers: my wallpapers are located at $DOTTY_HOME/asssets/wallpapers. Wallpapers need to be named
 #   after ${color}-#.${ext}, e.g. light-blue-1.jpg.
 #   2. Polybar.
 #   3. Feh and bspc is not required, but it will tune the theme for these apps.
@@ -9,7 +9,7 @@
 #   It will randomly select color and powerline separator. Based on the selected color, it will set the background
 #     wallpaper.
 
-WALLPAPERS_DIR=$DOTFILES/assets/wallpapers
+WALLPAPERS_DIR=$DOTTY_HOME/assets/wallpapers
 CYCLE_TIME=${1:-3600}
 
 # Kill running run.sh script, use /$$/ to exclude current run.sh script

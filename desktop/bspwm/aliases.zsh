@@ -1,3 +1,3 @@
-source $DOTFILES/desktop/general/aliases.zsh
+source $DOTTY_HOME/desktop/general/aliases.zsh
 
-alias polybar-start="$DOTFILES/desktop/bspwm/config/polybar/run.sh"
+alias polybar-start="$DOTTY_HOME/desktop/bspwm/config/polybar/run.sh"

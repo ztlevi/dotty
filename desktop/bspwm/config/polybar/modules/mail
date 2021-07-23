@@ -67,7 +67,7 @@ def notify(title, message):
 
 
 def ding():
-    Popen(["{}/bin/ding".format(os.getenv("DOTFILES", os.path.expanduser("~/.dotty")))])
+    Popen(["{}/bin/ding".format(os.getenv("DOTTY_HOME", os.path.expanduser("~/.dotty")))])
 
 #
 def main():
