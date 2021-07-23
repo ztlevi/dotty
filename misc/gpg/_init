@@ -6,6 +6,8 @@ install() {
   if [[ $(_os) == "macos" ]]; then
     brew install gpg-suite
   fi
+
+  ${0:A:h}/gpg_import.sh
 }
 
 # update() {}
