@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 source ${0:A:h}/../../deploy
-source ${0:A:h}/.zshenv
+source $DOTTY_CONFIG_HOME/shell/zsh/.zshenv
 
 install() {
   # Base utilities

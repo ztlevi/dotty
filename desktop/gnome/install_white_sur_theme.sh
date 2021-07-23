@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-source ${0:A:h}/../../env
+source $DOTTY_CONFIG_HOME/env
 
 tempdir=/tmp/temp-install
 mkdir -p $tempdir

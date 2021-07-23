@@ -1,6 +1,0 @@
-#!/usr/bin/env zsh
-DEFAULT="$DOTTY_ASSETS_HOME/sounds/${1:-ding}.ogg"
-case $OSTYPE in
-  darwin*) afplay $DEFAULT ;;
-  linux*)  paplay $DEFAULT ;;
-esac &

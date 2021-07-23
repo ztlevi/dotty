@@ -106,9 +106,9 @@ cd $topic
 if [[ -L $DOTTY_DATA_HOME/${topic//\//.}.topic ]]; then
     ./_init update
 else
-    ln -sfv $DOTTY_HOME/$topic $DOTTY_DATA_HOME/${topic//\//.}.topic
+    ln -sfv $DOTTY_CONFIG_HOME/$topic $DOTTY_DATA_HOME/${topic//\//.}.topic
 
-    source $DOTTY_HOME/$topic/env.zsh
+    source $DOTTY_CONFIG_HOME/$topic/env.zsh
     ./_init install
     ./_init link
 fi
