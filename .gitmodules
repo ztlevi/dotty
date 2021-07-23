@@ -1,3 +1,6 @@
 [submodule "assets"]
 	path = assets
 	url = https://github.com/ztlevi/personal-assets.git
+[submodule "config"]
+	path = config
+	url = https://github.com/ztlevi/dotty-config.git

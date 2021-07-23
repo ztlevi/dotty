@@ -8,6 +8,7 @@ export XDG_DATA_HOME=~/.local/share
 export XDG_BIN_HOME=~/.local/bin
 
 export DOTTY_HOME="$(cd $(dirname "${BASH_SOURCE:-${(%):-%x}}") && pwd -P)"
+export DOTTY_CONFIG_HOME="$DOTTY_HOME/config"
 export DOTTY_DATA_HOME="$XDG_DATA_HOME/dotty"
 export DOTTY_ASSETS_HOME="$DOTTY_HOME/assets"
 
