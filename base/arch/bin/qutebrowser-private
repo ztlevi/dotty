@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-qutebrowser ':open -p https://duckduckgo.com'

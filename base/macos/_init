@@ -5,12 +5,11 @@ install() {
   brew install coreutils duti
 
   brew tap buo/cask-upgrade # Upgrade with `brew cu`
-
   # mac quicklook https://github.com/sindresorhus/quick-look-plugins
   brew install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize qlvideo
 
   brew install --cask karabiner-elements rectangle
-  ${0:A:h}/scripts/set-rectangle-defaults.sh
+  ${0:A:h}/set-rectangle-defaults.sh
 
   # Fonts
   brew tap homebrew/cask-fonts
@@ -40,9 +39,9 @@ update() {
 link() {
   # Sync karabiner config. It deos not allow symlink.
   mkdir -p $XDG_CONFIG_HOME/karabiner/
-  cp -f ${0:A:h}/config/karabiner/karabiner.json $XDG_CONFIG_HOME/karabiner/karabiner.json
+  cp -f $DOTTY_CONFIG_HOME/base/macos/config/karabiner/karabiner.json $XDG_CONFIG_HOME/karabiner/karabiner.json
   # If you change the karabiner config, copy it back and push a commit
-  # cp -f $XDG_CONFIG_HOME/karabiner/karabiner.json $DOTTY_HOME/base/macos/config/karabiner/karabiner.json
+  # cp -f $XDG_CONFIG_HOME/karabiner/karabiner.json $DOTTY_CONFIG_HOME/base/macos/config/karabiner/karabiner.json
 
   # Copy fonts
   mkdir -p ~/Library/Fonts

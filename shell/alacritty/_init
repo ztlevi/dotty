@@ -49,13 +49,14 @@ install() {
 # update() {}
 
 link() {
+  rm -rf ~/.zinit/snippets/*.config--dotty--config--shell--alacritty
   mkdir -p $XDG_CONFIG_HOME/alacritty
   config_file=$XDG_CONFIG_HOME/alacritty/alacritty-temp.yml
   theme_file=one-light-theme.yml
   font_file=ubuntu-mono-font.yml
   private_file=private.yml
   (
-    cd $DOTTY_HOME/shell/alacritty/config/alacritty
+    cd $DOTTY_CONFIG_HOME/shell/alacritty/config/alacritty
     local config_files=(basic.yml ${font_file} keybinding.yml ${theme_file})
     if [[ $(_os) == "macos" ]]; then
       config_files+=(macos.yml)

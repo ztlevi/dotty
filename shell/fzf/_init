@@ -1,7 +1,9 @@
 #!/usr/bin/env zsh
 source ${0:A:h}/../../deploy
 
-install() {}
+install() {
+  # Installation is using zinit. Please see config/shell/fzf/aliases.zsh
+}
 
 # update() {}
 

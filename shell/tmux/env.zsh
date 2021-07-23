@@ -1,2 +1,0 @@
-export TMUX_HOME="$XDG_CONFIG_HOME/tmux"
-export TMUX_PLUGIN_MANAGER_PATH="$XDG_DATA_HOME/tmux/plugins"

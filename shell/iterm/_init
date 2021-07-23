@@ -10,7 +10,7 @@ update() {
 }
 
 link() {
-  mklink com.googlecode.iterm2.plist $HOME/Library/Preferences/
+  mklink $DOTTY_CONFIG_HOME/shell/iterm/com.googlecode.iterm2.plist $HOME/Library/Preferences/
 }
 
 clean() {

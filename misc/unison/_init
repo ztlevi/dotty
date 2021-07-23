@@ -15,7 +15,7 @@ update() {
 }
 
 link() {
-  mklink default.prf ~/.unison/default.prf
+  mklink $DOTTY_CONFIG_HOME/misc/unison/default.prf ~/.unison/default.prf
 }
 
 clean() {

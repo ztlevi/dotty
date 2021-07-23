@@ -1,8 +1,6 @@
 #!/usr/bin/env zsh
 source ${0:A:h}/../../deploy
 
-wee=${0:A:h}/bin/wee
-
 install() {
   brew install weechat
 

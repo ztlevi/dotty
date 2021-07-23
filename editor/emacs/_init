@@ -43,7 +43,7 @@ update() {
 }
 
 link() {
-  mklink .ctags ~/.ctags
+  mklink $DOTTY_CONFIG_HOME/editor/emacs/.ctags ~/.ctags
 }
 
 clean() {

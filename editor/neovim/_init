@@ -20,13 +20,14 @@ link() {
   # rm -rf ~/.SpaceVim.d
   # mklink SpaceVim.d ~/.SpaceVim.d
 
-  mklink config/* $XDG_CONFIG_HOME/
+  mklink $DOTTY_CONFIG_HOME/editor/neovim/config/* $XDG_CONFIG_HOME/
 
   rm -f ~/.ideavimrc
-  mklink .ideavimrc ~/.ideavimrc
+  mklink $DOTTY_CONFIG_HOME/editor/neovim/.ideavimrc ~/.ideavimrc
 }
 
 clean() {
+  rm -rf ~/.vimrc ~/.ideavimrc $XDG_CONFIG_HOME/nvim
   # rm -rf ~/.SpaceVim.d ~/.SpaceVim
 }
 

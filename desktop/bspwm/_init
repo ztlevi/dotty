@@ -112,7 +112,7 @@ install() {
     ;;
   esac
 
-  source ${0:A:h}/../general/install_breeze_cursor.sh
+  zsh $DOTTY_CONFIG_HOME/desktop/general/install_breeze_cursor.sh
 
   wget https://github.com/erebe/greenclip/releases/download/3.4/greenclip -O $XDG_BIN_HOME/greenclip
   chmod +x $XDG_BIN_HOME/greenclip
@@ -131,14 +131,15 @@ remove_configs() {
 }
 
 link() {
-  remove_configs config
-  remove_configs ../general/config
-  mklink config/* $XDG_CONFIG_HOME/
-  mklink ../general/config/* $XDG_CONFIG_HOME/
+  remove_configs $DOTTY_CONFIG_HOME/desktop/bspwn/config
+  remove_configs $DOTTY_CONFIG_HOME/desktop/general/config
+  mklink $DOTTY_CONFIG_HOME/desktop/bspwn/config/* $XDG_CONFIG_HOME/
+  mklink $DOTTY_CONFIG_HOME/desktop/general/config/* $XDG_CONFIG_HOME/
 }
 
 clean() {
-  remove_configs
+  remove_configs $DOTTY_CONFIG_HOME/desktop/bspwm/config
+  remove_configs $DOTTY_CONFIG_HOME/desktop/general/config
 }
 
 init "$@"

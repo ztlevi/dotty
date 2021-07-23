@@ -31,7 +31,7 @@ update() {
 }
 
 link() {
-  rm -rf ~/.zinit/snippets/*.dotty--shell--zsh
+  rm -rf ~/.zinit/snippets/*.config--dotty--config--shell--zsh
   rm -f ~/.profile
   mklink $DOTTY_CONFIG_HOME/shell/zsh/.zsh* ~/
   mklink $DOTTY_CONFIG_HOME/shell/zsh/config/* $XDG_CONFIG_HOME/

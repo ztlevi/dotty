@@ -53,7 +53,7 @@ update() {
 }
 
 link() {
-  rm -f ~/.xprofile && mklink ${0:A:h}/../../desktop/general/xprofile ~/.xprofile
+  rm -f ~/.xprofile && mklink $DOTTY_CONFIG_HOME/desktop/general/xprofile ~/.xprofile
 
   mkdir -p $XDG_DATA_HOME/fonts/
   [[ -d ${DOTTY_ASSETS_HOME} ]] && find "$DOTTY_ASSETS_HOME/fonts/general" -iname "*.ttf" -or -iname "*.otf" -print0 | \

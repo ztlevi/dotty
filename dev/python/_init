@@ -27,9 +27,9 @@ update() {
 }
 
 link() {
-  mklink config/flake8 $XDG_CONFIG_HOME/
-  mklink config/pudb/pudb.cfg $XDG_CONFIG_HOME/pudb/
-  mklink .* ~/
+  mklink $DOTTY_CONFIG_HOME/dev/python/config/flake8 $XDG_CONFIG_HOME/
+  mklink $DOTTY_CONFIG_HOME/dev/python/config/pudb/pudb.cfg $XDG_CONFIG_HOME/pudb/
+  mklink $DOTTY_CONFIG_HOME/dev/python/.* ~/
 }
 
 clean() {

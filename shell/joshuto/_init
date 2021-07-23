@@ -11,7 +11,7 @@ install() {
 # update() {}
 
 link() {
-  mklink config/* $XDG_CONFIG_HOME/
+  mklink $DOTTY_CONFIG_HOME/shell/joshuto/config/* $XDG_CONFIG_HOME/
 }
 
 clean() {

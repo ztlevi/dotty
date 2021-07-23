@@ -21,7 +21,7 @@ update() {
 }
 
 link() {
-  mklink .* ~/
+  mklink $DOTTY_CONFIG_HOME/dev/node/.* ~/
 }
 
 clean() {

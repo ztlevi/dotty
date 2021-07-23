@@ -10,8 +10,8 @@ update() {
 }
 
 link() {
-  mklink config/irbrc $IRBRC
-  mklink config/pryrc $PRYRC
+  mklink $DOTTY_CONFIG_HOME/dev/ruby/config/irbrc $IRBRC
+  mklink $DOTTY_CONFIG_HOME/dev/ruby/config/pryrc $PRYRC
 }
 
 clean() {

@@ -8,8 +8,8 @@ install() {
 # update() {}
 
 link() {
-  mklink aspell.en.prepl ~/.aspell.en.prepl
-  mklink aspell.en.pws ~/.aspell.en.pws
+  mklink $DOTTY_CONFIG_HOME/shell/aspell/aspell.en.prepl ~/.aspell.en.prepl
+  mklink $DOTTY_CONFIG_HOME/shell/aspell/aspell.en.pws ~/.aspell.en.pws
 }
 
 clean() {

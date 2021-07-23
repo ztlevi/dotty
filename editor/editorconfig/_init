@@ -8,7 +8,7 @@ install() {
 # update() {}
 
 link() {
-  mklink .editorconfig ~/.editorconfig
+  mklink $DOTTY_CONFIG_HOME/editor/editorconfig/.editorconfig ~/.editorconfig
 }
 
 clean() {

@@ -26,7 +26,7 @@ update() {
 }
 
 link() {
-  mklink tmux.conf $TMUX_HOME/
+  mklink $DOTTY_CONFIG_HOME/shell/tmux/tmux.conf $TMUX_HOME/
 }
 
 clean() {

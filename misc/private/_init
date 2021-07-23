@@ -23,7 +23,7 @@ install() {
     mas install 497799835  # Xcode
 
     # Set default apps
-    ${0:A:h}/bin/macos_set_default_apps.sh
+    ${0:A:h}/macos_set_default_apps.sh
     ;;
   linux-arch)
     yay --needed --noconfirm -S \
