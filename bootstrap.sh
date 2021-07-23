@@ -55,10 +55,11 @@ if _uncallable zsh || _uncallable gh; then
 fi
 
 if [[ ! -d "$DOTTY_HOME" ]]; then
-  _msg "Authenticate gh..."
-  gh auth login
   _msg "Cloning dotty repository..."
-  gh repo clone ztlevi/dotty $DOTTY_HOME -- --recurse-submodules -j8
+  git clone https://github.com/ztlevi/dotty.git $DOTTY_HOME
+
+  cd $DOTTY_HOME
+  git submodule update --init config
 fi
 
 #

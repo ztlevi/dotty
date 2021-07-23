@@ -20,7 +20,10 @@ Do a global replace in this repo. Replace my name `Ting Zhou` and my email `ztle
 ## Install
 
 ```sh
-cd ~/.dotty
+cd ~/.config/dotty
+
+# (SKIP this) Initialize my personal assets submodule. Only me has the private repo access
+# git submodule update --init assets
 
 # Minimal setup (required), and start a new shell, afterwards, you can use `dotty` instead `./deploy`
 ./deploy shell/zsh shell/git && zsh
