@@ -1,2 +1,1 @@
 #+TITLE: Todo
-* For Gnome desktop, try https://github.com/vinceliuice/WhiteSur-gtk-theme
