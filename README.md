@@ -22,16 +22,13 @@ Do a global replace in this repo. Replace my name `Ting Zhou` and my email `ztle
 ```sh
 cd ~/.dotty
 
-# Minimal os setup (required)
-# MacOS
-./deploy base/macos
-# Arch
-./deploy base/arch
-# Debian or RHEL
-./deploy base/linux
-
-# Shell basics (required), and start a new shell, afterwards, you can use `dotty` instead `./deploy`
+# Minimal setup (required), and start a new shell, afterwards, you can use `dotty` instead `./deploy`
 ./deploy shell/zsh shell/git && zsh
+
+# MacOS
+dotty base/macos
+# Debian, Arch or RHEL
+dotty base/linux
 
 # Linux Desktop Environment (Gnome/Awesome/Bspwm)
 dotty desktop/bspwm

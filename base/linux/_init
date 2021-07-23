@@ -5,50 +5,52 @@ install() {
   case $(_os) in
   linux-debian)
     sudo apt-get update -y
-
     # Core essentials
-    $APT_INSTALL build-essential wget git curl tree ssh rsync dnsutils
-
+    $APT_INSTALL build-essential dnsutils
     # Extra packages
     $APT_INSTALL net-tools exfat-fuse exfat-utils p7zip-full wmctrl
+    ;;
+  linux-arch)
+    # Recommend to use add/remove software app to update packages
+    # Otherwise use the following command to ensure keys are up to date
+    sudo pacman-key --refresh-keys
+    sudo pacman -Syyu
+    sudo pacman --needed --noconfirm -S dnsutils base-devel net-tools
+
+    # Set up yay (AUR helper)
+    if ! _is_callable yay; then
+      git clone https://aur.archlinux.org/yay.git /tmp/yay
+      (
+        cd /tmp/yay
+        makepkg -sri --noconfirm --needed
+      )
+      if ! _is_callable yay; then
+        echo >&2 "Could not find pacaur" && return 3
+      fi
+    fi
+    # install misc programs
+    yay --needed --noconfirm -S xorg-xmodmap inxi dfc
     ;;
   linux-RHEL)
     sudo yum -y groupinstall "Development Tools" "Development Libraries"
     ;;
   esac
 
-  # Linuxbrew
-  if ! _is_callable brew; then
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-  fi
-
-  brew install jq ssh
-
-  # Install fonts
-  mkdir -p $XDG_DATA_HOME/fonts/
-  (
-    cd $XDG_DATA_HOME/fonts/
-    # Firacode
-    font_types=("Regular" "Medium" "Bold" "Light")
-    for font_type in ${font_types[@]}; do
-      curl -fLo "FiraCode $font_type Nerd Font Complete Mono.otf" \
-        https://github.com/ryanoasis/nerd-fonts/raw/2.1.0/patched-fonts/FiraCode/$font_type/complete/Fira%20Code%20$font_type%20Nerd%20Font%20Complete%20Mono.otf
-      curl -fLo "FiraCode $font_type Nerd Font Complete.otf" \
-        https://github.com/ryanoasis/nerd-fonts/raw/2.1.0/patched-fonts/FiraCode/$font_type/complete/Fira%20Code%20$font_type%20Nerd%20Font%20Complete.otf
-    done
-    # UbuntuMono
-    curl -fLo "UbuntuMono Regular Nerd Font Complete.ttf" \
-      https://github.com/ryanoasis/nerd-fonts/raw/2.1.0/patched-fonts/UbuntuMono/Regular/complete/Ubuntu%20Mono%20Nerd%20Font%20Complete%20Mono.ttf
-    curl -fLo "UbuntuMono Italic Nerd Font Complete.ttf" \
-      https://github.com/ryanoasis/nerd-fonts/raw/2.1.0/patched-fonts/UbuntuMono/Regular-Italic/complete/Ubuntu%20Mono%20Italic%20Nerd%20Font%20Complete%20Mono.ttf
-    curl -fLo "UbuntuMono Bold Nerd Font Complete.ttf" \
-      https://github.com/ryanoasis/nerd-fonts/raw/2.1.0/patched-fonts/UbuntuMono/Bold/complete/Ubuntu%20Mono%20Bold%20Nerd%20Font%20Complete%20Mono.ttf
-    curl -fLo "UbuntuMono Bold Italic Nerd Font Complete.ttf" \
-      https://github.com/ryanoasis/nerd-fonts/raw/2.1.0/patched-fonts/UbuntuMono/Bold-Italic/complete/Ubuntu%20Mono%20Bold%20Italic%20Nerd%20Font%20Complete%20Mono.ttf
-  )
+  ${0:A:h}/insatll_nerd_fonts.sh
 }
 
-# update() {}
+update() {
+  case $(_os) in
+  linux-debian)
+    sudo apt-get update -y
+    ;;
+  linux-arch)
+    _is_callable yay && local pac=yay
+    ${pac:-sudo pacman} -Syu --noconfirm
+  ;;
+  esac
+
+}
 
 link() {
   rm -f ~/.xprofile && mklink ${0:A:h}/../../desktop/general/xprofile ~/.xprofile
@@ -56,9 +58,6 @@ link() {
   mkdir -p $XDG_DATA_HOME/fonts/
   [[ -d ${DOTTY_ASSETS_HOME} ]] && find "$DOTTY_ASSETS_HOME/fonts/general" -iname "*.ttf" -or -iname "*.otf" -print0 | \
     xargs -0 -n 1 -I{} rsync -a --ignore-existing "{}" $XDG_DATA_HOME/fonts/
-
-  # Create wgetrc
-  [[ ! -f $WGETRC ]] && touch $WGETRC
 }
 
 clean() {

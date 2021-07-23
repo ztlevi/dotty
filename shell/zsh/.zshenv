@@ -1,3 +1,9 @@
+if [ -d /home/linuxbrew/.linuxbrew/ ]; then
+  path=(/home/linuxbrew/.linuxbrew/bin $path)
+fi
+
+path=(/usr/local/{s,}bin $path)
+
 export LANG='en_US.UTF-8'
 export LC_ALL="en_US.UTF-8"
 export TERM="xterm-256color"
@@ -28,6 +34,9 @@ export PAGER=less
 export LESS='-R -i -w -M -z-4'
 export LESSHISTFILE="$XDG_DATA_HOME/lesshst"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
+
+# wget
+export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 
 # added by Nix installer
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi

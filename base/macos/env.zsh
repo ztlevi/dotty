@@ -1,8 +1,6 @@
 export GNUPGHOME="$HOME/.gnupg"
 export BROWSER='open'
 
-export WGETRC="$XDG_CONFIG_HOME/wgetrc"
-
 # export CC=/usr/bin/clang
 # export CXX=/usr/bin/clang++
 # export CXXFLAGS="-I/usr/local/include"
@@ -15,5 +13,3 @@ export LESS='-g -i -M -R -S -w -z-4'
 if _is_callable lesspipe; then
   export LESSOPEN='| /usr/bin/env lesspipe %s 2>&-'
 fi
-
-path=(/usr/local/{s,}bin $path)

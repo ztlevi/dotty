@@ -2,13 +2,7 @@
 source ${0:A:h}/../../deploy
 
 install() {
-
-  # Install homebrew
-  if ! _is_callable brew; then
-    bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  fi
-
-  brew install wget curl git tree coreutils bash gnupg2 p7zip jq ssh duti
+  brew install coreutils duti
 
   brew tap buo/cask-upgrade # Upgrade with `brew cu`
 
@@ -54,9 +48,6 @@ link() {
   mkdir -p ~/Library/Fonts
   [[ -d ${DOTTY_ASSETS_HOME} ]] && find "$DOTTY_ASSETS_HOME/fonts/general" -iname "*.ttf" -or -iname "*.otf" -print0 | \
     xargs -0 -n 1 -I{} rsync -a --ignore-existing "{}" ~/Library/Fonts
-
-  # Create wgetrc
-  [[ ! -f $WGETRC ]] && touch $WGETRC
 }
 
 # clean() {}

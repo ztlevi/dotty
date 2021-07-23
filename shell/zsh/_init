@@ -1,9 +1,13 @@
 #!/usr/bin/env zsh
 source ${0:A:h}/../../deploy
-source .zshenv
+source ${0:A:h}/.zshenv
 
 install() {
-  brew install zsh jq direnv shfmt zshdb bashdb procs dust shellcheck neofetch mosh \
+  # Base utilities
+  brew install zsh bash wget git curl tree ssh rsync p7zip jq direnv
+
+  # Other utilities
+  brew install shfmt zshdb bashdb procs dust shellcheck neofetch mosh \
     sd duf
 
   # Macos uses different trash app
@@ -31,6 +35,9 @@ link() {
   rm -f ~/.profile
   mklink .zsh* ~/
   mklink config/* $XDG_CONFIG_HOME/
+
+  # Create wgetrc
+  [[ ! -f $WGETRC ]] && touch $WGETRC
 }
 
 clean() {
