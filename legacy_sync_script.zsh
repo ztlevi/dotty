@@ -10,5 +10,9 @@ if [[ -d ~/.dotty ]]; then
   update_topics
 fi
 
+if [[ ! -d ~/.config/dotty/config ]]; then
+  git submodule update --init config
+fi
+
 brew uninstall -f ctags direnv
 brew install --HEAD universal-ctags/universal-ctags/universal-ctags

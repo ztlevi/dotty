@@ -10,6 +10,7 @@
 	aa = add --all
 	rr = rm -r --cached .
 	rv = remote -v
+    smu = submodule update --remote --merge
 	cm	= commit
 	ca = commit -a -v
 	ps = push

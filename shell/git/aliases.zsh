@@ -11,8 +11,3 @@ alias git='noglob git'
 alias g="git"
 alias gci="gh pr checks"
 alias gcpr="gh pr create --assignee ztlevi"
-
-function bump_submodule() {
-  git submodule update --remote --merge
-  git commit -m "BUMP submodules"
-}
