@@ -13,7 +13,7 @@ Dotty is tested on Ubuntu, Arch and MacOS!
 
 ## Quick start
 
-`bash <(curl -s https://raw.githubusercontent.com/ztlevi/dotty/master/bootstrap.sh)`
+`bash <(curl -s https://raw.githubusercontent.com/ztlevi/dotty/main/bootstrap.sh)`
 
 This script will install homebrew, zsh and clone this dotty repo.
 
