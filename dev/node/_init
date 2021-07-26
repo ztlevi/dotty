@@ -10,7 +10,7 @@ install() {
   path=($NODENV_ROOT/shims $path)
   # NPM Packages
   npm install -g npm yarn prettier live-server hexo-cli \
-    reveal-md typescript tslint cspell typescript-language-server
+    reveal-md typescript tslint typescript-language-server
   # Run rehash everytime install global package
   nodenv rehash
 }

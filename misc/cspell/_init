@@ -1,0 +1,22 @@
+#!/usr/bin/env zsh
+source ${0:A:h}/../../deploy
+
+install() {
+  # Deploy rust if not yet deployed
+  ! topic-enabled-p dev/node && dotty dev/node
+
+  npm install -g cspell
+  nodenv rehash
+}
+
+# update() {}
+
+link() {
+  mklink $DOTTY_CONFIG_HOME/misc/cspell $XDG_CONFIG_HOME/
+}
+
+clean() {
+  npm uninstall -g cspell
+}
+
+init "$@"

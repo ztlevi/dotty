@@ -2,7 +2,7 @@
 
 | license                          | packages                                                                                      |
 | -------------------------------- | --------------------------------------------------------------------------------------------- |
-| MIT                              | bandwhich, prettier, live-server, hexo-cli, reveal-md, cspell, autoflake, black, grip, bottom |
+| MIT                              | bandwhich, prettier, live-server, hexo-cli, reveal-md, autoflake, black, grip, bottom |
 | Artistic-2.0                     | npm                                                                                           |
 | Apache-2.0                       | typescript, tslint, yapf                                                                      |
 | BSD                              | yarn, cpplint                                                                                 |
