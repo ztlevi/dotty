@@ -13,17 +13,17 @@ install() {
     # TODO: add RHEL bspwm packages
     ;;
   linux-debian)
-    $APT_INSTALL compton i3lock suckless-tools redshift xdotool xbacklight gcc make pavucontrol
+    APT_INSTALL compton i3lock suckless-tools redshift xdotool xbacklight gcc make pavucontrol
     # 18 or 16
     if cat /etc/os-release | rg -q 16; then
       zsh ${0:A:h}/ubuntu-build-bspwm.sh
       zsh ${0:A:h}/ubuntu-build-polybar.sh
       brew install feh
     elif cat /etc/os-release | rg -q 18; then
-      $APT_INSTALL bspwm sxhkd dunst feh maim
+      APT_INSTALL bspwm sxhkd dunst feh maim
       zsh ${0:A:h}/ubuntu-build-polybar.sh
     elif cat /etc/os-release | rg -q 20; then
-      $APT_INSTALL bspwm sxhkd polybar dunst feh maim
+      APT_INSTALL bspwm sxhkd polybar dunst feh maim
     fi
     ;;
   esac

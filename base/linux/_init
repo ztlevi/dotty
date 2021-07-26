@@ -7,9 +7,9 @@ install() {
   linux-debian)
     sudo apt-get update -y
     # Core essentials
-    $APT_INSTALL build-essential dnsutils
+    APT_INSTALL build-essential dnsutils
     # Extra packages
-    $APT_INSTALL net-tools exfat-fuse exfat-utils p7zip-full wmctrl
+    APT_INSTALL net-tools exfat-fuse exfat-utils p7zip-full wmctrl
     ;;
   linux-arch)
     # Recommend to use add/remove software app to update packages

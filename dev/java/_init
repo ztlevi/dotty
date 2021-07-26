@@ -13,8 +13,8 @@ install() {
     # Installation for newer version of java on debian OS
     sudo add-apt-repository ppa:webupd8team/java
     sudo apt-get update
-    $APT_INSTALL oracle-java11-installer
-    $APT_INSTALL oracle-java11-set-default
+    APT_INSTALL oracle-java11-installer
+    APT_INSTALL oracle-java11-set-default
     ;;
   linux-RHEL)
     sudo yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel

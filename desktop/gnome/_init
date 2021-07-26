@@ -11,7 +11,7 @@ install() {
     # TODO:
     ;;
   linux-debian)
-    $APT_INSTALL gdm3 gnome-session gnome-shell gnome-tweaks
+    APT_INSTALL gdm3 gnome-session gnome-shell gnome-tweaks
   esac
 
   sudo systemctl enable gdm.service --force

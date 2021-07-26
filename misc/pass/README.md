@@ -13,7 +13,7 @@ To get started, install `pass` and generate a keypair.
 ```shell
 $ brew install pass
 
-$ $APT_INSTALL pass
+$ APT_INSTALL pass
 $ gpg --gen-key
 $ gpg --list-keys
 $ # cd ~/Dropbox/GPG
