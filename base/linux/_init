@@ -2,6 +2,7 @@
 source ${0:A:h}/../../deploy
 
 install() {
+  brew install gcc
   case $(_os) in
   linux-debian)
     sudo apt-get update -y

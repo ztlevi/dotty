@@ -28,12 +28,10 @@ cd ~/.config/dotty
 # git submodule update --init assets
 
 # Minimal setup (required), and start a new shell, afterwards, you can use `dotty` instead `./deploy`
+./deploy base/macos # MacOS
+./deploy base/linux # Debian, Arch or RHEL
 ./deploy shell/zsh shell/git && zsh
 
-# MacOS
-dotty base/macos
-# Debian, Arch or RHEL
-dotty base/linux
 
 # Linux Desktop Environment (Gnome/Awesome/Bspwm)
 dotty desktop/bspwm
