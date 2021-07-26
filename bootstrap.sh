@@ -31,7 +31,7 @@ function _os() {
   esac
 }
 
-_msg "Installing zsh"
+_msg "Installing homebrew, zsh..."
 case $(_os) in
 macos)
   # Install Xcode command line tools
