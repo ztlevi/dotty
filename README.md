@@ -13,8 +13,7 @@ Dotty is tested on Ubuntu, Arch and MacOS!
 
 ## Quick start
 
-> Note: if you're in China. Use the homebrew mirror
-> export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
+> Note: if you're in China. Use the homebrew mirror https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/
 
 ``` sh
 bash <(curl -s https://raw.githubusercontent.com/ztlevi/dotty/main/bootstrap.sh)
