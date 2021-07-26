@@ -8,7 +8,6 @@
 # bash <(curl -s https://raw.githubusercontent.com/ztlevi/dotty/master/bootstrap.sh)
 
 export DOTTY_HOME=~/.config/dotty
-set -e
 
 _msg() { printf "\r\033[2K\033[0;32m[ .. ] %s\033[0m\n" "$*"; }
 function _is_callable() {
@@ -36,20 +35,18 @@ case $(_os) in
 macos)
   # Install Xcode command line tools
   xcode-select --install
-
   if ! _is_callable brew; then
     bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   fi
-  brew install zsh
   ;;
 linux-*)
   if ! _is_callable brew; then
     bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
   fi
-  brew install zsh
+  eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
   ;;
 esac
+brew install zsh
 
 if [[ ! -d "$DOTTY_HOME" ]]; then
   _msg "Cloning dotty repository..."
