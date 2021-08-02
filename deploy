@@ -10,11 +10,6 @@
 source "${0:A:h}/config/env"
 SEP='.'
 
-if ! _is_callable brew; then
-    echo "homebrew cannot be found! Please edit your zshrc..."
-    exit 1
-fi
-
 # helpers
 function echo-debug { echo "$@" | sed -e "s%$HOME%~%g" -e "s%$DOTTY_HOME%.%g"; }
 function echo-info  { printf "\r\033[2K\033[0;34m[INFO]\033[0m %s\n" "$*"; }
@@ -163,6 +158,11 @@ function clean {
     echo-ok "No empty directories in HOME"
   fi
 }
+
+if ! _is_callable brew; then
+    echo "homebrew cannot be found! Please edit your zshrc..."
+    exit 1
+fi
 
 ## Bootstrap
 if [[ ${ZSH_EVAL_CONTEXT} != *:file ]]; then
