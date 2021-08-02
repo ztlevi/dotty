@@ -21,6 +21,7 @@ install() {
     mas install 1485052491 # Dropzone 4: https://aptonic.com/
     mas install 1127253508 # Unarchiver One: RAR & Zip Tool
     mas install 1176895641 # Spark
+    mas install 1254743014 # LyricsX
     mas install 576338668  # Leaf
     mas install 747648890  # telegram
     mas install 836500024  # Wechat
