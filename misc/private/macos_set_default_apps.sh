@@ -28,13 +28,13 @@ abnerworks.Typora:markdown
 abnerworks.Typora:md
 abnerworks.Typora:mdwn
 
-com.netease.163music:mp3
-com.netease.163music:wav
-com.netease.163music:aac
-com.netease.163music:ogg
-com.netease.163music:wma
-com.netease.163music:flac
-com.netease.163music:alac
+com.apple.Music:mp3
+com.apple.Music:wav
+com.apple.Music:aac
+com.apple.Music:ogg
+com.apple.Music:wma
+com.apple.Music:flac
+com.apple.Music:alac
 
 com.trendmicro.DrUnzip:gz
 com.trendmicro.DrUnzip:7z
