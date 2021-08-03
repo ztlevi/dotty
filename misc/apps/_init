@@ -17,8 +17,8 @@ install() {
     defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false # For VS Code Insider
     defaults delete -g ApplePressAndHoldEnabled                                      # If necessary, reset global default
 
-    # Set iina as default video player
-    ${0:A:h}/macos_set_iina_as_default.sh
+    # Set iina as default music/video player
+    $DOTTY_HOME/base/macos/macos_set_default_apps.sh $DOTTY_HOME/misc/apps/macos_iina_as_default_app.txt
     ;;
   esac
 }

@@ -1,0 +1,17 @@
+com.colliderli.iina:mp3
+com.colliderli.iina:wav
+com.colliderli.iina:aac
+com.colliderli.iina:ogg
+com.colliderli.iina:wma
+com.colliderli.iina:flac
+com.colliderli.iina:alac
+
+com.colliderli.iina:mp4
+com.colliderli.iina:mpeg
+com.colliderli.iina:mov
+com.colliderli.iina:mkv
+com.colliderli.iina:rmvb
+com.colliderli.iina:wmv
+com.colliderli.iina:webm
+com.colliderli.iina:flv
+com.colliderli.iina:avi
