@@ -50,12 +50,9 @@ esac
 brew install zsh gh
 
 if [[ ! -d "$DOTTY_HOME" ]]; then
-  # Cannont clone private submodules with password. Maybe it's due to two-factor auth is enabled.
-  # Authenticate with gh solves this issue.
-  _msg "Authenticate github credentials with 'gh auth login'..."
-  gh auth login
   _msg "Cloning dotty repository..."
-  gh repo clone ztlevi/dotty $DOTTY_HOME
+  git clone https://github.com/ztlevi/dotty.git $DOTTY_HOME
+
   cd $DOTTY_HOME
   git submodule update --init config
 fi
