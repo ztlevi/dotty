@@ -46,16 +46,15 @@ linux-*)
   eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
   ;;
 esac
-brew install zsh
+
+brew install zsh gh
 
 if [[ ! -d "$DOTTY_HOME" ]]; then
+  _msg "Authenticate gh..."
+  gh auth login
   _msg "Cloning dotty repository..."
-  git clone https://github.com/ztlevi/dotty.git $DOTTY_HOME
-
-  cd $DOTTY_HOME
-  git submodule update --init config
+  gh repo clone ztlevi/dotty $DOTTY_HOME
 fi
-
 
 _msg
 _msg "And done!"
