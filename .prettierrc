@@ -1,0 +1,18 @@
+{
+  "printWidth": 100,
+  "trailingComma": "es5",
+  "overrides": [
+    {
+      "files": "*.md",
+      "options": {
+        "proseWrap": "always"
+      }
+    },
+    {
+      "files": "LICENSE_INVENTORY.md",
+      "options": {
+        "proseWrap": "never"
+      }
+    }
+  ]
+}

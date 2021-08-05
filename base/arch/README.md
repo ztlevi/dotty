@@ -71,11 +71,12 @@ sudo pacman -S xf86-video-amdgpu
 
 ## Fix Dual Boot time conflicts
 
-Linux: The hardware clock can be queried and set with the timedatectl command. To change the hardware clock time
-standard to localtime, use: `timedatectl set-local-rtc 1`
+Linux: The hardware clock can be queried and set with the timedatectl command. To change the
+hardware clock time standard to localtime, use: `timedatectl set-local-rtc 1`
 
 OR
 
 Windows: To fix it, just hit Start and type regedit.exe in the search box. Hit Enter and navigate to
-`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation`. Right click anywhere in the right pane and
-hit New > DWORD (32-bit) Value. Name it RealTimeIsUniversal, then double click on it and give it a value of 1.
+`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation`. Right click anywhere in
+the right pane and hit New > DWORD (32-bit) Value. Name it RealTimeIsUniversal, then double click on
+it and give it a value of 1.

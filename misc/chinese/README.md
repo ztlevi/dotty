@@ -20,8 +20,8 @@ https://github.com/metowolf/rime-sogou
 ## Chinese Encoding and font issue
 
 1. Install **noto-fonts-cjk** (Google Noto CJK fonts), which supports Chinese, Japanese, Korean.
-2. Edit **/etc/fonts/conf.d/65-nonlatin.conf**, put the preferred font e.g. Noto Sans CJK SC in the file under
-   **sans-serif** family tag.
+2. Edit **/etc/fonts/conf.d/65-nonlatin.conf**, put the preferred font e.g. Noto Sans CJK SC in the
+   file under **sans-serif** family tag.
    ```
    <!-- chinese fonts are actually serifed -->
    <family>Noto Sans CJK SC</family> <!-- han (zh-cn,zh-tw) -->

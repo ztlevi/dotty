@@ -13,12 +13,12 @@ Dotty is tested on Ubuntu, Arch and MacOS!
 
 ## Quick start
 
-> Note: if you're in China. Use the homebrew mirror https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/
+> Note: if you're in China. Use the homebrew mirror
+> https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/
 
-``` sh
+```sh
 bash <(curl -s https://raw.githubusercontent.com/ztlevi/dotty/main/bootstrap.sh)
 ```
-
 
 This script will install homebrew, zsh and clone this dotty repo.
 
@@ -126,15 +126,26 @@ fi
   - Make sure you create your GPG key or delete `user.signingkey` property in
     `$HOME/.config/git/config`.
 - What if I have some local zsh configuration?
-  - You can `dotty shell/work`, and put things under `$HOME/.work/dots/env.zsh` or `$HOME/.work/dots/aliases.zsh`
-- I installed npm packages globally but it not showed up in `$HOME/.local/share/nodenv/shims` path. It could also happens for pyenv and others.
-  - The simplest way is run `envrehash` in shell. Under the sceens, it's running commands like `nodenv rehash` to generate bin files.
+  - You can `dotty shell/work`, and put things under `$HOME/.work/dots/env.zsh` or
+    `$HOME/.work/dots/aliases.zsh`
+- I installed npm packages globally but it not showed up in `$HOME/.local/share/nodenv/shims` path.
+  It could also happens for pyenv and others.
+  - The simplest way is run `envrehash` in shell. Under the sceens, it's running commands like
+    `nodenv rehash` to generate bin files.
 - I want to use dark theme, what changes should I make?
   - Change LS_COLORS in `~/.config/dotty/config/shell/alacritty/vivid.zsh`.
-  - Change the theme_file [here](https://github.com/ztlevi/dotty/blob/master/shell/alacritty/_init#L53).
-  - Change tmux theme option [here](https://github.com/ztlevi/dotty/blob/master/shell/tmux/tmux.conf#L40) to `dark`.
+  - Change the theme_file
+    [here](https://github.com/ztlevi/dotty/blob/master/shell/alacritty/_init#L53).
+  - Change tmux theme option
+    [here](https://github.com/ztlevi/dotty/blob/master/shell/tmux/tmux.conf#L40) to `dark`.
 - How do I sync between different machines?
-  - Unfortunately, there is no such easy way. For me, I put down install/uninstall scripts in `dotty/legacy_sync_script.zsh` and every time I run [update_my_repos](https://github.com/ztlevi/dotty/blob/master/shell/zsh/utils.zsh#L132) aliased as `uu`, it will run the `legacy_sync_script.zsh`. NixOS has such ability to resolve what have changed in your configuration and able to install and uninstall software and make sure they are consistent across machines. If you're interested, you can try my [nix-dotfiles](https://github.com/ztlevi/nix-dotfiles).
+  - Unfortunately, there is no such easy way. For me, I put down install/uninstall scripts in
+    `dotty/legacy_sync_script.zsh` and every time I run
+    [update_my_repos](https://github.com/ztlevi/dotty/blob/master/shell/zsh/utils.zsh#L132) aliased
+    as `uu`, it will run the `legacy_sync_script.zsh`. NixOS has such ability to resolve what have
+    changed in your configuration and able to install and uninstall software and make sure they are
+    consistent across machines. If you're interested, you can try my
+    [nix-dotfiles](https://github.com/ztlevi/nix-dotfiles).
 
 ## Relevant projects
 

@@ -9,6 +9,5 @@
 
 ## Others
 
-- xbacklight:
-  http://cnsthangelogs.ubuntu.com/changelogs/pool/universe/x/xbacklight/xbacklight_1.2.1-1build2/copyright
+- xbacklight: http://cnsthangelogs.ubuntu.com/changelogs/pool/universe/x/xbacklight/xbacklight_1.2.1-1build2/copyright
 - greenclip: https://github.com/erebe/greenclip/blob/master/LICENSE
