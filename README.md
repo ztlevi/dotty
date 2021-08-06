@@ -126,8 +126,8 @@ fi
   - Make sure you create your GPG key or delete `user.signingkey` property in
     `$HOME/.config/git/config`.
 - What if I have some local zsh configuration?
-  - You can `dotty shell/work`, and put things under `$HOME/.work/dots/env.zsh` or
-    `$HOME/.work/dots/aliases.zsh`
+  - You can `dotty shell/work`, and put things under `$HOME/work/dots/env.zsh` or
+    `$HOME/work/dots/aliases.zsh`
 - I installed npm packages globally but it not showed up in `$HOME/.local/share/nodenv/shims` path.
   It could also happens for pyenv and others.
   - The simplest way is run `envrehash` in shell. Under the sceens, it's running commands like

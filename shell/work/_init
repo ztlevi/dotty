@@ -1,20 +1,20 @@
 #!/usr/bin/env zsh
 source ${0:A:h}/../../deploy
 
-# install() {}
+install() {
+    if [[ -d $HOME/workplace/work ]]; then
+        mklink $HOME/workplace/work $HOME/work
+    fi
+    if [[ ! -d $HOME/work/dots ]]; then
+        mkdir -p $HOME/work/dots
+        touch $HOME/work/dots/aliases.zsh
+        touch $HOME/work/dots/env.zsh
+    fi
+}
 
 # update() {}
 
-link() {
-  if [[ -d $HOME/workplace/work ]]; then
-    mklink $HOME/workplace/work $HOME/.work
-  fi
-  if [[ ! -d $HOME/.work/dots ]]; then
-    mkdir -p $HOME/.work/dots
-    touch $HOME/.work/dots/aliases.zsh
-    touch $HOME/.work/dots/env.zsh
-  fi
-}
+# link() {}
 
 # clean() {}
 
