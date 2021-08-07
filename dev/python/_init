@@ -2,40 +2,40 @@
 source ${0:A:h}/../../deploy
 
 _install_pip_packages() {
-  pip3 install --upgrade pip setuptools pipenv
+    pip3 install --upgrade pip setuptools pipenv
 
-  # Other packages
-  pip3 install --upgrade black debugpy pdbpp pylint autoflake gnureadline grip cpplint
+    # Other packages
+    pip3 install --upgrade black pre-commit debugpy pdbpp pylint autoflake gnureadline grip cpplint
 }
 
 install() {
-  brew install pyenv
+    brew install pyenv
 
-  pyenv install $PYTHON_VERSION
-  pyenv global $PYTHON_VERSION
+    pyenv install $PYTHON_VERSION
+    pyenv global $PYTHON_VERSION
 
-  # temp add pyenv shims path, `pyenv init` is inside aliases.zsh
-  path=($PYENV_ROOT/shims $path)
+    # temp add pyenv shims path, `pyenv init` is inside aliases.zsh
+    path=($PYENV_ROOT/shims $path)
 
-  _install_pip_packages
-  # Run rehash everytime install global package
-  pyenv rehash
+    _install_pip_packages
+    # Run rehash everytime install global package
+    pyenv rehash
 }
 
 update() {
-  _install_pip_packages
+    _install_pip_packages
 }
 
 link() {
-  mklink $DOTTY_CONFIG_HOME/dev/python/config/flake8 $XDG_CONFIG_HOME/
-  mklink $DOTTY_CONFIG_HOME/dev/python/config/pudb/pudb.cfg $XDG_CONFIG_HOME/pudb/
-  mklink $DOTTY_CONFIG_HOME/dev/python/.* ~/
+    mklink $DOTTY_CONFIG_HOME/dev/python/config/flake8 $XDG_CONFIG_HOME/
+    mklink $DOTTY_CONFIG_HOME/dev/python/config/pudb/pudb.cfg $XDG_CONFIG_HOME/pudb/
+    mklink $DOTTY_CONFIG_HOME/dev/python/.* ~/
 }
 
 clean() {
-  rm -rf $XDG_CONFIG_HOME/flake8 $XDG_CONFIG_HOME/pudb
-  rm -rf $PYENV_ROOT
-  rm -f $XDG_CACHE_HOME/${SHELL##*/}/pyenv
+    rm -rf $XDG_CONFIG_HOME/flake8 $XDG_CONFIG_HOME/pudb
+    rm -rf $PYENV_ROOT
+    rm -f $XDG_CACHE_HOME/${SHELL##*/}/pyenv
 }
 
 init "$@"
