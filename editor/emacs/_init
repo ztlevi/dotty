@@ -44,6 +44,7 @@ update() {
 
 link() {
     rm -f ~/.ctags
+    rm -f $XDG_CONFIG_HOME/emacs/.local/custom.el
     mklink $DOTTY_CONFIG_HOME/editor/emacs/.ctags.d ~/.ctags.d
 }
 
