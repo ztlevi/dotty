@@ -2,20 +2,13 @@
 
 # Dotfile manager
 #
-# By ztlevi <ztlevi1993@gmail.com>
+# By ztlevi <ztlevi.work@gmail.com>
 # https://github.com/ztlevi/dotty
 #
 # Requires: git, zsh
 
 source "${0:A:h}/config/env"
 SEP='.'
-
-# helpers
-function echo-debug { echo "$@" | sed -e "s%$HOME%~%g" -e "s%$DOTTY_HOME%.%g"; }
-function echo-info  { printf "\r\033[2K\033[0;34m[INFO]\033[0m %s\n" "$*"; }
-function echo-skip  { printf "\r\033[2K\033[38;05;240m[SKIP]\033[0m %s\n" "$*"; }
-function echo-ok    { printf "\r\033[2K\033[0;32m[ OK ]\033[0m %s\n" "$*"; }
-function echo-fail  { printf "\r\033[2K\033[0;31m[FAIL]\033[0m %s\n" "$*"; }
 
 function _exec { ${DRYRUN:+echo-debug} $@; return ${DRYRUN:+1}; }
 function _topic-do {

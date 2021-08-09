@@ -39,7 +39,7 @@ cd ~/.config/dotty
 ./deploy base/macos # MacOS
 ./deploy base/linux # Debian, Arch or RHEL
 ./deploy shell/zsh shell/git && zsh
-
+# Setup local git confing following this README https://github.com/ztlevi/dotty/blob/main/shell/git/README.md
 
 # Linux Desktop Environment (Gnome/Awesome/Bspwm)
 dotty desktop/bspwm

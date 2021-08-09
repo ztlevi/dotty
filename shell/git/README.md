@@ -1,3 +1,41 @@
+# Setup local git config
+
+## user config
+
+```sh
+mkdir -p ~/work/dots
+cat <<EOF >~/work/dots/git-user-config
+[user]
+	name = Ting Zhou
+	email = ztlevi.work@gmail.com
+	signingkey = ztlevi.work@gmail.com
+[github]
+	user = ztlevi
+EOF
+```
+
+## gpg config
+
+```sh
+cat <<EOF >~/work/dots/git-gpg-config
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
+EOF
+```
+
+## company config: when you work on a company based machine, and you have a different git account
+
+```sh
+cat <<EOF >~/work/dots/git-company-config
+[user]
+	name = Ting Zhou
+	email = zhot@amazon.com
+  signingkey = zhot@amazon.com
+EOF
+```
+
 # [Git extras commands](https://github.com/tj/git-extras/blob/master/Commands.md)
 
 # Git Setup
@@ -41,44 +79,3 @@ Setup SSH key to prevent typing username and password each time you operate your
    ```sh
    git remote set-url origin git@github.com:ztlevi/dotty.git
    ```
-
-# [Forgit](https://github.com/wfxr/forgit)
-
-- **Interactive `git add` selector** (`ga`)
-
-[![screenshot](https://raw.githubusercontent.com/wfxr/i/master/forgit-ga.png)](https://raw.githubusercontent.com/wfxr/i/master/forgit-ga.png)
-
-- **Interactive `git log` viewer** (`glo`)
-
-[![screenshot](https://raw.githubusercontent.com/wfxr/i/master/forgit-glo.png)](https://raw.githubusercontent.com/wfxr/i/master/forgit-glo.png)
-
-_The log graph can be disabled by option `FORGIT_LOG_GRAPH_ENABLE` (see discuss in
-[issue #71](https://github.com/wfxr/forgit/issues/71))._
-
-- **Interactive `.gitignore` generator** (`gi`)
-
-[![screenshot](https://raw.githubusercontent.com/wfxr/i/master/forgit-gi.png)](https://raw.githubusercontent.com/wfxr/i/master/forgit-gi.png)
-
-- **Interactive `git diff` viewer** (`gd`)
-
-- **Interactive `git reset HEAD <file>` selector** (`grh`)
-
-- **Interactive `git checkout <file>` selector** (`gcf`)
-
-- **Interactive `git stash` viewer** (`gss`)
-
-- **Interactive `git clean` selector** (`gclean`)
-
-### Keybindings
-
-|         Key         | Action                |
-| :-----------------: | --------------------- |
-|   <kbd>Tab</kbd>    | Toggle mark           |
-|    <kbd>?</kbd>     | Toggle preview window |
-|  <kbd>Alt-W</kbd>   | Toggle preview wrap   |
-|  <kbd>Ctrl-S</kbd>  | Toggle sort           |
-|  <kbd>Ctrl-R</kbd>  | Toggle selection      |
-| <kbd>Ctrl-K/P</kbd> | Selection move up     |
-| <kbd>Ctrl-J/N</kbd> | Selection move down   |
-| <kbd>Alt-K/P</kbd>  | Preview move up       |
-| <kbd>Alt-J/N</kbd>  | Preview move down     |

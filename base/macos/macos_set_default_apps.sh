@@ -3,7 +3,7 @@
 #========================================================================
 #  FILE:  macos_set_default_apps.sh
 #  DESCRIPTION:  Changes default apps for extensions
-#  AUTHOR:  ztlevi, ztlevi1993@gmail.com
+#  AUTHOR:  ztlevi, ztlevi.work@gmail.com
 #  VERSION:  0.1
 #  SOURCE: https://www.chainsawonatireswing.com/2012/09/19/changing-default-applications-on-a-mac-using-the-command-line-then-a-shell-script/
 #
