@@ -1,9 +1,9 @@
 repos:
-  - repo: https://github.com/prettier/prettier
-    rev: "master" # Use the sha or tag you want to point at
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v2.3.1
     hooks:
       - id: prettier
   - repo: https://github.com/jumanjihouse/pre-commit-hooks
-    rev: master
+    rev: 2.1.5
     hooks:
       - id: shfmt
