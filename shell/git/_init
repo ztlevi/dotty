@@ -10,11 +10,6 @@ install() {
     brew install --cask git-credential-manager-core
     ;;
   linux-*)
-    brew install pass
-    if [[ ! -f $HOME/.local/share/password-store/.gpg-id ]]; then
-      pass init $DOTTY_EMAIL
-    fi
-
     local tempdir=/tmp/temp-install
     mkdir -p $tempdir
     (

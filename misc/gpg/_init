@@ -3,11 +3,19 @@ source ${0:A:h}/../../deploy
 
 install() {
   brew install gnupg
-  if [[ $(_os) == "macos" ]]; then
-    brew install gpg-suite
-  fi
-
   ${0:A:h}/gpg_import.sh
+  case $(_os) in
+  macos)
+    brew install gpg-suite
+    ;;
+  linux-*)
+    # https://github.com/microsoft/Git-Credential-Manager-Core/blob/main/docs/linuxcredstores.md
+    brew install pass # Required by git-credential-manager-core
+    if [[ ! -f $HOME/.local/share/password-store/.gpg-id ]]; then
+      pass init $DOTTY_EMAIL
+    fi
+    ;;
+  esac
 }
 
 # update() {}

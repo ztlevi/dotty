@@ -29,10 +29,12 @@ Do a global replace in this repo. Replace my name `Ting Zhou` and my email `ztle
 ```sh
 cd ~/.config/dotty
 
+# gh credentials are used by git
+gh auth login
+
 # (SKIP this) Initialize my personal assets submodule. Only me has the private repo access
 # Cannont clone private submodules with password. Maybe it's due to two-factor auth is enabled.
 # Authenticate with gh solves this issue.
-# gh auth login
 # git submodule update --init assets
 
 # Minimal setup (required), and start a new shell, afterwards, you can use `dotty` instead `./deploy`
