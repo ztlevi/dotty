@@ -4,33 +4,33 @@ source ${0:A:h}/../../deploy
 install() {
   brew install wget
   case $(_os) in
-  macos)
-    # librime
-    (
-      cd /tmp
-      wget --no-check-certificate $(get_github_latest_release_url 'rime/librime' 'osx\.zip') -O rime-osx.zip
-      mkdir -p $XDG_CONFIG_HOME/emacs/librime
-      unzip rime-osx.zip -d $XDG_CONFIG_HOME/fcitx/librime
-      rm -rf rime-osx.zip
-    )
-    brew install --cask squirrel
-    ;;
-  linux-RHEL)
-    # TODO
-    ;;
-  linux-arch)
-    yay --needed --noconfirm -S fcitx fcitx-im fcitx-configtool librime fcitx-rime
-    ;;
-  linux-debian)
-    sudo apt install fcitx fcitx-rime
+    macos)
+      # librime
+      (
+        cd /tmp
+        wget --no-check-certificate $(get_github_latest_release_url 'rime/librime' 'osx\.zip') -O rime-osx.zip
+        mkdir -p $XDG_CONFIG_HOME/emacs/librime
+        unzip rime-osx.zip -d $XDG_CONFIG_HOME/fcitx/librime
+        rm -rf rime-osx.zip
+      )
+      brew install --cask squirrel
+      ;;
+    linux-RHEL)
+      # TODO
+      ;;
+    linux-arch)
+      yay --needed --noconfirm -S fcitx fcitx-im fcitx-configtool librime fcitx-rime
+      ;;
+    linux-debian)
+      sudo apt install fcitx fcitx-rime
 
-    # docker build https://github.com/rime/librime.git -t librime
-    # docker run -it librime bash && docker ps to lookup docker
-    # container_id=<input the running container id>
-    # sudo docker cp -L ${container_id}:/usr/lib/x86_64-linux-gnu/librime.so /usr/lib/
-    # sudo docker cp -L ${container_id}:/usr/lib/x86_64-linux-gnu/librime.so.1 /usr/lib/
-    # sudo docker cp -L ${container_id}:/usr/lib/x86_64-linux-gnu/librime.so.1.5.3 /usr/lib/
-    ;;
+      # docker build https://github.com/rime/librime.git -t librime
+      # docker run -it librime bash && docker ps to lookup docker
+      # container_id=<input the running container id>
+      # sudo docker cp -L ${container_id}:/usr/lib/x86_64-linux-gnu/librime.so /usr/lib/
+      # sudo docker cp -L ${container_id}:/usr/lib/x86_64-linux-gnu/librime.so.1 /usr/lib/
+      # sudo docker cp -L ${container_id}:/usr/lib/x86_64-linux-gnu/librime.so.1.5.3 /usr/lib/
+      ;;
   esac
 
   # Download zhwiki pinyin dictionary
@@ -58,9 +58,9 @@ link() {
   mklink pam_environment ${HOME}/.pam_environment
 
   case $(_os) in
-  macos)
-    mklink ~/.config/fcitx/rime ~/Library/Rime
-    ;;
+    macos)
+      mklink ~/.config/fcitx/rime ~/Library/Rime
+      ;;
   esac
 
   # 2. Emacs input method

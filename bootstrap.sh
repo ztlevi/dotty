@@ -18,33 +18,33 @@ function _is_callable() {
 _uncallable() { ! command -v "$1" >/dev/null; }
 function _os() {
   case $OSTYPE in
-  linux*) if [[ -f /etc/arch-release ]]; then
-    echo linux-arch
-  elif [[ -f /etc/debian_version ]]; then
-    echo linux-debian
-  elif [[ -f /etc/yum.conf ]]; then
-    echo linux-RHEL
-  fi ;;
-  darwin*) echo macos ;;
-  cygwin*) echo cygwin ;;
+    linux*) if [[ -f /etc/arch-release ]]; then
+      echo linux-arch
+    elif [[ -f /etc/debian_version ]]; then
+      echo linux-debian
+    elif [[ -f /etc/yum.conf ]]; then
+      echo linux-RHEL
+    fi ;;
+    darwin*) echo macos ;;
+    cygwin*) echo cygwin ;;
   esac
 }
 
 _msg "Installing homebrew, zsh, gh..."
 case $(_os) in
-macos)
-  # Install Xcode command line tools
-  xcode-select --install
-  if ! _is_callable brew; then
-    bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  fi
-  ;;
-linux-*)
-  if ! _is_callable brew; then
-    bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  fi
-  eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-  ;;
+  macos)
+    # Install Xcode command line tools
+    xcode-select --install
+    if ! _is_callable brew; then
+      bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    fi
+    ;;
+  linux-*)
+    if ! _is_callable brew; then
+      bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    fi
+    eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+    ;;
 esac
 
 brew install zsh gh

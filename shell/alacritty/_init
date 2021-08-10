@@ -8,41 +8,41 @@ source ${0:A:h}/../../deploy
 install() {
   brew install yq neofetch
   case $(_os) in
-  linux-arch)
-    yay --needed --noconfirm -S alacritty
-    ;;
-  linux-RHEL)
-    # TODO
-    ;;
-  linux-debian)
-    # For Ubuntu 18 and over
-    # sudo add-apt-repository ppa:mmstick76/alacritty
-    # sudo apt-get update
-    # sudo apt install alacritty
+    linux-arch)
+      yay --needed --noconfirm -S alacritty
+      ;;
+    linux-RHEL)
+      # TODO
+      ;;
+    linux-debian)
+      # For Ubuntu 18 and over
+      # sudo add-apt-repository ppa:mmstick76/alacritty
+      # sudo apt-get update
+      # sudo apt install alacritty
 
-    # Install the Rust compiler with rustup
-    ! topic-enabled-p dev/rust && dotty dev/rust
+      # Install the Rust compiler with rustup
+      ! topic-enabled-p dev/rust && dotty dev/rust
 
-    rustup override set stable
-    rustup update stable
+      rustup override set stable
+      rustup update stable
 
-    tempdir=/tmp/temp-install
-    (
-      ALACRITTY_VERSION=0.5.0
-      mkdir -p $tempdir
-      cd $tempdir
-      APT_INSTALL cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev python3
-      wget https://github.com/alacritty/alacritty/archive/v${ALACRITTY_VERSION}.tar.gz -O alacritty.tar.gz
-      tar xvf alacritty.tar.gz
-      cd alacritty-*
-      cargo build --release
-      sudo cp -f target/release/alacritty /usr/local/bin
-      rm -rf $tempdir/alacritty-*
-    )
-    ;;
-  macos)
-    brew install --cask alacritty
-    ;;
+      tempdir=/tmp/temp-install
+      (
+        ALACRITTY_VERSION=0.5.0
+        mkdir -p $tempdir
+        cd $tempdir
+        APT_INSTALL cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev python3
+        wget https://github.com/alacritty/alacritty/archive/v${ALACRITTY_VERSION}.tar.gz -O alacritty.tar.gz
+        tar xvf alacritty.tar.gz
+        cd alacritty-*
+        cargo build --release
+        sudo cp -f target/release/alacritty /usr/local/bin
+        rm -rf $tempdir/alacritty-*
+      )
+      ;;
+    macos)
+      brew install --cask alacritty
+      ;;
   esac
 }
 
@@ -67,15 +67,15 @@ link() {
     fi
 
     function string_join() {
-        local IFS="$1"
-        shift
-        echo "$*"
+      local IFS="$1"
+      shift
+      echo "$*"
     }
     local select_expression=()
     for i in {0..$((${#config_files} - 1))}; do
       select_expression+=(" select(fi == $i) ")
     done
-    local yq_expression=`string_join "*" "${select_expression[@]}"`
+    local yq_expression=$(string_join "*" "${select_expression[@]}")
 
     yq eval-all $yq_expression ${config_files[@]} >$config_file
   )

@@ -8,18 +8,18 @@ install() {
   brew install bottom
 
   case $(_os) in
-  macos)
-    brew install --cask google-chrome visual-studio-code bitwarden \
-      iina ticktick keepingyouawake
+    macos)
+      brew install --cask google-chrome visual-studio-code bitwarden \
+        iina ticktick keepingyouawake
 
-    # Vscode enable key-repeating
-    defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false         # For VS Code
-    defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false # For VS Code Insider
-    defaults delete -g ApplePressAndHoldEnabled                                      # If necessary, reset global default
+      # Vscode enable key-repeating
+      defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false         # For VS Code
+      defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false # For VS Code Insider
+      defaults delete -g ApplePressAndHoldEnabled                                      # If necessary, reset global default
 
-    # Set iina as default music/video player
-    $DOTTY_HOME/base/macos/macos_set_default_apps.sh $DOTTY_HOME/misc/apps/macos_iina_as_default_app.txt
-    ;;
+      # Set iina as default music/video player
+      $DOTTY_HOME/base/macos/macos_set_default_apps.sh $DOTTY_HOME/misc/apps/macos_iina_as_default_app.txt
+      ;;
   esac
 }
 

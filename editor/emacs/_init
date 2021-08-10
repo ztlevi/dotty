@@ -2,55 +2,55 @@
 source ${0:A:h}/../../deploy
 
 install() {
-    case $(_os) in
+  case $(_os) in
     macos)
-        rm -r /Applications/Emacs.app
+      rm -r /Applications/Emacs.app
 
-        brew tap d12frosted/emacs-plus
-        brew install emacs-plus@28 --with-native-comp
-        ln -Fs $(sudo find /usr/local/Cellar/emacs-* -name "Emacs.app") /Applications/Emacs.app
+      brew tap d12frosted/emacs-plus
+      brew install emacs-plus@28 --with-native-comp
+      ln -Fs $(sudo find /usr/local/Cellar/emacs-* -name "Emacs.app") /Applications/Emacs.app
 
-        # Other tweaks
-        defaults write org.gnu.Emacs Emacs.ToolBar -string no
-        defaults write org.gnu.Emacs Emacs.ScrollBar -string no
-        defaults write org.gnu.Emacs Emacs.MenuBar -string no
+      # Other tweaks
+      defaults write org.gnu.Emacs Emacs.ToolBar -string no
+      defaults write org.gnu.Emacs Emacs.ScrollBar -string no
+      defaults write org.gnu.Emacs Emacs.MenuBar -string no
 
-        # Set emacs as default editor
-        $DOTTY_HOME/base/macos/macos_set_default_apps.sh $DOTTY_HOME/editor/emacs/macos_emacs_as_default_app.txt
-        ;;
+      # Set emacs as default editor
+      $DOTTY_HOME/base/macos/macos_set_default_apps.sh $DOTTY_HOME/editor/emacs/macos_emacs_as_default_app.txt
+      ;;
     linux-*)
-        brew install emacs
-        ;;
-    esac
+      brew install emacs
+      ;;
+  esac
 
-    # Install universal ctags
-    brew install --HEAD universal-ctags/universal-ctags/universal-ctags
+  # Install universal ctags
+  brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 
-    # Clone Doom Eemacs
-    rm -rf $XDG_CONFIG_HOME/emacs
-    git clone https://github.com/hlissner/doom-emacs -b develop $XDG_CONFIG_HOME/emacs
+  # Clone Doom Eemacs
+  rm -rf $XDG_CONFIG_HOME/emacs
+  git clone https://github.com/hlissner/doom-emacs -b develop $XDG_CONFIG_HOME/emacs
 
-    # Clone my config
-    rm -rf $XDG_CONFIG_HOME/doom
-    git clone https://github.com/ztlevi/doom-config $XDG_CONFIG_HOME/doom
+  # Clone my config
+  rm -rf $XDG_CONFIG_HOME/doom
+  git clone https://github.com/ztlevi/doom-config $XDG_CONFIG_HOME/doom
 
-    cd $XDG_CONFIG_HOME/emacs
-    $XDG_CONFIG_HOME/emacs/bin/doom install
+  cd $XDG_CONFIG_HOME/emacs
+  $XDG_CONFIG_HOME/emacs/bin/doom install
 }
 
 update() {
-    doom upgarde
+  doom upgarde
 }
 
 link() {
-    rm -f ~/.ctags
-    rm -f $XDG_CONFIG_HOME/emacs/.local/custom.el
-    mklink $DOTTY_CONFIG_HOME/editor/emacs/.ctags.d ~/.ctags.d
+  rm -f ~/.ctags
+  rm -f $XDG_CONFIG_HOME/emacs/.local/custom.el
+  mklink $DOTTY_CONFIG_HOME/editor/emacs/.ctags.d ~/.ctags.d
 }
 
 clean() {
-    rm -rf $XDG_CONFIG_HOME/doom
-    rm -rf $XDG_CONFIG_HOME/emacs
+  rm -rf $XDG_CONFIG_HOME/doom
+  rm -rf $XDG_CONFIG_HOME/emacs
 }
 
 init "$@"

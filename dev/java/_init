@@ -4,22 +4,22 @@ source ${0:A:h}/../../deploy
 install() {
   # TODO Install android SDK
   case $(_os) in
-  macos)
-    brew tap adoptopenjdk/openjdk
-    brew install --cask adoptopenjdk8 adoptopenjdk11
-    ;;
-  linux-debian)
-    sudo apt install openjdk-8-jdk
-    # Installation for newer version of java on debian OS
-    sudo add-apt-repository ppa:webupd8team/java
-    sudo apt-get update
-    APT_INSTALL oracle-java11-installer
-    APT_INSTALL oracle-java11-set-default
-    ;;
-  linux-RHEL)
-    sudo yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel
-    sudo yum -y install java-11-amazon-corretto-headless
-    ;;
+    macos)
+      brew tap adoptopenjdk/openjdk
+      brew install --cask adoptopenjdk8 adoptopenjdk11
+      ;;
+    linux-debian)
+      sudo apt install openjdk-8-jdk
+      # Installation for newer version of java on debian OS
+      sudo add-apt-repository ppa:webupd8team/java
+      sudo apt-get update
+      APT_INSTALL oracle-java11-installer
+      APT_INSTALL oracle-java11-set-default
+      ;;
+    linux-RHEL)
+      sudo yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel
+      sudo yum -y install java-11-amazon-corretto-headless
+      ;;
   esac
   brew install gradle maven jenv google-java-format
 }

@@ -5,20 +5,20 @@ install() {
   brew install gnupg
   ${0:A:h}/gpg_import.sh
   case $(_os) in
-  macos)
-    brew install gpg-suite
-    ;;
-  linux-*)
-    # https://github.com/microsoft/Git-Credential-Manager-Core/blob/main/docs/linuxcredstores.md
-    brew install pass # Required by git-credential-manager-core
-    if [[ ! -f $HOME/.local/share/password-store/.gpg-id ]]; then
-      if (git config --get user.email) >/dev/null; then
-        pass init $(git config --get user.email)
-      else
-        echo-fail "Please config git email first\!"
+    macos)
+      brew install gpg-suite
+      ;;
+    linux-*)
+      # https://github.com/microsoft/Git-Credential-Manager-Core/blob/main/docs/linuxcredstores.md
+      brew install pass # Required by git-credential-manager-core
+      if [[ ! -f $HOME/.local/share/password-store/.gpg-id ]]; then
+        if (git config --get user.email) >/dev/null; then
+          pass init $(git config --get user.email)
+        else
+          echo-fail "Please config git email first\!"
+        fi
       fi
-    fi
-    ;;
+      ;;
   esac
 }
 
@@ -34,11 +34,11 @@ default-cache-ttl-ssh 604800
 max-cache-ttl-ssh 1036800
 EOF
   case $(_os) in
-  macos)
-    cat <<EOF >>$HOME/.gnupg/gpg-agent.conf
+    macos)
+      cat <<EOF >>$HOME/.gnupg/gpg-agent.conf
 pinentry-program /usr/local/MacGPG2/libexec/pinentry-mac.app/Contents/MacOS/pinentry-mac
 EOF
-    ;;
+      ;;
   esac
   # Restart gpg
   # gpgconf --kill gpg-agent

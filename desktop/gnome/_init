@@ -4,14 +4,15 @@ source $DOTTY_CONFIG_HOME/desktop/gnome/aliases.zsh
 
 install() {
   case $(_os) in
-  linux-arch)
-    sudo pacman -S gdm gnome-extra gnome-shell gnome-tweaks
-    ;;
-  linux-RHEL)
-    # TODO:
-    ;;
-  linux-debian)
-    APT_INSTALL gdm3 gnome-session gnome-shell gnome-tweaks
+    linux-arch)
+      sudo pacman -S gdm gnome-extra gnome-shell gnome-tweaks
+      ;;
+    linux-RHEL)
+      # TODO:
+      ;;
+    linux-debian)
+      APT_INSTALL gdm3 gnome-session gnome-shell gnome-tweaks
+      ;;
   esac
 
   sudo systemctl enable gdm.service --force

@@ -4,37 +4,37 @@ source ${0:A:h}/../../deploy
 install() {
   brew install gcc
   case $(_os) in
-  linux-debian)
-    sudo apt-get update -y
-    # Core essentials
-    APT_INSTALL build-essential dnsutils
-    # Extra packages
-    APT_INSTALL net-tools exfat-fuse exfat-utils p7zip-full wmctrl
-    ;;
-  linux-arch)
-    # Recommend to use add/remove software app to update packages
-    # Otherwise use the following command to ensure keys are up to date
-    sudo pacman-key --refresh-keys
-    sudo pacman -Syyu
-    sudo pacman --needed --noconfirm -S dnsutils base-devel net-tools
+    linux-debian)
+      sudo apt-get update -y
+      # Core essentials
+      APT_INSTALL build-essential dnsutils
+      # Extra packages
+      APT_INSTALL net-tools exfat-fuse exfat-utils p7zip-full wmctrl
+      ;;
+    linux-arch)
+      # Recommend to use add/remove software app to update packages
+      # Otherwise use the following command to ensure keys are up to date
+      sudo pacman-key --refresh-keys
+      sudo pacman -Syyu
+      sudo pacman --needed --noconfirm -S dnsutils base-devel net-tools
 
-    # Set up yay (AUR helper)
-    if ! _is_callable yay; then
-      git clone https://aur.archlinux.org/yay.git /tmp/yay
-      (
-        cd /tmp/yay
-        makepkg -sri --noconfirm --needed
-      )
+      # Set up yay (AUR helper)
       if ! _is_callable yay; then
-        echo >&2 "Could not find pacaur" && return 3
+        git clone https://aur.archlinux.org/yay.git /tmp/yay
+        (
+          cd /tmp/yay
+          makepkg -sri --noconfirm --needed
+        )
+        if ! _is_callable yay; then
+          echo >&2 "Could not find pacaur" && return 3
+        fi
       fi
-    fi
-    # install misc programs
-    yay --needed --noconfirm -S xorg-xmodmap inxi dfc
-    ;;
-  linux-RHEL)
-    sudo yum -y groupinstall "Development Tools" "Development Libraries"
-    ;;
+      # install misc programs
+      yay --needed --noconfirm -S xorg-xmodmap inxi dfc
+      ;;
+    linux-RHEL)
+      sudo yum -y groupinstall "Development Tools" "Development Libraries"
+      ;;
   esac
 
   ${0:A:h}/insatll_nerd_fonts.sh
@@ -42,13 +42,13 @@ install() {
 
 update() {
   case $(_os) in
-  linux-debian)
-    sudo apt-get update -y
-    ;;
-  linux-arch)
-    _is_callable yay && local pac=yay
-    ${pac:-sudo pacman} -Syu --noconfirm
-  ;;
+    linux-debian)
+      sudo apt-get update -y
+      ;;
+    linux-arch)
+      _is_callable yay && local pac=yay
+      ${pac:-sudo pacman} -Syu --noconfirm
+      ;;
   esac
 
 }
@@ -57,7 +57,7 @@ link() {
   rm -f ~/.xprofile && mklink $DOTTY_CONFIG_HOME/desktop/general/xprofile ~/.xprofile
 
   mkdir -p $XDG_DATA_HOME/fonts/
-  [[ -d ${DOTTY_ASSETS_HOME}/fonts ]] && find "$DOTTY_ASSETS_HOME/fonts/general" -iname "*.ttf" -or -iname "*.otf" -print0 | \
+  [[ -d ${DOTTY_ASSETS_HOME}/fonts ]] && find "$DOTTY_ASSETS_HOME/fonts/general" -iname "*.ttf" -or -iname "*.otf" -print0 |
     xargs -0 -n 1 -I{} rsync -a --ignore-existing "{}" $XDG_DATA_HOME/fonts/
 }
 

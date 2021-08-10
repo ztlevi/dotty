@@ -3,9 +3,3 @@ repos:
     rev: v2.3.1
     hooks:
       - id: prettier
-  - repo: https://github.com/jumanjihouse/pre-commit-hooks
-    rev: 2.1.5
-    hooks:
-      - id: shfmt
-        args: [-i 2 -ln bash]
-        exclude: deploy

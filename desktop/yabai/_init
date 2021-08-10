@@ -3,13 +3,13 @@ source ${0:A:h}/../../deploy
 
 install() {
   case $(_os) in
-  macos)
-    brew tap koekeishiya/formulae
-    brew install yabai
-    brew services start yabai
-    brew install koekeishiya/formulae/skhd
-    brew services start skhd
-    ;;
+    macos)
+      brew tap koekeishiya/formulae
+      brew install yabai
+      brew services start yabai
+      brew install koekeishiya/formulae/skhd
+      brew services start skhd
+      ;;
 
   esac
 
