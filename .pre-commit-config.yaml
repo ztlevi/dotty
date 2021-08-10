@@ -7,3 +7,5 @@ repos:
     rev: 2.1.5
     hooks:
       - id: shfmt
+        args: [-i 2 -ln bash]
+        exclude: deploy

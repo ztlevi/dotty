@@ -12,7 +12,11 @@ install() {
     # https://github.com/microsoft/Git-Credential-Manager-Core/blob/main/docs/linuxcredstores.md
     brew install pass # Required by git-credential-manager-core
     if [[ ! -f $HOME/.local/share/password-store/.gpg-id ]]; then
-      pass init $DOTTY_EMAIL
+      if (git config --get user.email) >/dev/null; then
+        pass init $(git config --get user.email)
+      else
+        echo-fail "Please config git email first\!"
+      fi
     fi
     ;;
   esac
