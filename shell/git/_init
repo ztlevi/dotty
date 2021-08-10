@@ -21,6 +21,9 @@ install() {
       )
       ;;
   esac
+
+  echo-info "Setup git using following command:"
+  head -n 16 ${0:A:h}/README.md
 }
 
 # update() {}
