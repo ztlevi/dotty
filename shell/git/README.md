@@ -31,8 +31,8 @@ EOF
 cat <<EOF >~/work/dots/git-company-config
 [user]
 	name = Ting Zhou
-	email = zhot@amazon.com
-	signingkey = zhot@amazon.com
+	email = <you-comany-email>
+	signingkey = <you-comany-email>
 EOF
 ```
 
