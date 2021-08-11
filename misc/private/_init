@@ -12,7 +12,7 @@ install() {
     macos)
       brew install --cask dropbox neteasemusic webtorrent \
         typora keycastr discord zoomus \
-        clashx google-backup-and-sync kap obs balenaEtcher
+        clashx google-drive kap obs balenaEtcher
 
       # Optional preview apps
       brew install suspicious-package apparency
