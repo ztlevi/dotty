@@ -53,7 +53,7 @@ link() {
   mkdir -p $XDG_CONFIG_HOME/alacritty
   config_file=$XDG_CONFIG_HOME/alacritty/alacritty-temp.yml
   theme_file=one-light-theme.yml
-  font_file=ubuntu-mono-font.yml
+  font_file=ellographCF-font.yml
   private_file=private.yml
   (
     cd $DOTTY_CONFIG_HOME/shell/alacritty/config/alacritty
