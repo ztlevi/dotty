@@ -36,6 +36,16 @@ cat <<EOF >~/work/dots/git-company-config
 EOF
 ```
 
+# Other Git terminal interfaces
+
+I'm using Emacs's git client called Magit. It's a great interface. But I would not recommend to
+non-Emacs users. There are other options there.
+
+- [Lazygit](https://github.com/jesseduffield/lazygit): A simple terminal UI for git commands,
+  written in Go with the gocui library.
+- [Forgit](https://github.com/wfxr/forgit): This tool is designed to help you use git more
+  efficiently. It's lightweight and easy to use. Built with FZF.
+
 # [Git extras commands](https://github.com/tj/git-extras/blob/master/Commands.md)
 
 # Git Setup
