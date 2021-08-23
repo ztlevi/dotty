@@ -147,7 +147,7 @@ fi
     as `uu`, it will run the `legacy_sync_script.zsh`. NixOS has such ability to resolve what have
     changed in your configuration and able to install and uninstall software and make sure they are
     consistent across machines. If you're interested, you can try my
-    [nix-dotfiles](https://github.com/ztlevi/nix-dotfiles).
+    [dotty-nix](https://github.com/ztlevi/dotty-nix).
 
 ## Relevant projects
 
