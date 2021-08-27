@@ -6,6 +6,8 @@ Ensure Passphrase-less SSH
 
 ## Increase MacOS File Descriptor Limits
 
+if encountered "No space left on device" issue, increase the size limit.
+
 ```sh
 sudo sysctl kern.maxfiles=131072 kern.maxfilesperproc=65536
 ```
