@@ -16,6 +16,7 @@ install() {
     linux-*) brew install trash-cli ;;
   esac
 
+  # True color and Italic support https://github.com/syl20bnr/spacemacs/wiki/Terminal
   /usr/bin/tic -x -o ~/.terminfo ${0:A:h}/xterm-24bit.terminfo
 
   # Set default shell to zsh
