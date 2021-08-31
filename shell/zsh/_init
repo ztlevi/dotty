@@ -16,6 +16,8 @@ install() {
     linux-*) brew install trash-cli ;;
   esac
 
+  /usr/bin/tic -x -o ~/.terminfo ${0:A:h}/xterm-24bit.terminfo
+
   # Set default shell to zsh
   chsh -s $(which zsh) $(whoami)
 
