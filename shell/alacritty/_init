@@ -52,19 +52,15 @@ link() {
   rm -rf ~/.zinit/snippets/*.config--dotty--config--shell--alacritty
   mkdir -p $XDG_CONFIG_HOME/alacritty
   config_file=$XDG_CONFIG_HOME/alacritty/alacritty-temp.yml
-  theme_file=one-light-theme.yml
-  font_file=ubuntu-mono-font.yml
+  theme_file=theme-one-light.yml
+  font_file=font-ubuntu-mono.yml
   private_file=private.yml
   (
     cd $DOTTY_CONFIG_HOME/shell/alacritty/config/alacritty
     local config_files=(basic.yml ${font_file} keybinding.yml ${theme_file})
-    if [[ $(_os) == "macos" ]]; then
-      config_files+=(macos.yml)
-    fi
+    [[ $(_os) == "macos" ]] && config_files+=(macos.yml)
 
-    if [[ -f ${private_file} ]]; then
-      config_files+=(${private_file})
-    fi
+    [[ -f ${private_file} ]] && config_files+=(${private_file})
 
     function string_join() {
       local IFS="$1"
