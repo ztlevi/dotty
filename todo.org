@@ -1,1 +1,2 @@
 #+TITLE: Todo
+* linux use picom rather compton
