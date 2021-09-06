@@ -1,4 +1,4 @@
-# desktop/yabai
+# wm/yabai
 
 ## Tiling window manager for MacOS (Deprecated)
 

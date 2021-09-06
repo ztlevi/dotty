@@ -18,8 +18,8 @@ install() {
 # update() {}
 
 link() {
-  mklink $DOTTY_CONFIG_HOME/desktop/yabai/config/* $XDG_CONFIG_HOME/
-  mklink $DOTTY_CONFIG_HOME/desktop/yabai/skhdrc ~/.skhdrc
+  mklink $DOTTY_CONFIG_HOME/wm/yabai/config/* $XDG_CONFIG_HOME/
+  mklink $DOTTY_CONFIG_HOME/wm/yabai/skhdrc ~/.skhdrc
 }
 
 clean() {

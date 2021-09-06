@@ -1,4 +1,4 @@
-# desktop/bspwm
+# wm/bspwm
 
 If you're a Manjaro user like me, I recommend install Manjaro Gnome. It's more stable while bspwm
 version is kind of out dated.

@@ -16,7 +16,7 @@ APT_INSTALL xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4
 wget --no-check-certificate $(get_github_latest_release_url 'baskerville/bspwm') -O bspwm.tar.gz
 tar -zxvf bspwm.tar.gz
 cd $tempdir/bspwm-* && make && sudo make install
-sudo cp -fp contrib/freedesktop/bspwm.desktop "/usr/share/xsessions"
+sudo cp -fp contrib/freewm/bspwm.desktop "/usr/share/xsessions"
 
 # sxhkd
 cd $tempdir

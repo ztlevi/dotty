@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 source ${0:A:h}/../../deploy
-source $DOTTY_CONFIG_HOME/desktop/gnome/aliases.zsh
+source $DOTTY_CONFIG_HOME/wm/gnome/rc.zsh
 
 install() {
   case $(_os) in
@@ -17,8 +17,8 @@ install() {
 
   sudo systemctl enable gdm.service --force
 
-  zsh $DOTTY_CONFIG_HOME/desktop/general/install_white_sur_theme.sh
-  zsh $DOTTY_CONFIG_HOME/desktop/general/install_breeze_cursor.sh
+  zsh $DOTTY_CONFIG_HOME/wm/general/install_white_sur_theme.sh
+  zsh $DOTTY_CONFIG_HOME/wm/general/install_breeze_cursor.sh
   gsettings set org.gnome.desktop.interface cursor-theme 'xcursor-breeze-snow'
 }
 

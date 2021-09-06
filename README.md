@@ -44,7 +44,7 @@ gh auth login
 # Setup local git confing following this README https://github.com/ztlevi/dotty/blob/main/shell/git/README.md
 
 # Linux Desktop Environment (Gnome/Awesome/Bspwm)
-dotty desktop/bspwm
+dotty wm/bspwm
 
 # Shell
 dotty shell/alacritty shell/tmux shell/ranger \
@@ -74,7 +74,8 @@ dotty misc/private
 bin/       # global scripts
 fonts/     # user fonts
 assets/    # wallpapers, sounds, screenshots, etc
-desktop/   # linux desktop environments
+wm/        # linux window manager environments
+desktop/   # linux desktop apps
 
 # categories
 base/      # provisions my system with the bare essentials
