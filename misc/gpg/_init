@@ -3,7 +3,7 @@ source ${0:A:h}/../../deploy
 
 install() {
   brew install gnupg
-  ${0:A:h}/gpg_import.sh
+  ${DOTTY_CONFIG_HOME}/misc/gpg/gpg_import.sh
   case $(_os) in
     macos)
       brew install gpg-suite
