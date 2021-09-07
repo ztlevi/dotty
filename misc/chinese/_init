@@ -32,14 +32,6 @@ install() {
       # sudo docker cp -L ${container_id}:/usr/lib/x86_64-linux-gnu/librime.so.1.5.3 /usr/lib/
       ;;
   esac
-
-  # Install emoji
-  mkdir -p /tmp/fcitx-install
-  (
-    cd /tmp/fcitx-install
-    curl -fsSL https://git.io/rime-install | bash -s -- emoji
-  )
-  rm -rf /tmp/fcitx-install
 }
 
 # update() {}
