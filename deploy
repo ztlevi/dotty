@@ -33,35 +33,6 @@ function _topics {
 function topic-enabled-p { [[ -L "$(topic-path $1)" ]] }
 function topic-path { echo "$DOTTY_DATA_HOME/${1/\//$SEP}.topic" }
 
-function mklink {
-  if [[ $1 == '-s' ]]; then
-    local dosudo=1
-    shift
-  fi
-  local flags="-svf"
-  local dest=${@[-1]}
-  local srcs; srcs=( ${@:1:-1} )
-  if [[ $dest == */ && ! -d $dest ]]; then
-    mkdir -p $dest
-  elif [[ ! -d ${dest%/*} ]]; then
-    mkdir -p ${dest%/*}
-  fi
-  for lk in ${srcs[@]}; do
-    local src
-    case $lk in
-      /*) src=$lk ;;
-      .)  src="$(topic-path $TOPIC)" ;;
-      *)  src="$(topic-path $TOPIC)/$lk" ;;
-    esac
-    if [[ -d $src ]]; then
-      if [[ $dest != */ && -d $dest && -L $dest ]]; then
-        ${dosudo:+sudo} rm -fv $dest
-      fi
-    fi
-    _exec ${dosudo:+sudo} ln $flags $src $dest
-  done
-}
-
 function init {
   declare -f $1 >/dev/null || return 1
   echo-info "$TOPIC.init.$1: start"
