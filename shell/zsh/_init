@@ -6,6 +6,9 @@ install() {
   # Base utilities
   brew install zsh bash wget git curl tree ssh rsync p7zip jq direnv
 
+  # Better console tools
+  brew install exa ripgrep fd bat hyperfine
+
   # Other utilities
   brew install shfmt zshdb bashdb procs dust shellcheck neofetch mosh \
     sd duf
