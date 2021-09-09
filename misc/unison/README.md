@@ -35,8 +35,18 @@ fs.inotify.max_user_watches = 131072
 ## MacOS create case sensitive volume
 
 - Launch Disk Utility
-- Choose "New Image"
-- Enter a nice Name for your Volume, e.g "Workspace"
-- Set the size to something that will most likely fit your needs (resizing is a whole another story)
-- Select "APFS (Case-sensitive)" or encrypted in "Format".
-- Save and create
+- Select the master disk, e.g. Macintosh HD, then, click volume plus sign on top.
+- Give a name for the volume and select APFS case sensitive for format.
+- Click add.
+
+### symlink your newly created volume
+
+```sh
+ln -s /Volumes/workplace ~/
+```
+
+### Case-sensitivity test
+
+```sh
+cd ~/workplace; touch test_case; [[ $(ls TEST_CASE 2>/dev/null) ]] && echo 'CASE-SENSITIVITY ERROR' || echo 'Success'; rm test_case
+```
