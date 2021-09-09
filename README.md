@@ -41,10 +41,11 @@ gh auth login
 ./deploy base/macos # MacOS
 ./deploy base/linux # Debian, Arch or RHEL
 ./deploy shell/zsh shell/git && zsh
-# Setup local git confing following this README https://github.com/ztlevi/dotty/blob/main/shell/git/README.md
+# Setup local git confing following this README 
+# https://github.com/ztlevi/dotty/blob/main/shell/git/README.md
 
-# Linux Desktop Environment (Gnome/Awesome/Bspwm)
-dotty wm/bspwm
+# Linux Desktop Environment (Gnome/Bspwm)
+dotty wm/gnome
 
 # Shell
 dotty shell/alacritty shell/tmux shell/ranger \
@@ -56,8 +57,8 @@ dotty dev/cc dev/go dev/latex dev/node dev/python dev/java
 # Misc
 dotty misc/docker misc/gpg misc/cspell misc/apps
 
-# Optional private apps. Do not install on company machines.
-dotty misc/private
+# (Optional) private apps. Do not install on company machines.
+# dotty misc/private
 ```
 
 ## Post-Installation
