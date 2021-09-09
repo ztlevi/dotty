@@ -32,13 +32,12 @@ install() {
       # sudo docker cp -L ${container_id}:/usr/lib/x86_64-linux-gnu/librime.so.1.5.3 /usr/lib/
       ;;
   esac
+  ${DOTTY_CONFIG_HOME}/misc/chinese/install_fcitx_config.sh
 }
 
 # update() {}
 
-link() {
-  ${DOTTY_CONFIG_HOME}/misc/chinese/install_fcitx_config.sh
-}
+link() {}
 
 clean() {
   rm -rf ${XDG_CONFIG_HOME}/fcitx
