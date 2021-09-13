@@ -8,3 +8,5 @@ shell/ranger/config/ranger/tagged
 xprofile_local
 /shell/alacritty/config/alacritty/private.yml
 /shell/git/private
+
+assets

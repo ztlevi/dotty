@@ -35,7 +35,7 @@ gh auth login
 # (SKIP this) Initialize my personal assets submodule. Only me has the private repo access
 # Cannont clone private submodules with password. Maybe it's due to two-factor auth is enabled.
 # Authenticate with gh solves this issue.
-# git submodule update --init assets
+# git clone https://github.com/ztlevi/dotty-assets.git assets
 
 # Minimal setup (required), and start a new shell, afterwards, you can use `dotty` instead `./deploy`
 ./deploy base/macos # MacOS
