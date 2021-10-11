@@ -9,7 +9,7 @@ _install_pip_packages() {
 }
 
 install() {
-  brew install pyenv
+  brew install pyenv pyenv-virtualenv
 
   pyenv install $PYTHON_VERSION
   pyenv global $PYTHON_VERSION
