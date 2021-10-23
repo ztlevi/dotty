@@ -2,7 +2,7 @@
 source ${0:A:h}/../../deploy
 
 install() {
-  brew install rga pandoc poppler tesseract ffmpeg imagemagick graphicsmagick youtube-dl
+  brew install rga pandoc poppler tesseract ffmpeg imagemagick graphicsmagick yt-dlp
 
   # Deploy rust if not yet deployed
   ! topic-enabled-p dev/python && dotty dev/python
