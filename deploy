@@ -175,7 +175,7 @@ Usage: ${0:A:t} [-acdlLit] [TOPIC...]
   -a   Target all enabled topics (ignores TOPIC args)
   -c   Afterwards, remove dead symlinks & empty dot-directories in $HOME.
        Can be used alone.
-  -r   Reinstall topics(s)
+  -r   Reinstall topic(s)
   -d   Disable & unlink topic(s)
   -l   Only enable & relink topic(s) (implies -i), LINK and INHIBIT_INIT is 1.
   -L   List enabled topics

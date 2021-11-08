@@ -89,7 +89,7 @@ shell/     # shell utilities, including zsh + bash
 ## Dotfile management
 
 ```sh
-Usage: deploy [-acdlLit] [TOPIC...]
+Usage: dotty [-acdlLit] [TOPIC...]
 
   -a   Target all enabled topics (ignores TOPIC args)
   -c   Afterwards, remove dead symlinks & empty dot-directories in $HOME.
@@ -103,11 +103,12 @@ Usage: deploy [-acdlLit] [TOPIC...]
 
 e.g.
 
-- `deploy base/arch shell/{zsh,tmux}`: enables base/arch, shell/zsh & shell/tmux
-- `deploy -d shell/zsh`: disables shell/zsh & cleans up after it
-- `deploy -l shell/zsh`: refresh links for shell/zsh (inhibits init script)
-- `deploy -l`: relink all enabled topics
-- `deploy -L`: list all enabled topics
+- `dotty base/arch shell/{zsh,tmux}`: enables base/arch, shell/zsh & shell/tmux
+- `dotty -d shell/zsh`: disables shell/zsh & cleans up after it
+- `dotty -l shell/zsh`: refresh links for shell/zsh (inhibits init script)
+- `dotty -l`: relink all enabled topics
+- `dotty -r`: reinstall the topic(s)
+- `dotty -L`: list all enabled topics
 
 Here's a breakdown of what the script does:
 
