@@ -41,7 +41,7 @@ gh auth login
 ./deploy base/macos # MacOS
 ./deploy base/linux # Debian, Arch or RHEL
 ./deploy shell/zsh shell/git && zsh
-# Setup local git confing following this README 
+# Setup local git confing following this README
 # https://github.com/ztlevi/dotty/blob/main/shell/git/README.md
 
 # Linux Desktop Environment (Gnome/Bspwm)
@@ -139,9 +139,9 @@ fi
 - I want to use dark theme, what changes should I make?
   - Change LS_COLORS in `~/.config/dotty/config/shell/alacritty/vivid.zsh`.
   - Change the theme_file
-    [here](https://github.com/ztlevi/dotty/blob/master/shell/alacritty/_init#L53).
+    [here](https://github.com/ztlevi/dotty/blob/master/shell/alacritty/_init#L55).
   - Change tmux theme option
-    [here](https://github.com/ztlevi/dotty/blob/master/shell/tmux/tmux.conf#L40) to `dark`.
+    [here](https://github.com/ztlevi/dotty-config/blob/main/shell/tmux/tmux.conf#L49) to `dark`.
 - How do I sync between different machines?
   - Unfortunately, there is no such easy way. For me, I put down install/uninstall scripts in
     `dotty/legacy_sync_script.zsh` and every time I run
