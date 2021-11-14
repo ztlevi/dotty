@@ -24,6 +24,13 @@ This script will install homebrew, zsh and clone this dotty repo.
 
 Do a global replace in this repo. Replace my name `Ting Zhou` and my email `ztlevi.work@gmail.com`.
 
+### Youtube tutorial
+
+Follow my youtube channel's tutorial if you like:
+
+1. [dotty - scalable dotfiles management framework](https://youtu.be/07WC66Upd6E)
+2. [Tmux with Alacritty](https://youtu.be/BKG3o8SQM3U)
+
 ## Install
 
 ```sh
