@@ -71,7 +71,7 @@ dotty misc/docker misc/gpg misc/cspell misc/apps
 
 1. Don't forget to import your private/public GPG keys, see [README](./misc/gpg/README.md).
 2. On Linux, you will need to init `pass` to enable Git-Credential-Manager-Core (GCM-Core),
-   `pass init ztlevi.work@gmail.com`. If you select **personal access token**, go
+   `pass init <your-gpg-email>`. If you select **personal access token**, go
    [here](https://github.com/settings/tokens) to create a new token.
 
 ## Overview
