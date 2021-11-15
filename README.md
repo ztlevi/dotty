@@ -69,7 +69,10 @@ dotty misc/docker misc/gpg misc/cspell misc/apps
 
 ## Post-Installation
 
-1. Don't forget to import your private/public GPG keys, see [README](./misc/gpg/README.md).
+### (Optional) For GPG
+
+1. Don't forget to import your private/public GPG keys. If you're interested in GPG forwarding over
+   ssh, see [README](./misc/gpg/README.md).
 2. On Linux, you will need to init `pass` to enable Git-Credential-Manager-Core (GCM-Core),
    `pass init <your-gpg-email>`. If you select **personal access token**, go
    [here](https://github.com/settings/tokens) to create a new token.
@@ -92,7 +95,7 @@ misc/      # for various apps & tools
 shell/     # shell utilities, including zsh + bash
 ```
 
-## Dotfile management
+## Dotty command line options
 
 ```sh
 Usage: dotty [-acdlLit] [TOPIC...]
