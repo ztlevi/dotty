@@ -22,8 +22,6 @@ bash <(curl -s https://raw.githubusercontent.com/ztlevi/dotty/main/bootstrap.sh)
 
 This script will install homebrew, zsh and clone this dotty repo.
 
-Do a global replace in this repo. Replace my name `Ting Zhou` and my email `ztlevi.work@gmail.com`.
-
 ### Youtube tutorial
 
 Follow my youtube channel's tutorial if you like:
@@ -49,7 +47,7 @@ gh auth login
 ./deploy base/macos # MacOS
 ./deploy base/linux # Debian, Arch or RHEL
 ./deploy shell/zsh shell/git && zsh
-# Setup local git confing following this README
+# (Important) Setup local git confing following this README
 # https://github.com/ztlevi/dotty/blob/main/shell/git/README.md
 
 # Linux Desktop Environment (Gnome/Bspwm)

@@ -1,6 +1,9 @@
 # Setup local git config
 
-## user config
+After deploy `shell/git`, you will need to dump some personal user config to `~/work/dots`. Then the
+configs will be sourced by `~/.config/git/config`.
+
+## Create user config using the following script
 
 ```sh
 mkdir -p ~/work/dots
@@ -14,7 +17,10 @@ cat <<EOF >~/work/dots/git-user-config
 EOF
 ```
 
-## gpg config
+## (Optional) Create gpg config using the following script
+
+This will enable gpp sign. If you don't use gpg on your machine, don't do it. Otherwise you will
+block your git operations.
 
 ```sh
 cat <<EOF >~/work/dots/git-gpg-config
@@ -25,7 +31,7 @@ cat <<EOF >~/work/dots/git-gpg-config
 EOF
 ```
 
-## company config: when you work on a company based machine, and you have a different git account
+## Company config: when you work on a company based machine, and you have a different git account
 
 ```sh
 cat <<EOF >~/work/dots/git-company-config
