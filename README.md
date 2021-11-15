@@ -2,7 +2,7 @@
 
 Dotty with your dotfiles? Try dotty, a scalable dotfiles manager for linux and macos.
 
-This repo is forked from [Hlissner's dotfiles](https://github.com/hlissner/dotfiles).
+This repo is forked from [Hlissner's dotfiles](https://github.com/hlissner/dotfiles/tree/b89a56f310df841c805a8b0ce032f1a31c134173).
 
 Dotty is tested on Ubuntu, Arch and MacOS!
 
