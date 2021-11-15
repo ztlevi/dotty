@@ -28,8 +28,9 @@ Do a global replace in this repo. Replace my name `Ting Zhou` and my email `ztle
 
 Follow my youtube channel's tutorial if you like:
 
-1. [dotty - scalable dotfiles management framework](https://youtu.be/07WC66Upd6E)
-2. [Tmux with Alacritty](https://youtu.be/BKG3o8SQM3U)
+1. [Why dotty is awesome!](https://youtu.be/B3DfcWQa2iw)
+2. [dotty - scalable dotfiles management framework](https://youtu.be/07WC66Upd6E)
+3. [Tmux with Alacritty](https://youtu.be/BKG3o8SQM3U)
 
 ## Install
 
@@ -40,7 +41,7 @@ cd ~/.config/dotty
 gh auth login
 
 # (SKIP this) Initialize my personal assets submodule. Only me has the private repo access
-# Cannont clone private submodules with password. Maybe it's due to two-factor auth is enabled.
+# Cannot clone private submodules with password. Maybe it's due to two-factor auth is enabled.
 # Authenticate with gh solves this issue.
 # git clone https://github.com/ztlevi/dotty-assets.git assets
 
