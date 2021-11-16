@@ -26,13 +26,13 @@ This script will install homebrew, zsh and clone this dotty repo.
 > Note: You can also fork this repo. After fork, update your bootstrap.sh script with your git url.
 > Then you can add your personal customization.
 
-### Youtube tutorial
+### Video tutorial
 
-Follow my youtube channel's tutorial if you like:
+Follow my channel's tutorial if you like:
 
-1. [Why dotty is awesome!](https://youtu.be/B3DfcWQa2iw)
-2. [dotty - scalable dotfiles management framework](https://youtu.be/07WC66Upd6E)
-3. [Tmux with Alacritty](https://youtu.be/BKG3o8SQM3U)
+[Youtube](https://www.youtube.com/watch?v=p62CaVeXy58&list=PL4uJniLtmhUOXtemnVzV_gSTft9MnApdo)
+
+[Bilibili](https://space.bilibili.com/6856413/channel/seriesdetail?sid=521607&ctype=0)
 
 ## Install
 
