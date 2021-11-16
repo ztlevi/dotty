@@ -14,9 +14,9 @@ Dotty is tested on Ubuntu, Arch and MacOS!
 
 Follow my channel's tutorial if you like:
 
-| Youtube                                                                                                                                                   | Bilibili                                                                                                                                          |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [![Youtube](https://pic.imgdb.cn/item/61941ede2ab3f51d91ebdc02.jpg)](https://www.youtube.com/watch?v=p62CaVeXy58&list=PL4uJniLtmhUOXtemnVzV_gSTft9MnApdo) | [![Bilibili](https://pic.imgdb.cn/item/61941ede2ab3f51d91ebdc02.jpg)](https://space.bilibili.com/6856413/channel/seriesdetail?sid=521607&ctype=0) |
+| Youtube                                                                                                                            | Bilibili                                                                                                                                          |
+| ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [![Youtube](https://i.imgur.com/apkFyDn.jpg)](https://www.youtube.com/watch?v=p62CaVeXy58&list=PL4uJniLtmhUOXtemnVzV_gSTft9MnApdo) | [![Bilibili](https://pic.imgdb.cn/item/61941ede2ab3f51d91ebdc02.jpg)](https://space.bilibili.com/6856413/channel/seriesdetail?sid=521607&ctype=0) |
 
 ## Quick start
 
