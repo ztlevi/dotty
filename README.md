@@ -78,6 +78,16 @@ dotty misc/docker misc/gpg misc/cspell misc/apps
    `pass init <your-gpg-email>`. If you select **personal access token**, go
    [here](https://github.com/settings/tokens) to create a new token.
 
+## Update
+
+Check out my `update_dotty` function
+[update_dotty](https://github.com/ztlevi/dotty-config/blob/0057fb82c5fac057ccbc368dce191c140864f86d/shell/zsh/utils.zsh#L97).
+Most of the time, I can simply run `update_dotty`. If you have something new to install and
+uninstall things, you can put the scripts in
+[here](https://github.com/ztlevi/dotty/blob/main/legacy_sync_script.zsh). Typically I use force
+option, e.g. `berw install -f` to perform the operation even if it's already uninstalled or
+installed to avoid any blocking, when you try running `update_dotty` multiple times.
+
 ## Overview
 
 ```sh
