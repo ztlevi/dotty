@@ -5,10 +5,7 @@ Dotty with your dotfiles? Try dotty, a scalable dotfiles manager for linux and m
 This repo is forked from
 [Hlissner's dotfiles](https://github.com/hlissner/dotfiles/tree/b89a56f310df841c805a8b0ce032f1a31c134173).
 
-Dotty is tested on Ubuntu, Arch and MacOS!
-
-> Note: Arch support is deprecated in favor of another Linux distribution NixOS. But the updates
-> should be trivial and you should be able to figure out.
+Dotty is tested on Ubuntu, Arch, AmazonLinux 2 and MacOS!
 
 ## Video tutorial
 
