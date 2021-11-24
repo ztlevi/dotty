@@ -43,6 +43,7 @@ case $(_os) in
     if ! _is_callable brew; then
       bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
+    # On ec2 ubuntu instance, it doesn't has password. Just press enter and linuxbrew will be installed to $HOME
     eval $(/home/*/.linuxbrew/bin/brew shellenv)
     ;;
 esac
