@@ -43,7 +43,7 @@ case $(_os) in
     if ! _is_callable brew; then
       bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
-    eval $(/home/*/.linuxbrew/bin/brew shellenv)
+    eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
     ;;
 esac
 
