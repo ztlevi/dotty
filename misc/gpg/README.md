@@ -35,3 +35,12 @@ Linux will pinentry-gnome, macos will use pinentry-mac as interface client.
    # restart agent
    gpgconf --kill gpg-agent
    ```
+
+## Test GPG
+
+```sh
+cd ~/Downloads
+echo "test" | gpg --encrypt -r ztlevi.work@gmail.com
+echo "test" | gpg --encrypt -r ztlevi.work@gmail.com > output
+gpg --decrypt output
+```
