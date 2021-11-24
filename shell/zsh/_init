@@ -24,8 +24,7 @@ install() {
 
   # Set default shell to zsh
   chsh -s $(which zsh) $(whoami)
-
-  # alternative for Linux `sudo usermod -s /usr/bin/zsh <username>`
+  # if the command above doesn't work, edit /etc/passwd directly to change the login shell
 
   local zsh="$(which zsh)"
   grep $zsh /etc/shells &>/dev/null || sudo tee -a /etc/shells <<<$zsh
