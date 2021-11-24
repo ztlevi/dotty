@@ -163,6 +163,9 @@ fi
     [here](https://github.com/ztlevi/dotty/blob/master/shell/alacritty/_init#L55).
   - Change tmux theme option
     [here](https://github.com/ztlevi/dotty-config/blob/main/shell/tmux/tmux.conf#L49) to `dark`.
+- I'm running the bootstrap script on AWS EC2 instance, but I don't know the password.
+  - AWS EC2 instance doesn't come with password. Switch to root with: `sudo su -`. Then simply run,
+    e.g.: `passwd ubuntu`
 - How do I sync between different machines?
   - Unfortunately, there is no such easy way. For me, I put down install/uninstall scripts in
     `dotty/legacy_sync_script.zsh` and every time I run
