@@ -9,11 +9,11 @@ configs will be sourced by `~/.config/git/config`.
 mkdir -p ~/work/dots
 cat <<EOF >~/work/dots/git-user-config
 [user]
-	name = Ting Zhou
-	email = ztlevi.work@gmail.com
-	signingkey = ztlevi.work@gmail.com
+	name = <your-name>
+	email = <your-email>
+	signingkey = <your-email>
 [github]
-	user = ztlevi
+	user = <your-github-account-id>
 EOF
 ```
 
@@ -36,7 +36,7 @@ EOF
 ```sh
 cat <<EOF >~/work/dots/git-company-config
 [user]
-	name = Ting Zhou
+	name = <your-name>
 	email = <you-comany-email>
 	signingkey = <you-comany-email>
 EOF
