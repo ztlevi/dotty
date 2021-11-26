@@ -36,8 +36,7 @@ install() {
       sudo yum -y groupinstall "Development Tools" "Development Libraries"
       ;;
   esac
-
-  ${0:A:h}/insatll_nerd_fonts.sh
+  ${DOTTY_CONFIG_HOME}/base/linux/install_nerd_fonts.sh
 }
 
 update() {
