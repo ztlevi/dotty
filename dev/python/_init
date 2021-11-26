@@ -9,6 +9,11 @@ _install_pip_packages() {
 }
 
 install() {
+  # pyenv on Ubuntu seem to has some problem, use native installation on Ubuntu
+  case $(_os) in
+    linux-debian) APT_INSTALL python3.8 ;;
+  esac
+
   brew install pyenv
 
   pyenv install $PYTHON_VERSION
