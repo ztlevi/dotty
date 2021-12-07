@@ -5,7 +5,7 @@ _install_pip_packages() {
   pip3 install --user --upgrade pip setuptools poetry
 
   # Other packages
-  pip3 install --user --upgrade black pre-commit debugpy pdbpp pylint autoflake gnureadline grip cpplint
+  pip3 install --user --upgrade black debugpy pdbpp pylint autoflake gnureadline grip cpplint
 }
 
 install() {

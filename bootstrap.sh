@@ -47,7 +47,7 @@ case $(_os) in
     ;;
 esac
 
-brew install zsh gh git
+brew install zsh gh git pre-commit
 
 if [[ ! -d "$DOTTY_HOME" ]]; then
   _msg "Cloning dotty repository..."
@@ -55,6 +55,7 @@ if [[ ! -d "$DOTTY_HOME" ]]; then
 
   cd $DOTTY_HOME
   git submodule update --init config
+  pre-commit install
 fi
 
 _msg
