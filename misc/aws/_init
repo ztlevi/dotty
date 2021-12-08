@@ -1,0 +1,14 @@
+#!/usr/bin/env zsh
+source ${0:A:h}/../../deploy
+
+install() {
+  brew install awscli git-remote-codecommit
+}
+
+# update() {}
+
+# link() {}
+
+# clean() {}
+
+init "$@"
