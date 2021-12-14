@@ -42,6 +42,21 @@ cat <<EOF >~/work/dots/git-company-config
 EOF
 ```
 
+# Git secrets
+
+The template git secrets hook scripts are under `~/.config/dotty/config/shell/git/git-secrets`. You
+can do `git secrets --install -f` to force install in your existing repos. If you fork new ones, it
+already use these hooks during cloning.
+
+## If you use pre-commit, put this in your `.pre-commit-config.yaml`.
+
+```toml
+  - repo: https://github.com/awslabs/git-secrets
+    rev: master
+    hooks:
+      - id: git-secrets
+```
+
 # Other Git terminal interfaces
 
 I'm using Emacs's git client called Magit. It's a great interface. But I would not recommend to
