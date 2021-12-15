@@ -6,7 +6,7 @@ install() {
 
   # Deploy rust if not yet deployed
   ! topic-enabled-p dev/python && dotty dev/python
-  pip3 install --user spotdl
+  PIP3_INSTALL spotdl
 
   case $(_os) in
     macos)

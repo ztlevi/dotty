@@ -2,10 +2,10 @@
 source ${0:A:h}/../../deploy
 
 _install_pip_packages() {
-  pip3 install --user --upgrade pip setuptools poetry
+  PIP3_INSTALL pip setuptools poetry
 
   # Other packages
-  pip3 install --user --upgrade black debugpy pdbpp pylint autoflake gnureadline grip cpplint
+  PIP3_INSTALL black debugpy pdbpp pylint autoflake gnureadline grip cpplint
 }
 
 install() {
