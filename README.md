@@ -39,16 +39,16 @@ cd ~/.config/dotty
 # gh credentials are used by git
 gh auth login
 
-# (SKIP this) Initialize my personal assets submodule. Only me has the private repo access
+# (SKIP THIS) Initialize my personal assets submodule. Only me has the private repo access
 # Cannot clone private submodules with password. Maybe it's due to two-factor auth is enabled.
 # Authenticate with gh solves this issue.
 # git clone https://github.com/ztlevi/dotty-assets.git assets
 
-# Minimal setup (required), and start a new shell, afterwards, you can use `dotty` instead `./deploy`
+# (REQUIRED) Minimal setup, and start a new shell, afterwards, you can use `dotty` instead `./deploy`
 ./deploy base/macos # MacOS
 ./deploy base/linux # Debian, Arch or RHEL
 ./deploy shell/zsh shell/git && zsh
-# (Important) Setup local git confing following this README
+# (IMPORTANT) Setup local git confing following this README
 # https://github.com/ztlevi/dotty/blob/main/shell/git/README.md
 
 # Linux Desktop Environment (Gnome/Bspwm)
@@ -64,7 +64,7 @@ dotty dev/cc dev/go dev/latex dev/node dev/python dev/java
 # Misc
 dotty misc/docker misc/gpg misc/cspell misc/apps
 
-# (Optional) private apps. Do not install on company machines.
+# (OPTIONAL) private apps. Do not install on company machines.
 # dotty misc/private
 ```
 
