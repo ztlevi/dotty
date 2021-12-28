@@ -5,11 +5,18 @@ install() {
   brew install cmake ninja clang-format
   brew tap twlz0ne/homebrew-ccls
   brew install ccls
+
+  if [[ $(_os) == 'linux-*' ]]; then
+    brew install llvm
+  fi
+  # $DOTTY_CONFIG_HOME/dev/cc/gdb/install_gdb.sh
 }
 
 # update() {}
 
-# link() {}
+link() {
+  mklink $DOTTY_CONFIG_HOME/dev/cc/lldb/.lldbinit ~/
+}
 
 # clean() {}
 
