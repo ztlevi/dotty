@@ -21,6 +21,9 @@ install() {
   defaults write com.apple.dock autohide-time-modifier -int 0
   killall Dock
 
+  # Too many open error on MacOS https://discussions.apple.com/thread/251000125
+  ulimit -n 10240
+
   # Enable ssh X11 forwarding. Disabled now due to the pool usability
   # brew install --cask xquartz
   # defaults write org.macosforge.xquartz.X11 enable_iglx -bool true
