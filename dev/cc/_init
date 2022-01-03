@@ -3,13 +3,10 @@ source ${0:A:h}/../../deploy
 
 install() {
   brew install cmake ninja clang-format
-  brew tap twlz0ne/homebrew-ccls
-  brew install ccls
 
   if [[ $(_os) == 'linux-*' ]]; then
-    brew install llvm
+    brew install llvm gdb
   fi
-  # $DOTTY_CONFIG_HOME/dev/cc/gdb/install_gdb.sh
 }
 
 # update() {}
