@@ -27,12 +27,6 @@ install() {
   # Enable ssh X11 forwarding. Disabled now due to the pool usability
   # brew install --cask xquartz
   # defaults write org.macosforge.xquartz.X11 enable_iglx -bool true
-
-  # VS code defaults
-  defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false         # For VS Code
-  defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false # For VS Code Insider
-  defaults write com.visualstudio.code.oss ApplePressAndHoldEnabled -bool false    # For VS Codium
-  defaults delete -g ApplePressAndHoldEnabled                                      # If necessary, reset global default
 }
 
 update() {

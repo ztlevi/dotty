@@ -1,0 +1,30 @@
+#!/usr/bin/env zsh
+source ${0:A:h}/../../deploy
+
+install() {
+  case $(_os) in
+    macos)
+      brew install visual-studio-code
+
+      # VS code defaults
+      defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false         # For VS Code
+      defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false # For VS Code Insider
+      defaults write com.visualstudio.code.oss ApplePressAndHoldEnabled -bool false    # For VS Codium
+      defaults delete -g ApplePressAndHoldEnabled                                      # If necessary, reset global default
+      # We also recommend increasing Key Repeat and Delay Until Repeat settings in
+      # System Preferences -> Keyboard.
+      ;;
+    linux-debian)
+      sudo snap install --classic code
+      ;;
+  esac
+
+}
+
+# update() {}
+
+# link() {}
+
+# clean() {}
+
+init "$@"
