@@ -20,7 +20,11 @@ install() {
   esac
 
   # True color and Italic support https://github.com/syl20bnr/spacemacs/wiki/Terminal
-  _is_callable /usr/bin/tic && /usr/bin/tic -x -o ~/.terminfo $DOTTY_CONFIG_HOME/shell/zsh/xterm-24bit.terminfo
+  if _is_callable /usr/bin/tic; then
+      /usr/bin/tic -x -o ~/.terminfo $DOTTY_CONFIG_HOME/shell/zsh/xterm-24bit.terminfo
+  else
+      echo-fail "/usr/bin/tic does not exists\!"
+  fi
 
   # Set default shell to zsh
   chsh -s $(which zsh) $(whoami)
