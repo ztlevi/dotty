@@ -58,7 +58,7 @@ dotty wm/gnome
 dotty shell/alacritty shell/tmux shell/ranger \
   shell/fzf shell/aspell shell/work
 # Editor
-dotty editor/emacs editor/neovim editor/editorconfig
+dotty editor/emacs editor/neovim editor/editorconfig editor/vscode
 # Development
 dotty dev/cc dev/go dev/latex dev/node dev/python dev/java
 # Misc
