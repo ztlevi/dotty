@@ -2,11 +2,18 @@
 source ${0:A:h}/../../deploy
 
 install() {
-  brew install cmake ninja clang-format
+  brew install cmake ninja cppcheck llvm
 
-  if [[ $(_os) == 'linux-*' ]]; then
-    brew install llvm gdb
-  fi
+  case $(_os) in
+    linux-*)
+      brew install gdb
+      ;;
+    macos)
+      ln -s -f "$(brew --prefix llvm)/bin/clangd" "/usr/local/bin/clangd"
+      ln -s -f "$(brew --prefix llvm)/bin/clang-tidy" "/usr/local/bin/clang-tidy"
+      ln -s -f "$(brew --prefix llvm)/bin/clang-format" "/usr/local/bin/clang-format"
+      ;;
+  esac
 }
 
 # update() {}
