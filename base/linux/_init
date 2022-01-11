@@ -2,7 +2,7 @@
 source ${0:A:h}/../../deploy
 
 install() {
-  brew install gcc
+  brew install gcc trash-cli
   case $(_os) in
     linux-debian)
       sudo apt-get update -y

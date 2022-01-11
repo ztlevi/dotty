@@ -2,7 +2,7 @@
 source ${0:A:h}/../../deploy
 
 install() {
-  brew install gcc coreutils duti
+  brew install gcc coreutils duti trash
 
   brew tap buo/cask-upgrade # Upgrade with `brew cu`
   # mac quicklook https://github.com/sindresorhus/quick-look-plugins

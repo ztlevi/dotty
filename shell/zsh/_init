@@ -13,12 +13,6 @@ install() {
   brew install shfmt zshdb bashdb procs dust shellcheck neofetch mosh \
     sd duf
 
-  # Macos uses different trash app
-  case $(_os) in
-    macos) brew install trash ;;
-    linux-*) brew install trash-cli ;;
-  esac
-
   # True color and Italic support https://github.com/syl20bnr/spacemacs/wiki/Terminal
   if _is_callable /usr/bin/tic; then
       /usr/bin/tic -x -o ~/.terminfo $DOTTY_CONFIG_HOME/shell/zsh/xterm-24bit.terminfo
