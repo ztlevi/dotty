@@ -8,7 +8,7 @@ install() {
   # mac quicklook https://github.com/sindresorhus/quick-look-plugins
   brew install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize qlvideo
 
-  brew install --cask karabiner-elements rectangle
+  brew install --cask karabiner-elements rectangle monitorcontrol
   ${0:A:h}/set-rectangle-defaults.sh
 
   # Fonts
