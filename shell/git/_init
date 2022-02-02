@@ -32,6 +32,7 @@ link() {
   # Check all the rules with `git config --list --show-origin`
   rm -fv ~/.gitconfig $GIT_DIR/config /usr/local/etc/gitconfig
   mklink $DOTTY_CONFIG_HOME/shell/git/config $GIT_DIR/
+  mklink $DOTTY_CONFIG_HOME/shell/git/attributes $GIT_DIR/
   mklink $DOTTY_CONFIG_HOME/shell/git/ignore $GIT_DIR/
   mklink $DOTTY_CONFIG_HOME/shell/git/.ignore ~/
 }
