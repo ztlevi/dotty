@@ -2,10 +2,11 @@
 source ${0:A:h}/../../deploy
 
 install() {
-  brew install pandoc ffmpeg \
-      bandwhich \ # network monitor
-      eva \ # bc: calculator
+  # bandwhich: network monitor
+  # eva: alternative bc, calculator
+  brew install pandoc ffmpeg bandwhich eva
 
+  # bottom: alternative htop
   brew tap clementtsang/bottom
   brew install bottom
 
