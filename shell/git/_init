@@ -3,7 +3,8 @@ source ${0:A:h}/../../deploy
 GIT_DIR="$XDG_CONFIG_HOME/git"
 
 install() {
-  brew install git libressl openssl git-lfs gh git-secrets diff-so-fancy git-extras git-flow-avh
+  brew install git libressl openssl git-lfs gh git-secrets pre-commit \
+      diff-so-fancy git-extras git-flow-avh
   case $(_os) in
     macos)
       brew tap microsoft/git
