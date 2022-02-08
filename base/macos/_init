@@ -33,7 +33,7 @@ install() {
   echo-info "Recommended to set 'Show all filename extensions' in Finder->Preference->Advanced"
   echo-info "Recommended to set default view in Finder->View->Show View Options(CMD-j),
 e.g. Always open in list view, group by kind, sort by name. Click 'Use as defaults'.
-Close all finder windows. Then run \`sudo find / -name .DS_Store -delete | echo; killall Finder\`"
+Close all finder windows. Then run \`sudo find / -name .DS_Store -delete >/dev/null | echo; killall Finder\`"
 }
 
 update() {
