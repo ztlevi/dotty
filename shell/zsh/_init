@@ -6,6 +6,12 @@ install() {
   # Base utilities
   brew install zsh bash wget git curl tree ssh rsync p7zip jq direnv
 
+  # Use trash instead of rm
+  case $(_os) in
+    linux-*) brew install trash-cli;;
+    macos) brew install trash;;
+  esac
+
   # Better console tools
   brew install exa ripgrep fd bat hyperfine
 
