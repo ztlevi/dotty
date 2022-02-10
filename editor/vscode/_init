@@ -13,6 +13,8 @@ install() {
       defaults delete -g ApplePressAndHoldEnabled                                      # If necessary, reset global default
       # We also recommend increasing Key Repeat and Delay Until Repeat settings in
       # System Preferences -> Keyboard.
+
+      $DOTTY_HOME/base/macos/macos_set_default_apps.sh $DOTTY_HOME/editor/vscode/macos_vscode_as_default_apps.txt
       ;;
     linux-debian)
       sudo snap install --classic code

@@ -11,22 +11,10 @@ install() {
   case $(_os) in
     macos)
       brew install --cask dropbox neteasemusic webtorrent \
-        typora keycastr discord zoomus \
-        clashx google-drive kap obs balenaEtcher
+        keycastr discord zoomus clashx google-drive obs balenaEtcher
 
-      # Optional preview apps
-      brew install suspicious-package apparency
-
-      brew install mas
-      mas install 1485052491 # Dropzone 4: https://aptonic.com/
-      mas install 1127253508 # Unarchiver One: RAR & Zip Tool
-      mas install 1176895641 # Spark
-      mas install 1254743014 # LyricsX
-      mas install 576338668  # Leaf
-      mas install 747648890  # telegram
-      mas install 836500024  # Wechat
-      mas install 451108668  # QQ
-      mas install 497799835  # Xcode
+      echo-info "Install the following apps from App Store"
+      echo-info "Dropzone 4, FastZip, iRightMouse, iShot, Spark, LyricsX, Leaf, Telegram, Wechat, QQ"
 
       # Set default apps
       $DOTTY_HOME/base/macos/macos_set_default_apps.sh $DOTTY_HOME/misc/private/macos_misc_default_apps.txt
@@ -34,18 +22,11 @@ install() {
     linux-arch)
       yay --needed --noconfirm -S \
         telegram-desktop \
-        dropbox webtorrent-desktop typora
+        dropbox webtorrent-desktop
       ;;
     linux-RHEL)
-      # TODO
       ;;
     linux-debian)
-      # install typora
-      wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
-      # add Typora's repository
-      sudo add-apt-repository 'deb https://typora.io/linux ./'
-      sudo apt-get update
-      APT_INSTALL typora
       ;;
   esac
 }

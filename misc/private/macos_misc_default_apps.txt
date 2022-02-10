@@ -1,11 +1,1 @@
 com.readdle.PDFExpert-Mac:pdf
-
-abnerworks.Typora:markdown
-abnerworks.Typora:md
-abnerworks.Typora:mdwn
-
-com.trendmicro.DrUnzip:gz
-com.trendmicro.DrUnzip:7z
-com.trendmicro.DrUnzip:rar
-com.trendmicro.DrUnzip:tar
-com.trendmicro.DrUnzip:zip
