@@ -6,7 +6,7 @@ install() {
   case $(_os) in
     macos)
       brew tap adoptopenjdk/openjdk
-      brew install --cask adoptopenjdk8 adoptopenjdk11
+      brew install --cask adoptopenjdk/openjdk/adoptopenjdk8 adoptopenjdk/openjdk/adoptopenjdk11
       ;;
     linux-debian)
       sudo apt install openjdk-8-jdk
