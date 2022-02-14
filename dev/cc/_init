@@ -20,6 +20,10 @@ install() {
 
 link() {
   mklink $DOTTY_CONFIG_HOME/dev/cc/lldb/.lldbinit ~/
+  case $(_os) in
+    linux-*) mklink $DOTTY_CONFIG_HOME/dev/cc/clangd/config.yaml $XDG_CONFIG_HOME/clangd/config.yaml ;;
+    macos) mklink $DOTTY_CONFIG_HOME/dev/cc/clangd/config.yam ~/Library/Preferences/clangd/config.yaml ;;
+  esac
 }
 
 # clean() {}
