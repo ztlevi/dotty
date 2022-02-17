@@ -4,7 +4,7 @@ GIT_DIR="$XDG_CONFIG_HOME/git"
 
 install() {
   brew install git libressl openssl git-lfs gh git-secrets pre-commit \
-      diff-so-fancy git-extras git-flow-avh
+      diff-so-fancy git-extras git-flow-avh git-remote-codecommit
   case $(_os) in
     macos)
       brew tap microsoft/git
