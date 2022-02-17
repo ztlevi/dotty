@@ -53,7 +53,11 @@ link() {
   mkdir -p $XDG_CONFIG_HOME/alacritty
   config_file=$XDG_CONFIG_HOME/alacritty/alacritty-temp.yml
   theme_file=theme-one-light.yml
-  font_file=font-ubuntu-mono.yml
+  if [[ -d "$DOTTY_ASSETS_HOME" ]]; then
+    font_file=font-cartographCF.yml
+  else
+    font_file=font-ubuntu-mono.yml
+  fi
   private_file=private.yml
   (
     cd $DOTTY_CONFIG_HOME/shell/alacritty/config/alacritty
