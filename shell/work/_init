@@ -7,7 +7,7 @@ install() {
   fi
   if [[ ! -d $HOME/work/dots ]]; then
     mkdir -p $HOME/work/dots
-    touch $HOME/work/dots/aliases.zsh
+    touch $HOME/work/dots/rc.zsh
     touch $HOME/work/dots/env.zsh
   fi
 }

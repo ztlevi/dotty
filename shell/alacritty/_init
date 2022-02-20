@@ -52,7 +52,7 @@ link() {
   rm -rf ~/.zinit/snippets/*.config--dotty--config--shell--alacritty
   mkdir -p $XDG_CONFIG_HOME/alacritty
   config_file=$XDG_CONFIG_HOME/alacritty/alacritty-temp.yml
-  theme_file=theme-one-light.yml
+  theme_file=${ALACRITTY_THEME:-theme-one-light.yml}
   if [[ -d "$DOTTY_ASSETS_HOME" ]]; then
     font_file=font-cartographCF.yml
   else
