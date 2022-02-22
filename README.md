@@ -36,6 +36,7 @@ This script will install homebrew, zsh and clone this dotty repo.
 ```sh
 cd ~/.config/dotty
 
+# gh is gitHub command-line tool https://github.com/cli/cli
 # gh credentials are used by git
 gh auth login
 
