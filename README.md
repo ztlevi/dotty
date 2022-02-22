@@ -47,7 +47,7 @@ gh auth login
 # (REQUIRED) Minimal setup, and start a new shell, afterwards, you can use `dotty` instead `./deploy`
 ./deploy base/macos # MacOS
 ./deploy base/linux # Debian, Arch or RHEL
-./deploy shell/zsh shell/git && zsh
+./deploy shell/zsh shell/git shell/work && zsh
 # (IMPORTANT) Setup local git confing following this README
 # https://github.com/ztlevi/dotty/blob/main/shell/git/README.md
 
@@ -55,8 +55,7 @@ gh auth login
 dotty wm/gnome
 
 # Shell: highly recommend to use alacritty since my tmux keys are based on alacritty keymaps
-dotty shell/alacritty shell/tmux shell/ranger \
-  shell/fzf shell/aspell shell/work
+dotty shell/alacritty shell/tmux shell/ranger shell/fzf shell/aspell
 # Editor
 dotty editor/emacs editor/neovim editor/editorconfig editor/vscode
 # Development
