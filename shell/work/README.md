@@ -5,11 +5,12 @@ The work directory structure `$HOME/work` should look like this:
 ```sh
 ├── dots
 │   ├── bin          # directory contains all executables
-│   ├── aliases.zsh  # file contains aliases
+│   ├── rc.zsh  # file contains aliases
 │   ├── env.zsh      # file contains environment variables
 │   ├── pre-load.zsh # pre load zsh config
 │   ├── pre-load.zsh # post load zsh config
 │   ├── local.el     # emacs local config
+│   ├── tmux.conf    # tmux local config
 ├── notes            # my org nots directory
 ```
 

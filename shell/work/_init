@@ -2,9 +2,6 @@
 source ${0:A:h}/../../deploy
 
 install() {
-  if [[ -d $HOME/workplace/work ]]; then
-    mklink $HOME/workplace/work $HOME/work
-  fi
   if [[ ! -d $HOME/work/dots ]]; then
     mkdir -p $HOME/work/dots
     touch $HOME/work/dots/rc.zsh
