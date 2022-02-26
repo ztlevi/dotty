@@ -44,6 +44,7 @@ case $(_os) in
       bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
     eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+    echo "eval \$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" > $HOME/.bashrc
     ;;
 esac
 
@@ -63,7 +64,3 @@ _msg "And done!"
 _msg
 _msg "Use $DOTTY_HOME/deploy to install your dotfiles, I suggest you begin"
 _msg "with 'shell/zsh' and, then'base/arch' or 'base/macos'."
-
-case $(_os) in
-  linux-*) eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv) ;;
-esac
