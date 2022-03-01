@@ -5,5 +5,8 @@
 brew uninstall -f diff-so-fancy
 brew install -f git-delta
 
+brew uninstall -f fzf
+rm -f $HOME/.zinit/polaris/bin/fzf $HOME/.zinit/completions/_fzf_completion
+
 D -d shell/fzf
 D shell/skim
