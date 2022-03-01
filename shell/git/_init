@@ -1,6 +1,5 @@
 #!/usr/bin/env zsh
 source ${0:A:h}/../../deploy
-GIT_DIR="$XDG_CONFIG_HOME/git"
 
 install() {
   brew install git libressl openssl git-lfs gh git-secrets pre-commit \
@@ -31,15 +30,13 @@ install() {
 
 link() {
   # Check all the rules with `git config --list --show-origin`
-  rm -fv ~/.gitconfig $GIT_DIR/config /usr/local/etc/gitconfig
-  mklink $DOTTY_CONFIG_HOME/shell/git/config $GIT_DIR/
-  mklink $DOTTY_CONFIG_HOME/shell/git/attributes $GIT_DIR/
-  mklink $DOTTY_CONFIG_HOME/shell/git/ignore $GIT_DIR/
+  rm -fv ~/.gitconfig /usr/local/etc/gitconfig
+  mklink $DOTTY_CONFIG_HOME/shell/git/config/git $XDG_CONFIG_HOME/git
   mklink $DOTTY_CONFIG_HOME/shell/git/.ignore ~/
 }
 
 clean() {
-  rm -rf $GIT_DIR
+  rm -rf $XDG_CONFIG_HOME/git
 }
 
 init "$@"
