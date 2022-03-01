@@ -4,3 +4,6 @@
 
 brew uninstall -f diff-so-fancy
 brew install -f git-delta
+
+D -d shell/fzf
+D shell/skim
