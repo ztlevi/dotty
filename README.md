@@ -56,7 +56,8 @@ gh auth login
 dotty wm/gnome
 
 # Shell: highly recommend to use alacritty since my tmux keys are based on alacritty keymaps
-dotty shell/alacritty shell/tmux shell/ranger shell/fzf shell/aspell
+# sk is an alternative for fzf
+dotty shell/alacritty shell/tmux shell/ranger shell/sk shell/aspell
 # Editor
 dotty editor/emacs editor/neovim editor/editorconfig editor/vscode
 # Development
