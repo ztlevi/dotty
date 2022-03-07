@@ -31,7 +31,7 @@ install() {
 link() {
   # Check all the rules with `git config --list --show-origin`
   rm -fv ~/.gitconfig /usr/local/etc/gitconfig
-  mklink $DOTTY_CONFIG_HOME/shell/git/config/git $XDG_CONFIG_HOME/git
+  mklink $DOTTY_CONFIG_HOME/shell/git/config/git $XDG_CONFIG_HOME/
   mklink $DOTTY_CONFIG_HOME/shell/git/.ignore ~/
 }
 
