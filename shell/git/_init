@@ -22,8 +22,12 @@ install() {
       ;;
   esac
 
-  echo-info "Setup git using following command:"
-  head -n 16 ${0:A:h}/README.md
+  if [[ -f $DOTTY_ASSETS_HOME/git-local.sh ]]; then
+    $DOTTY_ASSETS_HOME/git-local.sh
+  else
+    echo-info "Setup git using following command:"
+    head -n 16 ${0:A:h}/README.md
+  fi
 }
 
 # update() {}
