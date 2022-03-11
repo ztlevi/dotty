@@ -35,8 +35,8 @@ install() {
 }
 
 update() {
-  zinit self-update
-  zinit update --parallel
+  echo-info "zinit self-update"
+  echo-info "zinit update --parallel"
 }
 
 link() {
