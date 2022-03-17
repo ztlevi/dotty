@@ -1,1 +1,2 @@
 com.readdle.PDFExpert-Mac:pdf
+abnerworks.Typora:md
