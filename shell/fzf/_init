@@ -2,7 +2,7 @@
 source ${0:A:h}/../../deploy
 
 install() {
-  # Installation is using zinit. Please see config/shell/fzf/rc.zsh
+  brew install fzf
 }
 
 # update() {}
@@ -10,6 +10,7 @@ install() {
 # link() {}
 
 clean() {
+  brew uninstall fzf
   rm -rf $XDG_DATA_HOME/fzf
 }
 
