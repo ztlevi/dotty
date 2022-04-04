@@ -29,6 +29,9 @@ install() {
     linux-debian)
       ;;
   esac
+
+  # Install typora theme
+  $DOTTY_CONFIG_HOME/misc/private/install_typora_themes.sh
 }
 
 # update() {}
