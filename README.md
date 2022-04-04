@@ -158,7 +158,7 @@ fi
   - Check out directory `shell/alacritty/config/alacritty/` and create your own configurations if
     needed. For simplicity, you can use the existing themes or fonts. For example, put
     `export ALACRITTY_THEME="theme-pink.yml"` and `export ALACRITTY_FONT=font-operator-mono.yml` in
-    `~/work/dots/env.zsh`.
+    `~/dev/work/dots/env.zsh`.
 - I installed npm packages globally but it not showed up in `$HOME/.local/share/nodenv/shims` path.
   It could also happens for pyenv and others.
   - The simplest way is run `envrehash` in shell. Under the sceens, it's running commands like

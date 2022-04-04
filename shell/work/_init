@@ -2,10 +2,10 @@
 source ${0:A:h}/../../deploy
 
 install() {
-  if [[ ! -d $HOME/work/dots ]]; then
-    mkdir -p $HOME/work/dots
-    touch $HOME/work/dots/rc.zsh
-    touch $HOME/work/dots/env.zsh
+  if [[ ! -d $HOME/dev/work/dots ]]; then
+    mkdir -p $HOME/dev/work/dots
+    touch $HOME/dev/work/dots/rc.zsh
+    touch $HOME/dev/work/dots/env.zsh
   fi
 }
 

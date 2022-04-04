@@ -1,6 +1,6 @@
 # shell/work
 
-The work directory structure `$HOME/work` should look like this:
+The work directory structure `$HOME/dev/work` should look like this:
 
 ```sh
 ├── dots
