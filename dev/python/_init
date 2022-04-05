@@ -5,7 +5,7 @@ _install_pip_packages() {
   PIP3_INSTALL pip setuptools poetry
 
   # Other packages
-  PIP3_INSTALL black debugpy pdbpp pylint autoflake gnureadline grip cpplint
+  PIP3_INSTALL black debugpy pdbpp pylint autoflake gnureadline cpplint
 }
 
 install() {
