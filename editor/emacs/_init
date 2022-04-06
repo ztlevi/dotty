@@ -7,7 +7,7 @@ install() {
       rm -r /Applications/Emacs.app
 
       brew tap d12frosted/emacs-plus
-      brew install emacs-plus@28 --with-native-comp
+      brew install emacs-plus@28 --with-native-comp --with-modern-vscode-icon
       ln -Fs $(sudo find /usr/local/Cellar/emacs-* -name "Emacs.app") /Applications/Emacs.app
 
       # Other tweaks
