@@ -2,14 +2,14 @@
 source ${0:A:h}/../../deploy
 
 _install_pip_packages() {
-  PIP3_INSTALL pip setuptools poetry
+  PIP3_INSTALL pip setuptools
 
   # Other packages
-  PIP3_INSTALL black debugpy pdbpp pylint autoflake gnureadline cpplint
+  PIP3_INSTALL debugpy pdbpp autoflake gnureadline
 }
 
 install() {
-  brew install pyright
+  brew install pyright black poetry pylint
   # pyenv on Ubuntu seem to has some problem, use native installation on Ubuntu
   case $(_os) in
     linux-debian) APT_INSTALL python3.8 ;;
@@ -33,6 +33,7 @@ update() {
 }
 
 link() {
+  mklink $DOTTY_CONFIG_HOME/dev/python/config/black $XDG_CONFIG_HOME/
   mklink $DOTTY_CONFIG_HOME/dev/python/config/flake8 $XDG_CONFIG_HOME/
   mklink $DOTTY_CONFIG_HOME/dev/python/config/pudb/pudb.cfg $XDG_CONFIG_HOME/pudb/
   mklink $DOTTY_CONFIG_HOME/dev/python/.* ~/

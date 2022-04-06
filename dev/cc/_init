@@ -2,7 +2,7 @@
 source ${0:A:h}/../../deploy
 
 install() {
-  brew install cmake ninja cppcheck llvm
+  brew install cmake ninja llvm cppcheck cpplint
 
   case $(_os) in
     linux-*)
