@@ -4,12 +4,14 @@ source ${0:A:h}/../../deploy
 install() {
   brew install go
 
-  update
-}
-
-update() {
+  case $(_os) in
+    # Ubuntu 18 needs gc-5
+    linux-debian) APT_INSTALL gcc-5;;
+  esac
   go get -u golang.org/x/tools/gopls
 }
+
+# update() {}
 
 # link() {}
 

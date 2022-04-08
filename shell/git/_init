@@ -6,6 +6,9 @@ install() {
       git-delta git-extras git-flow-avh
   case $(_os) in
     macos)
+      # homebrew sometimes will pop "git-lfs: command not found"
+      ln -Fs "$(which git-lfs)" "$(git --exec-path)/"
+
       brew tap microsoft/git
       brew install --cask git-credential-manager-core
       ;;
