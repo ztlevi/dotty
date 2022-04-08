@@ -8,7 +8,7 @@ install() {
     # Ubuntu 18 needs gc-5
     linux-debian) APT_INSTALL gcc-5;;
   esac
-  go get -u golang.org/x/tools/gopls
+  go install golang.org/x/tools/gopls@latest
 }
 
 # update() {}
