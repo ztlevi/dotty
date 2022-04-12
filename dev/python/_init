@@ -12,20 +12,15 @@ install() {
   brew install pyright black poetry pylint
   # pyenv on Ubuntu seem to has some problem, use native installation on Ubuntu
   case $(_os) in
-    linux-debian) APT_INSTALL python3.8 ;;
+    linux-debian)
+      APT_INSTALL python3.8
+      sudo add-apt-repository ppa:deadsnakes/ppa
+      sudo apt update
+      sudo apt install python3.9
+      ;;
   esac
 
-  brew install pyenv
-
-  pyenv install $PYTHON_VERSION
-  pyenv global $PYTHON_VERSION
-
-  # temp add pyenv shims path, `pyenv init` is inside aliases.zsh
-  path=($PYENV_ROOT/shims $path)
-
   _install_pip_packages
-  # Run rehash everytime install global package
-  pyenv rehash
 }
 
 update() {
@@ -41,8 +36,6 @@ link() {
 
 clean() {
   rm -rf $XDG_CONFIG_HOME/flake8 $XDG_CONFIG_HOME/pudb
-  rm -rf $PYENV_ROOT
-  rm -f $XDG_CACHE_HOME/${SHELL##*/}/pyenv
 }
 
 init "$@"
