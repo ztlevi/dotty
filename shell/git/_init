@@ -3,7 +3,7 @@ source ${0:A:h}/../../deploy
 
 install() {
   brew install git libressl openssl git-lfs gh git-secrets pre-commit \
-      git-delta git-extras git-flow-avh
+      git-delta git-extras
   case $(_os) in
     macos)
       # homebrew sometimes will pop "git-lfs: command not found"
