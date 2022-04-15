@@ -2,7 +2,6 @@
 source ${0:A:h}/../../deploy
 
 install() {
-  # TODO Install android SDK
   case $(_os) in
     macos)
       brew tap adoptopenjdk/openjdk

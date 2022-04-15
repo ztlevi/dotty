@@ -63,7 +63,7 @@ dotty editor/emacs editor/neovim editor/editorconfig editor/vscode
 # Development
 dotty dev/cc dev/go dev/latex dev/node dev/python dev/java
 # Misc
-dotty misc/docker misc/aws misc/gpg misc/cspell misc/unison misc/apps
+dotty misc/apps misc/docker misc/aws misc/gpg misc/cspell misc/unison
 
 # (OPTIONAL) private apps. Do not install on company machines.
 # dotty misc/private

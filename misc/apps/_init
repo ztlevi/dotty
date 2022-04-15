@@ -4,11 +4,7 @@ source ${0:A:h}/../../deploy
 install() {
   # bandwhich: network monitor
   # eva: alternative bc, calculator
-  brew install pandoc ffmpeg bandwhich eva
-
-  # bottom: alternative htop
-  brew tap clementtsang/bottom
-  brew install bottom
+  brew install prettier pandoc ffmpeg bandwhich eva
 
   case $(_os) in
     macos)
@@ -22,11 +18,13 @@ install() {
 
 # update() {}
 
-# link() {}
+link() {
+  mklink $DOTTY_CONFIG_HOME/misc/app/.* ~/
+}
 
 clean() {
-  for f in $(echo .*); do
-    rm -fv ~/$f
+  for f in $(echo $DOTTY_CONFIG_HOME/misc/app/.*); do
+    rm -f ~/${f##*/}
   done
 }
 

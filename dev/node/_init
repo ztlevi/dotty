@@ -9,8 +9,7 @@ install() {
 
   path=($NODENV_ROOT/shims $path)
   # NPM Packages
-  npm install -g npm yarn prettier live-server hexo-cli \
-    reveal-md typescript tslint typescript-language-server
+  npm install -g npm yarn typescript tslint typescript-language-server
   # Run rehash everytime install global package
   nodenv rehash
 }
@@ -25,6 +24,9 @@ link() {
 }
 
 clean() {
+  for f in $(echo $DOTTY_CONFIG_HOME/dev/node/.*); do
+    rm -f ~/${f##*/}
+  done
   rm -rf $NODENV_ROOT
   rm -f $XDG_CACHE_HOME/${SHELL##*/}/nodenv
 }
