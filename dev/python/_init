@@ -12,6 +12,12 @@ install() {
   brew install pyright black poetry pylint
   # pyenv on Ubuntu seem to has some problem, use native installation on Ubuntu
   case $(_os) in
+    macos)
+      # Use python as python3 in MacOS since python is removed in newer version of MacOS
+      if [[ ! -f /usr/local/bin/python ]]; then
+        ln -s -f /usr/local/bin/python3 /usr/local/bin/python
+      fi
+      ;;
     linux-debian)
       APT_INSTALL python3.8
       sudo add-apt-repository ppa:deadsnakes/ppa
