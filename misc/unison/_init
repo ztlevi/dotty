@@ -8,6 +8,21 @@ install() {
   ! topic-enabled-p dev/rust && dotty dev/rust
 
   cargo install unison-fsmonitor
+  case $(_os) in
+    macos)
+      sudo sysctl kern.maxfiles=131072 kern.maxfilesperproc=65536
+      sudo cat <<EOF | sudo tee -a /etc/sysctl.conf
+kern.maxfiles=131072
+kern.maxfilesperproc=65536
+EOF
+      ;;
+    linux-*)
+      sudo sysctl -w fs.inotify.max_user_watches=131072
+      cat <<EOF | sudo tee -a /etc/sysctl.conf
+fs.inotify.max_user_watches = 131072
+EOF
+      ;;
+  esac
 }
 
 update() {
