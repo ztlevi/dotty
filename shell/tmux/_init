@@ -12,6 +12,8 @@ install() {
   # kill tmux to avoid protocol version mismatch (client 8, server 7) error
   pkill tmux || true
 
+  # tmux.conf is needed for install plugins
+  mklink $DOTTY_CONFIG_HOME/shell/tmux/tmux.conf $TMUX_HOME/
   local tpm=$TMUX_PLUGIN_MANAGER_PATH/tpm
   if [[ -d $tpm ]]; then
     $tpm/bin/install_plugins all
