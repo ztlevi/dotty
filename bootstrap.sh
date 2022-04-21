@@ -44,8 +44,11 @@ case $(_os) in
       bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
     eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-    touch $HOME/.bashrc
-    echo "eval \$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" >> $HOME/.bashrc
+
+    # Leave bash as plain terminal environment
+    # touch $HOME/.bashrc
+    # echo "\neval \$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" >> $HOME/.bashrc
+    echo "\nexport PATH=/usr/local/bin/usr/local/sbin:/usr/bin:/usr/sbin:$HOME/.local/bin:$HOME/bin" >> $HOME/.bashrc
     ;;
 esac
 
