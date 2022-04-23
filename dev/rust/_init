@@ -2,8 +2,8 @@
 source ${0:A:h}/../../deploy
 
 install() {
-  brew install rustup
-  rustup-init -y
+  brew install rustup rust-analyzer
+  rustup-init -y --no-modify-path
 }
 
 update() {
