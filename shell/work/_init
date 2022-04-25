@@ -3,6 +3,7 @@ source ${0:A:h}/../../deploy
 
 install() {
   if [[ ! -d $HOME/dev/work/dots ]]; then
+    git -C $HOME/dev/work init
     mkdir -p $HOME/dev/work/dots
     touch $HOME/dev/work/dots/rc.zsh
     touch $HOME/dev/work/dots/env.zsh
