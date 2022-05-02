@@ -10,23 +10,16 @@ _install_pip_packages() {
 
 install() {
   brew install pyright black poetry pylint
-  # pyenv on Ubuntu seem to has some problem, use native installation on Ubuntu
+
+  brew install python@3.9
+  ln -s -f "$(brew --prefix python@3.9)/bin/python3.9" /usr/local/bin/
+
   case $(_os) in
     macos)
-      brew install python@3.8 python@3.9
-      ln -s -f "$(brew --prefix python@3.8)/bin/python3.8" /usr/local/bin/
-      ln -s -f "$(brew --prefix python@3.9)/bin/python3.9" /usr/local/bin/
-
       # Use python as python3 in MacOS since python is removed in newer version of MacOS
       if [[ ! -f /usr/local/bin/python ]]; then
         ln -s -f /usr/local/bin/python3 /usr/local/bin/python
       fi
-      ;;
-    linux-debian)
-      APT_INSTALL python3.8
-      sudo add-apt-repository ppa:deadsnakes/ppa
-      sudo apt update
-      sudo apt install python3.9
       ;;
   esac
 
