@@ -5,8 +5,8 @@ install() {
   brew install go
 
   case $(_os) in
-    # Ubuntu 18 needs gc-5
-    linux-debian) APT_INSTALL gcc-5;;
+    # Ubuntu 18, AL2 needs gcc5 for dlv
+    linux-*) brew install gcc@5;;
   esac
   go install github.com/ramya-rao-a/go-outline@latest
   go install github.com/cweill/gotests/gotests@latest
