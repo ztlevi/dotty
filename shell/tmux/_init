@@ -9,6 +9,7 @@ install() {
 
   _ensure_repo tmux-plugins/tpm $TMUX_PLUGIN_MANAGER_PATH/tpm
 
+  sudo rm -f /bin/tmux
   # kill tmux to avoid protocol version mismatch (client 8, server 7) error
   pkill tmux || true
 
