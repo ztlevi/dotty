@@ -2,10 +2,15 @@
 source ${0:A:h}/../../deploy
 
 install() {
-  brew install tmux xclip
-  if [[ $(_os) == "macos" ]]; then
-    brew install reattach-to-user-namespace
-  fi
+  brew install tmux
+  case $(_os) in
+    macos)
+      brew install reattach-to-user-namespace
+      ;;
+    linux-*)
+      brew install xclip
+      ;;
+  esac
 
   _ensure_repo tmux-plugins/tpm $TMUX_PLUGIN_MANAGER_PATH/tpm
 
