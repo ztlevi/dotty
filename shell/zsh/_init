@@ -43,6 +43,7 @@ link() {
   rm -rf ~/.zinit/snippets/*.config--*--config--shell--zsh
   rm -f ~/.profile
   mklink $DOTTY_CONFIG_HOME/shell/zsh/.zsh* ~/
+  mklink $DOTTY_CONFIG_HOME/shell/zsh/.p10k.zsh ~/
   mklink $DOTTY_CONFIG_HOME/shell/zsh/config/* $XDG_CONFIG_HOME/
   mklink $DOTTY_CONFIG_HOME/shell/zsh/completions $XDG_CONFIG_HOME/zsh/
 
