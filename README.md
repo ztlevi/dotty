@@ -159,6 +159,9 @@ fi
     needed. For simplicity, you can use the existing themes or fonts. For example, put
     `export ALACRITTY_THEME="theme-pink.yml"` and `export ALACRITTY_FONT=font-operator-mono.yml` in
     `~/dev/work/dots/env.zsh`.
+- How can I change zsh theme?
+  - There are plenty of themes I used to use inside `shell/zsh/zinit-init-hook.zsh`. To customize it
+    and use starship, you can put `export ZSH_THEME="starship"` inside `~/dev/work/dots/env.zsh`.
 - I installed npm packages globally but it not showed up in `$HOME/.local/share/nodenv/shims` path.
   It could also happens for pyenv and others.
   - The simplest way is run `envrehash` in shell. Under the sceens, it's running commands like
