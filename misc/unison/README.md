@@ -9,27 +9,27 @@ Ensure Passphrase-less SSH
 if encountered "No space left on device" issue, increase the size limit.
 
 ```sh
-sudo sysctl kern.maxfiles=131072 kern.maxfilesperproc=65536
+sudo sysctl kern.maxfiles=524288 kern.maxfilesperproc=262144
 ```
 
 Add to /etc/sysctl.conf to persist across reboots (use sudo):
 
 ```sh
-kern.maxfiles=131072
-kern.maxfilesperproc=65536
+kern.maxfiles=524288
+kern.maxfilesperproc=262144
 ```
 
 ## Increase Linux File Watch Limit
 
 ```sh
-sudo sysctl -w fs.inotify.max_user_watches=131072
+sudo sysctl -w fs.inotify.max_user_watches=524288
 ```
 
 Add to /etc/sysctl.conf to persist across reboots:
 
 ```sh
 # Increase file watch limit for Unison
-fs.inotify.max_user_watches = 131072
+fs.inotify.max_user_watches = 524288
 ```
 
 ## MacOS create case sensitive volume
