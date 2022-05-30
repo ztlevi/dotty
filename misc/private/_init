@@ -14,7 +14,7 @@ install() {
   case $(_os) in
     macos)
       brew install --cask appcleaner typora obsidian dropbox neteasemusic webtorrent \
-        keycastr discord zoomus clashx google-drive obs balenaEtcher
+        wpsoffice-cn keycastr discord zoomus clashx google-drive obs balenaEtcher
 
       echo-info "Install the following apps from App Store"
       echo-info "Dropzone 4, FastZip, iRightMouse, iShot, Spark, LyricsX, Leaf, Telegram, Wechat, QQ"
