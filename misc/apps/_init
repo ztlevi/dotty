@@ -4,7 +4,8 @@ source ${0:A:h}/../../deploy
 install() {
   # bandwhich: network monitor
   # eva: alternative bc, calculator
-  brew install prettier pandoc ffmpeg bandwhich eva
+  # btop: better top
+  brew install prettier pandoc ffmpeg bandwhich eva btop
 
   case $(_os) in
     macos)
@@ -19,7 +20,9 @@ install() {
 # update() {}
 
 link() {
-  mklink $DOTTY_CONFIG_HOME/misc/app/.* ~/
+  mklink $DOTTY_CONFIG_HOME/misc/apps/.* ~/
+  rm -rf $XDG_CONFIG_HOME/btop
+  mklink $DOTTY_CONFIG_HOME/misc/apps/config/btop $XDG_CONFIG_HOME/
 }
 
 clean() {
