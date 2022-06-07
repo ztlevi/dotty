@@ -2,7 +2,7 @@
 source ${0:A:h}/../../deploy
 
 install() {
-  brew install awscli git-remote-codecommit
+  brew install awscli git-remote-codecommit peak/tap/s5cmd
 }
 
 # update() {}
