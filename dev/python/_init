@@ -20,6 +20,17 @@ install() {
       if [[ ! -f /usr/local/bin/python ]]; then
         ln -s -f /usr/local/bin/python3 /usr/local/bin/python
       fi
+      brew install miniconda
+      ;;
+    linux-*)
+      (
+        tempdir=/tmp/temp-install
+        mkdir -p $tempdir
+        cd $tempdir
+        curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+        bash Miniconda3*.sh -b -p $HOME/miniconda
+        rm -f $tempdir/Miniconda3*.sh
+      )
       ;;
   esac
 
