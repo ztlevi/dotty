@@ -9,4 +9,4 @@
 | ISC | starship |
 | Unlicense | ripgrep |
 | GPL-2.0 | git, tree, p7zip, zsh-users/zsh-completions |
-| GPL-3.0-or-later | wget, rsync, zshdb, shellcheck, mosh |
+| GPL-3.0-or-later | wget, rsync, |
