@@ -49,6 +49,7 @@ link() {
 }
 
 clean() {
+  rm -rf $HOME/miniconda
   for f in $(echo $DOTTY_CONFIG_HOME/dev/python/.*); do
     rm -f ~/${f##*/}
   done
