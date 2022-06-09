@@ -4,7 +4,7 @@ source $DOTTY_CONFIG_HOME/shell/zsh/.zshenv
 
 install() {
   # Base utilities
-  brew install zsh bash wget git curl tree openssh rsync p7zip jq direnv
+  brew install zsh bash wget git curl tree rsync p7zip jq direnv
 
   # Use trash instead of rm
   case $(_os) in
