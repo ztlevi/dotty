@@ -26,6 +26,23 @@ install() {
       echo-fail "/usr/bin/tic does not exists\!"
   fi
 
+  # Increase max file watch for editors and unison
+  case $(_os) in
+    macos)
+      sudo sysctl kern.maxfiles=524288 kern.maxfilesperproc=262144
+      sudo cat <<EOF | sudo tee -a /etc/sysctl.conf
+kern.maxfiles=524288
+kern.maxfilesperproc=262144
+EOF
+      ;;
+    linux-*)
+      sudo sysctl -w fs.inotify.max_user_watches=524288
+      sudo cat <<EOF | sudo tee -a /etc/sysctl.conf
+fs.inotify.max_user_watches = 524288
+EOF
+      ;;
+  esac
+
   # Set default shell to zsh
   chsh -s $(which zsh) $(whoami)
   # if the command above doesn't work, edit /etc/passwd directly to change the login shell
