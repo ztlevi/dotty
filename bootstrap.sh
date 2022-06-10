@@ -46,9 +46,11 @@ case $(_os) in
     eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
     # Leave bash as plain terminal environment
-    # touch $HOME/.bashrc
-    # echo "\neval \$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" >> $HOME/.bashrc
-    echo "\nexport PATH=/usr/local/bin/usr/local/sbin:/usr/bin:/usr/sbin:$HOME/.local/bin:$HOME/bin" >> $HOME/.bashrc
+    touch $HOME/.bashrc
+    cat <<EOF >> $HOME/.bashrc
+# eval \$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+export PATH=/usr/local/bin/usr/local/sbin:/usr/bin:/usr/sbin:$HOME/.local/bin:$HOME/bin
+EOF
     ;;
 esac
 
