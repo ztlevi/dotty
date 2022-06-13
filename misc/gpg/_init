@@ -46,7 +46,6 @@ EOF
 
 clean() {
   brew uninstall pass gunpg
-  pass init
   rm -rf $HOME/.gnupg ${XDG_DATA_HOME}/password-store
 }
 
