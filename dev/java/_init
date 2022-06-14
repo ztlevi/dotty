@@ -5,12 +5,11 @@ install() {
   brew install jdtls gradle maven jenv google-java-format
   case $(_os) in
     macos)
-      brew install openjdk@8 openjdk@11
-      sudo ln -sfn /usr/local/opt/openjdk@8/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-8.jdk
+      brew install openjdk@11
       sudo ln -sfn /usr/local/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
       ;;
     linux-*)
-      brew install openjdk@8 openjdk@11
+      brew install openjdk@11
       ;;
     # linux-RHEL)
     #   sudo yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel
