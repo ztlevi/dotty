@@ -8,7 +8,7 @@
 # Requires: git, zsh
 
 source "${0:A:h}/config/env"
-SEP='.'
+local SEP='.'
 
 function _exec { ${DRYRUN:+echo-debug} $@; return ${DRYRUN:+1}; }
 function _topic-do {
@@ -28,10 +28,6 @@ function _topics {
   local topics; topics=( "$DOTTY_DATA_HOME"/*.topic(N) )
   echo ${${${topics[@]#$DOTTY_DATA_HOME/}%.topic}/$SEP//}
 }
-
-# For _init scripts
-function topic-enabled-p { [[ -L "$(topic-path $1)" ]] }
-function topic-path { echo "$DOTTY_DATA_HOME/${1/\//$SEP}.topic" }
 
 function init {
   declare -f $1 >/dev/null || return 1
