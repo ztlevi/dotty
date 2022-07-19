@@ -2,20 +2,14 @@
 source ${0:A:h}/../../deploy
 
 install() {
-  brew install nodenv node-build
+  brew install nvm
 
-  nodenv install $NODE_VERSION
-  nodenv global $NODE_VERSION
-
-  path=($NODENV_ROOT/shims $path)
   # NPM Packages
-  npm install -g npm pnpm typescript tslint typescript-language-server
-  # Run rehash everytime install global package
-  nodenv rehash
+  npm install -g npm pnpm typescript typescript-language-server
 }
 
 update() {
-  brew upgrade nodenv node-build
+  brew upgrade nvm
   npm update -g
 }
 
@@ -27,8 +21,7 @@ clean() {
   for f in $(echo $DOTTY_CONFIG_HOME/dev/node/.*); do
     rm -f ~/${f##*/}
   done
-  rm -rf $NODENV_ROOT
-  rm -f $XDG_CACHE_HOME/${SHELL##*/}/nodenv
+  rm -rf $HOME/.nvm
 }
 
 init "$@"

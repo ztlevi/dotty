@@ -6,7 +6,6 @@ install() {
   ! topic-enabled-p dev/node && dotty dev/node
 
   npm install -g cspell
-  nodenv rehash
 }
 
 # update() {}

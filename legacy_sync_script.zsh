@@ -11,3 +11,7 @@ if ! _is_callable ds; then
   ! topic-enabled-p dev/rust && dotty dev/rust
   cargo install dirstat-rs
 fi
+
+brew uninstall -f nodenv node-build
+rm -rf $XDG_DATA_HOME/nodenv
+rm -f $HOME/.tidyrc
