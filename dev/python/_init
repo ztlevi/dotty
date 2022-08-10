@@ -5,7 +5,7 @@ _install_pip_packages() {
   PIP3_INSTALL pip setuptools
 
   # Other packages
-  PIP3_INSTALL debugpy pdbpp autoflake gnureadline
+  PIP3_INSTALL epc orjson debugpy pdbpp autoflake gnureadline
 }
 
 install() {
