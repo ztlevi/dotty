@@ -17,6 +17,8 @@ update() {
 }
 
 link() {
+  # do not use nvm as system node
+  rm -f $HOME/.nvm/alias/default
   mklink $DOTTY_CONFIG_HOME/dev/node/.* ~/
 }
 
