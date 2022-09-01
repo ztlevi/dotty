@@ -11,7 +11,7 @@ install() {
 # update() {}
 
 link() {
-  rm -f ~/.cspell.json
+  rm -f $XDG_CONFIG_HOME/.cspell.json
   mklink $DOTTY_CONFIG_HOME/misc/cspell $XDG_CONFIG_HOME/
 }
 
