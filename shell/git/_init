@@ -18,7 +18,7 @@ install() {
       (
         cd $tempdir
         wget --no-check-certificate \
-          $(get_github_latest_release_url GitCredentialManager/git-credential-manager ".*linux.*\.tar\.gz") -O gcm.tar.gz
+          $(get_github_latest_release_url GitCredentialManager/git-credential-manager ".*linux.*\d+\.tar\.gz") -O gcm.tar.gz
         tar -zxvf gcm.tar.gz
         sudo cp -f git-credential-manager-core /usr/local/bin/
       )
