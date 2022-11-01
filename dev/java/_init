@@ -17,6 +17,7 @@ install() {
     #   ;;
   esac
   # Note: JAVA_HOME is reset by jenv, use jenv to set global and local
+  eval "$(jenv init -)"
   jenv add $(brew --prefix openjdk@11)
   jenv global 11
 }
