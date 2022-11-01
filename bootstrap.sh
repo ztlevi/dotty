@@ -49,7 +49,7 @@ case $(_os) in
     touch $HOME/.bashrc
     cat <<EOF >> $HOME/.bashrc
 # eval \$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-export PATH=/usr/local/bin/usr/local/sbin:/usr/bin:/usr/sbin:$HOME/.local/bin:$HOME/bin
+export PATH=/usr/local/bin/usr/local/sbin:/usr/bin:/usr/sbin:$HOME/.local/bin:$HOME/bin:/bin
 EOF
     ;;
 esac
