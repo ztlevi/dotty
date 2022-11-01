@@ -60,9 +60,9 @@ dotty shell/alacritty shell/tmux shell/joshuto shell/fzf shell/aspell
 # Editor
 dotty editor/emacs editor/neovim editor/editorconfig editor/vscode
 # Development
-dotty dev/cc dev/go dev/latex dev/node dev/python dev/java
+dotty dev/cc dev/go dev/node dev/python dev/java
 # Misc
-dotty misc/apps misc/docker misc/aws misc/gpg misc/cspell misc/unison
+dotty misc/apps misc/docker misc/aws misc/cspell misc/unison misc/gpg
 
 # (OPTIONAL) private apps. Do not install on company machines.
 # dotty misc/private
