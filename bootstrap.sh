@@ -70,5 +70,3 @@ _msg "And done!"
 _msg
 _msg "Use $DOTTY_HOME/deploy to install your dotfiles, I suggest you begin"
 _msg "with 'shell/zsh' and, then'base/arch' or 'base/macos'."
-
-eval $SHELL
