@@ -40,6 +40,9 @@ List all keys: `tmux list-keys`
 | v (in copy mode)          | Begin selection             |
 | y (in copy mode)          | Yank                        |
 | q (in copy mode)          | Quit copy mode              |
+| / (in copy mode)          | Start search                |
+| n (in copy mode)          | Search next                 |
+| n (in copy mode)          | Search previous             |
 | prefix q                  | Kill window                 |
 | prefix n                  | New window                  |
 | prefix c                  | Kill pane                   |
