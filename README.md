@@ -119,6 +119,7 @@ Usage: dotty [-acdlLit] [TOPIC...]
   -L   List enabled topics
   -i   Inhibit install/update/clean init scripts
   -t   Do a test run; do not actually do anything
+  -H   Print usage of the topic
 ```
 
 e.g.
@@ -129,6 +130,7 @@ e.g.
 - `dotty -l`: relink all enabled topics
 - `dotty -r`: reinstall the topic(s)
 - `dotty -L`: list all enabled topics
+- `dotty -H shell/tmux`: print usage of the topic
 
 Here's a breakdown of what the script does:
 

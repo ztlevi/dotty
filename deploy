@@ -126,7 +126,7 @@ fi
 
 ## Bootstrap
 if [[ ${ZSH_EVAL_CONTEXT} != *:file ]]; then
-  while getopts acrdehlLit opt; do
+  while getopts acrdehlLitH opt; do
     case $opt in
       a) TARGETS=( $(_topics) );;
       c) CLEAN=1               ;;
@@ -136,6 +136,7 @@ if [[ ${ZSH_EVAL_CONTEXT} != *:file ]]; then
       l) export LINK=1         ;&
       i) export INHIBIT_INIT=1 ;;
       t) export DRYRUN=1       ;;
+      H) HELP=1                ;;
       h) cat <<EOL
 Usage: ${0:A:t} [-acdlLit] [TOPIC...]
 
@@ -148,6 +149,7 @@ Usage: ${0:A:t} [-acdlLit] [TOPIC...]
   -L   List enabled topics
   -i   Do not run install/update/clean init scripts
   -t   Do a test run; do not actually do anything
+  -H   Print usage of the topic
 EOL
           exit ;;
       *) >&2 echo-fail "Aborted."
@@ -160,17 +162,30 @@ EOL
     _topics | tr ' ' $'\n'
   else
     pushd -qL "${DOTTY_HOME}"
+    if [[ -n "${CLEAN}" ]]; then
+        clean
+    fi
     if [[ -n "${REINSTALL}" ]]; then
         topic-remove ${TARGETS:-$@}
         topic-init ${TARGETS:-$@}
-    else
-      if [[ -n "${REMOVE}" ]]; then
-        topic-remove ${TARGETS:-$@}
-      else
-        topic-init ${TARGETS:-$@}
-      fi
+        exit 0
     fi
-    [[ -n "${CLEAN}" ]] && clean
+    if [[ -n "${REMOVE}" ]]; then
+        topic-remove ${TARGETS:-$@}
+        exit 0
+    fi
+    if [[ -n "${HELP}" ]]; then
+        for topic in $@; do
+            exe=cat
+            if _is_callable bat; then
+                exe="bat --theme OneHalfLight --paging=never"
+            fi
+            [[ -f ${DOTTY_HOME}/${topic}/README.md ]] && eval ${exe} ${DOTTY_HOME}/${topic}/README.md
+            [[ -f ${DOTTY_HOME}/config/${topic}/README.md ]] && eval ${exe} ${DOTTY_HOME}/config/${topic}/README.md
+        done
+        exit 0
+    fi
+    topic-init ${TARGETS:-$@}
     popd -q
   fi
 fi
