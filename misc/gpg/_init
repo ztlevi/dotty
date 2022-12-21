@@ -15,7 +15,7 @@ install() {
         if (git config --get user.email) >/dev/null; then
           pass init $(git config --get user.email)
         else
-          echo-fail "Please config git email first\!"
+          echo-fail "Please config git email first!"
         fi
       fi
       ;;

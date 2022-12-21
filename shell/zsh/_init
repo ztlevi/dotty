@@ -24,7 +24,7 @@ install() {
   if _is_callable /usr/bin/tic; then
       /usr/bin/tic -x -o ~/.terminfo $DOTTY_CONFIG_HOME/shell/zsh/xterm-24bit.terminfo
   else
-      echo-fail "/usr/bin/tic does not exists\!"
+      echo-fail "/usr/bin/tic does not exists!"
   fi
 
   # Increase max file watch for editors and unison
