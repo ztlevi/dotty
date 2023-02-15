@@ -26,7 +26,7 @@ clean() {
   for f in $(echo $DOTTY_CONFIG_HOME/dev/node/.*); do
     rm -f ~/${f##*/}
   done
-  rm -rf $HOME/.nvm
+  [[ -n $NVM_DIR ]] && rm -rf $NVM_DIR
 }
 
 init "$@"
