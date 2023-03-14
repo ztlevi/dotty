@@ -1,0 +1,36 @@
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+  # Needed for the 'trilom/file-changes-action' action
+  pull-requests: read
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: "${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}"
+  cancel-in-progress: true
+
+jobs:
+  test-ubuntu:
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: dotty bootstrap
+        run: bash <(curl -s https://raw.githubusercontent.com/ztlevi/dotty/main/bootstrap.sh)
+
+      - name: dotty install base and essential modules
+        run: |
+          eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv) && \
+          $HOME/.config/dotty/deploy base/linux shell/zsh shell/git shell/tmux
+
+      # TODO(zhot): fix zsh run
+      # - name: dotty zsh
+      #   run: |
+      #     eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv) && zsh

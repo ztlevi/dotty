@@ -14,8 +14,10 @@ install() {
 
   # Better console tools
   brew install exa ripgrep fd bat hyperfine procs sd duf
-  ! topic-enabled-p dev/rust && dotty dev/rust
-  cargo install dirstat-rs
+  if [[ $USER != "runner" ]]; then # disable this section for
+    ! topic-enabled-p dev/rust && dotty dev/rust
+    cargo install dirstat-rs
+  fi
 
   # Other utilities
   brew install shfmt shellcheck neofetch mosh
