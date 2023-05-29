@@ -8,10 +8,10 @@ install() {
       # librime
       (
         cd /tmp
-        wget --no-check-certificate $(get_github_latest_release_url 'rime/librime' 'osx\.zip') -O rime-osx.zip
+        wget --no-check-certificate $(get_github_latest_release_url 'rime/librime' 'macOS\.tar\.bz2') -O rime-osx.tar.bz2
         mkdir -p $XDG_CONFIG_HOME/fcitx/librime
-        unzip rime-osx.zip -d $XDG_CONFIG_HOME/fcitx/librime
-        rm -rf rime-osx.zip
+        tar -xf rime-osx.tar.bz2 --directory $XDG_CONFIG_HOME/fcitx/librime
+        rm -rf rime-osx.tar.bz2
       )
       brew install --cask squirrel
       ;;
