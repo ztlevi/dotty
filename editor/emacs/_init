@@ -11,8 +11,6 @@ install() {
       # brew tap d12frosted/emacs-plus
       # brew install emacs-plus@28 --with-native-comp --with-modern-vscode-icon
 
-      ln -Fs $(sudo find /usr/local/Cellar/emacs-* -name "Emacs.app") /Applications/
-
       # Other tweaks
       defaults write org.gnu.Emacs Emacs.ToolBar -string no
       defaults write org.gnu.Emacs Emacs.ScrollBar -string no
@@ -46,6 +44,9 @@ update() {
 }
 
 link() {
+  if [[ $(_os) == 'macos' ]]; then
+      ln -Fs $(sudo find /usr/local/Cellar/emacs-* -name "Emacs.app") /Applications/
+  fi
   rm -f ~/.ctags
   rm -f $XDG_CONFIG_HOME/emacs/.local/custom.el
   mklink $DOTTY_CONFIG_HOME/editor/emacs/.ctags.d ~/.ctags.d
