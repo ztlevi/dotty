@@ -9,8 +9,8 @@ install() {
       # homebrew sometimes will pop "git-lfs: command not found"
       ln -Fs "$(which git-lfs)" "$(git --exec-path)/"
 
-      brew tap microsoft/git
-      brew install --cask git-credential-manager-core
+      brew untap microsoft/git
+      brew install --cask git-credential-manager
       ;;
     linux-*)
       local tempdir=/tmp/temp-install
@@ -18,9 +18,9 @@ install() {
       (
         cd $tempdir
         wget --no-check-certificate \
-          $(get_github_latest_release_url GitCredentialManager/git-credential-manager ".*linux.*\d+\.tar\.gz") -O gcm.tar.gz
+          $(get_github_latest_release_url git-ecosystem/git-credential-manager ".*linux.*\d+\.tar\.gz") -O gcm.tar.gz
         tar -zxvf gcm.tar.gz
-        sudo cp -f git-credential-manager-core /usr/local/bin/
+        sudo cp -f git-credential-manager /usr/local/bin/
       )
       rm -rf $tempdir
       ;;

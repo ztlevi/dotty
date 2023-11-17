@@ -9,8 +9,8 @@ install() {
       brew install gpg-suite
       ;;
     linux-*)
-      # https://github.com/microsoft/Git-Credential-Manager-Core/blob/main/docs/linuxcredstores.md
-      brew install pass # Required by git-credential-manager-core
+      # https://github.com/git-ecosystem/git-credential-manager/blob/release/docs/credstores.md
+      brew install pass # Required by git-credential-manager
       if [[ ! -f $HOME/.local/share/password-store/.gpg-id ]]; then
         if (git config --get user.email) >/dev/null; then
           pass init $(git config --get user.email)
