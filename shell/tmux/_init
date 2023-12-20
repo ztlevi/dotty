@@ -2,7 +2,8 @@
 source ${0:A:h}/../../deploy
 
 install() {
-  brew install tmux
+  brew install tmux \
+    gawk coreutils # Needed by xamut/tmux-network-bandwidth
   case $(_os) in
     macos)
       brew install reattach-to-user-namespace
