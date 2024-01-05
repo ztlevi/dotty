@@ -76,10 +76,6 @@ non-Emacs users. There are other options there.
 Git now uses personal tokens as password, go [here](https://github.com/settings/tokens) to create a
 new token.
 
-## (Deprecated) Credential Storage: default credential is stored in "~/.git-credentials".
-
-https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage
-
 ## (Optional) SSH Setup
 
 Setup SSH key to prevent typing username and password each time you operate your github:

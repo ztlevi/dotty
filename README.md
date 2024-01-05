@@ -74,9 +74,6 @@ dotty misc/apps misc/docker misc/aws misc/cspell misc/unison misc/gpg
 
 1. Don't forget to import your private/public GPG keys. If you're interested in GPG forwarding over
    ssh, see [README](./misc/gpg/README.md).
-2. On Linux, you will need to init `pass` to enable git-credential-manager (GCM),
-   `pass init <your-gpg-email>`. If you select **personal access token**, go
-   [here](https://github.com/settings/tokens) to create a new token.
 
 ## Update
 
