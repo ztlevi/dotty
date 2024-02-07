@@ -9,7 +9,13 @@ install() {
 
   case $(_os) in
     macos)
-      brew install --cask microsoft-edge iina ticktick keepingyouawake
+      brew install --cask google-chrome iina ticktick keepingyouawake
+
+      # Install and enable languagetool as a service. Then you can use local server
+      # in browser languagetool extension.
+      # You can also download languagetool desktop app at https://languagetool.org/
+      brew install languagetool
+      brew services start languagetool
 
       # Set iina as default music/video player
       $DOTTY_HOME/base/macos/macos_set_default_apps.sh $DOTTY_HOME/misc/apps/macos_iina_as_default_app.txt
@@ -23,6 +29,13 @@ link() {
   mklink $DOTTY_CONFIG_HOME/misc/apps/.* ~/
   rm -rf $XDG_CONFIG_HOME/btop
   mklink $DOTTY_CONFIG_HOME/misc/apps/config/btop $XDG_CONFIG_HOME/
+
+  # Add custom words to languagetool and restart server
+  if [[ -f $DOTTY_ASSETS_HOME/languagetool/spelling_custom.txt ]]; then
+    cp -f $DOTTY_ASSETS_HOME/languagetool/spelling_custom.txt \
+      $(brew --prefix languagetool)/libexec/org/languagetool/resource/en/hunspell/
+    brew services restart languagetool
+  fi
 }
 
 clean() {
