@@ -9,7 +9,7 @@ _install_pip_packages() {
 }
 
 install() {
-  brew install pyright black poetry pylint
+  brew install pyright black poetry pylint ruff-lsp
 
   brew install python@3.9
   ln -s -f "$(brew --prefix python@3.9)/bin/python3.9" /usr/local/bin/
