@@ -4,11 +4,7 @@ source ${0:A:h}/../../deploy
 install() {
   case $(_os) in
     macos)
-      brew tap koekeishiya/formulae
-      brew install yabai
-      brew services start yabai
-      brew install koekeishiya/formulae/skhd
-      brew services start skhd
+      brew install koekeishiya/formulae/yabai koekeishiya/formulae/skhd
       ;;
 
   esac
@@ -23,19 +19,27 @@ link() {
 }
 
 clean() {
-  rm -fv ~/.skhdrc $XDG_CONFIG_HOME/yabairc
+  yabai --stop-service
+  yabai --uninstall-service
   sudo yabai --uninstall-sa
-  rm ~/.yabairc
+
+  # these are logfiles that may be created when running yabai as a service.
+  rm -rf /tmp/yabai_$USER.out.log
+  rm -rf /tmp/yabai_$USER.err.log
+
+  # remove config and various temporary files
+  rm -fv ~/.skhdrc $XDG_CONFIG_HOME/yabairc
   rm /tmp/yabai_$USER.lock
   rm /tmp/yabai_$USER.socket
   rm /tmp/yabai-sa_$USER.socket
 
-  # if you were using brew services to manage yabai
-  brew services stop yabai
-  rm -rf /usr/local/var/log/yabai
+  skhd --stop-service
+  skhd --uninstall-service
 
-  brew services stop yabai
-  brew uninstall yabai
+  # unload the scripting addition by forcing a restart of Dock.app
+  killall Dock
+
+  brew uninstall yabai skhd
 }
 
 init "$@"
