@@ -6,22 +6,28 @@ install() {
     echo-fail "Cannot use sketchybar on non macos system. Exiting..."
     exit 1
   fi
-  brew install --cask sf-symbols
-  brew install FelixKratz/formulae/sketchybar jq gh
+  brew install FelixKratz/formulae/sketchybar jq gh sf-symbols
+  curl -L $(get_github_latest_release_url "kvndrsslr/sketchybar-app-font" "\.ttf") -o $HOME/Library/Fonts/sketchybar-app-font.ttf
   brew services start sketchybar
+
+  defaults write com.knollsoft.Rectangle screenEdgeGapTop -int 40
+  echo-info "You need to restart Rectangle app to apply changes."
 }
 
 update() {
-  # brew upgrade unison
+  brew upgrade sketchybar
 }
 
 link() {
-  mklink $DOTTY_CONFIG_HOME/misc/sketchybar/config $XDG_CONFIG_HOME/sketchybar
+  mklink $DOTTY_CONFIG_HOME/misc/sketchybar/config/sketchybar $XDG_CONFIG_HOME/sketchybar
   brew services restart sketchybar
 }
 
 clean() {
-  # brew uninstall sketchybar
+  rm -rf $XDG_CONFIG_HOME/sketchybar
+  defaults write com.knollsoft.Rectangle screenEdgeGapTop -int 0
+  echo-info "You need to restart Rectangle app to apply changes."
+  brew uninstall sketchybar sf-symbols
 }
 
 init "$@"

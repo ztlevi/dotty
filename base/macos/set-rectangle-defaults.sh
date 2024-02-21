@@ -11,3 +11,5 @@ defaults write com.knollsoft.Rectangle launchOnLogin -bool true
 defaults write com.knollsoft.Rectangle hideMenubarIcon -bool true
 defaults write com.knollsoft.Rectangle windowSnapping -int 2
 defaults write com.knollsoft.Rectangle subsequentExecutionMode -int 1
+
+echo "You need to restart Rectangle app to apply changes."
