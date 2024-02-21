@@ -24,6 +24,7 @@ link() {
 }
 
 clean() {
+  brew services stop sketchybar
   rm -rf $XDG_CONFIG_HOME/sketchybar
   defaults write com.knollsoft.Rectangle screenEdgeGapTop -int 0
   echo-info "You need to restart Rectangle app to apply changes."
