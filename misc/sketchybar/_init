@@ -1,0 +1,27 @@
+#!/usr/bin/env zsh
+source ${0:A:h}/../../deploy
+
+install() {
+  if [[ $(_os) != "macos" ]]; then
+    echo-fail "Cannot use sketchybar on non macos system. Exiting..."
+    exit 1
+  fi
+  brew install --cask sf-symbols
+  brew install FelixKratz/formulae/sketchybar jq gh
+  brew services start sketchybar
+}
+
+update() {
+  # brew upgrade unison
+}
+
+link() {
+  mklink $DOTTY_CONFIG_HOME/misc/sketchybar/config $XDG_CONFIG_HOME/sketchybar
+  brew services restart sketchybar
+}
+
+clean() {
+  # brew uninstall sketchybar
+}
+
+init "$@"
