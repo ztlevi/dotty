@@ -1,5 +1,7 @@
 # License inventory
 
-| license          | packages |
-| ---------------- | -------- |
-| GPL-3.0-or-later | joshuto  |
+| license           | packages                   |
+| ----------------- | -------------------------- |
+| MIT               | yazi, jq, zoxide           |
+| GPL2.0            | ffmpegthumbnailer, poppler |
+| LGPL-2.1-or-later | unar                       |

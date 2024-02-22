@@ -2,7 +2,12 @@
 source ${0:A:h}/../../deploy
 
 install() {
-  brew install yazi ffmpegthumbnailer unar jq poppler fd ripgrep fzf zoxide
+  # These packages are nice to have but unfortunately alacritty doesn't
+  # support inline image protocol
+  # video preview: ffmpegthumbnailer
+  # pdf preview: poppler
+  # cd jump: zoxide
+  brew install yazi unar jq
 }
 
 # update() {}
