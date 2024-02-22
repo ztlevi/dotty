@@ -42,11 +42,11 @@ fs.inotify.max_user_watches = 524288
 ### symlink your newly created volume
 
 ```sh
-ln -s /Volumes/workplace ~/
+ln -s /Volumes/dev ~/
 ```
 
 ### Case-sensitivity test
 
 ```sh
-cd ~/workplace; touch test_case; [[ $(ls TEST_CASE 2>/dev/null) ]] && echo 'CASE-SENSITIVITY ERROR' || echo 'Success'; rm test_case
+cd ~/dev; touch test_case; [[ $(ls TEST_CASE 2>/dev/null) ]] && echo 'CASE-SENSITIVITY ERROR' || echo 'Success'; rm test_case
 ```
