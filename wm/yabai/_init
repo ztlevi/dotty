@@ -28,7 +28,7 @@ clean() {
   rm -rf /tmp/yabai_$USER.err.log
 
   # remove config and various temporary files
-  rm -fv ~/.skhdrc $XDG_CONFIG_HOME/yabairc
+  rm -fv ~/.skhdrc $XDG_CONFIG_HOME/yabai
   rm /tmp/yabai_$USER.lock
   rm /tmp/yabai_$USER.socket
   rm /tmp/yabai-sa_$USER.socket
