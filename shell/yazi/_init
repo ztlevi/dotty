@@ -1,0 +1,19 @@
+#!/usr/bin/env zsh
+source ${0:A:h}/../../deploy
+
+install() {
+  brew install yazi ffmpegthumbnailer unar jq poppler fd ripgrep fzf zoxide
+}
+
+# update() {}
+
+link() {
+  mklink $DOTTY_CONFIG_HOME/shell/yazi/config/* $XDG_CONFIG_HOME/
+}
+
+clean() {
+  rm -rv $XDG_CONFIG_HOME/yazi
+  brew uninstall yazi
+}
+
+init "$@"
