@@ -68,5 +68,4 @@ fi
 _msg
 _msg "And done!"
 _msg
-_msg "Use $DOTTY_HOME/deploy to install your dotfiles, I suggest you begin"
-_msg "with 'shell/zsh' and, then'base/arch' or 'base/macos'."
+_msg "Use $DOTTY_HOME/deploy to install your dotfiles, Checkout the installation guide https://github.com/ztlevi/dotty/?tab=readme-ov-file#install"
