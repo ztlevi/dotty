@@ -56,7 +56,7 @@ gh auth login
 dotty wm/gnome
 
 # Shell: highly recommend to use alacritty since my tmux keys are based on alacritty keymaps
-dotty shell/alacritty shell/joshuto shell/fzf shell/aspell
+dotty shell/alacritty shell/yazi shell/fzf
 # Editor
 dotty editor/emacs editor/editorconfig editor/vscode
 # Development
