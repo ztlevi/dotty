@@ -13,7 +13,7 @@ install() {
   esac
 
   # Better console tools
-  brew install exa ripgrep fd bat hyperfine procs sd duf
+  brew install eza ripgrep fd bat hyperfine procs sd duf
   if [[ $USER != "runner" ]]; then # disable this section for
     ! topic-enabled-p dev/rust && dotty dev/rust
     cargo install dirstat-rs

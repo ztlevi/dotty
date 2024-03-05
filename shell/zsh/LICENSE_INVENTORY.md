@@ -2,7 +2,7 @@
 
 | license | packages |
 | --- | --- |
-| MIT | zinit, direnv, exa, procs, neofetch, jq, vivid, oh-my-zsh, wfxr/forgit, hlissner/zsh-autopair, soimort/you-get, jeffreytse/zsh-vi-mode, sd, duf |
+| MIT | zinit, direnv, eza, procs, neofetch, jq, vivid, oh-my-zsh, wfxr/forgit, hlissner/zsh-autopair, soimort/you-get, jeffreytse/zsh-vi-mode, sd, duf |
 | Apache-2.0 | fd, bat, dust |
 | BSD | shfmt, zsh-users/zsh-history-substring-search, zdharma/fast-syntax-highlighting |
 | Curl | curl |
