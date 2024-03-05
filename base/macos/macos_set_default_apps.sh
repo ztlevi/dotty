@@ -28,8 +28,9 @@
 # 3. Change the default app
 # duti -s abnerworks.Typora .md all
 
-if [[ -f $1 ]]; then
+if [[ ! -f $1 ]]; then
   echo "$1 file does not exist..."
+  return 1
 fi
 
 cat $1 | grep . |
