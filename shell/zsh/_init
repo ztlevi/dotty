@@ -14,7 +14,7 @@ install() {
 
   # Better console tools
   brew install eza ripgrep fd bat hyperfine procs sd duf
-  if [[ $USER != "runner" ]]; then # disable this section for
+  if [[ $USER != "runner" ]]; then # disable this section for github runner
     ! topic-enabled-p dev/rust && dotty dev/rust
     cargo install dirstat-rs
   fi
