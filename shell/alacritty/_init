@@ -49,7 +49,7 @@ install() {
 # update() {}
 
 link() {
-  rm -rf ~/.zinit/snippets/*.config--dotty--config--shell--alacritty
+  rm -rf ~/.zinit/snippets/*.config--dotty--config--shell--alacritty >/dev/null
   mkdir -p $XDG_CONFIG_HOME/alacritty
   config_file=$XDG_CONFIG_HOME/alacritty/alacritty-temp.yml
   theme_file=${ALACRITTY_THEME:-theme-one-light.yml}
@@ -91,6 +91,8 @@ link() {
     yq eval ".font.size = $increased_font_size" $config_file --inplace
   fi
   mv -f $config_file $XDG_CONFIG_HOME/alacritty/alacritty.yml
+  rm -f $XDG_CONFIG_HOME/alacritty/alacritty.toml
+  alacritty migrate
 }
 
 clean() {
