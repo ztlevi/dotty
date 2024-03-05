@@ -18,6 +18,7 @@ install() {
       brew services start languagetool
 
       # Set iina as default music/video player
+      sleep 5 # sleep 5 seconds to wait for mac register freshly installed app
       $DOTTY_HOME/base/macos/macos_set_default_apps.sh $DOTTY_HOME/misc/apps/macos_iina_as_default_app.txt
       ;;
   esac

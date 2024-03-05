@@ -20,6 +20,7 @@ install() {
       echo-info "Dropzone 4, FastZip, iRightMouse, iShot, Spark, LyricsX, Leaf, Telegram, Wechat, QQ"
 
       # Set default apps
+      sleep 5 # sleep 5 seconds to wait for mac register freshly installed app
       $DOTTY_HOME/base/macos/macos_set_default_apps.sh $DOTTY_HOME/misc/private/macos_misc_default_apps.txt
       ;;
     linux-arch)

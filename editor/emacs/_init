@@ -17,6 +17,7 @@ install() {
       defaults write org.gnu.Emacs Emacs.MenuBar -string no
 
       # Set emacs as default editor
+      sleep 5 # sleep 5 seconds to wait for mac register freshly installed app
       $DOTTY_HOME/base/macos/macos_set_default_apps.sh $DOTTY_HOME/editor/emacs/macos_emacs_as_default_app.txt
       ;;
     linux-*)
