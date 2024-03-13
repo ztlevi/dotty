@@ -7,6 +7,7 @@ install() {
       rm -rf /Applications/Emacs.app
       brew tap railwaycat/emacsmacport
       brew install emacs-mac --with-native-comp
+      ln -Fs $(sudo find /usr/local/Cellar/emacs-* -name "Emacs.app") /Applications/
 
       # brew tap d12frosted/emacs-plus
       # brew install emacs-plus@28 --with-native-comp --with-modern-vscode-icon
