@@ -37,6 +37,12 @@ case $(_os) in
     xcode-select --install
     if ! _is_callable brew; then
       bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+      # For Apple Silicon only
+      if [[ -f /opt/homebrew/bin/brew ]]; then
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+        echo '\neval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
+      fi
     fi
     ;;
   linux-*)
