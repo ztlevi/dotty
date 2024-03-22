@@ -26,6 +26,10 @@ install() {
       ;;
   esac
 
+  # https://github.com/blahgeek/emacs-lsp-booster?tab=readme-ov-file
+  ! topic-enabled-p dev/rust && dotty dev/rust
+  cargo install --git https://github.com/blahgeek/emacs-lsp-booster
+
   # Clone Doom Eemacs
   rm -rf $XDG_CONFIG_HOME/emacs
   git clone https://github.com/hlissner/doom-emacs --depth 1 $XDG_CONFIG_HOME/emacs
