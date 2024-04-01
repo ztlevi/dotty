@@ -1,0 +1,14 @@
+#!/usr/bin/env zsh
+source ${0:A:h}/../../deploy
+
+install() {
+  brew install kubectl eksctl
+}
+
+# update() {}
+
+# link() {}
+
+# clean() {}
+
+init "$@"
