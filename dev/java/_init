@@ -2,11 +2,11 @@
 source ${0:A:h}/../../deploy
 
 install() {
-  brew install gradle maven jenv openjdk@21
+  brew install gradle maven jenv openjdk@17
   # Note: JAVA_HOME is reset by jenv, use jenv to set global and local
   eval "$(jenv init -)"
-  jenv add $(brew --prefix openjdk@21)
-  jenv global 21
+  jenv add $(brew --prefix openjdk@17)
+  jenv global 17
 }
 
 # update() {}
