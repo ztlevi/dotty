@@ -156,7 +156,8 @@ fi
   - Check out directory `shell/alacritty/config/alacritty/` and create your own configurations if
     needed. For simplicity, you can use the existing themes or fonts. For example, put
     `export ALACRITTY_THEME="theme-pink.yml"` and `export ALACRITTY_FONT=font-operator-mono.yml` in
-    `~/dev/work/dots/env.zsh`.
+    `~/dev/work/dots/env.zsh`. After the env activated, reload alacritty config with
+    `dotty -l shell/alacritty`.
 - How can I change zsh theme?
   - There are plenty of themes I used to use inside `shell/zsh/zinit-init-hook.zsh`. To customize it
     and use starship, you can put `export ZSH_THEME="starship"` inside `~/dev/work/dots/env.zsh`.
