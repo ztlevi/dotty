@@ -13,7 +13,7 @@ install() {
 
   # Fonts
   brew tap homebrew/cask-fonts
-  brew install --cask font-ubuntu-mono-nerd-font font-fira-code-nerd-font
+  brew install --cask font-mononoki-nerd-font font-ubuntu-mono-nerd-font
 
   # Download app from anywhere
   sudo spctl --master-disable
