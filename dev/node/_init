@@ -4,8 +4,8 @@ source ${0:A:h}/../../deploy
 install() {
   # For local node version, create .nvmrc file and do `nvm use`
   brew install node nvm
-  # nvm install --lts
-  # nvm use --lts
+
+  # nvm install --lts && nvm deactivate
 
   # NPM Packages
   npm install -g pnpm typescript typescript-language-server
@@ -17,8 +17,11 @@ update() {
 }
 
 link() {
-  # do not use nvm as system node
+  # Does not allow nvm to set default node version
   rm -f $HOME/.nvm/alias/default
+  touch $HOME/.nvm/alias/default
+  chmod 444 $HOME/.nvm/alias/default
+
   mklink $DOTTY_CONFIG_HOME/dev/node/.* ~/
 }
 
