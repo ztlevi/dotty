@@ -50,6 +50,7 @@ case $(_os) in
       bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
     eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+    echo '\neval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> $HOME/.zprofile
 
     # Leave bash as plain terminal environment
     touch $HOME/.bashrc
