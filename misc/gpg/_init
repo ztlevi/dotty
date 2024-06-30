@@ -36,7 +36,7 @@ EOF
   case $(_os) in
     macos)
       cat <<EOF >>$HOME/.gnupg/gpg-agent.conf
-pinentry-program /usr/local/MacGPG2/libexec/pinentry-mac.app/Contents/MacOS/pinentry-mac
+pinentry-program $HOMEBREW_PREFIX/MacGPG2/libexec/pinentry-mac.app/Contents/MacOS/pinentry-mac
 EOF
       ;;
   esac

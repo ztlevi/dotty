@@ -9,9 +9,9 @@ install() {
       brew install gdb
       ;;
     macos)
-      ln -s -f "$(brew --prefix llvm)/bin/clangd" "/usr/local/bin/clangd"
-      ln -s -f "$(brew --prefix llvm)/bin/clang-tidy" "/usr/local/bin/clang-tidy"
-      ln -s -f "$(brew --prefix llvm)/bin/clang-format" "/usr/local/bin/clang-format"
+      ln -s -f "$(brew --prefix llvm)/bin/clangd" "$HOMEBREW_PREFIX/bin/clangd"
+      ln -s -f "$(brew --prefix llvm)/bin/clang-tidy" "$HOMEBREW_PREFIX/bin/clang-tidy"
+      ln -s -f "$(brew --prefix llvm)/bin/clang-format" "$HOMEBREW_PREFIX/bin/clang-format"
       ;;
   esac
 }
