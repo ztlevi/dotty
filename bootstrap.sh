@@ -41,7 +41,7 @@ case $(_os) in
       # For Apple Silicon only
       if [[ -f /opt/homebrew/bin/brew ]]; then
         eval "$(/opt/homebrew/bin/brew shellenv)"
-        echo '\neval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
+        echo "$(/opt/homebrew/bin/brew shellenv)" >> $HOME/.zprofile
       fi
     fi
     ;;
@@ -50,7 +50,7 @@ case $(_os) in
       bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
     eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-    echo '\neval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> $HOME/.zprofile
+    echo "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" >> $HOME/.zprofile
 
     # Leave bash as plain terminal environment
     touch $HOME/.bashrc
