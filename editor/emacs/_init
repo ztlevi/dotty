@@ -48,7 +48,7 @@ update() {
 
 link() {
   if [[ $(_os) == 'macos' ]]; then
-      ln -Fs $(sudo find $HOMEBREW_CELLAR/emacs-* -name "Emacs.app") /Applications/
+      ln -Fs "$(brew --prefix emacs-plus)/Emacs.app" /Applications/
   fi
   rm -f ~/.ctags
   rm -f $XDG_CONFIG_HOME/emacs/.local/custom.el
