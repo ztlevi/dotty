@@ -35,7 +35,7 @@ link() {
   if [[ -f $DOTTY_ASSETS_HOME/languagetool/spelling_custom.txt ]]; then
     cp -f $DOTTY_ASSETS_HOME/languagetool/spelling_custom.txt \
       $(brew --prefix languagetool)/libexec/org/languagetool/resource/en/hunspell/
-    brew services restart languagetool
+    echo-info "If you want to restart languatetool service, use 'brew services restart languagetool'"
   fi
 }
 
