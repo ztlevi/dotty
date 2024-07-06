@@ -4,16 +4,14 @@ source ${0:A:h}/../../deploy
 install() {
   brew install rga pandoc poppler tesseract ffmpeg imagemagick graphicsmagick yt-dlp
 
-  # Deploy rust if not yet deployed
-  ! topic-enabled-p dev/python && dotty dev/python
-  PIP3_INSTALL spotdl
+  echo-info "Install spotdl with a venv using uv"
 
   ! topic-enabled-p dev/node && ${0:A:h}/../../deploy dev/node
   npm install hexo-cli reveal-md
 
   case $(_os) in
     macos)
-      brew install --cask appcleaner typora obsidian dropbox neteasemusic webtorrent \
+      brew install --cask appcleaner typora obsidian dropbox neteasemusic \
         wpsoffice-cn keycastr discord zoom google-drive obs balenaEtcher
 
       echo-info "Install the following apps from App Store"

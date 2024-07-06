@@ -1,15 +1,8 @@
 #!/usr/bin/env zsh
 source ${0:A:h}/../../deploy
 
-_install_pip_packages() {
-  PIP3_INSTALL pip setuptools
-
-  # Other packages
-  PIP3_INSTALL debugpy pdbpp autoflake gnureadline
-}
-
 install() {
-  brew install pyright black poetry pylint ruff-lsp
+  brew install pyright black uv ruff-lsp
 
   brew install python@3.11
 
@@ -28,13 +21,9 @@ install() {
       )
       ;;
   esac
-
-  _install_pip_packages
 }
 
-update() {
-  _install_pip_packages
-}
+update() {}
 
 link() {
   mklink $DOTTY_CONFIG_HOME/dev/python/config/black $XDG_CONFIG_HOME/
