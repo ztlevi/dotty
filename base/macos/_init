@@ -2,11 +2,12 @@
 source ${0:A:h}/../../deploy
 
 install() {
+  # Download app from anywhere
+  sudo spctl --master-disable
+
   brew install gcc coreutils duti
 
   brew tap buo/cask-upgrade # Upgrade with `brew cu`
-  # mac quicklook https://github.com/sindresorhus/quick-look-plugins
-  brew install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize qlvideo
 
   brew install --cask karabiner-elements rectangle monitorcontrol
   ${0:A:h}/set-rectangle-defaults.sh
@@ -15,8 +16,6 @@ install() {
   brew tap homebrew/cask-fonts
   brew install --cask font-mononoki-nerd-font font-ubuntu-mono-nerd-font
 
-  # Download app from anywhere
-  sudo spctl --master-disable
   # Remove the Dock autohide animation
   defaults write com.apple.dock autohide-time-modifier -int 0
   killall Dock
