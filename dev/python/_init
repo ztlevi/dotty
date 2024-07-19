@@ -2,7 +2,7 @@
 source ${0:A:h}/../../deploy
 
 install() {
-  brew install pyright black uv ruff-lsp
+  brew install pyright uv ruff-lsp
 
   brew install python@3.11
 
