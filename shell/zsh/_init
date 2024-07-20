@@ -4,7 +4,7 @@ source $DOTTY_CONFIG_HOME/shell/zsh/.zshenv
 
 install() {
   # Base utilities
-  brew install zsh bash wget git curl tree rsync p7zip jq direnv
+  brew install zsh bash wget git curl tree rsync p7zip jq direnv tailspin
 
   # Use trash instead of rm
   case $(_os) in
@@ -20,7 +20,7 @@ install() {
   fi
 
   # Other utilities
-  brew install shfmt shellcheck neofetch mosh
+  brew install shfmt shellcheck neofetch
 
   # True color and Italic support https://github.com/syl20bnr/spacemacs/wiki/Terminal
   if _is_callable /usr/bin/tic; then
