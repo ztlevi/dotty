@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 source ${0:A:h}/../../deploy
 source $DOTTY_CONFIG_HOME/shell/zsh/.zshenv
+source $DOTTY_CONFIG_HOME/env
 
 install() {
   # Base utilities
@@ -47,8 +48,7 @@ EOF
   esac
 
   # Set default shell to zsh
-  chsh -s $(which zsh) $(whoami)
-  # if the command above doesn't work, edit /etc/passwd directly to change the login shell
+  chsh -s $(which zsh) $(whoami) || echo-fail "Change shell to zsh failed. Edit /etc/passwd directly to change the login shell."
 
   local zsh="$(which zsh)"
   grep $zsh /etc/shells &>/dev/null || sudo tee -a /etc/shells <<<$zsh
