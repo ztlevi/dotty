@@ -54,7 +54,7 @@ link() {
   config_file=$XDG_CONFIG_HOME/alacritty/alacritty-temp.yml
   theme_file=${ALACRITTY_THEME:-theme-one-light.yml}
   if [[ -d "$DOTTY_ASSETS_HOME" ]]; then
-    font_file=${ALACRITTY_FONT:-font-ubuntu-mono.yml}
+    font_file=${ALACRITTY_FONT:-font-mononoki.yml}
   else
     font_file=${ALACRITTY_FONT:-font-mononoki.yml}
   fi
