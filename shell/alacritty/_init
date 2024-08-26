@@ -6,7 +6,7 @@
 source ${0:A:h}/../../deploy
 
 install() {
-  brew install yq neofetch vivid
+  brew install jq yq fastfetch vivid
   case $(_os) in
     linux-arch)
       yay --needed --noconfirm -S alacritty
@@ -82,10 +82,11 @@ link() {
   if [[ $(_os) == "macos" ]]; then
     # Increase macos font size
     # I have a 2K monitor which doesn't support scaling :(
-    local res=$(neofetch resolution | awk '/resolution/{print $2}') # get the main monitor resolution
+    # get the main monitor resolution
+    local width=$(fastfetch -s display --format json | jq -r '.[] | .result[] | select(.primary == true) | .scaled.width')
     local add_num=0
-    if echo $res | rg -q '2560'; then
-      add_num=4
+    if [[ $width -ge '2560' ]]; then
+      add_num=2
     fi
     local increased_font_size=$(($(yq eval '.font.size' $config_file) + $add_num))
     yq eval ".font.size = $increased_font_size" $config_file --inplace

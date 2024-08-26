@@ -21,7 +21,7 @@ install() {
   fi
 
   # Other utilities
-  brew install shfmt shellcheck neofetch
+  brew install shfmt shellcheck fastfetch
 
   # True color and Italic support https://github.com/syl20bnr/spacemacs/wiki/Terminal
   if _is_callable /usr/bin/tic; then

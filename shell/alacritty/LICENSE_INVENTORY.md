@@ -1,6 +1,6 @@
 # License inventory
 
-| license    | packages     |
-| ---------- | ------------ |
-| MIT        | yq, neofetch |
-| Apache-2.0 | alacritty    |
+| license    | packages      |
+| ---------- | ------------- |
+| MIT        | yq, fastfetch |
+| Apache-2.0 | alacritty     |
