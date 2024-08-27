@@ -1,0 +1,24 @@
+#!/usr/bin/env zsh
+source ${0:A:h}/../../deploy
+
+install() {
+  case $(_os) in
+    macos)
+      brew install --cask nikitabobko/tap/aerospace
+      ;;
+
+  esac
+
+}
+
+# update() {}
+
+link() {
+  mklink $DOTTY_CONFIG_HOME/wm/aerospace/config/* $XDG_CONFIG_HOME/
+}
+
+clean() {
+  rm -fv $XDG_CONFIG_HOME/aerospace
+}
+
+init "$@"
