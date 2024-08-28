@@ -52,8 +52,10 @@ gh auth login
 # (IMPORTANT) Setup local git confing following this README
 # https://github.com/ztlevi/dotty/blob/main/shell/git/README.md
 
-# Linux Desktop Environment (Gnome/Bspwm)
+# (Optional) Linux Desktop Environment (Gnome/Bspwm)
 dotty wm/gnome
+# (Optional) MacOS Tiling Window Manager
+dotty wm/aerospace
 
 # Shell: highly recommend to use alacritty since my tmux keys are based on alacritty keymaps
 dotty shell/alacritty shell/yazi shell/fzf
@@ -62,28 +64,11 @@ dotty editor/emacs editor/editorconfig editor/vscode
 # Development
 dotty dev/cc dev/go dev/node dev/python dev/java
 # Misc
-dotty misc/apps misc/docker misc/aws misc/cspell misc/unison misc/gpg
+dotty misc/apps misc/docker misc/aws misc/cspell misc/unison
 
 # (OPTIONAL) private apps. Do not install on company machines.
 # dotty misc/private
 ```
-
-## Post-Installation
-
-### (Optional) For GPG
-
-1. Don't forget to import your private/public GPG keys. If you're interested in GPG forwarding over
-   ssh, see [README](./misc/gpg/README.md).
-
-## Update
-
-Check out my `update_dotty` function
-[update_dotty](https://github.com/ztlevi/dotty-config/blob/0057fb82c5fac057ccbc368dce191c140864f86d/shell/zsh/utils.zsh#L97).
-Most of the time, I can simply run `update_dotty`. If you have something new to install and
-uninstall things, you can put the scripts in
-[here](https://github.com/ztlevi/dotty/blob/main/legacy_sync_script.zsh). Typically I use force
-option, e.g. `berw install -f` to perform the operation even if it's already uninstalled or
-installed to avoid any blocking, when you try running `update_dotty` multiple times.
 
 ## Overview
 
@@ -143,6 +128,23 @@ else
     ./_init link
 fi
 ```
+
+## Post-Installation
+
+### (Optional) For GPG
+
+1. Don't forget to import your private/public GPG keys. If you're interested in GPG forwarding over
+   ssh, see [README](./misc/gpg/README.md).
+
+## Update
+
+Check out my `update_dotty` function
+[update_dotty](https://github.com/ztlevi/dotty-config/blob/0057fb82c5fac057ccbc368dce191c140864f86d/shell/zsh/utils.zsh#L97).
+Most of the time, I can simply run `update_dotty`. If you have something new to install and
+uninstall things, you can put the scripts in
+[here](https://github.com/ztlevi/dotty/blob/main/legacy_sync_script.zsh). Typically I use force
+option, e.g. `berw install -f` to perform the operation even if it's already uninstalled or
+installed to avoid any blocking, when you try running `update_dotty` multiple times.
 
 ## FAQ
 

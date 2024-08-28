@@ -5,6 +5,11 @@ install() {
   case $(_os) in
     macos)
       brew install --cask nikitabobko/tap/aerospace
+
+      # TODO: is this useful?
+      #  Now, you can move windows by holding `ctrl+cmd` and dragging any part of
+      #  the window (not necessarily the window title)
+      defaults write -g NSWindowShouldDragOnGesture -bool true
       ;;
 
   esac

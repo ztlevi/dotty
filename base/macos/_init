@@ -9,8 +9,7 @@ install() {
 
   brew tap buo/cask-upgrade # Upgrade with `brew cu`
 
-  brew install --cask karabiner-elements rectangle monitorcontrol
-  ${0:A:h}/set-rectangle-defaults.sh
+  brew install --cask karabiner-elements monitorcontrol
 
   # Fonts
   brew tap homebrew/cask-fonts
