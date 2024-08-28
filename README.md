@@ -129,6 +129,20 @@ else
 fi
 ```
 
+## Common CLI replacment
+
+| CLI  | CLI replacment | Description                                                  |
+| ---- | -------------- | ------------------------------------------------------------ |
+| cat  | bat            | A cat(1) clone with syntax highlighting and Git integration. |
+| cat  | tailspin       | log file highlighter                                         |
+| ls   | eza            | A modern replacement for `ls`.                               |
+| grep | ripgrep        | Better grep written in rust.                                 |
+| find | fd             | A simple, fast and user-friendly alternative to `find`       |
+| ps   | procs          | A modern replacement for ps written in Rust                  |
+| sed  | sd             | Intuitive find & replace CLI (sed alternative)               |
+| df   | duf            | Disk Usage/Free Utility - a better 'df' alternative          |
+| du   | dirstat-rs     | disk usage cli, similar to windirstat.                       |
+
 ## Post-Installation
 
 ### (Optional) For GPG
