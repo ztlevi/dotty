@@ -25,6 +25,8 @@ install() {
 
 link() {
   mklink $DOTTY_CONFIG_HOME/wm/aerospace/config/* $XDG_CONFIG_HOME/
+  _is_callable aerospace && aerospace reload-config
+
 }
 
 clean() {
