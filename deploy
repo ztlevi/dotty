@@ -178,7 +178,7 @@ EOL
         for topic in $@; do
             exe=cat
             if _is_callable bat; then
-                exe="bat --theme OneHalfLight --paging=never"
+                exe="bat --paging=never"
             fi
             [[ -f ${DOTTY_HOME}/${topic}/README.md ]] && eval ${exe} ${DOTTY_HOME}/${topic}/README.md
             [[ -f ${DOTTY_HOME}/config/${topic}/README.md ]] && eval ${exe} ${DOTTY_HOME}/config/${topic}/README.md
