@@ -146,7 +146,7 @@ fi
 ## Use Dark Theme
 
 ``` sh
-dotty dev/work && echo "export DOTTY_THEME=dark" >> $HOME/dev/work/dots/env1.zsh
+dotty dev/work && echo "export DOTTY_THEME=dark" > $HOME/dev/work/dots/theme.zsh
 update_dotty
 ```
 
