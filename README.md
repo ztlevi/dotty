@@ -143,6 +143,14 @@ fi
 | df   | duf            | Disk Usage/Free Utility - a better 'df' alternative          |
 | du   | dirstat-rs     | disk usage cli, similar to windirstat.                       |
 
+## Use Dark Theme
+
+``` sh
+dotty dev/work && echo "export DOTTY_THEME=dark" >> $HOME/dev/work/dots/env1.zsh
+update_dotty
+```
+
+
 ## Post-Installation
 
 ### (Optional) For GPG
