@@ -26,6 +26,15 @@ link() {
   rm -fv ~/.gitconfig $HOMEBREW_PREFIX/etc/gitconfig
   mklink $DOTTY_CONFIG_HOME/shell/git/config/git $XDG_CONFIG_HOME/
   mklink $DOTTY_CONFIG_HOME/shell/git/.ignore ~/
+
+  mklink $DOTTY_CONFIG_HOME/shell/git/config/git/delta-light $DOTTY_WORK_HOME/dots/
+  mklink $DOTTY_CONFIG_HOME/shell/git/config/git/delta-dark $DOTTY_WORK_HOME/dots/
+  if [[ $DOTTY_THEME == "dark" ]]; then
+    rm -f $DOTTY_WORK_HOME/dots/delta-light
+  else
+    rm -f $DOTTY_WORK_HOME/dots/delta-dark
+  fi
+
 }
 
 clean() {
