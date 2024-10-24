@@ -53,7 +53,7 @@ link() {
   mkdir -p $XDG_CONFIG_HOME/alacritty
   config_file=$XDG_CONFIG_HOME/alacritty/alacritty-temp.yml
   if [[ $DOTTY_THEME == "light" ]]; then
-    theme_file=${ALACRITTY_THEME:-theme-one-light.yml}
+    theme_file=${ALACRITTY_THEME:-theme-acario-light.yml}
   else
     theme_file=${ALACRITTY_THEME:-theme-city-lights.yml}
   fi
