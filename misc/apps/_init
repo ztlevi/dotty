@@ -15,7 +15,7 @@ install() {
       # in browser languagetool extension.
       # You can also download languagetool desktop app at https://languagetool.org/
       brew install languagetool
-      brew services start languagetool
+      # brew services start languagetool
 
       # Set iina as default music/video player
       sleep 5 # sleep 5 seconds to wait for mac register freshly installed app
