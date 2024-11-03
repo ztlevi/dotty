@@ -3,12 +3,9 @@ source ${0:A:h}/../../deploy
 
 install() {
   # For local node version, create .nvmrc file and do `nvm use`
-  brew install node nvm
+  brew install node nvm pnpm typescript typescript-language-server
 
   # nvm install --lts && nvm deactivate
-
-  # NPM Packages
-  npm install -g pnpm typescript typescript-language-server
 }
 
 update() {
