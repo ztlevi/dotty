@@ -145,13 +145,24 @@ fi
 
 ## Use Dark Theme
 
-``` sh
+```sh
 dotty dev/work && echo "export DOTTY_THEME=dark" > $HOME/dev/work/dots/theme.zsh
 update_dotty
 ```
 
-
 ## Post-Installation
+
+### SSH improvements
+
+In remote desktop, enable the following in `/etc/ssh/sshd_config`, then do
+`sudo systemctl restart sshd`.
+
+```sh
+Ciphers aes128-ctr,aes192-ctr,aes256-ctr
+Compression delayed
+ClientAliveInterval 60
+ClientAliveCountMax 10
+```
 
 ### (Optional) For GPG
 
