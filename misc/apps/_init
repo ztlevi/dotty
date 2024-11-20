@@ -15,7 +15,14 @@ install() {
       # in browser languagetool extension.
       # You can also download languagetool desktop app at https://languagetool.org/
       brew install languagetool
+      # languagetool uses many resources, only start the service when you use it.
       # brew services start languagetool
+
+      # Blackhole for audio driver for macos  https://github.com/ExistentialAudio/BlackHole
+      # Open `Audio MIDI Setup` macos App
+      # 1. Create an Aggregated Device with MacBook Microphone and BlackHole 2ch. Set as audio input default device.
+      # 2. Create a Multi-Output Device with MacBook Speakers and BlackHole 2ch. Set as output default device.
+      brew install blackhole-2ch
 
       # Set iina as default music/video player
       sleep 5 # sleep 5 seconds to wait for mac register freshly installed app
@@ -31,12 +38,11 @@ link() {
   rm -rf $XDG_CONFIG_HOME/btop
   mklink $DOTTY_CONFIG_HOME/misc/apps/config/btop $XDG_CONFIG_HOME/
 
-  # Add custom words to languagetool and restart server
+  # Add custom words to languagetool
   if [[ -f $DOTTY_ASSETS_HOME/languagetool/spelling_custom.txt ]]; then
     local dict_dir="$(brew --prefix languagetool)/libexec/org/languagetool/resource/en/hunspell/"
     mkdir -p "${dict_dir}"
     cp -f $DOTTY_ASSETS_HOME/languagetool/spelling_custom.txt "${dict_dir}"
-    echo "If you want to restart languatetool service, use 'brew services restart languagetool'" > $DOTTY_UPDATE_LOG
   fi
 }
 
