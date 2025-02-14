@@ -10,7 +10,7 @@ install() {
 
   case $(_os) in
     macos)
-      brew install --cask google-chrome iina ticktick keepingyouawake easydict
+      brew install --cask google-chrome iina ticktick easydict
 
       # Install and enable languagetool as a service. Then you can use local server
       # in browser languagetool extension.
