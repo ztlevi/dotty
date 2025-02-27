@@ -64,7 +64,7 @@ dotty editor/emacs editor/editorconfig editor/vscode
 # Development
 dotty dev/cc dev/go dev/node dev/python dev/java
 # Misc
-dotty misc/apps misc/docker misc/aws misc/cspell misc/unison
+dotty misc/apps misc/ai misc/docker misc/aws misc/cspell misc/unison
 
 # (OPTIONAL) private apps. Do not install on company machines.
 # dotty misc/private

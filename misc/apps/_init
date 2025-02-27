@@ -5,8 +5,7 @@ install() {
   # bandwhich: network monitor
   # eva: alternative bc, calculator
   # btop: better top
-  # aider: AI assistant
-  brew install prettier pandoc ffmpeg bandwhich eva btop aider
+  brew install prettier pandoc ffmpeg bandwhich eva btop
 
   case $(_os) in
     macos)

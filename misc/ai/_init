@@ -1,0 +1,18 @@
+#!/usr/bin/env zsh
+source ${0:A:h}/../../deploy
+
+install() {
+  brew install aider
+}
+
+# update() {}
+
+link() {
+  mklink $DOTTY_CONFIG_HOME/misc/ai/config/aider.conf.yml ~/.aider.conf.yml
+}
+
+clean() {
+  rm -f ~/.aider.conf.yml
+}
+
+init "$@"
