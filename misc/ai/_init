@@ -2,7 +2,8 @@
 source ${0:A:h}/../../deploy
 
 install() {
-  brew install aider
+  # https://aider.chat/docs/install.html
+  curl -LsSf https://aider.chat/install.sh | sh
 }
 
 # update() {}
