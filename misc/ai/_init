@@ -5,7 +5,7 @@ install() {
   # https://aider.chat/docs/install.html
   brew install uv
   uv tool install --force --python python3.12 aider-chat@latest
-  uv tool run --from pip pip install boto3
+  uv tool run --from aider-chat pip install boto3
 }
 
 # update() {}
