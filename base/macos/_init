@@ -13,7 +13,7 @@ install() {
 
   # Fonts
   brew tap homebrew/cask-fonts
-  brew install --cask font-mononoki-nerd-font font-ubuntu-mono-nerd-font
+  brew install --cask font-maple-mono-normal-nf font-ubuntu-mono-nerd-font
 
   # Remove the Dock autohide animation
   defaults write com.apple.dock autohide-time-modifier -int 0
