@@ -2,7 +2,7 @@
 
 | license | packages |
 | --- | --- |
-| MIT | zinit, direnv, eza, procs, fastfetch, jq, vivid, oh-my-zsh, hlissner/zsh-autopair, sd, duf |
+| MIT | zinit, direnv, lla, procs, fastfetch, jq, vivid, oh-my-zsh, hlissner/zsh-autopair, sd, duf |
 | Apache-2.0 | fd, bat, dust |
 | BSD | shfmt, zdharma/fast-syntax-highlighting |
 | Curl | curl |
