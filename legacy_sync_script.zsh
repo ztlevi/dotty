@@ -3,4 +3,4 @@
 # across machines, put the scritps here.
 
 cargo uninstall dirstat-rs | true
-brew uninstall -f eza
+brew uninstall -f eza tree

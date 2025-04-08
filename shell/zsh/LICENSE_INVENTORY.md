@@ -8,5 +8,5 @@
 | Curl | curl |
 | ISC | starship |
 | Unlicense | ripgrep |
-| GPL-2.0 | git, tree, p7zip, zsh-users/zsh-completions |
+| GPL-2.0 | git, p7zip, zsh-users/zsh-completions |
 | GPL-3.0-or-later | wget, rsync, |

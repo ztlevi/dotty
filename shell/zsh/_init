@@ -5,7 +5,7 @@ source $DOTTY_CONFIG_HOME/env
 
 install() {
   # Base utilities
-  brew install zsh bash wget git curl tree rsync p7zip jq direnv tailspin parallel
+  brew install zsh bash wget git curl rsync p7zip jq direnv tailspin parallel
 
   # Use trash instead of rm
   case $(_os) in
