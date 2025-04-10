@@ -1,0 +1,20 @@
+#!/usr/bin/env zsh
+source ${0:A:h}/../../deploy
+
+install() {
+  brew install mutagen-io/mutagen/mutagen
+}
+
+update() {
+  brew upgrade mutagen-io/mutagen/mutagen
+}
+
+link() {
+  mklink $DOTTY_CONFIG_HOME/misc/mutagen/.mutagen.yml ~/.mutagen.yml
+}
+
+clean() {
+  brew uninstall mutagen-io/mutagen/mutagen
+}
+
+init "$@"
