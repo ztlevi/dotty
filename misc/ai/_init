@@ -12,6 +12,7 @@ install() {
 
 link() {
   mklink $DOTTY_CONFIG_HOME/misc/ai/config/aider.conf.yml ~/.aider.conf.yml
+  mklink $DOTTY_CONFIG_HOME/misc/ai/config/aider.model.settings.yml ~/.aider.model.settings.yml
 }
 
 clean() {
