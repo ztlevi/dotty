@@ -1,0 +1,26 @@
+#!/usr/bin/env zsh
+###############################################################################
+#                               License inventory                             #
+###############################################################################
+
+source ${0:A:h}/../../deploy
+
+install() {
+  case $(_os) in
+    macos)
+      brew install --cask rio
+      ;;
+  esac
+}
+
+# update() {}
+
+link() {
+  mklink $DOTTY_CONFIG_HOME/shell/rio/config/ $XDG_CONFIG_HOME/rio
+}
+
+clean() {
+  rm -rf $XDG_CONFIG_HOME/rio
+}
+
+init "$@"
