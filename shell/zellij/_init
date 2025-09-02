@@ -1,0 +1,19 @@
+#!/usr/bin/env zsh
+source ${0:A:h}/../../deploy
+
+install() {
+  brew install zellij
+}
+
+update() {
+  brew upgrade zellij
+}
+
+link() {
+  mklink $DOTTY_CONFIG_HOME/shell/zellij/config/ $XDG_CONFIG_HOME/zellij
+}
+
+clean() {
+}
+
+init "$@"
