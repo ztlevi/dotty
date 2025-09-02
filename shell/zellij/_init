@@ -10,6 +10,7 @@ update() {
 }
 
 link() {
+  rm -rf $XDG_CONFIG_HOME/zellij
   mklink $DOTTY_CONFIG_HOME/shell/zellij/config/ $XDG_CONFIG_HOME/zellij
 }
 
