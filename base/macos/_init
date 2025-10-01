@@ -12,7 +12,6 @@ install() {
   brew install --cask karabiner-elements raycast monitorcontrol
 
   # Fonts
-  brew tap homebrew/cask-fonts
   brew install --cask font-maple-mono-normal-nf font-ubuntu-mono-nerd-font
 
   # Remove the Dock autohide animation
