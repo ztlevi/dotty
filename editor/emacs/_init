@@ -10,7 +10,8 @@ install() {
 
       brew tap d12frosted/emacs-plus
       brew install emacs-plus@30 --with-modern-sexy-v1-icon
-      ln -Fs $(sudo find $HOMEBREW_CELLAR/emacs-* -name "Emacs.app") /Applications/Emacs.app
+      cp -r /opt/homebrew/opt/emacs-plus@30/Emacs.app /Applications/
+      cp -r "/opt/homebrew/opt/emacs-plus@30/Emacs Client.app" /Applications/
 
       # Other tweaks
       defaults write org.gnu.Emacs Emacs.ToolBar -string no
