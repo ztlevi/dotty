@@ -9,7 +9,7 @@ install() {
       # brew install emacs-mac --with-native-comp
 
       brew tap d12frosted/emacs-plus
-      brew install emacs-plus@30 --with-modern-sexy-v1-icon
+      brew install emacs-plus@30
       cp -r /opt/homebrew/opt/emacs-plus@30/Emacs.app /Applications/
       cp -r "/opt/homebrew/opt/emacs-plus@30/Emacs Client.app" /Applications/
 

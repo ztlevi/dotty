@@ -48,7 +48,7 @@ gh auth login
 # (REQUIRED) Minimal setup, and start a new shell, afterwards, you can use `dotty` instead `./deploy`
 ./deploy base/macos # MacOS
 ./deploy base/linux # Debian, Arch or RHEL
-./deploy shell/zsh shell/git shell/work shell/tmux editor/neovim && zsh
+./deploy shell/zsh shell/git shell/work shell/zellij editor/neovim && zsh
 # (IMPORTANT) Setup local git confing following this README
 # https://github.com/ztlevi/dotty/blob/main/shell/git/README.md
 
@@ -64,7 +64,7 @@ dotty editor/emacs editor/editorconfig editor/vscode
 # Development
 dotty dev/cc dev/go dev/node dev/python dev/java
 # Misc
-dotty misc/apps misc/ai misc/docker misc/aws misc/cspell misc/unison
+dotty misc/apps misc/ai misc/aws misc/cspell misc/mutagen misc/docker
 
 # (OPTIONAL) private apps. Do not install on company machines.
 # dotty misc/private
