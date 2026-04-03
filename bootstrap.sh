@@ -22,6 +22,8 @@ function _os() {
       echo linux-arch
     elif [[ -f /etc/debian_version ]]; then
       echo linux-debian
+    elif grep -qi 'amazon linux' /etc/system-release 2>/dev/null; then
+      echo linux-AL
     elif [[ -f /etc/yum.conf ]]; then
       echo linux-RHEL
     fi ;;
