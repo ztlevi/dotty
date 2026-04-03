@@ -5,7 +5,15 @@ source $DOTTY_CONFIG_HOME/env
 
 install() {
   # Base utilities
-  brew install zsh bash wget git curl rsync p7zip jq direnv tailspin parallel
+  # ──────────────────────────────────────────────────────
+  # p7zip         - file archiver with high compression ratio
+  # jq            - command-line JSON processor
+  # direnv        - per-directory environment variables
+  # tailspin      - log file highlighter
+  # rush-parallel - parallel command executor
+  # ──────────────────────────────────────────────────────
+  brew install zsh bash wget git curl rsync \
+    p7zip jq direnv tailspin rush-parallel
 
   # Use trash instead of rm
   case $(_os) in
@@ -14,9 +22,24 @@ install() {
   esac
 
   # Better console tools
+  # ──────────────────────────────────────────────────────
+  # lla       - modern ls alternative with plugins
+  # ripgrep   - fast recursive grep
+  # fd        - fast find alternative
+  # bat       - cat with syntax highlighting
+  # hyperfine - command-line benchmarking tool
+  # procs     - modern ps replacement
+  # sd        - intuitive find & replace (sed alternative)
+  # duf       - disk usage with nice output
+  # ──────────────────────────────────────────────────────
   brew install lla ripgrep fd bat hyperfine procs sd duf
 
   # Other utilities
+  # ──────────────────────────────────────────────────────
+  # shfmt      - shell script formatter
+  # shellcheck - shell script linter
+  # fastfetch  - system info tool (neofetch alternative)
+  # ──────────────────────────────────────────────────────
   brew install shfmt shellcheck fastfetch
 
   # True color and Italic support https://github.com/syl20bnr/spacemacs/wiki/Terminal
