@@ -6,12 +6,9 @@ install() {
 
   echo-info "Install spotdl with a venv using uv"
 
-  ! topic-enabled-p dev/node && ${0:A:h}/../../deploy dev/node
-  npm install hexo-cli reveal-md
-
   case $(_os) in
     macos)
-      brew install --cask appcleaner typora obsidian dropbox neteasemusic \
+      brew install --cask appcleaner typora obsidian dropbox \
         wpsoffice-cn keycastr discord zoom google-drive obs balenaEtcher
 
       echo-info "Install the following apps from App Store"
@@ -24,7 +21,7 @@ install() {
     linux-arch)
       yay --needed --noconfirm -S \
         telegram-desktop \
-        dropbox webtorrent-desktop
+        dropbox
       ;;
     linux-RHEL)
       ;;
