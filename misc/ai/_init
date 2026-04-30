@@ -6,13 +6,13 @@ install() {}
 # update() {}
 
 link() {
-  rm -rf ~/.aider.*
   mkdir -p ~/.kiro/settings
   mklink $DOTTY_CONFIG_HOME/misc/ai/config/mcp.json ~/.kiro/settings/mcp.json
+  mklink $DOTTY_CONFIG_HOME/misc/ai/kiro/agents/* ~/.kiro/agents/
+  mklink $DOTTY_CONFIG_HOME/misc/ai/kiro/settings/* ~/.kiro/settings/
 }
 
 clean() {
-  rm -f ~/.aider.conf.yml
 }
 
 init "$@"
