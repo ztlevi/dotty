@@ -1,11 +1,23 @@
 #!/usr/bin/env zsh
 source ${0:A:h}/../../deploy
 
-install() {}
+install() {
+  case $(_os) in
+    macos)
+      brew install --cask claude-code
+      ;;
+    linux*)
+      curl -fsSL https://claude.ai/install.sh | bash
+      ;;
+  esac
+}
 
 # update() {}
 
 link() {
+  mkdir -p ~/.claude
+  mklink $DOTTY_CONFIG_HOME/misc/ai/claude/settings.json ~/.claude/settings.json
+
   mkdir -p ~/.kiro/settings
   mklink $DOTTY_CONFIG_HOME/misc/ai/config/mcp.json ~/.kiro/settings/mcp.json
   mklink $DOTTY_CONFIG_HOME/misc/ai/kiro/agents/* ~/.kiro/agents/
