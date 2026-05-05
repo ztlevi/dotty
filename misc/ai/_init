@@ -16,6 +16,7 @@ install() {
 
 link() {
   mkdir -p ~/.claude
+  mklink $DOTTY_CONFIG_HOME/misc/ai/claude/mcp.json ~/.claude/mcp.json
   mklink $DOTTY_CONFIG_HOME/misc/ai/claude/settings.json ~/.claude/settings.json
 
   mkdir -p ~/.kiro/settings
