@@ -10,13 +10,13 @@
 export DOTTY_HOME=~/.config/dotty
 
 _msg() { printf "\r\033[2K\033[0;32m[ .. ] %s\033[0m\n" "$*"; }
-function _is_callable() {
+_is_callable() {
   for cmd in "$@"; do
     command -v "$cmd" >/dev/null || return 1
   done
 }
 _uncallable() { ! command -v "$1" >/dev/null; }
-function _os() {
+_os() {
   case $OSTYPE in
     linux*) if [[ -f /etc/arch-release ]]; then
       echo linux-arch

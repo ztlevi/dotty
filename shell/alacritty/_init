@@ -70,7 +70,7 @@ link() {
 
     [[ -f ${private_file} ]] && config_files+=(${private_file})
 
-    function string_join() {
+    string_join() {
       local IFS="$1"
       shift
       echo "$*"
