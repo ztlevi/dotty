@@ -24,9 +24,7 @@ install() {
 
 link() {
   mkdir -p ~/.claude
-  mklink $DOTTY_CONFIG_HOME/misc/ai/claude/mcp.json ~/.claude/mcp.json
-  mklink $DOTTY_CONFIG_HOME/misc/ai/claude/keybindings.json ~/.claude/keybindings.json
-  mklink $DOTTY_CONFIG_HOME/misc/ai/claude/settings.json ~/.claude/settings.json
+  mklink $DOTTY_CONFIG_HOME/misc/ai/claude/* ~/.claude/
 
   mkdir -p ~/.kiro/settings
   mklink $DOTTY_CONFIG_HOME/misc/ai/config/mcp.json ~/.kiro/settings/mcp.json
