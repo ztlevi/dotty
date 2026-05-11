@@ -11,10 +11,6 @@ install() {
       ;;
   esac
 
-  # Plugins
-  claude plugin marketplace add zarazhangrui/frontend-slides
-  claude plugin install frontend-slides@frontend-slides
-
   # Install skills
   gh extension install ai-ecoverse/gh-upskill
   gh upskill -g anthropics/skills --skill pdf --skill xlsx
