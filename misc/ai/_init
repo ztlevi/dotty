@@ -4,10 +4,10 @@ source ${0:A:h}/../../deploy
 install() {
   case $(_os) in
     macos)
-      brew install --cask claude-code
+      # brew install --cask claude-code
       ;;
     linux*)
-      curl -fsSL https://claude.ai/install.sh | bash
+      # curl -fsSL https://claude.ai/install.sh | bash
       ;;
   esac
 
