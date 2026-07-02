@@ -8,10 +8,8 @@ install() {
       # brew tap railwaycat/emacsmacport
       # brew install emacs-mac --with-native-comp
 
-      brew tap d12frosted/emacs-plus
-      brew install emacs-plus@30
-      cp -r /opt/homebrew/opt/emacs-plus@30/Emacs.app /Applications/
-      cp -r "/opt/homebrew/opt/emacs-plus@30/Emacs Client.app" /Applications/
+      brew tap d12frosted/emacs-plus && brew trust d12frosted/emacs-plus
+      brew install --cask emacs-plus-app
 
       # Other tweaks
       defaults write org.gnu.Emacs Emacs.ToolBar -string no
