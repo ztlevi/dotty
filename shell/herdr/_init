@@ -1,0 +1,24 @@
+#!/usr/bin/env zsh
+source ${0:A:h}/../../deploy
+
+install() {
+  # herdr: an agent multiplexer that lives in your terminal https://herdr.dev
+  brew install herdr
+}
+
+update() {
+  brew upgrade herdr
+}
+
+link() {
+  # herdr reads ~/.config/herdr/config.toml and writes its logs alongside it,
+  # so only symlink the config file (mirrors the tmux topic) to keep logs out
+  # of the repo rather than symlinking the whole directory.
+  mklink $DOTTY_CONFIG_HOME/shell/herdr/config.toml $XDG_CONFIG_HOME/herdr/
+}
+
+clean() {
+  rm -f $XDG_CONFIG_HOME/herdr/config.toml
+}
+
+init "$@"
