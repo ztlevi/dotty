@@ -14,6 +14,7 @@ install() {
   # Install skills
   gh extension install ai-ecoverse/gh-upskill
   gh upskill -g anthropics/skills --skill pdf --skill xlsx
+  gh upskill -g ogulcancelik/herdr --skill herdr
 }
 
 # update() {}
