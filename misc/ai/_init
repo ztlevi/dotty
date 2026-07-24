@@ -2,6 +2,7 @@
 source ${0:A:h}/../../deploy
 
 install() {
+  brew install gh
   case $(_os) in
     macos)
       # brew install --cask claude-code
@@ -11,13 +12,19 @@ install() {
       ;;
   esac
 
+  ! topic-enabled-p dev/node && dotty dev/node
+
   # Install skills
   gh extension install ai-ecoverse/gh-upskill
   gh upskill -g anthropics/skills --skill pdf --skill xlsx
   gh upskill -g ogulcancelik/herdr --skill herdr
+  gh upskill -g yizhiyanhua-ai/fireworks-tech-graph --skill fireworks-tech-graph
 }
 
-# update() {}
+update() {
+  brew upgrade gh
+  gh extension upgrade upskill
+}
 
 link() {
   mkdir -p ~/.claude
