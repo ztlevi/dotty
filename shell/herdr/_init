@@ -4,6 +4,7 @@ source ${0:A:h}/../../deploy
 install() {
   # herdr: an agent multiplexer that lives in your terminal https://herdr.dev
   brew install herdr
+  herdr integration install claude
 }
 
 update() {
