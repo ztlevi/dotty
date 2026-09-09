@@ -30,6 +30,12 @@ link() {
   mkdir -p ~/.claude
   mklink $DOTTY_CONFIG_HOME/misc/ai/claude/* ~/.claude/
 
+  # Amazon codex installation expects the toolbox binary here
+  if [[ -e ~/.toolbox/bin/codex ]]; then
+    mkdir -p ~/.codex/packages/standalone/current
+    mklink ~/.toolbox/bin/codex ~/.codex/packages/standalone/current/codex
+  fi
+
   mkdir -p ~/.kiro/settings
   mklink $DOTTY_CONFIG_HOME/misc/ai/config/mcp.json ~/.kiro/settings/mcp.json
   mklink $DOTTY_CONFIG_HOME/misc/ai/kiro/agents/* ~/.kiro/agents/
