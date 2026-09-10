@@ -40,6 +40,10 @@ link() {
   mklink $DOTTY_CONFIG_HOME/misc/ai/config/mcp.json ~/.kiro/settings/mcp.json
   mklink $DOTTY_CONFIG_HOME/misc/ai/kiro/agents/* ~/.kiro/agents/
   mklink $DOTTY_CONFIG_HOME/misc/ai/kiro/settings/* ~/.kiro/settings/
+
+  mkdir -p ~/.codex
+  mklink $DOTTY_CONFIG_HOME/misc/ai/codex/config.toml ~/.codex/config.toml
+  mklink $DOTTY_CONFIG_HOME/misc/ai/codex/AGENTS.md ~/.codex/AGENTS.md
 }
 
 clean() {
