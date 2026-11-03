@@ -34,13 +34,23 @@ link() {
   mkdir -p $app_dst/themes
   mklink $app_src/keys.json $app_src/settings.json $app_dst/
   mklink $app_src/themes/acario-light.json $app_dst/themes/
+
+  # terminal-acario layout + its two mods (whole mod dirs are linked; the app
+  # also drops generated gpui-kit.d.ts/jsconfig.json there, ignored via
+  # herdr-app/.gitignore).
+  mkdir -p $app_dst/layouts $app_dst/mods
+  mklink $app_src/layouts/terminal-acario.json $app_dst/layouts/
+  mklink $app_src/mods/terminal-acario-bar $app_src/mods/terminal-acario-pane $app_dst/mods/
 }
 
 clean() {
   rm -f $XDG_CONFIG_HOME/herdr/config.toml
   rm -f $XDG_CONFIG_HOME/herdr-app/keys.json \
     $XDG_CONFIG_HOME/herdr-app/settings.json \
-    $XDG_CONFIG_HOME/herdr-app/themes/acario-light.json
+    $XDG_CONFIG_HOME/herdr-app/themes/acario-light.json \
+    $XDG_CONFIG_HOME/herdr-app/layouts/terminal-acario.json
+  rm -f $XDG_CONFIG_HOME/herdr-app/mods/terminal-acario-bar \
+    $XDG_CONFIG_HOME/herdr-app/mods/terminal-acario-pane
 }
 
 init "$@"
