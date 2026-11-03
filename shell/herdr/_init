@@ -5,10 +5,19 @@ install() {
   # herdr: an agent multiplexer that lives in your terminal https://herdr.dev
   brew install herdr
   herdr integration install claude
+  case $(_os) in
+    macos)
+      # herdr-app: the desktop app (config in ~/.config/herdr-app)
+      brew install --cask herdr-app
+      ;;
+  esac
 }
 
 update() {
   brew upgrade herdr
+  case $(_os) in
+    macos) brew upgrade --cask herdr-app ;;
+  esac
 }
 
 link() {
@@ -16,10 +25,22 @@ link() {
   # so only symlink the config file (mirrors the tmux topic) to keep logs out
   # of the repo rather than symlinking the whole directory.
   mklink $DOTTY_CONFIG_HOME/shell/herdr/config.toml $XDG_CONFIG_HOME/herdr/
+
+  # herdr-app (the desktop app) reads ~/.config/herdr-app and rewrites its own
+  # generated files (AGENTS.md, mods/, layouts/, ...) there, so only symlink
+  # the files we own: keys, settings and custom themes.
+  local app_src=$DOTTY_CONFIG_HOME/shell/herdr/herdr-app
+  local app_dst=$XDG_CONFIG_HOME/herdr-app
+  mkdir -p $app_dst/themes
+  mklink $app_src/keys.json $app_src/settings.json $app_dst/
+  mklink $app_src/themes/acario-light.json $app_dst/themes/
 }
 
 clean() {
   rm -f $XDG_CONFIG_HOME/herdr/config.toml
+  rm -f $XDG_CONFIG_HOME/herdr-app/keys.json \
+    $XDG_CONFIG_HOME/herdr-app/settings.json \
+    $XDG_CONFIG_HOME/herdr-app/themes/acario-light.json
 }
 
 init "$@"
