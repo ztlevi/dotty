@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./deploy *)",
+      "mcp__playwright-chrome__browser_fill_form",
+      "Bash(git *)",
+      "Bash(cd * && git *)"
+    ]
+  }
+}
