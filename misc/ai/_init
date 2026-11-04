@@ -2,7 +2,7 @@
 source ${0:A:h}/../../deploy
 
 install() {
-  brew install gh
+  brew install gh jq python3
   case $(_os) in
     macos)
       # brew install --cask claude-code
@@ -26,17 +26,41 @@ update() {
   gh extension upgrade upskill
 }
 
+# Link a tracked MCP config to $2. If the git-ignored mcp-local.json exists, write
+# base + local (deep-merged) as a real file instead of a symlink.
+link_mcp() {
+  local base=$1 dest=$2 local_cfg=$DOTTY_CONFIG_HOME/misc/ai/config/mcp-local.json
+  if [[ -f $local_cfg ]] && _is_callable jq; then
+    [[ -L $dest || -e $dest ]] && /bin/rm -f $dest
+    jq -s '.[0] * .[1]' $base $local_cfg > $dest && echo-ok "merged $local_cfg into $dest"
+  else
+    mklink $base $dest
+  fi
+}
+
+# ~/.codex/config.toml is machine-local (codex writes state into it). Only the tracked
+# plugins/marketplaces/model provider/mcp_servers are merged in; see codex/merge_config.py.
+merge_codex_config() {
+  local src=$DOTTY_CONFIG_HOME/misc/ai/codex/config.toml dest=~/.codex/config.toml
+  if python3 $DOTTY_CONFIG_HOME/misc/ai/codex/merge_config.py $src $dest; then
+    echo-ok "merged $src into $dest"
+  else
+    echo-fail "failed to merge $src into $dest"
+  fi
+}
+
 link() {
   # Amazon codex installation expects the toolbox binary here
   if [[ -e ~/.toolbox/bin/claude ]]; then
     mkdir -p ~/.claude
     mklink $DOTTY_CONFIG_HOME/misc/ai/claude/* ~/.claude/
+    link_mcp $DOTTY_CONFIG_HOME/misc/ai/claude/mcp.json ~/.claude/mcp.json
   fi
 
   # Amazon codex installation expects the toolbox binary here
   if [[ -e ~/.toolbox/bin/codex ]]; then
     mkdir -p ~/.codex
-    [[ $USER == zhot ]] && mklink $DOTTY_CONFIG_HOME/misc/ai/codex/config.toml ~/.codex/config.toml
+    [[ $USER == zhot ]] && merge_codex_config
     mklink $DOTTY_CONFIG_HOME/misc/ai/codex/AGENTS.md ~/.codex/AGENTS.md
 
     mkdir -p ~/.codex/packages/standalone/current
@@ -46,7 +70,7 @@ link() {
   # Amazon codex installation expects the toolbox binary here
   if [[ -e ~/.toolbox/bin/kiro-cli ]]; then
     mkdir -p ~/.kiro/settings
-    mklink $DOTTY_CONFIG_HOME/misc/ai/config/mcp.json ~/.kiro/settings/mcp.json
+    link_mcp $DOTTY_CONFIG_HOME/misc/ai/config/mcp.json ~/.kiro/settings/mcp.json
     mklink $DOTTY_CONFIG_HOME/misc/ai/kiro/agents/* ~/.kiro/agents/
     mklink $DOTTY_CONFIG_HOME/misc/ai/kiro/settings/* ~/.kiro/settings/
   fi
