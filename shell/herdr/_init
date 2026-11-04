@@ -40,7 +40,7 @@ link() {
   # herdr-app/.gitignore).
   mkdir -p $app_dst/layouts $app_dst/mods
   mklink $app_src/layouts/terminal-acario.json $app_dst/layouts/
-  mklink $app_src/mods/terminal-acario-bar $app_src/mods/terminal-acario-pane $app_dst/mods/
+  mklink $app_src/mods/terminal-acario-bar $app_src/mods/terminal-acario-pane $app_src/mods/terminal-acario-agents $app_src/mods/terminal-acario-spaces $app_dst/mods/
 }
 
 clean() {
@@ -50,7 +50,9 @@ clean() {
     $XDG_CONFIG_HOME/herdr-app/themes/acario-light.json \
     $XDG_CONFIG_HOME/herdr-app/layouts/terminal-acario.json
   rm -f $XDG_CONFIG_HOME/herdr-app/mods/terminal-acario-bar \
-    $XDG_CONFIG_HOME/herdr-app/mods/terminal-acario-pane
+    $XDG_CONFIG_HOME/herdr-app/mods/terminal-acario-pane \
+    $XDG_CONFIG_HOME/herdr-app/mods/terminal-acario-agents \
+    $XDG_CONFIG_HOME/herdr-app/mods/terminal-acario-spaces
 }
 
 init "$@"
