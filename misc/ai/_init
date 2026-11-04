@@ -53,6 +53,9 @@ link() {
 }
 
 clean() {
+  rm -rf ~/.codex
+  rm -rf ~/.claude
+  rm -rf ~/.kiro/settings
 }
 
 init "$@"
