@@ -38,11 +38,11 @@ link_mcp() {
   fi
 }
 
-# ~/.codex/config.toml is machine-local (codex writes state into it). Only the tracked
-# plugins/marketplaces/model provider/mcp_servers are merged in; see codex/merge_config.py.
-merge_codex_config() {
-  local src=$DOTTY_CONFIG_HOME/misc/ai/codex/config.toml dest=~/.codex/config.toml
-  if python3 $DOTTY_CONFIG_HOME/misc/ai/codex/merge_config.py $src $dest; then
+# Tools rewrite their config files (replacing symlinks with real files), so those files are
+# merged instead of linked. See config/misc/ai/merge_config.py for the per-format semantics.
+merge_config() {
+  local src=$1 dest=$2
+  if python3 $DOTTY_CONFIG_HOME/misc/ai/merge_config.py $src $dest; then
     echo-ok "merged $src into $dest"
   else
     echo-fail "failed to merge $src into $dest"
@@ -53,14 +53,19 @@ link() {
   # Amazon codex installation expects the toolbox binary here
   if [[ -e ~/.toolbox/bin/claude ]]; then
     mkdir -p ~/.claude
-    mklink $DOTTY_CONFIG_HOME/misc/ai/claude/* ~/.claude/
+    local f
+    for f in $DOTTY_CONFIG_HOME/misc/ai/claude/*; do
+      [[ ${f:t} == settings.json ]] || mklink $f ~/.claude/
+    done
+    # claude replaces a symlinked settings.json with a real file: merge both ways instead
+    merge_config $DOTTY_CONFIG_HOME/misc/ai/claude/settings.json ~/.claude/settings.json
     link_mcp $DOTTY_CONFIG_HOME/misc/ai/claude/mcp.json ~/.claude/mcp.json
   fi
 
   # Amazon codex installation expects the toolbox binary here
   if [[ -e ~/.toolbox/bin/codex ]]; then
     mkdir -p ~/.codex
-    [[ $USER == zhot ]] && merge_codex_config
+    [[ $USER == zhot ]] && merge_config $DOTTY_CONFIG_HOME/misc/ai/codex/config.toml ~/.codex/config.toml
     mklink $DOTTY_CONFIG_HOME/misc/ai/codex/AGENTS.md ~/.codex/AGENTS.md
 
     mkdir -p ~/.codex/packages/standalone/current
