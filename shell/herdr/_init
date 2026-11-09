@@ -41,6 +41,11 @@ link() {
   mkdir -p $app_dst/layouts $app_dst/mods
   mklink $app_src/layouts/terminal-acario.json $app_dst/layouts/
   mklink $app_src/mods/terminal-acario-bar $app_src/mods/terminal-acario-pane $app_src/mods/terminal-acario-agents $app_src/mods/terminal-acario-spaces $app_dst/mods/
+
+  # herdr-app will not load images through symlinks (a symlinked mod dir or file
+  # draws nothing), so icons the mods use are copied as real files.
+  mkdir -p $app_dst/icons
+  cp -f $app_src/custom-icons/*.svg $app_dst/icons/
 }
 
 clean() {
@@ -52,7 +57,8 @@ clean() {
   rm -f $XDG_CONFIG_HOME/herdr-app/mods/terminal-acario-bar \
     $XDG_CONFIG_HOME/herdr-app/mods/terminal-acario-pane \
     $XDG_CONFIG_HOME/herdr-app/mods/terminal-acario-agents \
-    $XDG_CONFIG_HOME/herdr-app/mods/terminal-acario-spaces
+    $XDG_CONFIG_HOME/herdr-app/mods/terminal-acario-spaces \
+    $XDG_CONFIG_HOME/herdr-app/icons/copied.svg
 }
 
 init "$@"
