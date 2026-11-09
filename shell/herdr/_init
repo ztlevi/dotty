@@ -58,7 +58,10 @@ clean() {
     $XDG_CONFIG_HOME/herdr-app/mods/terminal-acario-pane \
     $XDG_CONFIG_HOME/herdr-app/mods/terminal-acario-agents \
     $XDG_CONFIG_HOME/herdr-app/mods/terminal-acario-spaces \
-    $XDG_CONFIG_HOME/herdr-app/icons/copied.svg
+    $XDG_CONFIG_HOME/herdr-app/icons/copied.svg \
+    $XDG_CONFIG_HOME/herdr-app/icons/acario-done.svg \
+    $XDG_CONFIG_HOME/herdr-app/icons/acario-alert.svg \
+    $XDG_CONFIG_HOME/herdr-app/icons/acario-error.svg
 }
 
 init "$@"
